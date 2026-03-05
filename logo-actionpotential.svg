@@ -1,0 +1,33 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ActionPotential.AI brand mark</title>
+  <desc id="desc">Neural-inspired circular network logo with warm and cool gradient branches.</desc>
+  <defs>
+    <radialGradient id="dotCyan" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(110 110) rotate(90) scale(110)">
+      <stop stop-color="#79C5C7"/>
+      <stop offset="1" stop-color="#2EA6D4"/>
+    </radialGradient>
+    <linearGradient id="branch" x1="38" y1="132" x2="182" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8B66"/>
+      <stop offset="0.52" stop-color="#D93AA4"/>
+      <stop offset="1" stop-color="#1B75BB"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="110" cy="110" r="90" stroke="url(#dotCyan)" stroke-width="2.5" stroke-dasharray="1 11" stroke-linecap="round"/>
+  <circle cx="110" cy="110" r="74" stroke="url(#dotCyan)" stroke-width="2.2" stroke-dasharray="1 10" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="110" cy="110" r="58" stroke="url(#dotCyan)" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="110" cy="110" r="42" stroke="url(#dotCyan)" stroke-width="1.8" stroke-dasharray="1 8" stroke-linecap="round" opacity="0.75"/>
+
+  <path d="M42 132C70 118 79 94 98 94C117 94 125 114 148 116C165 117 171 109 183 95" stroke="url(#branch)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M34 120C56 111 69 104 86 88C101 74 119 66 141 71C158 75 170 86 185 102" stroke="url(#branch)" stroke-width="4.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M37 145C58 132 70 128 85 133C105 139 113 160 136 163C157 167 170 157 183 143" stroke="url(#branch)" stroke-width="4.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M48 100C67 94 79 95 93 105C108 116 114 135 130 145C145 153 165 152 177 145" stroke="url(#branch)" stroke-width="3.6" stroke-linecap="round" opacity="0.85"/>
+
+  <circle cx="42" cy="132" r="4.8" fill="#FF8B66"/>
+  <circle cx="34" cy="120" r="4.2" fill="#FF8B66"/>
+  <circle cx="37" cy="145" r="4.2" fill="#FF8B66"/>
+  <circle cx="185" cy="102" r="4.2" fill="#1B75BB"/>
+  <circle cx="183" cy="95" r="4.2" fill="#1B75BB"/>
+  <circle cx="183" cy="143" r="4.2" fill="#1B75BB"/>
+  <circle cx="177" cy="145" r="3.9" fill="#1B75BB"/>
+</svg>

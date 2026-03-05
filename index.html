@@ -1,1 +1,1019 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ActionPotential.AI | Behavioral AI Marketing & Automation</title>
+    <meta
+      name="description"
+      content="ActionPotential.AI builds full-funnel behavioral AI growth systems for service businesses. Get more leads, higher conversions, and automated follow-up with human-centered AI."
+    />
+    <meta
+      name="keywords"
+      content="behavioral AI marketing, AI marketing automation, lead conversion, SEO, AEO, conversational marketing, AI visibility"
+    />
+    <meta name="author" content="ActionPotential.AI" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <link rel="canonical" href="https://actionpotential.ai/" />
+    <meta name="theme-color" content="#1B75BB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ActionPotential.AI | From Potential... to Action." />
+    <meta
+      property="og:description"
+      content="We build behavioral AI growth engines that turn traffic into customers, automatically and at scale."
+    />
+    <meta property="og:url" content="https://actionpotential.ai/" />
+    <meta property="og:site_name" content="ActionPotential.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ActionPotential.AI | Behavioral AI Marketing & Automation" />
+    <meta
+      name="twitter:description"
+      content="Human-centered AI systems for lead generation, conversion, retention, and growth."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand-1: #79c5c7;
+        --brand-2: #2ea6d4;
+        --brand-3: #00a79d;
+        --brand-4: #1b75bb;
+        --ink: #231f20;
+        --accent-coral: #ff8b66;
+        --accent-magenta: #d93aa4;
+        --bg: #05070c;
+        --bg-soft: #0d1322;
+        --surface: #121b2f;
+        --surface-2: #16233d;
+        --text: #ecf2ff;
+        --muted: #b8c5de;
+        --line: rgba(121, 197, 199, 0.3);
+        --radius: 18px;
+        --shadow: 0 20px 40px rgba(4, 10, 24, 0.45);
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 85% 10%, rgba(46, 166, 212, 0.12), transparent 35%),
+          radial-gradient(circle at 15% 25%, rgba(0, 167, 157, 0.1), transparent 35%), var(--bg);
+        line-height: 1.55;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: 0.16;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(circle at 70% 20%, rgba(217, 58, 164, 0.1), transparent 26%),
+          radial-gradient(circle at 18% 72%, rgba(255, 139, 102, 0.11), transparent 28%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        background: #fff;
+        color: #000;
+        padding: 0.75rem 1rem;
+      }
+
+      .skip-link:focus {
+        left: 0;
+      }
+
+      .container {
+        width: min(1140px, calc(100% - 2rem));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(5, 7, 12, 0.72);
+        border-bottom: 1px solid rgba(121, 197, 199, 0.15);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        min-height: 74px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06), 0 0 28px rgba(46, 166, 212, 0.45);
+      }
+
+      .brand strong {
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 1.02rem;
+        letter-spacing: 0.15px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.1rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.78rem 1.08rem;
+        border-radius: 12px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:focus-visible,
+      .btn-link:focus-visible {
+        outline: 2px solid var(--brand-1);
+        outline-offset: 2px;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(125deg, var(--brand-2), var(--brand-4) 55%, var(--accent-magenta));
+        color: #fff;
+        box-shadow: 0 10px 25px rgba(27, 117, 187, 0.35);
+      }
+
+      .btn-secondary {
+        border-color: rgba(255, 255, 255, 0.25);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .hero {
+        padding: 5.6rem 0 4rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 2.2rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        gap: 0.45rem;
+        align-items: center;
+        color: var(--brand-1);
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 26px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent-coral), var(--brand-1));
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", Inter, sans-serif;
+        letter-spacing: -0.02em;
+        line-height: 1.18;
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 0.9rem;
+        font-size: clamp(2rem, 4.6vw, 3.85rem);
+        max-width: 18ch;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 62ch;
+        margin: 1rem 0 1.5rem;
+        font-size: 1.07rem;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .micro-proof {
+        margin-top: 1.15rem;
+        color: #d6e2f8;
+        font-size: 0.94rem;
+      }
+
+      .micro-proof span {
+        color: var(--brand-1);
+      }
+
+      .signal-card {
+        border-radius: var(--radius);
+        padding: 1.15rem;
+        background: linear-gradient(170deg, rgba(18, 27, 47, 0.95), rgba(10, 16, 30, 0.9));
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        box-shadow: var(--shadow);
+      }
+
+      .signal-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.75rem;
+      }
+
+      .signal-title h2 {
+        font-size: 1.1rem;
+      }
+
+      .signal-title small {
+        color: var(--brand-1);
+      }
+
+      .stages {
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.68rem;
+      }
+
+      .stages li {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 0.72rem;
+        align-items: center;
+        padding: 0.6rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+        font-weight: 800;
+        background: linear-gradient(150deg, var(--brand-1), var(--brand-4));
+        color: #041321;
+      }
+
+      .section {
+        padding: 4.2rem 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1.2rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .section-head p {
+        margin: 0;
+        max-width: 64ch;
+        color: var(--muted);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.95rem;
+      }
+
+      .card {
+        background: linear-gradient(170deg, rgba(18, 27, 47, 0.88), rgba(13, 20, 36, 0.88));
+        border: 1px solid rgba(121, 197, 199, 0.17);
+        border-radius: var(--radius);
+        padding: 1rem 1.05rem;
+      }
+
+      .card h3 {
+        font-size: 1.01rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .card p,
+      .card li {
+        color: #d1dbed;
+        margin: 0;
+        font-size: 0.94rem;
+      }
+
+      .card ul {
+        margin: 0.5rem 0 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .problem ul {
+        margin: 1rem 0 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.5rem;
+        color: #dce5f7;
+      }
+
+      .problem li::marker {
+        color: var(--accent-coral);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
+      }
+
+      .metric-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .metric {
+        border-radius: 14px;
+        padding: 0.85rem;
+        border: 1px solid rgba(121, 197, 199, 0.18);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .metric strong {
+        display: block;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        color: var(--brand-1);
+        font-size: 1rem;
+      }
+
+      .timeline {
+        counter-reset: phase;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .timeline li {
+        background: linear-gradient(175deg, rgba(18, 27, 47, 0.95), rgba(10, 16, 30, 0.95));
+        border: 1px solid rgba(121, 197, 199, 0.22);
+        border-radius: var(--radius);
+        padding: 1rem;
+        position: relative;
+      }
+
+      .timeline li::before {
+        counter-increment: phase;
+        content: "Phase " counter(phase);
+        color: var(--brand-1);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      details {
+        border: 1px solid rgba(121, 197, 199, 0.22);
+        border-radius: 12px;
+        padding: 0.85rem 0.95rem;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      summary {
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      details p {
+        color: #d7e2f7;
+        margin-bottom: 0;
+      }
+
+      .founder {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .avatar {
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        border: 1px solid rgba(121, 197, 199, 0.35);
+        background: radial-gradient(circle at 30% 35%, rgba(255, 139, 102, 0.75), rgba(217, 58, 164, 0.3) 45%, rgba(46, 166, 212, 0.7));
+      }
+
+      .cta-panel {
+        margin-top: 1.3rem;
+        border-radius: calc(var(--radius) + 2px);
+        padding: 1.4rem;
+        border: 1px solid rgba(121, 197, 199, 0.25);
+        background: linear-gradient(145deg, rgba(10, 16, 30, 0.96), rgba(19, 30, 53, 0.96));
+        box-shadow: var(--shadow);
+      }
+
+      .cta-panel p {
+        margin: 0.55rem 0 1rem;
+        color: #d7e2f7;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.48rem;
+        margin-top: 0.9rem;
+      }
+
+      .pill {
+        font-size: 0.81rem;
+        padding: 0.42rem 0.64rem;
+        border-radius: 999px;
+        border: 1px solid rgba(121, 197, 199, 0.25);
+        background: rgba(121, 197, 199, 0.08);
+        color: #d7f6f4;
+      }
+
+      .footer {
+        margin-top: 3.3rem;
+        border-top: 1px solid rgba(121, 197, 199, 0.18);
+        padding: 1.4rem 0 2rem;
+        color: #c0cce4;
+        font-size: 0.92rem;
+      }
+
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .mobile-sticky {
+        display: none;
+      }
+
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .split {
+          grid-template-columns: 1fr;
+        }
+        .card-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .metric-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-links a:not(.btn) {
+          display: none;
+        }
+        h1 {
+          max-width: 20ch;
+        }
+        .section {
+          padding: 3.4rem 0;
+        }
+        .section-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+        .founder {
+          grid-template-columns: 1fr;
+        }
+        .mobile-sticky {
+          display: block;
+          position: fixed;
+          left: 0.85rem;
+          right: 0.85rem;
+          bottom: 0.85rem;
+          z-index: 60;
+          background: rgba(10, 17, 31, 0.96);
+          border: 1px solid rgba(121, 197, 199, 0.25);
+          border-radius: 14px;
+          padding: 0.6rem;
+          backdrop-filter: blur(10px);
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://actionpotential.ai/#organization",
+            "name": "ActionPotential.AI",
+            "url": "https://actionpotential.ai/",
+            "description": "Behavioral AI marketing and automation agency helping businesses convert leads and scale through human-centered AI.",
+            "slogan": "From potential... to action.",
+            "founder": {
+              "@type": "Person",
+              "name": "Cary Sears"
+            },
+            "email": "hello@actionpotential.ai"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://actionpotential.ai/#service",
+            "name": "ActionPotential.AI Behavioral Growth Engine",
+            "provider": {
+              "@id": "https://actionpotential.ai/#organization"
+            },
+            "serviceType": [
+              "Behavioral AI marketing",
+              "Conversational marketing",
+              "Marketing automation",
+              "SEO",
+              "AEO",
+              "Paid media management"
+            ],
+            "areaServed": "United States"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://actionpotential.ai/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does ActionPotential.AI do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ActionPotential.AI designs and deploys behavioral AI growth systems that attract qualified leads, respond instantly, nurture prospects, and convert more opportunities into booked appointments and sales."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is Ask Engine Optimization (AEO)?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AEO is the practice of structuring your content so AI assistants like ChatGPT, Gemini, Claude, and Perplexity can understand and reference your brand when users ask decision-stage questions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who is ActionPotential.AI best for?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ActionPotential.AI is best for small and midsize service businesses, professional practices, and local brands that need a reliable system for lead generation, follow-up, and conversion."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you require long-term contracts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. ActionPotential.AI earns trust through results, not lock-in contracts."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="ActionPotential.AI home">
+          <img class="logo-mark" src="./logo-actionpotential.svg" alt="" aria-hidden="true" />
+          <strong>ActionPotential.AI</strong>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#founder">Founder</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn btn-primary" href="#audit">Book Free AI Audit</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero container" id="top">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Behavioral AI Growth Systems</span>
+            <h1>From potential... to action.</h1>
+            <p>
+              ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
+              operations through human-centered AI. We do not just deliver leads. We build the full system that turns
+              intent into revenue.
+            </p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="#audit">Schedule Free AI Audit & Strategy Session</a>
+              <a class="btn btn-secondary" href="#engine">See the Behavioral Engine</a>
+            </div>
+            <p class="micro-proof">
+              Built for service businesses who need <span>faster speed-to-lead</span>, <span>smarter follow-up</span>,
+              and <span>full-funnel conversion</span>.
+            </p>
+          </div>
+          <aside class="signal-card" aria-label="Six stages of the behavioral engine">
+            <div class="signal-title">
+              <h2>The Six Stages of the Behavioral Engine</h2>
+              <small>Always-on signal flow</small>
+            </div>
+            <ol class="stages">
+              <li><span class="dot">1</span> <span>Attract qualified attention across search, social, and AI.</span></li>
+              <li><span class="dot">2</span> <span>Capture intent through conversational touchpoints.</span></li>
+              <li><span class="dot">3</span> <span>Convert with instant response and frictionless booking.</span></li>
+              <li><span class="dot">4</span> <span>Nurture undecided leads with personalized sequences.</span></li>
+              <li><span class="dot">5</span> <span>Delight customers, boost retention, and increase LTV.</span></li>
+              <li><span class="dot">6</span> <span>Activate referrals, reviews, and reactivation loops.</span></li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section problem">
+        <div class="container split">
+          <div>
+            <span class="eyebrow">The Core Problem</span>
+            <h2>Traffic does not grow a business. Systems do.</h2>
+            <p>
+              Most companies spend on lead generation and then lose momentum in the moments that matter most. A prospect
+              asks a question, waits too long, and moves on. Growth leaks happen in follow-up, trust-building, and
+              decision design.
+            </p>
+            <ul>
+              <li>No reliable system for responding within minutes.</li>
+              <li>No intelligent follow-up when prospects go quiet.</li>
+              <li>No behavioral design to move people from interest to action.</li>
+              <li>No omnichannel presence where modern buyers actually ask questions.</li>
+              <li>No consistent engagement to build confidence over time.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Why the name “Action Potential”</h3>
+            <p>
+              In neuroscience, an action potential is the electrical impulse that enables neurons to communicate and
+              trigger behavior. Business growth works the same way: no signal, no movement. We design the signals that
+              convert intention into action.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Neuroscience-informed</span>
+              <span class="pill">Behavior-first design</span>
+              <span class="pill">Human-centered AI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="engine">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Five Growth Drivers</span>
+              <h2>Every system is engineered for outcomes that compound.</h2>
+            </div>
+          </div>
+          <div class="metric-row">
+            <article class="metric">
+              <strong>Lead Generation</strong>
+              <span>Attract more of the right traffic.</span>
+            </article>
+            <article class="metric">
+              <strong>Lead Conversion</strong>
+              <span>Turn visitors into conversations and bookings.</span>
+            </article>
+            <article class="metric">
+              <strong>Lifetime Value</strong>
+              <span>Increase retention and repeat purchases.</span>
+            </article>
+            <article class="metric">
+              <strong>Referrals & Reviews</strong>
+              <span>Convert happy clients into advocates.</span>
+            </article>
+            <article class="metric">
+              <strong>Reactivation</strong>
+              <span>Re-engage dormant leads and customers.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">What We Build</span>
+              <h2>Your business becomes an intelligent communication hub.</h2>
+            </div>
+            <p>
+              SEO + AEO + conversational AI + automation + paid media, orchestrated into one system that responds
+              instantly and improves continuously.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Omnichannel Visibility</h3>
+              <ul>
+                <li>SEO for traditional search rankings</li>
+                <li>AEO for AI-generated answer visibility</li>
+                <li>AI-engine optimization for recommendation systems</li>
+                <li>Google Ads + Meta Ads for demand capture</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Conversational Marketing</h3>
+              <ul>
+                <li>Website chat in your brand voice</li>
+                <li>SMS, Messenger, Instagram DM, and WhatsApp automation</li>
+                <li>AI-assisted voice workflows and call handling</li>
+                <li>24/7 response layer for high-intent prospects</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>AI Agent Suite</h3>
+              <ul>
+                <li>Specialized agents for repetitive growth tasks</li>
+                <li>Lead qualification, routing, and handoff workflows</li>
+                <li>Context-aware responses and ongoing learning loops</li>
+                <li>Operations support that scales with demand</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Marketing Automation</h3>
+              <ul>
+                <li>Speed-to-lead optimization in minutes, not days</li>
+                <li>Lead nurture sequences across text, email, and voice</li>
+                <li>Appointment automation with no-show reduction</li>
+                <li>Reputation workflows for review generation</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>AI Visibility Services</h3>
+              <ul>
+                <li>LLM visibility monitoring across major AI assistants</li>
+                <li>Authority source mapping and strategic amplification</li>
+                <li>AI crawler optimization (GPTBot, ClaudeBot, others)</li>
+                <li>Answer-ready content formatting for AI citation</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>SEO & Paid Media</h3>
+              <ul>
+                <li>Schema markup and technical SEO architecture</li>
+                <li>Topical authority content clusters</li>
+                <li>Google Business Profile and local search optimization</li>
+                <li>Retargeting programs that recover missed conversions</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="approach">
+        <div class="container split">
+          <div>
+            <span class="eyebrow">Our Approach</span>
+            <h2>Fast launch, strong strategic foundation, continuous optimization.</h2>
+            <p>
+              Every engagement follows a clear two-phase model: get the growth engine live quickly, then continuously
+              improve every stage using data. The system becomes smarter over time.
+            </p>
+            <div class="cta-panel">
+              <h3>What makes ActionPotential.AI different</h3>
+              <p>
+                Human-centered AI. Behavioral science at the core. Full-funnel ownership from stranger to advocate. No
+                long-term contracts.
+              </p>
+              <a class="btn btn-primary" href="#audit">Start with a free AI Audit</a>
+            </div>
+          </div>
+          <ol class="timeline">
+            <li>
+              <h3>Phase 1: Strategy + Build</h3>
+              <p>
+                Audit funnel performance, define growth priorities, architect conversational flows, deploy tracking,
+                automation, and high-impact acquisition channels.
+              </p>
+            </li>
+            <li>
+              <h3>Phase 2: Launch + Scale</h3>
+              <p>
+                Activate campaigns, optimize conversion rates, improve follow-up timing, and iterate messaging for higher
+                close rates and stronger retention.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Who We Serve</span>
+              <h2>Built for growth-minded service businesses and practices.</h2>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="card"><h3>Healthcare & Wellness</h3><p>Build trust quickly and increase patient inquiries.</p></article>
+            <article class="card"><h3>Coaching & Consulting</h3><p>Convert discovery interest into booked strategy calls.</p></article>
+            <article class="card"><h3>Legal & Professional Services</h3><p>Capture urgent intent and automate lead follow-up.</p></article>
+            <article class="card"><h3>Real Estate</h3><p>Respond instantly to buyer and seller inquiries at scale.</p></article>
+            <article class="card"><h3>Hospitality</h3><p>Increase direct bookings and improve review generation.</p></article>
+            <article class="card"><h3>Home Services</h3><p>Route local leads faster and reduce response latency.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="founder">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Founder</span>
+              <h2>High-tech meets high-touch leadership.</h2>
+            </div>
+          </div>
+          <article class="card founder">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <h3>Cary Sears — Founder & CEO</h3>
+              <p>
+                Cary is a UX designer and applied behavioral scientist with dual master's degrees in Experimental
+                Psychology and User Experience Design. His background includes neuropsychological testing work at
+                Cleveland Clinic, leadership in digital health, and growth experience at Noom.
+              </p>
+              <p>
+                ActionPotential.AI was founded to unite behavioral science, experience design, and AI systems into one
+                practical growth engine for businesses that want measurable results without sacrificing authenticity.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">SEO + AEO Answer Hub</span>
+              <h2>Direct answers for high-intent buyer questions.</h2>
+            </div>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>What makes ActionPotential.AI different from a typical agency?</summary>
+              <p>
+                Most agencies optimize one channel. We architect the full decision journey, from first touch to retained
+                customer, with behavioral design and automation integrated from day one.
+              </p>
+            </details>
+            <details>
+              <summary>What is the fastest way to increase lead conversion?</summary>
+              <p>
+                Improve speed-to-lead and follow-up consistency first. Responding within minutes and nurturing
+                systematically can dramatically lift conversion rates before increasing ad spend.
+              </p>
+            </details>
+            <details>
+              <summary>Do I need SEO if I already run ads?</summary>
+              <p>
+                Yes. Ads capture demand quickly, while SEO compounds long-term visibility and lowers blended acquisition
+                cost over time. We pair both for balanced growth.
+              </p>
+            </details>
+            <details>
+              <summary>What is AI visibility and why does it matter?</summary>
+              <p>
+                More people ask AI assistants for recommendations before purchasing. AI visibility ensures your brand is
+                discoverable and referenceable inside those generated answers.
+              </p>
+            </details>
+            <details>
+              <summary>Do you lock clients into long contracts?</summary>
+              <p>No. We earn continued trust through measurable outcomes and transparent optimization.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="audit">
+        <div class="container">
+          <div class="cta-panel">
+            <span class="eyebrow">Ready to Build Your Growth Engine?</span>
+            <h2>Schedule your free AI Audit & Marketing Strategy Session.</h2>
+            <p>
+              We will identify your highest-leverage growth bottlenecks, map a practical system architecture, and
+              prioritize the actions most likely to increase lead flow and conversion in the next 90 days.
+            </p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="mailto:hello@actionpotential.ai?subject=Free%20AI%20Audit%20Request"
+                >Claim My Free Audit</a
+              >
+              <a class="btn btn-secondary" href="#services">Review Service Stack</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill">No long-term contracts</span>
+              <span class="pill">Behavioral science + AI</span>
+              <span class="pill">Full-funnel ownership</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>ActionPotential.AI</strong> · Behavioral AI Marketing & Automation
+          <br />
+          <span>From potential... to action.</span>
+        </div>
+        <div><a href="mailto:hello@actionpotential.ai">hello@actionpotential.ai</a></div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky">
+      <a class="btn btn-primary" href="#audit" style="width: 100%">Book Free AI Audit</a>
+    </div>
+  </body>
+</html>
