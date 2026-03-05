@@ -1,0 +1,40 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ActionPotential.AI">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 64) rotate(90) scale(52)">
+      <stop stop-color="#79C5C7"/>
+      <stop offset="0.6" stop-color="#2EA6D4"/>
+      <stop offset="1" stop-color="#1B75BB"/>
+    </radialGradient>
+    <linearGradient id="a" x1="34" y1="34" x2="82" y2="94" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A59"/>
+      <stop offset="0.55" stop-color="#FF4D8A"/>
+      <stop offset="1" stop-color="#00A79D"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="64" cy="64" r="54" fill="rgba(6,9,12,0.0)"/>
+
+  <g fill="url(#g)" opacity="0.95">
+    <circle cx="64" cy="10" r="4"/>
+    <circle cx="89" cy="17" r="3.6"/>
+    <circle cx="108" cy="36" r="3.6"/>
+    <circle cx="116" cy="61" r="3.6"/>
+    <circle cx="111" cy="88" r="3.6"/>
+    <circle cx="92" cy="108" r="3.6"/>
+    <circle cx="64" cy="118" r="4"/>
+    <circle cx="36" cy="108" r="3.6"/>
+    <circle cx="17" cy="88" r="3.6"/>
+    <circle cx="12" cy="61" r="3.6"/>
+    <circle cx="20" cy="36" r="3.6"/>
+    <circle cx="39" cy="17" r="3.6"/>
+  </g>
+
+  <path
+    d="M36 90C48 82 55 72 58 62C61 52 61 42 66 34C71 26 82 23 94 27"
+    stroke="url(#a)"
+    stroke-width="7"
+    stroke-linecap="round"
+    opacity="0.95"
+  />
+  <circle cx="94" cy="27" r="4.6" fill="#FF4D8A"/>
+</svg>

@@ -1,0 +1,105 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ActionPotential.AI logo">
+  <defs>
+    <radialGradient id="dots" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(96 128) rotate(90) scale(96)">
+      <stop stop-color="#79C5C7"/>
+      <stop offset="0.55" stop-color="#2EA6D4"/>
+      <stop offset="1" stop-color="#1B75BB"/>
+    </radialGradient>
+    <linearGradient id="axon" x1="70" y1="70" x2="152" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A59"/>
+      <stop offset="0.55" stop-color="#FF4D8A"/>
+      <stop offset="1" stop-color="#00A79D"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.7  0 0 0 0 0.75  0 0 0 0.55 0" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dotted network halo -->
+  <g opacity="0.98">
+    <!-- Outer ring -->
+    <g fill="url(#dots)">
+      <!-- 32 dots around a ring -->
+      <circle cx="128" cy="32" r="6"/>
+      <circle cx="156" cy="36" r="5"/>
+      <circle cx="182" cy="50" r="5"/>
+      <circle cx="204" cy="72" r="5"/>
+      <circle cx="220" cy="100" r="5"/>
+      <circle cx="224" cy="128" r="6"/>
+      <circle cx="220" cy="156" r="5"/>
+      <circle cx="204" cy="184" r="5"/>
+      <circle cx="182" cy="206" r="5"/>
+      <circle cx="156" cy="220" r="5"/>
+      <circle cx="128" cy="224" r="6"/>
+      <circle cx="100" cy="220" r="5"/>
+      <circle cx="74" cy="206" r="5"/>
+      <circle cx="52" cy="184" r="5"/>
+      <circle cx="36" cy="156" r="5"/>
+      <circle cx="32" cy="128" r="6"/>
+      <circle cx="36" cy="100" r="5"/>
+      <circle cx="52" cy="72" r="5"/>
+      <circle cx="74" cy="50" r="5"/>
+      <circle cx="100" cy="36" r="5"/>
+    </g>
+
+    <!-- Inner ring dots -->
+    <g fill="url(#dots)" opacity="0.85">
+      <circle cx="128" cy="58" r="4"/>
+      <circle cx="154" cy="64" r="3.6"/>
+      <circle cx="176" cy="80" r="3.6"/>
+      <circle cx="190" cy="104" r="3.6"/>
+      <circle cx="194" cy="128" r="4"/>
+      <circle cx="190" cy="152" r="3.6"/>
+      <circle cx="176" cy="176" r="3.6"/>
+      <circle cx="154" cy="192" r="3.6"/>
+      <circle cx="128" cy="198" r="4"/>
+      <circle cx="102" cy="192" r="3.6"/>
+      <circle cx="80" cy="176" r="3.6"/>
+      <circle cx="66" cy="152" r="3.6"/>
+      <circle cx="62" cy="128" r="4"/>
+      <circle cx="66" cy="104" r="3.6"/>
+      <circle cx="80" cy="80" r="3.6"/>
+      <circle cx="102" cy="64" r="3.6"/>
+    </g>
+  </g>
+
+  <!-- Action potential / neuron stroke -->
+  <g filter="url(#softGlow)">
+    <path
+      d="M78 174C98 160 110 143 116 124C122 105 122 87 130 72C138 57 156 49 176 56"
+      stroke="url(#axon)"
+      stroke-width="10"
+      stroke-linecap="round"
+    />
+    <path
+      d="M116 124C108 128 98 128 90 124"
+      stroke="url(#axon)"
+      stroke-width="8"
+      stroke-linecap="round"
+      opacity="0.95"
+    />
+    <path
+      d="M116 124C110 116 104 108 96 104"
+      stroke="url(#axon)"
+      stroke-width="7"
+      stroke-linecap="round"
+      opacity="0.9"
+    />
+    <path
+      d="M116 124C112 134 110 144 106 152"
+      stroke="url(#axon)"
+      stroke-width="7"
+      stroke-linecap="round"
+      opacity="0.9"
+    />
+
+    <!-- Terminal spark -->
+    <circle cx="176" cy="56" r="6.2" fill="#FF4D8A"/>
+    <circle cx="176" cy="56" r="11" fill="#FF4D8A" opacity="0.18"/>
+  </g>
+</svg>

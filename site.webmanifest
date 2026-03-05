@@ -1,0 +1,16 @@
+{
+  "name": "ActionPotential.AI",
+  "short_name": "ActionPotential",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06090C",
+  "theme_color": "#2EA6D4",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
