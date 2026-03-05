@@ -411,6 +411,8 @@
         border-radius: 12px;
         border: 1px solid rgba(121, 197, 199, 0.22);
         background: #02040a;
+        display: block;
+        object-fit: contain;
       }
 
       .video-card p {
@@ -1062,7 +1064,15 @@
             <article class="card video-card">
               <h3>Mauro</h3>
               <p>Client testimonial</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline>
+              <video
+                class="testimonial-video"
+                controls
+                preload="metadata"
+                playsinline
+                muted
+                poster="./poster-mauro.jpg"
+                data-hover-preview="true"
+              >
                 <source src="./Mauro%20Testimonial.MP4" type="video/mp4" />
                 Your browser does not support embedded videos.
               </video>
@@ -1070,7 +1080,15 @@
             <article class="card video-card">
               <h3>Dan</h3>
               <p>Client testimonial</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline>
+              <video
+                class="testimonial-video"
+                controls
+                preload="metadata"
+                playsinline
+                muted
+                poster="./poster-dan.jpg"
+                data-hover-preview="true"
+              >
                 <source src="./Dan%20Testimonial%20.mov" type="video/quicktime" />
                 Your browser does not support embedded videos.
               </video>
@@ -1078,7 +1096,15 @@
             <article class="card video-card">
               <h3>Jai</h3>
               <p>Client testimonial</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline>
+              <video
+                class="testimonial-video"
+                controls
+                preload="metadata"
+                playsinline
+                muted
+                poster="./poster-jai.jpg"
+                data-hover-preview="true"
+              >
                 <source src="./jaiTest.mp4" type="video/mp4" />
                 Your browser does not support embedded videos.
               </video>
@@ -1266,6 +1292,46 @@
         update();
         window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", onScroll);
+      })();
+    </script>
+    <script>
+      (function () {
+        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!canHover || prefersReducedMotion) return;
+
+        const videos = document.querySelectorAll("video[data-hover-preview='true']");
+        videos.forEach((video) => {
+          let previewing = false;
+
+          const startPreview = () => {
+            if (previewing) return;
+            previewing = true;
+            video.muted = true;
+            video.loop = true;
+            const playPromise = video.play();
+            if (playPromise) {
+              playPromise.catch(() => {
+                previewing = false;
+              });
+            }
+          };
+
+          const stopPreview = () => {
+            if (!previewing) return;
+            video.pause();
+            video.loop = false;
+            try {
+              video.currentTime = 0;
+            } catch (error) {
+              // Some browsers can block time resets while metadata is loading.
+            }
+            previewing = false;
+          };
+
+          video.addEventListener("mouseenter", startPreview);
+          video.addEventListener("mouseleave", stopPreview);
+        });
       })();
     </script>
       <script
