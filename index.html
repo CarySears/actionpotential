@@ -562,6 +562,16 @@
         display: none;
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .btn,
+        .neural-line {
+          transition: none;
+        }
+      }
+
       @media (max-width: 1024px) {
         .hero-grid,
         .split {
@@ -576,6 +586,10 @@
       }
 
       @media (max-width: 720px) {
+        body {
+          /* Reserve space so fixed CTA never covers content */
+          padding-bottom: calc(90px + env(safe-area-inset-bottom));
+        }
         .nav-links a:not(.btn) {
           display: none;
         }
@@ -603,13 +617,29 @@
           position: fixed;
           left: 0.85rem;
           right: 0.85rem;
-          bottom: 0.85rem;
+          bottom: calc(0.85rem + env(safe-area-inset-bottom));
           z-index: 60;
           background: rgba(10, 17, 31, 0.96);
           border: 1px solid rgba(121, 197, 199, 0.25);
           border-radius: 14px;
           padding: 0.6rem;
           backdrop-filter: blur(10px);
+        }
+        .mobile-sticky .btn {
+          min-height: 48px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .brand strong {
+          display: none;
+        }
+        .nav {
+          min-height: 68px;
+        }
+        .nav-links .btn {
+          padding: 0.66rem 0.9rem;
+          font-size: 0.9rem;
         }
       }
     </style>
@@ -1083,6 +1113,12 @@
         const lineRoot = document.getElementById("neural-lines");
         const nodeRoot = document.getElementById("neural-nodes");
         if (!overlay || !lineRoot || !nodeRoot) return;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const mobileViewport = window.matchMedia("(max-width: 720px)").matches;
+        if (prefersReducedMotion || mobileViewport) {
+          overlay.style.display = "none";
+          return;
+        }
 
         const nodes = [
           [120, 120], [280, 180], [430, 125], [600, 220], [780, 160], [960, 265], [1140, 170], [1330, 255], [1490, 180],

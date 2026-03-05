@@ -241,4 +241,20 @@ p {
   .nav-links a:not(.btn) {
     display: none;
   }
+  .nav-links .btn {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand strong {
+    display: none;
+  }
+  .nav {
+    min-height: 68px;
+  }
+  .nav-links .btn {
+    padding: 0.66rem 0.9rem;
+    font-size: 0.9rem;
+  }
 }
