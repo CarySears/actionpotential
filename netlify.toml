@@ -1,0 +1,51 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/locations/nyc-ai-marketing-agency"
+  to = "/locations/new-york-ai-marketing-agency.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/nyc-ai-marketing-agency.html"
+  to = "/locations/new-york-ai-marketing-agency.html"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/:splat.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/:splat.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/:splat.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/:splat.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/:splat.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
