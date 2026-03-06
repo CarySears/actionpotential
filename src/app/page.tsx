@@ -11,23 +11,27 @@ import WhoWeServe from "@/components/WhoWeServe";
 import Founder from "@/components/Founder";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import BrandGeometry from "@/components/BrandGeometry";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0d1117]">
-      <Navbar />
-      <Hero />
-      <TrustBar />
-      <Problem />
-      <WhyName />
-      <BehavioralEngine />
-      <Services />
-      <Differentiators />
-      <Process />
-      <WhoWeServe />
-      <Founder />
-      <CTA />
-      <Footer />
+    <main className="relative isolate min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <BrandGeometry />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <TrustBar />
+        <Problem />
+        <WhyName />
+        <BehavioralEngine />
+        <Services />
+        <Differentiators />
+        <Process />
+        <WhoWeServe />
+        <Founder />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 }

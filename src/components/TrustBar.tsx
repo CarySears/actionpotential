@@ -20,7 +20,10 @@ export default function TrustBar() {
   return (
     <section ref={ref} className="relative py-10 overflow-hidden">
       <div className="section-divider mb-0" />
-      <div className="bg-[#0a0f14]/60 py-6">
+      <div
+        className="py-6"
+        style={{ backgroundColor: "rgb(var(--color-bg-rgb) / 0.5)" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
             {items.map((item, i) => (

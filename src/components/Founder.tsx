@@ -59,7 +59,10 @@ export default function Founder() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#79C5C7]/5 to-[#1B75BB]/5" />
               </div>
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#79C5C7]/10 to-[#1B75BB]/10 blur-xl -z-10" />
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-br from-[#00A79D] to-[#1B75BB] border-2 border-[#0d1117] flex items-center justify-center">
+              <div
+                className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-br from-[#00A79D] to-[#1B75BB] border-2 flex items-center justify-center"
+                style={{ borderColor: "var(--color-bg)" }}
+              >
                 <Zap className="w-3 h-3 text-white" fill="white" />
               </div>
             </div>

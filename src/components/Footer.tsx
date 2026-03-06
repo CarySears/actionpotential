@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Zap, Mail, Phone } from "lucide-react";
+import { Zap, Mail } from "lucide-react";
 
 const links = {
   Services: [
@@ -28,7 +27,13 @@ const links = {
 export default function Footer() {
   return (
     <footer className="relative border-t border-[#79C5C7]/8 pt-16 pb-8">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0d1117]/50 pointer-events-none" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, rgb(var(--color-bg-rgb) / 0.55) 100%)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">

@@ -27,7 +27,7 @@ export default function CTA() {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(46,166,212,0.08)_0%,rgba(13,17,23,0.9)_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(46,166,212,0.08)_0%,rgba(13,17,23,0.78)_70%)]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -136,7 +136,10 @@ export default function CTA() {
                 <label className="block text-xs text-[#e8f4f8]/50 mb-1.5 uppercase tracking-wider">
                   Business Type
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl bg-[#0d1117] border border-[#e8f4f8]/10 text-[#e8f4f8]/70 text-sm focus:outline-none focus:border-[#79C5C7]/40 transition-all appearance-none">
+                <select
+                  className="w-full px-4 py-3 rounded-xl border border-[#e8f4f8]/10 text-[#e8f4f8]/70 text-sm focus:outline-none focus:border-[#79C5C7]/40 transition-all appearance-none"
+                  style={{ backgroundColor: "rgb(var(--color-bg-rgb) / 0.86)" }}
+                >
                   <option value="">Select your industry...</option>
                   <option>Healthcare & Wellness</option>
                   <option>Coaching & Consulting</option>

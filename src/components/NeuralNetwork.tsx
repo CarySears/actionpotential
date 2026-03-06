@@ -78,7 +78,7 @@ export default function NeuralNetwork({ className = "" }: { className?: string }
     connectionsRef.current = connections;
   }, []);
 
-  const draw = useCallback(() => {
+  const draw = useCallback(function drawFrame() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -192,7 +192,7 @@ export default function NeuralNetwork({ className = "" }: { className?: string }
       ctx.fill();
     });
 
-    animFrameRef.current = requestAnimationFrame(draw);
+    animFrameRef.current = requestAnimationFrame(drawFrame);
   }, []);
 
   useEffect(() => {

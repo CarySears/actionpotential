@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, Brain, Sparkles } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 
 const stats = [
@@ -19,10 +19,13 @@ export default function Hero() {
       </div>
 
       {/* Radial gradient overlay */}
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(13,17,23,0)_0%,rgba(13,17,23,0.7)_60%,rgba(13,17,23,0.95)_100%)]" />
+      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(13,17,23,0)_0%,rgba(13,17,23,0.62)_60%,rgba(13,17,23,0.86)_100%)]" />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 z-10 bg-gradient-to-t from-[#0d1117] to-transparent" />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 z-10"
+        style={{ background: "linear-gradient(to top, var(--color-bg), transparent)" }}
+      />
 
       {/* Content */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">

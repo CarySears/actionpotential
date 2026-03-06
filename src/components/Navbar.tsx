@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, Moon, SunMedium, X, Zap } from "lucide-react";
+import { useTheme } from "./theme/ThemeProvider";
 
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
@@ -15,6 +16,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,10 +30,9 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0d1117]/90 backdrop-blur-xl border-b border-[#79C5C7]/10"
-          : "bg-transparent"
+        scrolled ? "backdrop-blur-xl border-b border-[var(--color-border)]" : "bg-transparent"
       }`}
+      style={scrolled ? { backgroundColor: "var(--color-navbar)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
@@ -68,6 +69,14 @@ export default function Navbar() {
 
           {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle color theme"
+              className="theme-toggle-btn hidden sm:inline-flex"
+            >
+              <SunMedium className="theme-icon-light w-4 h-4" />
+              <Moon className="theme-icon-dark w-4 h-4" />
+            </button>
             <a
               href="#cta"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white glow-button"
@@ -92,9 +101,19 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0d1117]/95 backdrop-blur-xl border-b border-[#79C5C7]/10"
+            className="md:hidden backdrop-blur-xl border-b border-[var(--color-border)]"
+            style={{ backgroundColor: "var(--color-navbar)" }}
           >
             <div className="px-4 py-4 flex flex-col gap-1">
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle-btn mb-2 inline-flex w-full justify-center"
+              >
+                <SunMedium className="theme-icon-light w-4 h-4" />
+                <Moon className="theme-icon-dark w-4 h-4" />
+                <span className="theme-label-light">Dark mode</span>
+                <span className="theme-label-dark">Light mode</span>
+              </button>
               {navLinks.map((link) => (
                 <a
                   key={link.href}
