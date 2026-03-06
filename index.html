@@ -623,7 +623,6 @@
         display: none;
       }
 
-      body,
       .site-header,
       .card,
       .signal-card,
@@ -631,7 +630,11 @@
       .metric,
       details,
       .cta-panel {
-        transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      body {
+        transition: color 0.35s ease;
       }
 
       body.after-fold-light {
@@ -684,6 +687,8 @@
       body.after-fold-light .hero p,
       body.after-fold-light .micro-proof,
       body.after-fold-light .section-head p,
+      body.after-fold-light .problem p,
+      body.after-fold-light .problem ul,
       body.after-fold-light .card p,
       body.after-fold-light .card li,
       body.after-fold-light .faq-list p,
@@ -713,6 +718,11 @@
         border-color: rgba(27, 117, 187, 0.3);
         background: rgba(27, 117, 187, 0.08);
         color: #1f4973;
+      }
+
+      body.after-fold-light .problem h2,
+      body.after-fold-light .problem .eyebrow {
+        color: #173d66;
       }
 
       body.after-fold-light .mobile-sticky {
@@ -1441,12 +1451,19 @@
 
         const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
         const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
-        const threshold = () => window.innerHeight * 0.88;
+        let isLight = false;
+        const enterThreshold = () => window.innerHeight * 0.92;
+        const exitThreshold = () => window.innerHeight * 0.82;
 
         const updateTheme = () => {
-          const pastFold = window.scrollY > threshold();
-          body.classList.toggle("after-fold-light", pastFold);
-          const desiredLogo = pastFold ? lightLogo : darkLogo;
+          const y = window.scrollY;
+          if (!isLight && y > enterThreshold()) {
+            isLight = true;
+          } else if (isLight && y < exitThreshold()) {
+            isLight = false;
+          }
+          body.classList.toggle("after-fold-light", isLight);
+          const desiredLogo = isLight ? lightLogo : darkLogo;
           if (logo.getAttribute("src") !== desiredLogo) {
             logo.setAttribute("src", desiredLogo);
           }
