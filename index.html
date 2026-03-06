@@ -97,15 +97,133 @@
         transition: opacity 0.9s ease;
       }
 
-      #fold-theme-fade {
+      #wave-theme-transition {
         position: fixed;
         inset: 0;
         pointer-events: none;
         z-index: -3;
-        opacity: var(--fold-fade, 0);
+        overflow: hidden;
+      }
+
+      .wt-curtain {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -240px;
+        height: calc(100% + 240px);
+        transform: translateY(100%);
+        will-change: transform;
+      }
+
+      .wt-light-fill {
+        position: absolute;
+        top: 240px;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.16), transparent 40%),
           radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.12), transparent 42%), #f4f8ff;
-        transition: opacity 0.85s ease;
+      }
+
+      .wt-wave-svg {
+        position: absolute;
+        top: 0;
+        left: -5%;
+        width: 110%;
+        height: 240px;
+        display: block;
+      }
+
+      .wt-wave { will-change: transform; }
+      .wt-w1 { animation: wt-drift1 7s ease-in-out infinite alternate; }
+      .wt-w2 { animation: wt-drift2 9.5s ease-in-out infinite alternate; }
+      .wt-w3 { animation: wt-drift3 11s ease-in-out infinite alternate; }
+      .wt-w4 { animation: wt-drift4 8.5s ease-in-out infinite alternate; }
+      .wt-w5 { animation: wt-drift5 10s ease-in-out infinite alternate; }
+
+      @keyframes wt-drift1 { from { transform: translateX(0); } to { transform: translateX(45px); } }
+      @keyframes wt-drift2 { from { transform: translateX(0); } to { transform: translateX(-35px); } }
+      @keyframes wt-drift3 { from { transform: translateX(0); } to { transform: translateX(28px); } }
+      @keyframes wt-drift4 { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+      @keyframes wt-drift5 { from { transform: translateX(0); } to { transform: translateX(22px); } }
+
+      .wt-geo-shape {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        will-change: opacity, transform;
+      }
+
+      .wt-geo-active .wt-geo-shape { opacity: 1; }
+
+      .wt-geo-1 {
+        width: 140px;
+        height: 140px;
+        background: linear-gradient(135deg, rgba(255, 139, 102, 0.18), rgba(217, 58, 164, 0.18));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        top: 15%;
+        right: 7%;
+        transform: rotate(15deg) scale(0.6);
+      }
+      .wt-geo-active .wt-geo-1 { transform: rotate(15deg) scale(1); }
+
+      .wt-geo-2 {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, rgba(46, 166, 212, 0.22), rgba(27, 117, 187, 0.22));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        bottom: 20%;
+        left: 4%;
+        transform: rotate(-12deg) scale(0.6);
+      }
+      .wt-geo-active .wt-geo-2 { transform: rotate(-12deg) scale(1); }
+
+      .wt-geo-3 {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, rgba(121, 197, 199, 0.22), rgba(0, 167, 157, 0.22));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        top: 42%;
+        left: 10%;
+        transform: rotate(30deg) scale(0.6);
+      }
+      .wt-geo-active .wt-geo-3 { transform: rotate(30deg) scale(1); }
+
+      .wt-geo-4 {
+        width: 55px;
+        height: 55px;
+        background: linear-gradient(135deg, rgba(217, 58, 164, 0.18), rgba(27, 117, 187, 0.18));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        top: 28%;
+        left: 30%;
+        transform: rotate(-20deg) scale(0.6);
+      }
+      .wt-geo-active .wt-geo-4 { transform: rotate(-20deg) scale(1); }
+
+      .wt-geo-5 {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, rgba(121, 197, 199, 0.15), rgba(46, 166, 212, 0.15));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        bottom: 35%;
+        right: 18%;
+        transform: rotate(8deg) scale(0.6);
+      }
+      .wt-geo-active .wt-geo-5 { transform: rotate(8deg) scale(1); }
+
+      .wt-dot-grid {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -2;
+        opacity: 0;
+        will-change: opacity;
+        background-image:
+          radial-gradient(circle, rgba(121, 197, 199, 0.13) 1.5px, transparent 1.5px),
+          radial-gradient(circle, rgba(255, 139, 102, 0.06) 1px, transparent 1px);
+        background-size: 52px 52px, 26px 26px;
+        background-position: 0 0, 13px 13px;
       }
 
       .neural-overlay {
@@ -746,7 +864,6 @@
         }
         .btn,
         .neural-line,
-        #fold-theme-fade,
         body,
         body::before,
         body::after,
@@ -758,6 +875,14 @@
         details,
         .cta-panel {
           transition: none;
+        }
+        .wt-curtain,
+        .wt-geo-shape,
+        .wt-dot-grid {
+          display: none !important;
+        }
+        .wt-wave {
+          animation: none !important;
         }
       }
 
@@ -780,6 +905,19 @@
       }
 
       @media (max-width: 720px) {
+        .wt-geo-3,
+        .wt-geo-4,
+        .wt-geo-5 {
+          display: none;
+        }
+        .wt-geo-1 {
+          width: 80px;
+          height: 80px;
+        }
+        .wt-geo-2 {
+          width: 60px;
+          height: 60px;
+        }
         body {
           /* Reserve space so fixed CTA never covers content */
           padding-bottom: calc(90px + env(safe-area-inset-bottom));
@@ -922,7 +1060,36 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <div id="fold-theme-fade" aria-hidden="true"></div>
+    <div id="wave-theme-transition" aria-hidden="true">
+      <div class="wt-curtain">
+        <div class="wt-light-fill"></div>
+        <svg class="wt-wave-svg" viewBox="0 0 1700 240" preserveAspectRatio="none">
+          <defs>
+            <pattern id="wt-geo-pat" patternUnits="userSpaceOnUse" width="52" height="52" patternTransform="rotate(12)">
+              <circle cx="26" cy="26" r="2" fill="rgba(255,255,255,0.18)" />
+              <circle cx="0" cy="0" r="1.2" fill="rgba(255,255,255,0.1)" />
+              <circle cx="52" cy="0" r="1.2" fill="rgba(255,255,255,0.1)" />
+              <circle cx="0" cy="52" r="1.2" fill="rgba(255,255,255,0.1)" />
+              <circle cx="52" cy="52" r="1.2" fill="rgba(255,255,255,0.1)" />
+              <polygon points="13,39 16,44 13,49 10,44" fill="rgba(255,255,255,0.07)" />
+              <polygon points="39,13 42,18 39,23 36,18" fill="rgba(255,255,255,0.07)" />
+            </pattern>
+          </defs>
+          <path class="wt-wave wt-w5" d="M-100,188 C140,165 390,208 690,185 C990,162 1240,210 1490,188 C1660,172 1800,198 1800,188 L1800,240 L-100,240 Z" fill="#1b75bb" opacity="0.92" />
+          <path class="wt-wave wt-w4" d="M-100,158 C160,125 410,190 710,155 C1010,120 1260,192 1510,158 C1680,140 1800,172 1800,158 L1800,240 L-100,240 Z" fill="#2ea6d4" opacity="0.88" />
+          <path class="wt-wave wt-w3" d="M-100,128 C130,88 380,165 680,122 C980,80 1230,168 1480,128 C1650,105 1800,145 1800,128 L1800,240 L-100,240 Z" fill="#d93aa4" opacity="0.82" />
+          <path class="wt-wave wt-w2" d="M-100,98 C200,52 450,142 750,92 C1050,45 1300,140 1550,95 C1700,72 1800,110 1800,98 L1800,240 L-100,240 Z" fill="#ff8b66" opacity="0.85" />
+          <path class="wt-wave wt-w1" d="M-100,65 C150,10 400,120 700,55 C1000,0 1250,115 1500,60 C1650,32 1800,78 1800,65 L1800,240 L-100,240 Z" fill="#79c5c7" opacity="0.9" />
+          <rect x="-100" y="45" width="1900" height="195" fill="url(#wt-geo-pat)" opacity="0.5" />
+        </svg>
+      </div>
+      <div class="wt-geo-shape wt-geo-1"></div>
+      <div class="wt-geo-shape wt-geo-2"></div>
+      <div class="wt-geo-shape wt-geo-3"></div>
+      <div class="wt-geo-shape wt-geo-4"></div>
+      <div class="wt-geo-shape wt-geo-5"></div>
+    </div>
+    <div class="wt-dot-grid" aria-hidden="true"></div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
@@ -1474,6 +1641,11 @@
         const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
         const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const curtain = document.querySelector(".wt-curtain");
+        const waveTransition = document.getElementById("wave-theme-transition");
+        const dotGrid = document.querySelector(".wt-dot-grid");
+
         let isLight = false;
         const fadeStart = () => window.innerHeight * 0.58;
         const fadeEnd = () => window.innerHeight * 1.22;
@@ -1485,6 +1657,25 @@
           const rawProgress = (y - start) / Math.max(end - start, 1);
           const fadeProgress = Math.max(0, Math.min(rawProgress, 1));
           body.style.setProperty("--fold-fade", prefersReducedMotion ? "0" : fadeProgress.toFixed(3));
+
+          if (!prefersReducedMotion) {
+            if (curtain) {
+              var pct = (1 - fadeProgress) * 100;
+              curtain.style.transform = "translateY(" + pct.toFixed(2) + "%)";
+            }
+
+            if (waveTransition) {
+              var geoActive = fadeProgress > 0.12 && fadeProgress < 0.94;
+              waveTransition.classList.toggle("wt-geo-active", geoActive);
+            }
+
+            if (dotGrid) {
+              var dotOpacity = fadeProgress < 0.5
+                ? fadeProgress * 1.8
+                : (1 - fadeProgress) * 1.8;
+              dotGrid.style.opacity = Math.max(0, Math.min(dotOpacity, 0.85)).toFixed(3);
+            }
+          }
 
           if (!isLight && fadeProgress > 0.84) {
             isLight = true;
