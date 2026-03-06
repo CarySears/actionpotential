@@ -1,16 +1,74 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════
+   BRAND PALETTE (invariant)
+═══════════════════════════════════════════════════ */
 :root {
   --teal-light: #79C5C7;
   --blue-bright: #2EA6D4;
   --teal-green: #00A79D;
   --blue-deep: #1B75BB;
   --near-black: #231F20;
+  --accent-coral: #ff8b66;
+  --accent-magenta: #d93aa4;
   --gradient-start: #79C5C7;
   --gradient-mid: #2EA6D4;
   --gradient-end: #1B75BB;
 }
 
+/* ═══════════════════════════════════════════════════
+   DARK THEME TOKENS (default)
+═══════════════════════════════════════════════════ */
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #0f1420;
+  --bg-surface: #121b2f;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.07);
+  --text-primary: #e8f4f8;
+  --text-secondary: rgba(232, 244, 248, 0.72);
+  --text-muted: rgba(232, 244, 248, 0.45);
+  --text-faint: rgba(232, 244, 248, 0.28);
+  --border-subtle: rgba(121, 197, 199, 0.12);
+  --border-medium: rgba(46, 166, 212, 0.30);
+  --scrollbar-bg: #0d1117;
+  --border-inner: #0d1117;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(121, 197, 199, 0.12);
+  --glass-hover-bg: rgba(255, 255, 255, 0.07);
+  --glass-hover-border: rgba(46, 166, 212, 0.30);
+  --geo-color: #79C5C7;
+  --geo-opacity: 0.035;
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHT THEME TOKENS
+═══════════════════════════════════════════════════ */
+html.light {
+  --bg-primary: #f0f7ff;
+  --bg-secondary: #e5f0fc;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.80);
+  --bg-card-hover: rgba(255, 255, 255, 0.96);
+  --text-primary: #1a1f2e;
+  --text-secondary: rgba(26, 31, 46, 0.72);
+  --text-muted: rgba(26, 31, 46, 0.50);
+  --text-faint: rgba(26, 31, 46, 0.32);
+  --border-subtle: rgba(27, 117, 187, 0.18);
+  --border-medium: rgba(27, 117, 187, 0.35);
+  --scrollbar-bg: #f0f7ff;
+  --border-inner: #f0f7ff;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(27, 117, 187, 0.22);
+  --glass-hover-bg: rgba(255, 255, 255, 0.94);
+  --glass-hover-border: rgba(27, 117, 187, 0.42);
+  --geo-color: #1B75BB;
+  --geo-opacity: 0.06;
+}
+
+/* ═══════════════════════════════════════════════════
+   BASE RESET
+═══════════════════════════════════════════════════ */
 * {
   box-sizing: border-box;
 }
@@ -20,12 +78,50 @@ html {
 }
 
 body {
-  background-color: #0d1117;
-  color: #e8f4f8;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-geist-sans), 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+
+  /* Subtle repeating diamond geometric pattern — brand style guide signature */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpolygon points='28,3 53,28 28,53 3,28' fill='none' stroke='%2379C5C7' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 56px;
 }
 
+html.light body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpolygon points='28,3 53,28 28,53 3,28' fill='none' stroke='%231B75BB' stroke-opacity='0.06' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — GLOBAL TEXT & HEADING OVERRIDES
+═══════════════════════════════════════════════════ */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4 {
+  color: var(--text-primary);
+}
+
+html.light p {
+  color: var(--text-secondary);
+}
+
+/* Override Tailwind's text-white on non-button elements in light mode */
+html.light .text-white:not(button):not(a):not(.glow-button):not(.glow-button *) {
+  color: var(--text-primary);
+}
+
+/* Ensure glow-buttons always show white text */
+html.light .glow-button,
+html.light a.glow-button,
+html.light button.glow-button {
+  color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════
+   UTILITY CLASSES (theme-aware)
+═══════════════════════════════════════════════════ */
 .gradient-text {
   background: linear-gradient(135deg, #79C5C7, #2EA6D4, #1B75BB);
   -webkit-background-clip: text;
@@ -41,11 +137,16 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(121, 197, 199, 0.12);
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light .glass-card {
+  box-shadow: 0 2px 20px rgba(27, 117, 187, 0.06);
 }
 
 .glass-card-hover {
@@ -53,16 +154,21 @@ body {
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(46, 166, 212, 0.3);
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
   transform: translateY(-2px);
-  box-shadow: 0 20px 60px rgba(46, 166, 212, 0.1);
+  box-shadow: 0 20px 60px rgba(46, 166, 212, 0.10);
+}
+
+html.light .glass-card-hover:hover {
+  box-shadow: 0 20px 60px rgba(27, 117, 187, 0.12);
 }
 
 .glow-button {
   background: linear-gradient(135deg, #00A79D, #2EA6D4, #1B75BB);
   box-shadow: 0 0 30px rgba(46, 166, 212, 0.4);
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 .glow-button:hover {
@@ -75,13 +181,40 @@ body {
   background: linear-gradient(90deg, transparent, rgba(46, 166, 212, 0.3), transparent);
 }
 
+html.light .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(27, 117, 187, 0.25), transparent);
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--border-inner), var(--border-inner)) padding-box,
+    linear-gradient(135deg, #79C5C7, #2EA6D4, #1B75BB) border-box;
+  transition: background 0.35s ease;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 40px rgba(46, 166, 212, 0.5);
+}
+
+html.light .text-shadow-glow {
+  text-shadow: 0 0 30px rgba(46, 166, 212, 0.3);
+}
+
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ═══════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+═══════════════════════════════════════════════════ */
 .node-pulse {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 10px rgba(46, 166, 212, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(46, 166, 212, 0.7); }
+  50%       { box-shadow: 0 0 25px rgba(46, 166, 212, 0.7); }
 }
 
 .floating {
@@ -90,7 +223,7 @@ body {
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-10px); }
 }
 
 .typewriter {
@@ -101,49 +234,17 @@ body {
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 100% }
+  to   { width: 100% }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #2EA6D4 }
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0d1117;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#00A79D, #1B75BB);
-  border-radius: 3px;
-}
-
-.text-shadow-glow {
-  text-shadow: 0 0 40px rgba(46, 166, 212, 0.5);
-}
-
-.border-gradient {
-  border: 1px solid transparent;
-  background: linear-gradient(#0d1117, #0d1117) padding-box,
-              linear-gradient(135deg, #79C5C7, #2EA6D4, #1B75BB) border-box;
-}
-
-.stat-number {
-  font-variant-numeric: tabular-nums;
+  50%      { border-color: #2EA6D4 }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
 
 .shimmer {
@@ -153,4 +254,30 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s linear infinite;
+}
+
+/* Wave-divider breathing — applied to individual SVG paths via JS */
+@keyframes wave-breathe {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════ */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00A79D, #1B75BB);
+  border-radius: 3px;
 }

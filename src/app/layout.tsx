@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
+import ThemeTransition from "@/components/ThemeTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -169,6 +171,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Anti-flicker: apply saved theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('ap-theme');if(t==='light')document.documentElement.classList.add('light');}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -176,7 +184,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+        <ThemeProvider>
+          <ThemeTransition />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
