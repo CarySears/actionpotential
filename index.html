@@ -83,6 +83,7 @@
         opacity: 0.16;
         pointer-events: none;
         z-index: -2;
+        transition: opacity 0.9s ease;
       }
 
       body::after {
@@ -93,6 +94,18 @@
         z-index: -1;
         background: radial-gradient(circle at 70% 20%, rgba(217, 58, 164, 0.1), transparent 26%),
           radial-gradient(circle at 18% 72%, rgba(255, 139, 102, 0.11), transparent 28%);
+        transition: opacity 0.9s ease;
+      }
+
+      #fold-theme-fade {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -3;
+        opacity: var(--fold-fade, 0);
+        background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.16), transparent 40%),
+          radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.12), transparent 42%), #f4f8ff;
+        transition: opacity 0.85s ease;
       }
 
       .neural-overlay {
@@ -177,7 +190,7 @@
         flex-shrink: 0;
         object-fit: contain;
         filter: drop-shadow(0 0 14px rgba(46, 166, 212, 0.35));
-        transition: transform 0.3s ease, filter 0.3s ease;
+        transition: transform 0.8s ease, filter 0.8s ease;
       }
 
       .brand strong {
@@ -262,6 +275,7 @@
         background: linear-gradient(180deg, rgba(5, 7, 12, 0.68), rgba(5, 7, 12, 0));
         pointer-events: none;
         z-index: 0;
+        transition: background 0.8s ease;
       }
 
       .hero-copy > * {
@@ -630,28 +644,24 @@
       .metric,
       details,
       .cta-panel {
-        transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
       }
 
       body {
-        transition: color 0.35s ease;
+        --fold-fade: 0;
+        transition: color 0.8s ease;
       }
 
       body.after-fold-light {
         color: #132742;
-        background: radial-gradient(circle at 85% 10%, rgba(46, 166, 212, 0.13), transparent 38%),
-          radial-gradient(circle at 15% 18%, rgba(0, 167, 157, 0.11), transparent 42%), #f4f8ff;
       }
 
       body.after-fold-light::before {
-        background-image: linear-gradient(rgba(27, 117, 187, 0.13) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(27, 117, 187, 0.13) 1px, transparent 1px);
-        opacity: 0.22;
+        opacity: 0.12;
       }
 
       body.after-fold-light::after {
-        background: radial-gradient(circle at 70% 20%, rgba(217, 58, 164, 0.08), transparent 28%),
-          radial-gradient(circle at 18% 72%, rgba(255, 139, 102, 0.09), transparent 30%);
+        opacity: 0.62;
       }
 
       body.after-fold-light .site-header {
@@ -735,7 +745,18 @@
           scroll-behavior: auto;
         }
         .btn,
-        .neural-line {
+        .neural-line,
+        #fold-theme-fade,
+        body,
+        body::before,
+        body::after,
+        .site-header,
+        .card,
+        .signal-card,
+        .timeline li,
+        .metric,
+        details,
+        .cta-panel {
           transition: none;
         }
       }
@@ -901,6 +922,7 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <div id="fold-theme-fade" aria-hidden="true"></div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
@@ -1451,15 +1473,22 @@
 
         const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
         const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let isLight = false;
-        const enterThreshold = () => window.innerHeight * 0.92;
-        const exitThreshold = () => window.innerHeight * 0.82;
+        const fadeStart = () => window.innerHeight * 0.58;
+        const fadeEnd = () => window.innerHeight * 1.22;
 
         const updateTheme = () => {
           const y = window.scrollY;
-          if (!isLight && y > enterThreshold()) {
+          const start = fadeStart();
+          const end = fadeEnd();
+          const rawProgress = (y - start) / Math.max(end - start, 1);
+          const fadeProgress = Math.max(0, Math.min(rawProgress, 1));
+          body.style.setProperty("--fold-fade", prefersReducedMotion ? "0" : fadeProgress.toFixed(3));
+
+          if (!isLight && fadeProgress > 0.84) {
             isLight = true;
-          } else if (isLight && y < exitThreshold()) {
+          } else if (isLight && fadeProgress < 0.62) {
             isLight = false;
           }
           body.classList.toggle("after-fold-light", isLight);
