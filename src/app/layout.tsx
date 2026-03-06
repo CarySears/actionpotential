@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeTransitionProvider } from "@/components/ThemeTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -176,7 +177,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+        <ThemeTransitionProvider>{children}</ThemeTransitionProvider>
       </body>
     </html>
   );

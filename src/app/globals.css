@@ -5,10 +5,13 @@
   --blue-bright: #2EA6D4;
   --teal-green: #00A79D;
   --blue-deep: #1B75BB;
+  --accent-coral: #ff8b66;
+  --accent-magenta: #d93aa4;
   --near-black: #231F20;
   --gradient-start: #79C5C7;
   --gradient-mid: #2EA6D4;
   --gradient-end: #1B75BB;
+  --fold-fade: 0;
 }
 
 * {
@@ -24,6 +27,69 @@ body {
   color: #e8f4f8;
   font-family: var(--font-geist-sans), 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  transition: color 0.6s ease;
+}
+
+/* Geometric grid pattern — cover-page style structure */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(121, 197, 199, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 197, 199, 0.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.theme-light::before {
+  opacity: 0.08;
+}
+
+/* Light mode overlay — reveals as user scrolls (wave transition zone), behind content */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: var(--fold-fade);
+  background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.12), transparent 40%),
+    radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.1), transparent 42%), #f4f8ff;
+  transition: opacity 0.5s ease;
+}
+
+/* Light mode — applied when scrolled past fold */
+body.theme-light {
+  color: #132742;
+}
+
+body.theme-light .glass-card,
+body.theme-light .glass-card-hover:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(241, 247, 255, 0.95));
+  border-color: rgba(27, 117, 187, 0.22);
+  box-shadow: 0 12px 24px rgba(17, 44, 78, 0.1);
+}
+
+body.theme-light .gradient-text {
+  background: linear-gradient(135deg, #1B75BB, #2EA6D4, #00A79D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Theme-aware: sections inherit body color; use data-theme-text for explicit overrides */
+body.theme-light [data-theme-text] {
+  color: #3c5777;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body::after {
+    transition: none;
+  }
 }
 
 .gradient-text {
