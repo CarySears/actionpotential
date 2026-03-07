@@ -207,6 +207,72 @@
         color: var(--text);
       }
 
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-item > a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.34rem;
+      }
+
+      .nav-item > a::after {
+        content: "";
+        width: 0.36rem;
+        height: 0.36rem;
+        border-right: 1.6px solid currentColor;
+        border-bottom: 1.6px solid currentColor;
+        transform: translateY(-1px) rotate(45deg);
+        opacity: 0.75;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        left: 0;
+        min-width: 210px;
+        padding: 0.42rem;
+        border-radius: 12px;
+        border: 1px solid rgba(121, 197, 199, 0.22);
+        background: rgba(8, 12, 20, 0.95);
+        box-shadow: 0 14px 30px rgba(4, 10, 24, 0.42);
+        display: grid;
+        gap: 0.26rem;
+        opacity: 0;
+        transform: translateY(6px);
+        pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        z-index: 70;
+      }
+
+      .dropdown-menu a {
+        border-radius: 8px;
+        padding: 0.5rem 0.62rem;
+        color: #d0def5;
+      }
+
+      .dropdown-menu a:hover {
+        background: rgba(121, 197, 199, 0.14);
+        color: #ffffff;
+      }
+
+      .nav-item:hover .dropdown-menu,
+      .nav-item:focus-within .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-left: 1rem;
+        padding-left: 1rem;
+        border-left: 1px solid rgba(121, 197, 199, 0.22);
+      }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -233,6 +299,22 @@
         background: linear-gradient(125deg, var(--brand-2), var(--brand-4) 55%, var(--accent-magenta));
         color: #fff;
         box-shadow: 0 10px 25px rgba(27, 117, 187, 0.35);
+      }
+
+      .btn-login {
+        border-color: rgba(121, 197, 199, 0.28);
+        color: #c9dcfa;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .btn-login:hover {
+        box-shadow: 0 8px 20px rgba(46, 166, 212, 0.2);
+      }
+
+      .profile-icon {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
       }
 
       .btn-secondary {
@@ -1088,6 +1170,31 @@
         color: #183f69;
       }
 
+      body.after-fold-light .dropdown-menu {
+        border-color: rgba(27, 117, 187, 0.2);
+        background: rgba(252, 255, 255, 0.96);
+        box-shadow: 0 10px 24px rgba(16, 42, 74, 0.14);
+      }
+
+      body.after-fold-light .dropdown-menu a {
+        color: #2d4f72;
+      }
+
+      body.after-fold-light .dropdown-menu a:hover {
+        background: rgba(27, 117, 187, 0.12);
+        color: #14395e;
+      }
+
+      body.after-fold-light .nav-actions {
+        border-left-color: rgba(27, 117, 187, 0.25);
+      }
+
+      body.after-fold-light .btn-login {
+        border-color: rgba(27, 117, 187, 0.34);
+        color: #214b73;
+        background: rgba(255, 255, 255, 0.82);
+      }
+
       body.after-fold-light .hero .eyebrow {
         color: #174f87;
       }
@@ -1323,8 +1430,13 @@
           /* Reserve space so fixed CTA never covers content */
           padding-bottom: calc(90px + env(safe-area-inset-bottom));
         }
-        .nav-links a:not(.btn) {
+        .nav-links {
           display: none;
+        }
+        .nav-actions {
+          margin-left: auto;
+          padding-left: 0;
+          border-left: 0;
         }
         .neural-overlay {
           opacity: 0.55;
@@ -1373,7 +1485,7 @@
         .nav {
           min-height: 68px;
         }
-        .nav-links .btn {
+        .nav-actions .btn {
           padding: 0.66rem 0.9rem;
           font-size: 0.9rem;
         }
@@ -1481,13 +1593,35 @@
           <strong>ActionPotential.AI</strong>
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="/services/">Services</a>
-          <a href="/locations/">Locations</a>
-          <a href="#approach">Approach</a>
-          <a href="#founder">Founder</a>
-          <a href="#faq">FAQ</a>
-          <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book Free AI Audit</a>
+          <a href="/solutions/">Solutions</a>
+          <div class="nav-item">
+            <a href="/who-we-empower/">Who We Empower</a>
+            <div class="dropdown-menu" role="menu" aria-label="Who We Empower">
+              <a role="menuitem" href="/who-we-empower/industries/">Industries</a>
+              <a role="menuitem" href="/who-we-empower/locations/">Locations</a>
+            </div>
+          </div>
+          <a href="/results/">Results</a>
+          <a href="/who-we-are/">Who We Are</a>
+          <div class="nav-item">
+            <a href="/resources/">Resources</a>
+            <div class="dropdown-menu" role="menu" aria-label="Resources">
+              <a role="menuitem" href="/resources/faq/">FAQs</a>
+              <a role="menuitem" href="/resources/blog/">Blog</a>
+              <a role="menuitem" href="/resources/case-studies/">Case Studies</a>
+            </div>
+          </div>
         </nav>
+        <div class="nav-actions">
+          <a class="btn btn-login" href="https://app.actionpotential.ai/agency_dashboard">
+            <svg class="profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 20c1.8-3.2 4.6-4.8 8-4.8S18.2 16.8 20 20"></path>
+            </svg>
+            <span>Login</span>
+          </a>
+          <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book Free AI Audit</a>
+        </div>
       </div>
     </header>
 
@@ -1971,7 +2105,7 @@
               <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm"
                 >Claim My Free Audit</a
               >
-              <a class="btn btn-secondary" href="/services/">Explore Services</a>
+              <a class="btn btn-secondary" href="/solutions/">Explore Solutions</a>
             </div>
             <div class="pill-row">
               <span class="pill">No long-term contracts</span>
@@ -2055,9 +2189,9 @@
           </span>
         </div>
         <div class="footer-links">
-          <a href="/services/">Services</a>
+          <a href="/solutions/">Solutions</a>
           <span>·</span>
-          <a href="/locations/">Locations</a>
+          <a href="/who-we-empower/locations/">Locations</a>
           <span>·</span>
           <a href="mailto:hello@actionpotential.ai">hello@actionpotential.ai</a>
         </div>
