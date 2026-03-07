@@ -456,6 +456,8 @@
         gap: 0.34em;
         width: max-content;
         max-width: 100%;
+        white-space: nowrap;
+        font-size: clamp(1.72rem, 4.25vw, 3.35rem);
       }
 
       .hero-tagline .tagline-static {
@@ -1113,13 +1115,13 @@
 
       @media (max-width: 720px) {
         .hero-tagline {
-          flex-wrap: wrap;
-          row-gap: 0.08em;
+          gap: 0.26em;
+          font-size: clamp(1.38rem, 7.2vw, 2.04rem);
         }
         .hero-tagline-apulse {
-          width: clamp(74px, 16vw, 118px);
-          height: 22px;
-          margin-bottom: 0.06em;
+          width: clamp(62px, 14vw, 98px);
+          height: 19px;
+          margin-bottom: 0.08em;
         }
         .brand-geo-motif-right {
           opacity: 0.42;
