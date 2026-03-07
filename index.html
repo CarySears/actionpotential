@@ -43,8 +43,8 @@
         --brand-3: #00a79d;
         --brand-4: #1b75bb;
         --ink: #231f20;
-        --accent-coral: #00a79d;
-        --accent-magenta: #1b75bb;
+        --accent-coral: #ff8b66;
+        --accent-magenta: #d93aa4;
         --bg: #05070c;
         --bg-soft: #0d1322;
         --surface: #121b2f;
@@ -92,8 +92,8 @@
         inset: 0;
         pointer-events: none;
         z-index: -1;
-        background: radial-gradient(circle at 70% 20%, rgba(46, 166, 212, 0.1), transparent 26%),
-          radial-gradient(circle at 18% 72%, rgba(0, 167, 157, 0.11), transparent 28%);
+        background: radial-gradient(circle at 70% 20%, rgba(217, 58, 164, 0.08), transparent 26%),
+          radial-gradient(circle at 18% 72%, rgba(255, 139, 102, 0.09), transparent 28%);
         transition: opacity 0.9s ease;
       }
 
@@ -152,8 +152,13 @@
       }
 
       .wave-layer-c {
-        fill: var(--brand-3);
+        fill: var(--accent-magenta);
         opacity: 0.56;
+      }
+
+      .wave-layer-d {
+        fill: var(--brand-3);
+        opacity: 0.34;
       }
 
       .brand-geo {
@@ -169,9 +174,9 @@
         clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
         background: linear-gradient(
           130deg,
-          rgba(121, 197, 199, 0.74),
-          rgba(46, 166, 212, 0.72),
-          rgba(27, 117, 187, 0.72)
+          rgba(255, 139, 102, 0.56),
+          rgba(217, 58, 164, 0.52),
+          rgba(27, 117, 187, 0.5)
         );
         transform: translate3d(calc((1 - var(--fold-fade, 0)) * 18vw), calc((1 - var(--fold-fade, 0)) * 6vh), 0)
           rotate(calc((1 - var(--fold-fade, 0)) * 4deg));
@@ -232,7 +237,7 @@
       }
 
       .neural-line.is-active {
-        stroke: rgba(0, 167, 157, 0.7);
+        stroke: rgba(217, 58, 164, 0.62);
       }
 
       .neural-node {
@@ -240,7 +245,7 @@
       }
 
       .neural-node.is-hot {
-        fill: rgba(0, 167, 157, 0.95);
+        fill: rgba(255, 139, 102, 0.92);
       }
 
       a {
@@ -342,7 +347,7 @@
       }
 
       .btn-primary {
-        background: linear-gradient(125deg, var(--brand-2), var(--brand-4) 55%, var(--brand-3));
+        background: linear-gradient(125deg, var(--accent-coral), var(--accent-magenta) 54%, var(--brand-4));
         color: #fff;
         box-shadow: 0 10px 25px rgba(27, 117, 187, 0.35);
       }
@@ -581,7 +586,7 @@
       }
 
       .problem li::marker {
-        color: var(--brand-3);
+        color: var(--accent-coral);
       }
 
       .split {
@@ -1075,6 +1080,10 @@
         <path
           class="wave-layer-b"
           d="M0,287 C178,251 338,361 532,334 C719,307 835,223 1025,256 C1200,288 1317,378 1440,352 L1440,520 L0,520 Z"
+        />
+        <path
+          class="wave-layer-d"
+          d="M0,272 C176,232 332,338 522,312 C705,287 846,210 1032,240 C1212,269 1328,350 1440,326 L1440,520 L0,520 Z"
         />
         <path
           class="wave-layer-c"
