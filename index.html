@@ -97,15 +97,106 @@
         transition: opacity 0.9s ease;
       }
 
-      #fold-theme-fade {
-        position: fixed;
+      .brand-divider {
+        --divider-progress: 0;
+        position: relative;
+        height: clamp(110px, 14vh, 170px);
+        margin: 0;
+        overflow: hidden;
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+        border-bottom: 1px solid rgba(27, 117, 187, 0.24);
+        background: linear-gradient(
+          to bottom,
+          rgba(7, 11, 18, 0.98) 0%,
+          rgba(10, 16, 27, 0.96) 44%,
+          rgba(246, 250, 255, 0.96) 56%,
+          rgba(252, 254, 255, 1) 100%
+        );
+      }
+
+      .brand-divider::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(121, 197, 199, 0.11) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(46, 166, 212, 0.11) 1px, transparent 1px);
+        background-size: 66px 66px;
+        opacity: 0.09;
+        pointer-events: none;
+      }
+
+      .brand-divider-geo {
+        position: absolute;
+        border-radius: 22px;
+        opacity: calc(0.08 + var(--divider-progress) * 0.18);
+        transition: transform 220ms linear, opacity 220ms linear;
+      }
+
+      .brand-divider-geo-right {
+        right: -4%;
+        top: 12%;
+        width: min(30vw, 290px);
+        height: 66%;
+        clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 84%);
+        background: linear-gradient(132deg, #FF8B66 0%, #D93AA4 56%, #1B75BB 100%);
+        transform: translate3d(calc((1 - var(--divider-progress)) * 9%), calc((1 - var(--divider-progress)) * 8%), 0);
+      }
+
+      .brand-divider-geo-left {
+        left: -7%;
+        bottom: -26%;
+        width: min(24vw, 250px);
+        height: 70%;
+        clip-path: polygon(0 36%, 78% 0, 100% 100%, 0 100%);
+        background: linear-gradient(135deg, #2EA6D4 0%, #79C5C7 100%);
+        transform: translate3d(calc((1 - var(--divider-progress)) * -8%), calc((1 - var(--divider-progress)) * 9%), 0);
+      }
+
+      .brand-divider-wave {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        bottom: -20%;
+        pointer-events: none;
+        transition: transform 220ms linear;
+      }
+
+      .brand-divider-wave-back {
+        transform: translateY(calc((1 - var(--divider-progress)) * 14%));
+      }
+
+      .brand-divider-wave-front {
+        transform: translateY(calc((1 - var(--divider-progress)) * 7%));
+      }
+
+      .divider-wave-a { fill: #79C5C7; opacity: 0.85; }
+      .divider-wave-b { fill: #2EA6D4; opacity: 0.8; }
+      .divider-wave-c { fill: #1B75BB; opacity: 0.68; }
+      .divider-wave-d { fill: #D93AA4; opacity: 0.58; }
+
+      .brand-divider-signal {
+        position: absolute;
         inset: 0;
         pointer-events: none;
-        z-index: -3;
-        opacity: var(--fold-fade, 0);
-        background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.16), transparent 40%),
-          radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.12), transparent 42%), #f4f8ff;
-        transition: opacity 0.85s ease;
+        opacity: calc(0.2 + var(--divider-progress) * 0.52);
+        transition: opacity 220ms linear;
+      }
+
+      .divider-signal-glow {
+        stroke: rgba(121, 197, 199, 0.42);
+        stroke-width: 7.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .divider-signal-core {
+        stroke: url(#dividerSignalGradient);
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
       }
 
       .neural-overlay {
@@ -648,7 +739,6 @@
       }
 
       body {
-        --fold-fade: 0;
         transition: color 0.8s ease;
       }
 
@@ -746,7 +836,9 @@
         }
         .btn,
         .neural-line,
-        #fold-theme-fade,
+        .brand-divider-geo,
+        .brand-divider-wave,
+        .brand-divider-signal,
         body,
         body::before,
         body::after,
@@ -762,6 +854,9 @@
       }
 
       @media (max-width: 1024px) {
+        .brand-divider {
+          height: clamp(98px, 12vh, 140px);
+        }
         .hero-grid,
         .split {
           grid-template-columns: 1fr;
@@ -780,6 +875,9 @@
       }
 
       @media (max-width: 720px) {
+        .brand-divider {
+          height: clamp(90px, 11vh, 120px);
+        }
         body {
           /* Reserve space so fixed CTA never covers content */
           padding-bottom: calc(90px + env(safe-area-inset-bottom));
@@ -922,7 +1020,6 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <div id="fold-theme-fade" aria-hidden="true"></div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
@@ -989,6 +1086,53 @@
             </ol>
           </aside>
         </div>
+      </section>
+
+      <section class="brand-divider" id="brand-divider" aria-hidden="true">
+        <div class="brand-divider-geo brand-divider-geo-right"></div>
+        <div class="brand-divider-geo brand-divider-geo-left"></div>
+
+        <svg class="brand-divider-signal" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="dividerSignalGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#79C5C7" />
+              <stop offset="0.24" stop-color="#2EA6D4" />
+              <stop offset="0.52" stop-color="#FF8B66" />
+              <stop offset="0.74" stop-color="#D93AA4" />
+              <stop offset="1" stop-color="#1B75BB" />
+            </linearGradient>
+          </defs>
+          <path
+            class="divider-signal-glow"
+            d="M-20,286 C100,286 166,286 244,286 L304,286 L338,220 L366,326 L396,342 L430,286 L520,286 L556,174 L586,312 L616,330 L650,286 L760,286 L796,230 L824,308 L852,322 L884,286 L1460,286"
+          />
+          <path
+            class="divider-signal-core"
+            d="M-20,286 C100,286 166,286 244,286 L304,286 L338,220 L366,326 L396,342 L430,286 L520,286 L556,174 L586,312 L616,330 L650,286 L760,286 L796,230 L824,308 L852,322 L884,286 L1460,286"
+          />
+        </svg>
+
+        <svg class="brand-divider-wave brand-divider-wave-back" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <path
+            class="divider-wave-a"
+            d="M0,354 C174,320 302,382 472,348 C556,330 604,266 672,260 C738,254 780,308 868,328 C992,354 1132,336 1278,366 C1352,382 1404,400 1440,416 L1440,520 L0,520 Z"
+          />
+          <path
+            class="divider-wave-b"
+            d="M0,320 C168,282 296,350 468,312 C548,292 594,212 664,206 C730,200 772,270 862,290 C986,318 1130,296 1276,328 C1350,344 1402,364 1440,380 L1440,520 L0,520 Z"
+          />
+        </svg>
+
+        <svg class="brand-divider-wave brand-divider-wave-front" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <path
+            class="divider-wave-d"
+            d="M0,298 C160,258 290,328 450,284 C528,262 574,168 646,160 C710,152 754,250 846,270 C968,298 1118,268 1272,302 C1348,320 1404,340 1440,358 L1440,520 L0,520 Z"
+          />
+          <path
+            class="divider-wave-c"
+            d="M0,276 C158,232 286,304 448,256 C524,234 566,140 638,134 C704,126 748,232 842,254 C968,282 1118,250 1276,286 C1352,304 1408,326 1440,344 L1440,520 L0,520 Z"
+          />
+        </svg>
       </section>
 
       <section class="section problem">
@@ -1469,26 +1613,34 @@
       (function () {
         const body = document.body;
         const logo = document.querySelector(".logo-mark");
-        if (!body || !logo) return;
+        const divider = document.getElementById("brand-divider");
+        if (!body || !logo || !divider) return;
 
         const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
         const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let isLight = false;
-        const fadeStart = () => window.innerHeight * 0.58;
-        const fadeEnd = () => window.innerHeight * 1.22;
+
+        const getDividerProgress = () => {
+          const rect = divider.getBoundingClientRect();
+          const viewportHeight = window.innerHeight || 1;
+          const start = viewportHeight * 0.92;
+          const end = -rect.height * 0.15;
+          const raw = (start - rect.top) / Math.max(start - end, 1);
+          return Math.max(0, Math.min(raw, 1));
+        };
 
         const updateTheme = () => {
-          const y = window.scrollY;
-          const start = fadeStart();
-          const end = fadeEnd();
-          const rawProgress = (y - start) / Math.max(end - start, 1);
-          const fadeProgress = Math.max(0, Math.min(rawProgress, 1));
-          body.style.setProperty("--fold-fade", prefersReducedMotion ? "0" : fadeProgress.toFixed(3));
+          const progress = prefersReducedMotion
+            ? window.scrollY + (window.innerHeight || 1) * 0.38 >= divider.offsetTop + divider.offsetHeight * 0.5
+              ? 1
+              : 0
+            : getDividerProgress();
+          divider.style.setProperty("--divider-progress", progress.toFixed(3));
 
-          if (!isLight && fadeProgress > 0.84) {
+          if (!isLight && progress > 0.58) {
             isLight = true;
-          } else if (isLight && fadeProgress < 0.62) {
+          } else if (isLight && progress < 0.38) {
             isLight = false;
           }
           body.classList.toggle("after-fold-light", isLight);
