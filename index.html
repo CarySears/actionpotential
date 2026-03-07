@@ -455,8 +455,52 @@
         max-width: 18ch;
       }
 
+      .hero-tagline {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: max-content;
+        max-width: 100%;
+        gap: 0.02em;
+      }
+
+      .hero-tagline-line {
+        display: block;
+        line-height: 1.04;
+      }
+
       .hero-tagline .tagline-static {
         color: #ffffff;
+      }
+
+      .hero-tagline-zpulse {
+        width: 100%;
+        max-width: 13.8ch;
+        height: clamp(18px, 2.5vw, 30px);
+        overflow: visible;
+      }
+
+      .hero-tagline-z-glow {
+        stroke: rgba(121, 197, 199, 0.42);
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .hero-tagline-z-track {
+        stroke: url(#heroZGradient);
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        stroke-dasharray: 7 6;
+        animation: hero-z-track 2.8s ease-in-out infinite;
+      }
+
+      .hero-tagline-z-dot {
+        fill: url(#heroZDotGradient);
+        filter: drop-shadow(0 0 8px rgba(217, 58, 164, 0.45));
       }
 
       .footer-tagline {
@@ -556,6 +600,21 @@
         100% {
           left: 100%;
           box-shadow: 0 0 0 rgba(27, 117, 187, 0.15);
+        }
+      }
+
+      @keyframes hero-z-track {
+        0% {
+          stroke-dashoffset: 0;
+          opacity: 0.58;
+        }
+        50% {
+          stroke-dashoffset: -24;
+          opacity: 0.95;
+        }
+        100% {
+          stroke-dashoffset: -44;
+          opacity: 0.58;
         }
       }
 
@@ -985,6 +1044,14 @@
         .tagline-pulse::after {
           animation: none;
         }
+        .hero-tagline-z-track {
+          animation: none;
+          stroke-dasharray: none;
+          opacity: 0.8;
+        }
+        .hero-tagline-z-dot {
+          display: none;
+        }
         .btn,
         .neural-line,
         body,
@@ -1245,9 +1312,31 @@
           <div class="hero-copy">
             <span class="eyebrow">Behavioral AI Growth Systems</span>
             <h1 class="hero-tagline">
-              <span class="tagline-static">From potential...</span>
-              <span class="tagline-pulse" aria-hidden="true"></span>
-              <span class="tagline-animated">to action.</span>
+              <span class="hero-tagline-line"><span class="tagline-static">From potential...</span></span>
+              <svg class="hero-tagline-zpulse" viewBox="0 0 140 34" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#79C5C7" />
+                    <stop offset="0.25" stop-color="#2EA6D4" />
+                    <stop offset="0.55" stop-color="#00A79D" />
+                    <stop offset="0.78" stop-color="#FF8B66" />
+                    <stop offset="0.92" stop-color="#D93AA4" />
+                    <stop offset="1" stop-color="#1B75BB" />
+                  </linearGradient>
+                  <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
+                    <stop offset="0" stop-color="#FFFFFF" />
+                    <stop offset="0.38" stop-color="#FF8B66" />
+                    <stop offset="0.72" stop-color="#D93AA4" />
+                    <stop offset="1" stop-color="#1B75BB" />
+                  </radialGradient>
+                </defs>
+                <path class="hero-tagline-z-glow" d="M134 6 H88 L30 28 H6" />
+                <path class="hero-tagline-z-track" d="M134 6 H88 L30 28 H6" />
+                <circle class="hero-tagline-z-dot" r="3.2">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M134 6 H88 L30 28 H6" />
+                </circle>
+              </svg>
+              <span class="hero-tagline-line"><span class="tagline-animated">to action.</span></span>
             </h1>
             <p>
               ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
