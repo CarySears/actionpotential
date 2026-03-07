@@ -246,7 +246,7 @@
         overflow: clip;
       }
 
-      .with-brand-motifs > section {
+      .with-brand-motifs > *:not(.brand-motifs) {
         position: relative;
         z-index: 1;
       }
@@ -284,6 +284,26 @@
         opacity: 0.52;
       }
 
+      .brand-geo-motif-mid-right {
+        right: -8vw;
+        top: 18%;
+        width: min(26vw, 300px);
+        height: min(30vh, 240px);
+        clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
+        background: linear-gradient(132deg, rgba(46, 166, 212, 0.34) 0%, rgba(27, 117, 187, 0.32) 100%);
+        opacity: 0.44;
+      }
+
+      .brand-geo-motif-mid-left {
+        left: -9vw;
+        top: 46%;
+        width: min(22vw, 260px);
+        height: min(24vh, 200px);
+        clip-path: polygon(0 36%, 78% 0, 100% 100%, 0 100%);
+        background: linear-gradient(135deg, rgba(255, 139, 102, 0.28), rgba(217, 58, 164, 0.26));
+        opacity: 0.4;
+      }
+
       .brand-dots-motif {
         position: absolute;
         left: 2%;
@@ -295,10 +315,20 @@
         background-size: 14px 14px;
       }
 
+      .brand-dots-motif-right {
+        left: auto;
+        right: -70px;
+        top: 62%;
+        width: 250px;
+        height: 250px;
+        opacity: 0.16;
+        background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.9) 1.6px, transparent 2.2px);
+      }
+
       .brand-wave-divider {
         position: relative;
         height: clamp(118px, 15vh, 182px);
-        margin: 0 0 0.65rem;
+        margin: 0.95rem 0 0;
         overflow: hidden;
         pointer-events: none;
         border-top: 1px solid rgba(121, 197, 199, 0.2);
@@ -710,7 +740,7 @@
       }
 
       .footer {
-        margin-top: 3.3rem;
+        margin-top: 1.2rem;
         border-top: 1px solid rgba(121, 197, 199, 0.18);
         padding: 1.4rem 0 2rem;
         color: #c0cce4;
@@ -872,6 +902,15 @@
           width: 210px;
           height: 210px;
         }
+        .brand-geo-motif-mid-right,
+        .brand-geo-motif-mid-left {
+          opacity: 0.3;
+        }
+        .brand-dots-motif-right {
+          width: 190px;
+          height: 190px;
+          right: -60px;
+        }
         .hero-grid,
         .split {
           grid-template-columns: 1fr;
@@ -899,9 +938,14 @@
         .brand-dots-motif {
           display: none;
         }
+        .brand-geo-motif-mid-right,
+        .brand-geo-motif-mid-left,
+        .brand-dots-motif-right {
+          display: none;
+        }
         .brand-wave-divider {
           height: clamp(98px, 12vh, 136px);
-          margin-bottom: 0.35rem;
+          margin-top: 0.6rem;
         }
         body {
           /* Reserve space so fixed CTA never covers content */
@@ -1079,7 +1123,10 @@
       <div class="brand-motifs" aria-hidden="true">
         <div class="brand-geo-motif brand-geo-motif-right"></div>
         <div class="brand-geo-motif brand-geo-motif-left"></div>
+        <div class="brand-geo-motif brand-geo-motif-mid-right"></div>
+        <div class="brand-geo-motif brand-geo-motif-mid-left"></div>
         <div class="brand-dots-motif"></div>
+        <div class="brand-dots-motif brand-dots-motif-right"></div>
       </div>
       <section class="hero container" id="top">
         <div class="hero-grid">
@@ -1117,35 +1164,6 @@
           </aside>
         </div>
       </section>
-
-      <div class="brand-wave-divider brand-wave-divider-base" aria-hidden="true">
-        <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
-          <path
-            class="brand-wave-teal"
-            d="M0,316 C178,266 312,364 508,344 C704,324 848,248 1044,274 C1218,296 1332,388 1440,366 L1440,520 L0,520 Z"
-          />
-          <path
-            class="brand-wave-coral"
-            d="M0,344 C164,300 306,380 500,360 C696,338 836,266 1024,288 C1208,312 1324,402 1440,384 L1440,520 L0,520 Z"
-          />
-          <path
-            class="brand-wave-cyan"
-            d="M0,372 C182,330 314,402 516,380 C710,358 844,292 1034,314 C1218,338 1332,420 1440,404 L1440,520 L0,520 Z"
-          />
-          <path
-            class="brand-wave-magenta"
-            d="M0,362 C176,320 312,396 512,372 C704,350 840,286 1030,304 C1214,326 1330,408 1440,392 L1440,520 L0,520 Z"
-          />
-          <path
-            class="brand-wave-deep"
-            d="M0,350 C172,308 304,386 500,364 C690,344 828,282 1018,298 C1208,316 1328,396 1440,378 L1440,520 L0,520 Z"
-          />
-          <path
-            class="brand-wave-blue"
-            d="M0,390 C186,350 320,418 528,394 C718,372 848,312 1036,330 C1218,350 1334,426 1440,412 L1440,520 L0,520 Z"
-          />
-        </svg>
-      </div>
 
       <section class="section problem">
         <div class="container split">
@@ -1508,6 +1526,35 @@
           </div>
         </div>
       </section>
+
+      <div class="brand-wave-divider brand-wave-divider-base" aria-hidden="true">
+        <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <path
+            class="brand-wave-teal"
+            d="M0,316 C178,266 312,364 508,344 C704,324 848,248 1044,274 C1218,296 1332,388 1440,366 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-coral"
+            d="M0,344 C164,300 306,380 500,360 C696,338 836,266 1024,288 C1208,312 1324,402 1440,384 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-cyan"
+            d="M0,372 C182,330 314,402 516,380 C710,358 844,292 1034,314 C1218,338 1332,420 1440,404 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-magenta"
+            d="M0,362 C176,320 312,396 512,372 C704,350 840,286 1030,304 C1214,326 1330,408 1440,392 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-deep"
+            d="M0,350 C172,308 304,386 500,364 C690,344 828,282 1018,298 C1208,316 1328,396 1440,378 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-blue"
+            d="M0,390 C186,350 320,418 528,394 C718,372 848,312 1036,330 C1218,350 1334,426 1440,412 L1440,520 L0,520 Z"
+          />
+        </svg>
+      </div>
     </main>
 
     <footer class="footer">
