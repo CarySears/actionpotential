@@ -385,6 +385,7 @@
         position: relative;
         padding-top: 0.7rem;
         max-width: min(760px, 100%);
+        margin-inline: auto;
       }
 
       .hero-copy::before {
@@ -404,6 +405,22 @@
       .hero-copy > * {
         position: relative;
         z-index: 1;
+      }
+
+      .hero-focus {
+        text-align: center;
+      }
+
+      .hero-focus .eyebrow {
+        margin-inline: auto;
+      }
+
+      .hero-focus p {
+        margin-inline: auto;
+      }
+
+      .hero-focus .cta-group {
+        justify-content: center;
       }
 
       .eyebrow {
@@ -1327,54 +1344,56 @@
       </div>
       <section class="hero container" id="top">
         <div class="hero-copy">
-          <span class="eyebrow">Behavioral AI Growth Systems</span>
-          <h1 class="hero-tagline">
-            <span class="tagline-static">From potential...</span>
-            <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#79C5C7" />
-                  <stop offset="0.25" stop-color="#2EA6D4" />
-                  <stop offset="0.55" stop-color="#00A79D" />
-                  <stop offset="0.78" stop-color="#FF8B66" />
-                  <stop offset="0.92" stop-color="#D93AA4" />
-                  <stop offset="1" stop-color="#1B75BB" />
-                </linearGradient>
-                <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
-                  <stop offset="0" stop-color="#FFFFFF" />
-                  <stop offset="0.38" stop-color="#FF8B66" />
-                  <stop offset="0.72" stop-color="#D93AA4" />
-                  <stop offset="1" stop-color="#1B75BB" />
-                </radialGradient>
-              </defs>
-              <line class="hero-tagline-ap-guide" x1="2" y1="24" x2="218" y2="24" />
-              <line class="hero-tagline-ap-guide" x1="2" y1="9" x2="218" y2="9" />
-              <path
-                class="hero-tagline-ap-glow"
-                d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-              />
-              <path
-                class="hero-tagline-ap-track"
-                d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-              />
-              <circle class="hero-tagline-ap-dot" r="3.2">
-                <animateMotion
-                  dur="2.65s"
-                  repeatCount="indefinite"
-                  path="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+          <div class="hero-focus">
+            <span class="eyebrow">Behavioral AI Growth Systems</span>
+            <h1 class="hero-tagline">
+              <span class="tagline-static">From potential...</span>
+              <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#79C5C7" />
+                    <stop offset="0.25" stop-color="#2EA6D4" />
+                    <stop offset="0.55" stop-color="#00A79D" />
+                    <stop offset="0.78" stop-color="#FF8B66" />
+                    <stop offset="0.92" stop-color="#D93AA4" />
+                    <stop offset="1" stop-color="#1B75BB" />
+                  </linearGradient>
+                  <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
+                    <stop offset="0" stop-color="#FFFFFF" />
+                    <stop offset="0.38" stop-color="#FF8B66" />
+                    <stop offset="0.72" stop-color="#D93AA4" />
+                    <stop offset="1" stop-color="#1B75BB" />
+                  </radialGradient>
+                </defs>
+                <line class="hero-tagline-ap-guide" x1="2" y1="24" x2="218" y2="24" />
+                <line class="hero-tagline-ap-guide" x1="2" y1="9" x2="218" y2="9" />
+                <path
+                  class="hero-tagline-ap-glow"
+                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
                 />
-              </circle>
-            </svg>
-            <span class="tagline-animated">to action.</span>
-          </h1>
-          <p>
-            ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
-            operations through human-centered AI. We do not just deliver leads. We build the full system that turns
-            intent into revenue.
-          </p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Schedule Free AI Audit & Strategy Session</a>
-            <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine™</a>
+                <path
+                  class="hero-tagline-ap-track"
+                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+                />
+                <circle class="hero-tagline-ap-dot" r="3.2">
+                  <animateMotion
+                    dur="2.65s"
+                    repeatCount="indefinite"
+                    path="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+                  />
+                </circle>
+              </svg>
+              <span class="tagline-animated">to action.</span>
+            </h1>
+            <p>
+              ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
+              operations through human-centered AI. We do not just deliver leads. We build the full system that turns
+              intent into revenue.
+            </p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Schedule Free AI Audit & Strategy Session</a>
+              <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine™</a>
+            </div>
           </div>
           <p class="micro-proof">
             Built for service businesses who need <span>faster speed-to-lead</span>, <span>smarter follow-up</span>,
