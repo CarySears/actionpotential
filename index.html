@@ -1667,27 +1667,27 @@
     <script>
       (function () {
         const body = document.body;
-        const transitionZone = document.getElementById("brand-wave-transition");
-        if (!body || !transitionZone) return;
         const logo = document.querySelector(".logo-mark");
+        const transitionZone = document.getElementById("brand-wave-transition");
+        if (!body || !logo || !transitionZone) return;
 
-        const darkLogo = logo ? logo.getAttribute("data-dark-logo") || logo.getAttribute("src") : null;
-        const lightLogo = logo ? logo.getAttribute("data-light-logo") || darkLogo : null;
+        const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
+        const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let isLight = false;
 
         const getWaveProgress = () => {
-          const zoneTop = transitionZone.offsetTop;
-          const zoneHeight = Math.max(transitionZone.offsetHeight, 1);
-          const leadIn = (window.innerHeight || 1) * 0.28;
-          const y = window.scrollY + leadIn;
-          const rawProgress = (y - zoneTop) / zoneHeight;
+          const rect = transitionZone.getBoundingClientRect();
+          const viewportHeight = window.innerHeight || 1;
+          const start = viewportHeight * 0.92;
+          const end = -rect.height * 0.35;
+          const rawProgress = (start - rect.top) / Math.max(start - end, 1);
           return Math.max(0, Math.min(rawProgress, 1));
         };
 
         const updateTheme = () => {
           const fadeProgress = prefersReducedMotion
-            ? window.scrollY + (window.innerHeight || 1) * 0.35 >= transitionZone.offsetTop
+            ? window.scrollY >= transitionZone.offsetTop
               ? 1
               : 0
             : getWaveProgress();
@@ -1695,17 +1695,15 @@
           body.style.setProperty("--fold-fade", progressValue);
           transitionZone.style.setProperty("--wave-progress", progressValue);
 
-          if (!isLight && fadeProgress > 0.58) {
+          if (!isLight && fadeProgress > 0.64) {
             isLight = true;
-          } else if (isLight && fadeProgress < 0.36) {
+          } else if (isLight && fadeProgress < 0.42) {
             isLight = false;
           }
           body.classList.toggle("after-fold-light", isLight);
-          if (logo && darkLogo && lightLogo) {
-            const desiredLogo = isLight ? lightLogo : darkLogo;
-            if (logo.getAttribute("src") !== desiredLogo) {
-              logo.setAttribute("src", desiredLogo);
-            }
+          const desiredLogo = isLight ? lightLogo : darkLogo;
+          if (logo.getAttribute("src") !== desiredLogo) {
+            logo.setAttribute("src", desiredLogo);
           }
         };
 
