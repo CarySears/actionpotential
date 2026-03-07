@@ -97,149 +97,109 @@
         transition: opacity 0.9s ease;
       }
 
-      #fold-theme-fade {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -3;
-        opacity: var(--fold-fade, 0);
-        background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.16), transparent 40%),
-          radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.12), transparent 42%), #f4f8ff;
-        transition: opacity 0.85s ease;
+      .theme-wave-divider {
+        --divider-progress: 0;
+        position: relative;
+        height: clamp(170px, 26vh, 250px);
+        margin: 0 0 0.35rem;
+        overflow: hidden;
+        isolation: isolate;
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+        border-bottom: 1px solid rgba(27, 117, 187, 0.2);
+        background: linear-gradient(
+          to bottom,
+          rgba(8, 13, 22, 0.98) 0%,
+          rgba(10, 17, 30, 0.96) 46%,
+          rgba(242, 248, 255, 0.96) 54%,
+          rgba(250, 252, 255, 1) 100%
+        );
       }
 
-      #brand-transition-overlay {
-        position: fixed;
+      .theme-wave-divider::before {
+        content: "";
+        position: absolute;
         inset: 0;
-        pointer-events: none;
-        z-index: -2;
-        opacity: clamp(0, calc(var(--fold-fade, 0) * 0.78), 0.78);
-        transition: opacity 0.22s linear;
+        background-image: linear-gradient(rgba(121, 197, 199, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(46, 166, 212, 0.12) 1px, transparent 1px);
+        background-size: 58px 58px;
+        opacity: 0.14;
       }
 
-      .brand-wave-stack {
+      .theme-wave-divider svg {
         position: absolute;
         left: 0;
-        right: 0;
-        bottom: -18vh;
         width: 100%;
-        height: 50vh;
-        transform: translateY(calc((1 - var(--fold-fade, 0)) * 42vh));
-        transition: transform 0.76s cubic-bezier(0.2, 0.8, 0.2, 1);
-        filter: drop-shadow(0 -14px 36px rgba(12, 27, 50, 0.18));
+        height: 100%;
+        pointer-events: none;
       }
 
-      .brand-ap-signal {
+      .theme-divider-geo {
         position: absolute;
-        left: -6%;
-        width: 112%;
-        height: 22vh;
-        bottom: 14vh;
-        opacity: calc(var(--fold-fade, 0) * 0.9);
-        transform: translate3d(calc((1 - var(--fold-fade, 0)) * 9vw), calc((1 - var(--fold-fade, 0)) * 7vh), 0);
-        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.28s linear;
-        filter: drop-shadow(0 0 12px rgba(46, 166, 212, 0.24));
+        border-radius: 30px;
+        transition: transform 180ms linear, opacity 180ms linear;
       }
 
-      .ap-signal-core {
-        stroke: url(#apSignalGradient);
-        stroke-width: 4.6;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        fill: none;
+      .theme-divider-geo-right {
+        right: -8%;
+        top: 18%;
+        width: min(34vw, 380px);
+        height: 58%;
+        clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0 84%);
+        background: linear-gradient(130deg, #FF8B66 0%, #D93AA4 56%, #1B75BB 100%);
+        opacity: 0.28;
+        transform: translate3d(calc((1 - var(--divider-progress)) * 8%), calc((1 - var(--divider-progress)) * 10%), 0);
       }
 
-      .ap-signal-echo {
-        stroke: #79C5C7;
-        stroke-width: 8.2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        fill: none;
-        opacity: 0.5;
-      }
-
-      .brand-wave-top {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -7vh;
-        width: 100%;
-        height: 24vh;
-        transform: translateY(calc((1 - var(--fold-fade, 0)) * -14vh));
-        transition: transform 0.78s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s linear;
-        opacity: 0.42;
-      }
-
-      .wave-layer-a {
-        fill: var(--brand-1);
-        opacity: 0.94;
-      }
-
-      .wave-layer-b {
-        fill: var(--brand-2);
-        opacity: 0.9;
-      }
-
-      .wave-layer-c {
-        fill: var(--accent-magenta);
-        opacity: 0.86;
-      }
-
-      .wave-layer-d {
-        fill: var(--brand-3);
-        opacity: 0.78;
-      }
-
-      .brand-geo {
-        position: absolute;
-        border-radius: 40px;
-      }
-
-      .brand-geo-right {
-        right: -12vw;
-        top: 32vh;
-        width: min(50vw, 620px);
-        height: min(62vh, 620px);
-        clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
-        background: linear-gradient(130deg, #FF8B66 0%, #D93AA4 50%, #1B75BB 100%);
-        transform: translate3d(calc((1 - var(--fold-fade, 0)) * 18vw), calc((1 - var(--fold-fade, 0)) * 6vh), 0)
-          rotate(calc((1 - var(--fold-fade, 0)) * 4deg));
-        opacity: calc(var(--fold-fade, 0) * 0.32);
-        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.32s linear;
-      }
-
-      .brand-geo-left {
-        left: -14vw;
-        bottom: -22vh;
-        width: min(46vw, 560px);
-        height: min(46vh, 430px);
-        clip-path: polygon(0 34%, 74% 0, 100% 100%, 0 100%);
+      .theme-divider-geo-left {
+        left: -10%;
+        bottom: -16%;
+        width: min(30vw, 320px);
+        height: 52%;
+        clip-path: polygon(0 34%, 76% 0, 100% 100%, 0 100%);
         background: linear-gradient(135deg, #2EA6D4 0%, #79C5C7 100%);
-        transform: translate3d(calc((1 - var(--fold-fade, 0)) * -16vw), calc((1 - var(--fold-fade, 0)) * 8vh), 0)
-          rotate(calc((1 - var(--fold-fade, 0)) * -3deg));
-        opacity: calc(var(--fold-fade, 0) * 0.24);
-        transition: transform 0.82s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.32s linear;
+        opacity: 0.24;
+        transform: translate3d(calc((1 - var(--divider-progress)) * -8%), calc((1 - var(--divider-progress)) * 8%), 0);
       }
 
-      .brand-dots {
-        position: absolute;
-        width: 280px;
-        height: 280px;
-        background-size: 13px 13px;
+      .theme-divider-wave {
+        bottom: -26%;
+        transition: transform 180ms linear;
+        filter: drop-shadow(0 -12px 30px rgba(9, 22, 44, 0.14));
       }
 
-      .brand-dots-left {
-        left: -76px;
-        top: 14vh;
-        background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.78) 1.7px, transparent 2.2px);
-        opacity: calc(var(--fold-fade, 0) * 0.25);
+      .theme-divider-wave-back {
+        transform: translateY(calc((1 - var(--divider-progress)) * 16%)) translateX(calc((1 - var(--divider-progress)) * -3%));
       }
 
-      .brand-dots-right {
-        right: -74px;
-        bottom: 8vh;
-        background-image: radial-gradient(circle at center, rgba(121, 197, 199, 0.7) 1.7px, transparent 2.2px);
-        opacity: calc(var(--fold-fade, 0) * 0.22);
+      .theme-divider-wave-front {
+        transform: translateY(calc((1 - var(--divider-progress)) * 8%)) translateX(calc((1 - var(--divider-progress)) * 3%));
+      }
+
+      .theme-divider-wave-a { fill: #79C5C7; opacity: 0.88; }
+      .theme-divider-wave-b { fill: #2EA6D4; opacity: 0.84; }
+      .theme-divider-wave-c { fill: #1B75BB; opacity: 0.74; }
+      .theme-divider-wave-d { fill: #D93AA4; opacity: 0.66; }
+
+      .theme-divider-signal {
+        top: 0;
+        opacity: calc(0.32 + var(--divider-progress) * 0.62);
+        transition: opacity 180ms linear;
+      }
+
+      .theme-divider-signal-glow {
+        stroke: rgba(121, 197, 199, 0.46);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .theme-divider-signal-core {
+        stroke: url(#themeDividerSignalGradient);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
       }
 
       .neural-overlay {
@@ -782,7 +742,6 @@
       }
 
       body {
-        --fold-fade: 0;
         transition: color 0.8s ease;
       }
 
@@ -894,13 +853,10 @@
         }
         .btn,
         .neural-line,
-        #fold-theme-fade,
-        #brand-transition-overlay,
-        .brand-wave-stack,
-        .brand-ap-signal,
-        .brand-wave-top,
-        .brand-geo-right,
-        .brand-geo-left,
+        .theme-wave-divider,
+        .theme-divider-wave,
+        .theme-divider-signal,
+        .theme-divider-geo,
         body,
         body::before,
         body::after,
@@ -913,12 +869,12 @@
         .cta-panel {
           transition: none;
         }
-        #brand-transition-overlay {
-          display: none;
-        }
       }
 
       @media (max-width: 1024px) {
+        .theme-wave-divider {
+          height: clamp(150px, 24vh, 210px);
+        }
         .hero-grid,
         .split {
           grid-template-columns: 1fr;
@@ -937,6 +893,10 @@
       }
 
       @media (max-width: 720px) {
+        .theme-wave-divider {
+          height: clamp(130px, 20vh, 170px);
+          margin-bottom: 0.25rem;
+        }
         body {
           /* Reserve space so fixed CTA never covers content */
           padding-bottom: calc(90px + env(safe-area-inset-bottom));
@@ -1079,63 +1039,6 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <div id="fold-theme-fade" aria-hidden="true"></div>
-    <div id="brand-transition-overlay" aria-hidden="true">
-      <div class="brand-geo brand-geo-right"></div>
-      <div class="brand-geo brand-geo-left"></div>
-      <div class="brand-dots brand-dots-left"></div>
-      <div class="brand-dots brand-dots-right"></div>
-
-      <svg class="brand-ap-signal" viewBox="0 0 1440 520" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="apSignalGradient" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#79C5C7" />
-            <stop offset="0.24" stop-color="#2EA6D4" />
-            <stop offset="0.5" stop-color="#FF8B66" />
-            <stop offset="0.72" stop-color="#D93AA4" />
-            <stop offset="1" stop-color="#1B75BB" />
-          </linearGradient>
-        </defs>
-        <path
-          class="ap-signal-echo"
-          d="M-20,312 C92,312 154,312 234,312 L296,312 L334,226 L364,350 L396,368 L430,312 L522,312 L566,188 L598,336 L632,356 L664,312 L792,312 L838,234 L870,332 L904,348 L934,312 L1460,312"
-        />
-        <path
-          class="ap-signal-core"
-          d="M-20,312 C92,312 154,312 234,312 L296,312 L334,226 L364,350 L396,368 L430,312 L522,312 L566,188 L598,336 L632,356 L664,312 L792,312 L838,234 L870,332 L904,348 L934,312 L1460,312"
-        />
-      </svg>
-
-      <svg class="brand-wave-top" viewBox="0 0 1440 520" preserveAspectRatio="none">
-        <path
-          class="wave-layer-a"
-          d="M0,342 C182,315 300,378 464,336 C548,315 588,250 654,246 C714,242 752,286 834,304 C946,329 1098,316 1246,344 C1332,359 1390,377 1440,390 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-b"
-          d="M0,306 C170,275 292,346 446,302 C528,278 574,190 640,184 C700,178 742,258 826,276 C944,301 1098,286 1244,314 C1324,328 1382,348 1440,362 L1440,520 L0,520 Z"
-        />
-      </svg>
-
-      <svg class="brand-wave-stack" viewBox="0 0 1440 520" preserveAspectRatio="none">
-        <path
-          class="wave-layer-a"
-          d="M0,336 C184,302 318,370 500,330 C584,312 624,246 692,240 C752,236 792,292 876,312 C988,340 1126,322 1268,350 C1344,364 1398,382 1440,398 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-b"
-          d="M0,300 C174,262 314,334 486,292 C564,272 608,168 674,160 C734,154 774,254 860,274 C972,300 1120,282 1264,312 C1338,326 1392,344 1440,358 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-d"
-          d="M0,278 C170,234 312,314 478,266 C544,246 586,132 648,124 C708,116 748,230 836,248 C952,274 1108,248 1262,282 C1336,298 1392,318 1440,334 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-c"
-          d="M0,250 C166,208 306,292 472,242 C534,224 572,108 636,102 C694,94 736,206 822,228 C940,258 1098,230 1258,266 C1332,282 1390,304 1440,320 L1440,520 L0,520 Z"
-        />
-      </svg>
-    </div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
@@ -1202,6 +1105,53 @@
             </ol>
           </aside>
         </div>
+      </section>
+
+      <section class="theme-wave-divider" id="theme-wave-divider" aria-hidden="true">
+        <div class="theme-divider-geo theme-divider-geo-right"></div>
+        <div class="theme-divider-geo theme-divider-geo-left"></div>
+
+        <svg class="theme-divider-signal" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="themeDividerSignalGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#79C5C7" />
+              <stop offset="0.24" stop-color="#2EA6D4" />
+              <stop offset="0.52" stop-color="#FF8B66" />
+              <stop offset="0.74" stop-color="#D93AA4" />
+              <stop offset="1" stop-color="#1B75BB" />
+            </linearGradient>
+          </defs>
+          <path
+            class="theme-divider-signal-glow"
+            d="M-20,284 C108,284 176,284 250,284 L316,284 L352,210 L378,328 L414,346 L448,284 L530,284 L566,170 L594,314 L624,334 L656,284 L768,284 L804,224 L832,310 L860,324 L890,284 L1460,284"
+          />
+          <path
+            class="theme-divider-signal-core"
+            d="M-20,284 C108,284 176,284 250,284 L316,284 L352,210 L378,328 L414,346 L448,284 L530,284 L566,170 L594,314 L624,334 L656,284 L768,284 L804,224 L832,310 L860,324 L890,284 L1460,284"
+          />
+        </svg>
+
+        <svg class="theme-divider-wave theme-divider-wave-back" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <path
+            class="theme-divider-wave-a"
+            d="M0,350 C176,316 304,380 478,344 C566,326 610,258 680,252 C748,246 790,308 878,326 C1002,352 1138,332 1282,362 C1356,378 1408,398 1440,414 L1440,520 L0,520 Z"
+          />
+          <path
+            class="theme-divider-wave-b"
+            d="M0,314 C170,278 294,346 466,306 C548,286 592,206 664,200 C730,194 772,268 860,288 C984,316 1128,294 1274,324 C1350,340 1402,360 1440,376 L1440,520 L0,520 Z"
+          />
+        </svg>
+
+        <svg class="theme-divider-wave theme-divider-wave-front" viewBox="0 0 1440 520" preserveAspectRatio="none">
+          <path
+            class="theme-divider-wave-d"
+            d="M0,292 C164,252 294,324 454,278 C532,256 578,164 648,156 C712,148 756,250 848,268 C972,294 1120,264 1270,298 C1346,316 1400,338 1440,356 L1440,520 L0,520 Z"
+          />
+          <path
+            class="theme-divider-wave-c"
+            d="M0,270 C160,226 288,300 450,250 C526,228 568,136 640,130 C706,122 750,232 842,252 C970,280 1120,246 1276,282 C1352,300 1406,324 1440,342 L1440,520 L0,520 Z"
+          />
+        </svg>
       </section>
 
       <section class="section problem">
@@ -1682,26 +1632,34 @@
       (function () {
         const body = document.body;
         const logo = document.querySelector(".logo-mark");
-        if (!body || !logo) return;
+        const divider = document.getElementById("theme-wave-divider");
+        if (!body || !logo || !divider) return;
 
         const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
         const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let isLight = false;
-        const fadeStart = () => window.innerHeight * 0.58;
-        const fadeEnd = () => window.innerHeight * 1.22;
+
+        const getDividerProgress = () => {
+          const rect = divider.getBoundingClientRect();
+          const viewportHeight = window.innerHeight || 1;
+          const start = viewportHeight * 0.92;
+          const end = -rect.height * 0.2;
+          const raw = (start - rect.top) / Math.max(start - end, 1);
+          return Math.max(0, Math.min(raw, 1));
+        };
 
         const updateTheme = () => {
-          const y = window.scrollY;
-          const start = fadeStart();
-          const end = fadeEnd();
-          const rawProgress = (y - start) / Math.max(end - start, 1);
-          const fadeProgress = Math.max(0, Math.min(rawProgress, 1));
-          body.style.setProperty("--fold-fade", prefersReducedMotion ? "0" : fadeProgress.toFixed(3));
+          const progress = prefersReducedMotion
+            ? window.scrollY + (window.innerHeight || 1) * 0.3 >= divider.offsetTop + divider.offsetHeight * 0.5
+              ? 1
+              : 0
+            : getDividerProgress();
+          divider.style.setProperty("--divider-progress", progress.toFixed(3));
 
-          if (!isLight && fadeProgress > 0.84) {
+          if (!isLight && progress > 0.56) {
             isLight = true;
-          } else if (isLight && fadeProgress < 0.62) {
+          } else if (isLight && progress < 0.4) {
             isLight = false;
           }
           body.classList.toggle("after-fold-light", isLight);
