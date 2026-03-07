@@ -108,106 +108,6 @@
         transition: opacity 0.85s ease;
       }
 
-      #brand-transition-overlay {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -2;
-        opacity: clamp(0, calc(var(--fold-fade, 0) * 0.78), 0.78);
-        transition: opacity 0.22s linear;
-      }
-
-      .brand-wave-stack {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -18vh;
-        width: 100%;
-        height: 50vh;
-        transform: translateY(calc((1 - var(--fold-fade, 0)) * 42vh));
-        transition: transform 0.76s cubic-bezier(0.2, 0.8, 0.2, 1);
-        filter: saturate(0.9) brightness(1.08) drop-shadow(0 -14px 40px rgba(12, 27, 50, 0.2));
-      }
-
-      .brand-wave-top {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -7vh;
-        width: 100%;
-        height: 24vh;
-        transform: translateY(calc((1 - var(--fold-fade, 0)) * -14vh));
-        transition: transform 0.78s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s linear;
-        opacity: 0.42;
-      }
-
-      .wave-layer-a {
-        fill: #79c5c7;
-        opacity: 0.74;
-      }
-
-      .wave-layer-b {
-        fill: #2ea6d4;
-        opacity: 0.62;
-      }
-
-      .wave-layer-c {
-        fill: #d93aa4;
-        opacity: 0.56;
-      }
-
-      .brand-geo {
-        position: absolute;
-        border-radius: 40px;
-      }
-
-      .brand-geo-right {
-        right: -12vw;
-        top: 32vh;
-        width: min(50vw, 620px);
-        height: min(62vh, 620px);
-        clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
-        background: linear-gradient(130deg, rgba(255, 162, 87, 0.88), rgba(217, 58, 164, 0.9), rgba(121, 84, 170, 0.88));
-        transform: translate3d(calc((1 - var(--fold-fade, 0)) * 18vw), calc((1 - var(--fold-fade, 0)) * 6vh), 0)
-          rotate(calc((1 - var(--fold-fade, 0)) * 4deg));
-        opacity: calc(var(--fold-fade, 0) * 0.44);
-        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.32s linear;
-      }
-
-      .brand-geo-left {
-        left: -14vw;
-        bottom: -22vh;
-        width: min(46vw, 560px);
-        height: min(46vh, 430px);
-        clip-path: polygon(0 34%, 74% 0, 100% 100%, 0 100%);
-        background: linear-gradient(135deg, rgba(91, 186, 222, 0.82), rgba(57, 155, 209, 0.78));
-        transform: translate3d(calc((1 - var(--fold-fade, 0)) * -16vw), calc((1 - var(--fold-fade, 0)) * 8vh), 0)
-          rotate(calc((1 - var(--fold-fade, 0)) * -3deg));
-        opacity: calc(var(--fold-fade, 0) * 0.28);
-        transition: transform 0.82s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.32s linear;
-      }
-
-      .brand-dots {
-        position: absolute;
-        width: 280px;
-        height: 280px;
-        background-size: 13px 13px;
-      }
-
-      .brand-dots-left {
-        left: -76px;
-        top: 14vh;
-        background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.78) 1.7px, transparent 2.2px);
-        opacity: calc(var(--fold-fade, 0) * 0.25);
-      }
-
-      .brand-dots-right {
-        right: -74px;
-        bottom: 8vh;
-        background-image: radial-gradient(circle at center, rgba(121, 197, 199, 0.7) 1.7px, transparent 2.2px);
-        opacity: calc(var(--fold-fade, 0) * 0.22);
-      }
-
       .neural-overlay {
         position: fixed;
         inset: 0;
@@ -756,20 +656,6 @@
         color: #132742;
       }
 
-      body.after-fold-light h1,
-      body.after-fold-light h2,
-      body.after-fold-light h3 {
-        color: #071527;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72), 0 0 14px rgba(255, 255, 255, 0.64);
-      }
-
-      body.after-fold-light .eyebrow,
-      body.after-fold-light .signal-title small,
-      body.after-fold-light .metric strong,
-      body.after-fold-light .timeline li::before {
-        color: #0d3b61;
-      }
-
       body.after-fold-light::before {
         opacity: 0.12;
       }
@@ -801,7 +687,7 @@
       }
 
       body.after-fold-light .hero .eyebrow {
-        color: #0b3152;
+        color: #174f87;
       }
 
       body.after-fold-light .hero-copy::before {
@@ -846,7 +732,7 @@
 
       body.after-fold-light .problem h2,
       body.after-fold-light .problem .eyebrow {
-        color: #082945;
+        color: #173d66;
       }
 
       body.after-fold-light .mobile-sticky {
@@ -861,11 +747,6 @@
         .btn,
         .neural-line,
         #fold-theme-fade,
-        #brand-transition-overlay,
-        .brand-wave-stack,
-        .brand-wave-top,
-        .brand-geo-right,
-        .brand-geo-left,
         body,
         body::before,
         body::after,
@@ -877,9 +758,6 @@
         details,
         .cta-panel {
           transition: none;
-        }
-        #brand-transition-overlay {
-          display: none;
         }
       }
 
@@ -1045,38 +923,6 @@
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <div id="fold-theme-fade" aria-hidden="true"></div>
-    <div id="brand-transition-overlay" aria-hidden="true">
-      <div class="brand-geo brand-geo-right"></div>
-      <div class="brand-geo brand-geo-left"></div>
-      <div class="brand-dots brand-dots-left"></div>
-      <div class="brand-dots brand-dots-right"></div>
-
-      <svg class="brand-wave-top" viewBox="0 0 1440 520" preserveAspectRatio="none">
-        <path
-          class="wave-layer-a"
-          d="M0,325 C205,292 336,391 549,364 C723,342 865,277 1041,303 C1235,332 1343,403 1440,393 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-b"
-          d="M0,287 C178,251 338,361 532,334 C719,307 835,223 1025,256 C1200,288 1317,378 1440,352 L1440,520 L0,520 Z"
-        />
-      </svg>
-
-      <svg class="brand-wave-stack" viewBox="0 0 1440 520" preserveAspectRatio="none">
-        <path
-          class="wave-layer-a"
-          d="M0,325 C205,292 336,391 549,364 C723,342 865,277 1041,303 C1235,332 1343,403 1440,393 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-b"
-          d="M0,287 C178,251 338,361 532,334 C719,307 835,223 1025,256 C1200,288 1317,378 1440,352 L1440,520 L0,520 Z"
-        />
-        <path
-          class="wave-layer-c"
-          d="M0,248 C182,201 320,314 503,276 C690,236 806,172 981,208 C1137,239 1290,332 1440,301 L1440,520 L0,520 Z"
-        />
-      </svg>
-    </div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
