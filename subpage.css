@@ -326,6 +326,21 @@ p {
   gap: 0.4rem;
 }
 
+.testimonial-video {
+  width: 100%;
+  margin-top: 0.65rem;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: 1px solid rgba(27, 117, 187, 0.22);
+  background: #02040a;
+  display: block;
+  object-fit: contain;
+}
+
+.video-card p {
+  color: #4a6f93;
+}
+
 .list-links {
   display: grid;
   gap: 0.6rem;
