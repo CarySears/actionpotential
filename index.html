@@ -935,6 +935,64 @@
         color: #d7f6f4;
       }
 
+      .name-signal {
+        margin-top: 0.72rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.56rem;
+      }
+
+      .name-signal-wave {
+        width: clamp(132px, 18vw, 204px);
+        height: 22px;
+        overflow: visible;
+        flex-shrink: 0;
+      }
+
+      .name-signal-guide {
+        stroke: rgba(121, 197, 199, 0.35);
+        stroke-width: 1.1;
+        stroke-dasharray: 2.2 4.1;
+      }
+
+      .name-signal-track {
+        stroke: url(#nameSignalGradient);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        stroke-dasharray: 6 5;
+        animation: name-signal-track 3.1s ease-in-out infinite;
+      }
+
+      .name-signal-dot {
+        fill: url(#nameSignalDotGradient);
+        filter: drop-shadow(0 0 7px rgba(217, 58, 164, 0.45));
+      }
+
+      .name-signal-label {
+        font-size: 0.77rem;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        font-weight: 700;
+        color: var(--brand-1);
+      }
+
+      @keyframes name-signal-track {
+        0% {
+          stroke-dashoffset: 0;
+          opacity: 0.54;
+        }
+        50% {
+          stroke-dashoffset: -19;
+          opacity: 0.92;
+        }
+        100% {
+          stroke-dashoffset: -34;
+          opacity: 0.54;
+        }
+      }
+
       .footer {
         margin-top: 1.2rem;
         border-top: 1px solid rgba(121, 197, 199, 0.18);
@@ -1055,6 +1113,14 @@
         color: #1f4973;
       }
 
+      body.after-fold-light .name-signal-guide {
+        stroke: rgba(27, 117, 187, 0.26);
+      }
+
+      body.after-fold-light .name-signal-label {
+        color: #1f5e8f;
+      }
+
       body.after-fold-light .problem h2,
       body.after-fold-light .problem .eyebrow {
         color: #173d66;
@@ -1083,6 +1149,14 @@
           opacity: 0.8;
         }
         .hero-tagline-ap-dot {
+          display: none;
+        }
+        .name-signal-track {
+          animation: none;
+          stroke-dasharray: none;
+          opacity: 0.86;
+        }
+        .name-signal-dot {
           display: none;
         }
         .btn,
@@ -1148,6 +1222,14 @@
           width: clamp(62px, 14vw, 98px);
           height: 19px;
           margin-bottom: 0.08em;
+        }
+        .name-signal {
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 0.35rem;
+        }
+        .name-signal-wave {
+          width: min(220px, 100%);
         }
         .brand-geo-motif-right {
           opacity: 0.42;
@@ -1445,6 +1527,38 @@
               trigger behavior. Business growth works the same way: no signal, no movement. We design the signals that
               convert intention into action.
             </p>
+            <div class="name-signal">
+              <svg class="name-signal-wave" viewBox="0 0 220 28" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="nameSignalGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#79C5C7" />
+                    <stop offset="0.34" stop-color="#2EA6D4" />
+                    <stop offset="0.58" stop-color="#00A79D" />
+                    <stop offset="0.8" stop-color="#FF8B66" />
+                    <stop offset="1" stop-color="#D93AA4" />
+                  </linearGradient>
+                  <radialGradient id="nameSignalDotGradient" cx="50%" cy="50%" r="60%">
+                    <stop offset="0" stop-color="#FFFFFF" />
+                    <stop offset="0.42" stop-color="#FF8B66" />
+                    <stop offset="0.75" stop-color="#D93AA4" />
+                    <stop offset="1" stop-color="#1B75BB" />
+                  </radialGradient>
+                </defs>
+                <line class="name-signal-guide" x1="2" y1="18" x2="218" y2="18" />
+                <path
+                  class="name-signal-track"
+                  d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+                />
+                <circle class="name-signal-dot" r="2.8">
+                  <animateMotion
+                    dur="3.1s"
+                    repeatCount="indefinite"
+                    path="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+                  />
+                </circle>
+              </svg>
+              <span class="name-signal-label">Always-on signal</span>
+            </div>
             <div class="pill-row">
               <span class="pill">Neuroscience-informed</span>
               <span class="pill">Behavior-first design</span>
