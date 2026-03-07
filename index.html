@@ -97,17 +97,6 @@
         transition: opacity 0.9s ease;
       }
 
-      #fold-theme-fade {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -3;
-        opacity: var(--fold-fade, 0);
-        background: radial-gradient(circle at 84% 12%, rgba(46, 166, 212, 0.16), transparent 40%),
-          radial-gradient(circle at 12% 14%, rgba(0, 167, 157, 0.12), transparent 42%), #f4f8ff;
-        transition: opacity 0.85s ease;
-      }
-
       .neural-overlay {
         position: fixed;
         inset: 0;
@@ -746,7 +735,6 @@
         }
         .btn,
         .neural-line,
-        #fold-theme-fade,
         body,
         body::before,
         body::after,
@@ -922,7 +910,6 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <div id="fold-theme-fade" aria-hidden="true"></div>
     <svg class="neural-overlay" id="neural-overlay" viewBox="0 0 1600 980" aria-hidden="true">
       <g id="neural-lines"></g>
       <g id="neural-nodes"></g>
@@ -1463,54 +1450,6 @@
         update();
         window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", onScroll);
-      })();
-    </script>
-    <script>
-      (function () {
-        const body = document.body;
-        const logo = document.querySelector(".logo-mark");
-        if (!body || !logo) return;
-
-        const darkLogo = logo.getAttribute("data-dark-logo") || logo.getAttribute("src");
-        const lightLogo = logo.getAttribute("data-light-logo") || darkLogo;
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        let isLight = false;
-        const fadeStart = () => window.innerHeight * 0.58;
-        const fadeEnd = () => window.innerHeight * 1.22;
-
-        const updateTheme = () => {
-          const y = window.scrollY;
-          const start = fadeStart();
-          const end = fadeEnd();
-          const rawProgress = (y - start) / Math.max(end - start, 1);
-          const fadeProgress = Math.max(0, Math.min(rawProgress, 1));
-          body.style.setProperty("--fold-fade", prefersReducedMotion ? "0" : fadeProgress.toFixed(3));
-
-          if (!isLight && fadeProgress > 0.84) {
-            isLight = true;
-          } else if (isLight && fadeProgress < 0.62) {
-            isLight = false;
-          }
-          body.classList.toggle("after-fold-light", isLight);
-          const desiredLogo = isLight ? lightLogo : darkLogo;
-          if (logo.getAttribute("src") !== desiredLogo) {
-            logo.setAttribute("src", desiredLogo);
-          }
-        };
-
-        let ticking = false;
-        const onScrollOrResize = () => {
-          if (ticking) return;
-          ticking = true;
-          window.requestAnimationFrame(() => {
-            updateTheme();
-            ticking = false;
-          });
-        };
-
-        updateTheme();
-        window.addEventListener("scroll", onScrollOrResize, { passive: true });
-        window.addEventListener("resize", onScrollOrResize);
       })();
     </script>
     <script>
