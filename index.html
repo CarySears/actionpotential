@@ -522,12 +522,6 @@
         margin-bottom: 0.1em;
       }
 
-      .hero-tagline-ap-guide {
-        stroke: rgba(184, 197, 222, 0.35);
-        stroke-width: 1.2;
-        stroke-dasharray: 2.2 4.2;
-      }
-
       .hero-tagline-ap-glow {
         stroke: rgba(121, 197, 199, 0.42);
         stroke-width: 6;
@@ -553,7 +547,7 @@
 
       .footer-tagline {
         display: inline-flex;
-        align-items: center;
+        align-items: flex-end;
         gap: 0.42em;
       }
 
@@ -568,38 +562,34 @@
         animation: tagline-gradient 8.5s ease-in-out infinite, tagline-glow 3.6s ease-in-out infinite;
       }
 
-      .tagline-pulse {
-        position: relative;
-        width: clamp(36px, 4.4vw, 62px);
-        height: 0.52em;
-        display: inline-block;
-        vertical-align: middle;
+      .footer-tagline-apulse {
+        width: clamp(68px, 8.2vw, 108px);
+        height: clamp(18px, 2.2vw, 28px);
+        overflow: visible;
+        margin-bottom: 0.04em;
       }
 
-      .tagline-pulse::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 50%;
-        height: 2px;
-        transform: translateY(-50%);
-        background: linear-gradient(90deg, rgba(121, 197, 199, 0.25), rgba(46, 166, 212, 0.75), rgba(0, 167, 157, 0.35));
-        border-radius: 999px;
-        animation: pulse-line 2.8s ease-in-out infinite;
+      .footer-tagline-ap-glow {
+        stroke: rgba(121, 197, 199, 0.4);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
       }
 
-      .tagline-pulse::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 0.44em;
-        height: 0.44em;
-        transform: translate(0, -50%);
-        border-radius: 999px;
-        background: linear-gradient(135deg, #79c5c7 0%, #2ea6d4 55%, #00a79d 100%);
-        box-shadow: 0 0 0 rgba(46, 166, 212, 0.2);
-        animation: pulse-dot 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      .footer-tagline-ap-track {
+        stroke: url(#footerZGradient);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        stroke-dasharray: 6 5;
+        animation: footer-ap-track 2.9s ease-in-out infinite;
+      }
+
+      .footer-tagline-ap-dot {
+        fill: url(#footerZDotGradient);
+        filter: drop-shadow(0 0 7px rgba(217, 58, 164, 0.42));
       }
 
       @keyframes tagline-gradient {
@@ -622,32 +612,15 @@
         }
       }
 
-      @keyframes pulse-line {
+      @keyframes footer-ap-track {
         0%,
         100% {
-          opacity: 0.45;
+          stroke-dashoffset: 0;
+          opacity: 0.56;
         }
         50% {
-          opacity: 0.95;
-        }
-      }
-
-      @keyframes pulse-dot {
-        0% {
-          left: -2%;
-          box-shadow: 0 0 0 rgba(46, 166, 212, 0.2);
-        }
-        40% {
-          left: 46%;
-          box-shadow: 0 0 8px rgba(46, 166, 212, 0.42);
-        }
-        55% {
-          left: 58%;
-          box-shadow: 0 0 18px rgba(217, 58, 164, 0.5);
-        }
-        100% {
-          left: 100%;
-          box-shadow: 0 0 0 rgba(27, 117, 187, 0.15);
+          stroke-dashoffset: -20;
+          opacity: 0.92;
         }
       }
 
@@ -1001,12 +974,6 @@
         flex-shrink: 0;
       }
 
-      .name-signal-guide {
-        stroke: rgba(121, 197, 199, 0.35);
-        stroke-width: 1.1;
-        stroke-dasharray: 2.2 4.1;
-      }
-
       .name-signal-track {
         stroke: url(#nameSignalGradient);
         stroke-width: 2;
@@ -1203,10 +1170,6 @@
         color: #1f4973;
       }
 
-      body.after-fold-light .name-signal-guide {
-        stroke: rgba(27, 117, 187, 0.26);
-      }
-
       body.after-fold-light .name-signal-label {
         color: #1f5e8f;
       }
@@ -1229,16 +1192,20 @@
           animation: none;
           background-position: 0% 50%;
         }
-        .tagline-pulse::before,
-        .tagline-pulse::after {
-          animation: none;
-        }
         .hero-tagline-ap-track {
           animation: none;
           stroke-dasharray: none;
           opacity: 0.8;
         }
         .hero-tagline-ap-dot {
+          display: none;
+        }
+        .footer-tagline-ap-track {
+          animation: none;
+          stroke-dasharray: none;
+          opacity: 0.86;
+        }
+        .footer-tagline-ap-dot {
           display: none;
         }
         .name-signal-track {
@@ -1318,6 +1285,10 @@
           width: clamp(62px, 14vw, 98px);
           height: 19px;
           margin-bottom: 0.08em;
+        }
+        .footer-tagline-apulse {
+          width: clamp(62px, 17vw, 96px);
+          height: 18px;
         }
         .name-signal {
           width: 100%;
@@ -1638,7 +1609,6 @@
                     <stop offset="1" stop-color="#1B75BB" />
                   </radialGradient>
                 </defs>
-                <line class="name-signal-guide" x1="2" y1="18" x2="218" y2="18" />
                 <path
                   class="name-signal-track"
                   d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
@@ -2049,7 +2019,38 @@
           <br />
           <span class="footer-tagline">
             <span class="tagline-static">From potential...</span>
-            <span class="tagline-pulse" aria-hidden="true"></span>
+            <svg class="footer-tagline-apulse" viewBox="0 0 220 28" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="footerZGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#79C5C7" />
+                  <stop offset="0.28" stop-color="#2EA6D4" />
+                  <stop offset="0.56" stop-color="#00A79D" />
+                  <stop offset="0.8" stop-color="#FF8B66" />
+                  <stop offset="1" stop-color="#D93AA4" />
+                </linearGradient>
+                <radialGradient id="footerZDotGradient" cx="50%" cy="50%" r="60%">
+                  <stop offset="0" stop-color="#FFFFFF" />
+                  <stop offset="0.42" stop-color="#FF8B66" />
+                  <stop offset="0.75" stop-color="#D93AA4" />
+                  <stop offset="1" stop-color="#1B75BB" />
+                </radialGradient>
+              </defs>
+              <path
+                class="footer-tagline-ap-glow"
+                d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+              />
+              <path
+                class="footer-tagline-ap-track"
+                d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+              />
+              <circle class="footer-tagline-ap-dot" r="2.8">
+                <animateMotion
+                  dur="2.9s"
+                  repeatCount="indefinite"
+                  path="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+                />
+              </circle>
+            </svg>
             <span class="tagline-animated">to action.</span>
           </span>
         </div>
