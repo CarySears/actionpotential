@@ -51,6 +51,10 @@
         --surface-2: #16233d;
         --text: #ecf2ff;
         --muted: #b8c5de;
+        --text-halo-strong: 0 1px 0 rgba(4, 8, 15, 0.72), 0 0 20px rgba(4, 8, 15, 0.72);
+        --text-halo-soft: 0 1px 0 rgba(4, 8, 15, 0.56), 0 0 14px rgba(4, 8, 15, 0.58);
+        --text-halo-light-strong: 0 1px 0 rgba(255, 255, 255, 0.92), 0 0 16px rgba(255, 255, 255, 0.82);
+        --text-halo-light-soft: 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.74);
         --line: rgba(121, 197, 199, 0.3);
         --radius: 18px;
         --shadow: 0 20px 40px rgba(4, 10, 24, 0.45);
@@ -408,7 +412,25 @@
       }
 
       .hero-focus {
+        position: relative;
+        isolation: isolate;
         text-align: center;
+      }
+
+      .hero-focus::before {
+        content: "";
+        position: absolute;
+        inset: -0.9rem -1rem -0.8rem;
+        border-radius: 22px;
+        background: radial-gradient(
+          120% 120% at 50% 18%,
+          rgba(5, 7, 12, 0.62) 0%,
+          rgba(5, 7, 12, 0.38) 58%,
+          rgba(5, 7, 12, 0.08) 85%,
+          rgba(5, 7, 12, 0) 100%
+        );
+        pointer-events: none;
+        z-index: -1;
       }
 
       .hero-focus .eyebrow {
@@ -467,6 +489,7 @@
         letter-spacing: -0.02em;
         line-height: 1.18;
         margin: 0;
+        text-shadow: var(--text-halo-strong);
       }
 
       h1 {
@@ -646,6 +669,7 @@
         max-width: 68ch;
         margin: 1rem 0 1.5rem;
         font-size: 1.07rem;
+        text-shadow: var(--text-halo-soft);
       }
 
       .cta-group {
@@ -658,6 +682,7 @@
         margin-top: 1.15rem;
         color: #d6e2f8;
         font-size: 0.94rem;
+        text-shadow: var(--text-halo-soft);
       }
 
       .micro-proof span {
@@ -743,6 +768,7 @@
         margin: 0;
         max-width: 64ch;
         color: var(--muted);
+        text-shadow: var(--text-halo-soft);
       }
 
       .card-grid {
@@ -768,6 +794,7 @@
         color: #d1dbed;
         margin: 0;
         font-size: 0.94rem;
+        text-shadow: var(--text-halo-soft);
       }
 
       .card ul {
@@ -798,6 +825,22 @@
         display: grid;
         gap: 0.5rem;
         color: #dce5f7;
+        text-shadow: var(--text-halo-soft);
+      }
+
+      .problem .container > div:first-child {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .problem .container > div:first-child::before {
+        content: "";
+        position: absolute;
+        inset: -0.55rem -0.75rem;
+        border-radius: 20px;
+        background: linear-gradient(165deg, rgba(6, 10, 18, 0.58), rgba(6, 10, 18, 0.24) 62%, rgba(6, 10, 18, 0));
+        pointer-events: none;
+        z-index: -1;
       }
 
       .problem li::marker {
@@ -1087,7 +1130,45 @@
       body.after-fold-light .faq-list p,
       body.after-fold-light .cta-panel p,
       body.after-fold-light .footer {
-        color: #3c5777;
+        color: #2f4f72;
+      }
+
+      body.after-fold-light h1,
+      body.after-fold-light h2,
+      body.after-fold-light h3 {
+        text-shadow: var(--text-halo-light-strong);
+      }
+
+      body.after-fold-light .hero p,
+      body.after-fold-light .section-head p,
+      body.after-fold-light .problem p,
+      body.after-fold-light .problem ul,
+      body.after-fold-light .card p,
+      body.after-fold-light .card li,
+      body.after-fold-light .micro-proof,
+      body.after-fold-light .faq-list p,
+      body.after-fold-light .cta-panel p,
+      body.after-fold-light .footer {
+        text-shadow: var(--text-halo-light-soft);
+      }
+
+      body.after-fold-light .hero-focus::before {
+        background: radial-gradient(
+          120% 120% at 50% 18%,
+          rgba(255, 255, 255, 0.84) 0%,
+          rgba(255, 255, 255, 0.52) 58%,
+          rgba(255, 255, 255, 0.14) 85%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      body.after-fold-light .problem .container > div:first-child::before {
+        background: linear-gradient(
+          165deg,
+          rgba(255, 255, 255, 0.82),
+          rgba(255, 255, 255, 0.52) 62%,
+          rgba(255, 255, 255, 0)
+        );
       }
 
       body.after-fold-light .card,
@@ -1204,6 +1285,12 @@
           width: 100%;
           height: 160px;
           left: -0.2rem;
+        }
+        .hero-focus::before {
+          inset: -0.7rem -0.55rem -0.55rem;
+        }
+        .problem .container > div:first-child::before {
+          inset: -0.4rem -0.45rem;
         }
         .card-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
