@@ -460,18 +460,54 @@
       }
 
       .footer-tagline {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.42em;
       }
 
       .tagline-animated {
         display: inline-block;
-        color: #2ea6d4;
-        background: linear-gradient(92deg, #79c5c7 0%, #2ea6d4 35%, #00a79d 62%, #1b75bb 100%);
+        color: #ff8b66;
+        background: linear-gradient(94deg, #ff8b66 0%, #d93aa4 56%, #1b75bb 100%);
         background-size: 220% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: tagline-gradient 8.5s ease-in-out infinite, tagline-glow 4.2s ease-in-out infinite;
+        animation: tagline-gradient 8.5s ease-in-out infinite, tagline-glow 3.6s ease-in-out infinite;
+      }
+
+      .tagline-pulse {
+        position: relative;
+        width: clamp(36px, 4.4vw, 62px);
+        height: 0.52em;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .tagline-pulse::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 2px;
+        transform: translateY(-50%);
+        background: linear-gradient(90deg, rgba(121, 197, 199, 0.25), rgba(46, 166, 212, 0.75), rgba(0, 167, 157, 0.35));
+        border-radius: 999px;
+        animation: pulse-line 2.8s ease-in-out infinite;
+      }
+
+      .tagline-pulse::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 0.44em;
+        height: 0.44em;
+        transform: translate(0, -50%);
+        border-radius: 999px;
+        background: linear-gradient(135deg, #79c5c7 0%, #2ea6d4 55%, #00a79d 100%);
+        box-shadow: 0 0 0 rgba(46, 166, 212, 0.2);
+        animation: pulse-dot 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
       }
 
       @keyframes tagline-gradient {
@@ -487,10 +523,39 @@
       @keyframes tagline-glow {
         0%,
         100% {
-          text-shadow: 0 0 0 rgba(46, 166, 212, 0);
+          text-shadow: 0 0 0 rgba(217, 58, 164, 0);
         }
         50% {
-          text-shadow: 0 0 14px rgba(46, 166, 212, 0.34);
+          text-shadow: 0 0 14px rgba(217, 58, 164, 0.34);
+        }
+      }
+
+      @keyframes pulse-line {
+        0%,
+        100% {
+          opacity: 0.45;
+        }
+        50% {
+          opacity: 0.95;
+        }
+      }
+
+      @keyframes pulse-dot {
+        0% {
+          left: -2%;
+          box-shadow: 0 0 0 rgba(46, 166, 212, 0.2);
+        }
+        40% {
+          left: 46%;
+          box-shadow: 0 0 8px rgba(46, 166, 212, 0.42);
+        }
+        55% {
+          left: 58%;
+          box-shadow: 0 0 18px rgba(217, 58, 164, 0.5);
+        }
+        100% {
+          left: 100%;
+          box-shadow: 0 0 0 rgba(27, 117, 187, 0.15);
         }
       }
 
@@ -916,6 +981,10 @@
           animation: none;
           background-position: 0% 50%;
         }
+        .tagline-pulse::before,
+        .tagline-pulse::after {
+          animation: none;
+        }
         .btn,
         .neural-line,
         body,
@@ -1177,6 +1246,7 @@
             <span class="eyebrow">Behavioral AI Growth Systems</span>
             <h1 class="hero-tagline">
               <span class="tagline-static">From potential...</span>
+              <span class="tagline-pulse" aria-hidden="true"></span>
               <span class="tagline-animated">to action.</span>
             </h1>
             <p>
@@ -1610,6 +1680,7 @@
           <br />
           <span class="footer-tagline">
             <span class="tagline-static">From potential...</span>
+            <span class="tagline-pulse" aria-hidden="true"></span>
             <span class="tagline-animated">to action.</span>
           </span>
         </div>
