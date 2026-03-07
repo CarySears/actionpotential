@@ -142,17 +142,17 @@
       }
 
       .wave-layer-a {
-        fill: #79c5c7;
+        fill: var(--brand-1);
         opacity: 0.74;
       }
 
       .wave-layer-b {
-        fill: #2ea6d4;
+        fill: var(--brand-2);
         opacity: 0.62;
       }
 
       .wave-layer-c {
-        fill: #d93aa4;
+        fill: var(--accent-magenta);
         opacity: 0.56;
       }
 
@@ -167,7 +167,12 @@
         width: min(50vw, 620px);
         height: min(62vh, 620px);
         clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
-        background: linear-gradient(130deg, rgba(255, 162, 87, 0.88), rgba(217, 58, 164, 0.9), rgba(121, 84, 170, 0.88));
+        background: linear-gradient(
+          130deg,
+          rgba(255, 139, 102, 0.82),
+          rgba(217, 58, 164, 0.78),
+          rgba(27, 117, 187, 0.72)
+        );
         transform: translate3d(calc((1 - var(--fold-fade, 0)) * 18vw), calc((1 - var(--fold-fade, 0)) * 6vh), 0)
           rotate(calc((1 - var(--fold-fade, 0)) * 4deg));
         opacity: calc(var(--fold-fade, 0) * 0.44);
@@ -180,7 +185,7 @@
         width: min(46vw, 560px);
         height: min(46vh, 430px);
         clip-path: polygon(0 34%, 74% 0, 100% 100%, 0 100%);
-        background: linear-gradient(135deg, rgba(91, 186, 222, 0.82), rgba(57, 155, 209, 0.78));
+        background: linear-gradient(135deg, rgba(46, 166, 212, 0.54), rgba(121, 197, 199, 0.5));
         transform: translate3d(calc((1 - var(--fold-fade, 0)) * -16vw), calc((1 - var(--fold-fade, 0)) * 8vh), 0)
           rotate(calc((1 - var(--fold-fade, 0)) * -3deg));
         opacity: calc(var(--fold-fade, 0) * 0.28);
