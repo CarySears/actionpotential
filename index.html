@@ -45,6 +45,9 @@
         --ink: #231f20;
         --accent-coral: #ff8b66;
         --accent-magenta: #d93aa4;
+        --guide-orange: #f3a14b;
+        --guide-pink: #e9628e;
+        --guide-violet: #7954aa;
         --bg: #05070c;
         --bg-soft: #0d1322;
         --surface: #121b2f;
@@ -243,7 +246,7 @@
 
       .with-brand-motifs {
         position: relative;
-        overflow: hidden;
+        overflow: clip;
       }
 
       .with-brand-motifs > section {
@@ -260,45 +263,54 @@
 
       .brand-geo-motif {
         position: absolute;
-        border-radius: 30px;
+        border-radius: 34px;
         filter: blur(0.2px);
       }
 
       .brand-geo-motif-right {
-        top: 14%;
-        right: -8%;
-        width: min(36vw, 420px);
-        height: min(42vh, 360px);
-        clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 82%);
-        background: linear-gradient(130deg, rgba(255, 139, 102, 0.26), rgba(217, 58, 164, 0.24), rgba(27, 117, 187, 0.23));
+        right: -10vw;
+        bottom: -14vh;
+        width: min(48vw, 620px);
+        height: min(64vh, 620px);
+        clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 88%);
+        background: linear-gradient(
+          132deg,
+          rgba(243, 161, 75, 0.8) 0%,
+          rgba(233, 98, 142, 0.82) 52%,
+          rgba(121, 84, 170, 0.82) 100%
+        );
+        opacity: 0.58;
       }
 
       .brand-geo-motif-left {
-        left: -10%;
-        top: 52%;
-        width: min(30vw, 340px);
-        height: min(32vh, 260px);
-        clip-path: polygon(0 36%, 74% 0, 100% 100%, 0 100%);
-        background: linear-gradient(135deg, rgba(46, 166, 212, 0.2), rgba(121, 197, 199, 0.24));
+        left: -14vw;
+        bottom: -22vh;
+        width: min(42vw, 560px);
+        height: min(42vh, 420px);
+        clip-path: polygon(0 34%, 76% 0, 100% 100%, 0 100%);
+        background: linear-gradient(135deg, rgba(72, 164, 208, 0.78), rgba(47, 149, 198, 0.82));
+        opacity: 0.52;
       }
 
       .brand-dots-motif {
         position: absolute;
-        left: -90px;
-        top: 30%;
+        left: 2%;
+        top: 18%;
         width: 280px;
         height: 280px;
-        opacity: 0.14;
-        background-image: radial-gradient(circle at center, rgba(121, 197, 199, 0.9) 1.5px, transparent 2.1px);
+        opacity: 0.2;
+        background-image: radial-gradient(circle at center, rgba(121, 197, 199, 0.9) 1.6px, transparent 2.2px);
         background-size: 14px 14px;
       }
 
       .brand-wave-divider {
         position: relative;
-        height: clamp(88px, 11vh, 130px);
+        height: clamp(118px, 15vh, 182px);
         margin: 0 0 0.65rem;
         overflow: hidden;
         pointer-events: none;
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+        border-bottom: 1px solid rgba(46, 166, 212, 0.2);
       }
 
       .brand-wave-divider svg {
@@ -311,30 +323,40 @@
       .brand-wave-divider-base {
         background: linear-gradient(
           to bottom,
-          rgba(9, 14, 24, 0.96) 0%,
-          rgba(9, 14, 24, 0.95) 44%,
-          rgba(14, 24, 40, 0.94) 100%
+          rgba(8, 12, 20, 0.97) 0%,
+          rgba(9, 15, 24, 0.95) 46%,
+          rgba(12, 20, 33, 0.94) 100%
         );
       }
 
       .brand-wave-teal {
         fill: #79C5C7;
-        opacity: 0.78;
+        opacity: 0.88;
       }
 
       .brand-wave-blue {
         fill: #2EA6D4;
-        opacity: 0.72;
+        opacity: 0.84;
       }
 
       .brand-wave-magenta {
-        fill: #D93AA4;
-        opacity: 0.64;
+        fill: #E9628E;
+        opacity: 0.8;
       }
 
       .brand-wave-deep {
-        fill: #1B75BB;
-        opacity: 0.55;
+        fill: #7954AA;
+        opacity: 0.74;
+      }
+
+      .brand-wave-cyan {
+        fill: #2EA6D4;
+        opacity: 0.76;
+      }
+
+      .brand-wave-coral {
+        fill: #FF8B66;
+        opacity: 0.76;
       }
 
       .hero-grid {
@@ -847,12 +869,12 @@
 
       @media (max-width: 1024px) {
         .brand-geo-motif-right {
-          width: min(44vw, 340px);
-          height: min(32vh, 260px);
+          width: min(50vw, 420px);
+          height: min(42vh, 320px);
         }
         .brand-geo-motif-left {
-          width: min(38vw, 280px);
-          height: min(26vh, 220px);
+          width: min(42vw, 320px);
+          height: min(30vh, 240px);
         }
         .brand-dots-motif {
           width: 210px;
@@ -877,16 +899,16 @@
 
       @media (max-width: 720px) {
         .brand-geo-motif-right {
-          opacity: 0.55;
+          opacity: 0.42;
         }
         .brand-geo-motif-left {
-          opacity: 0.45;
+          opacity: 0.34;
         }
         .brand-dots-motif {
           display: none;
         }
         .brand-wave-divider {
-          height: clamp(76px, 9vh, 102px);
+          height: clamp(98px, 12vh, 136px);
           margin-bottom: 0.35rem;
         }
         body {
@@ -1108,19 +1130,27 @@
         <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
           <path
             class="brand-wave-teal"
-            d="M0,352 C198,320 338,392 536,362 C714,338 866,292 1048,320 C1230,348 1342,410 1440,392 L1440,520 L0,520 Z"
+            d="M0,316 C178,266 312,364 508,344 C704,324 848,248 1044,274 C1218,296 1332,388 1440,366 L1440,520 L0,520 Z"
           />
           <path
-            class="brand-wave-blue"
-            d="M0,322 C194,288 338,366 532,330 C712,298 858,248 1044,276 C1228,304 1338,372 1440,350 L1440,520 L0,520 Z"
+            class="brand-wave-coral"
+            d="M0,344 C164,300 306,380 500,360 C696,338 836,266 1024,288 C1208,312 1324,402 1440,384 L1440,520 L0,520 Z"
           />
           <path
-            class="brand-wave-deep"
-            d="M0,300 C182,264 324,344 514,306 C696,270 842,224 1026,250 C1206,276 1322,340 1440,320 L1440,520 L0,520 Z"
+            class="brand-wave-cyan"
+            d="M0,372 C182,330 314,402 516,380 C710,358 844,292 1034,314 C1218,338 1332,420 1440,404 L1440,520 L0,520 Z"
           />
           <path
             class="brand-wave-magenta"
-            d="M0,286 C176,248 312,326 500,284 C684,244 828,194 1014,220 C1198,248 1318,312 1440,294 L1440,520 L0,520 Z"
+            d="M0,362 C176,320 312,396 512,372 C704,350 840,286 1030,304 C1214,326 1330,408 1440,392 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-deep"
+            d="M0,350 C172,308 304,386 500,364 C690,344 828,282 1018,298 C1208,316 1328,396 1440,378 L1440,520 L0,520 Z"
+          />
+          <path
+            class="brand-wave-blue"
+            d="M0,390 C186,350 320,418 528,394 C718,372 848,312 1036,330 C1218,350 1334,426 1440,412 L1440,520 L0,520 Z"
           />
         </svg>
       </div>
