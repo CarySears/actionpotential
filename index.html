@@ -238,7 +238,7 @@
       }
 
       .hero {
-        padding: 5.6rem 0 4rem;
+        padding: 4.9rem 0 3.4rem;
       }
 
       .with-brand-motifs {
@@ -381,16 +381,10 @@
         opacity: 0.76;
       }
 
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 2.2rem;
-        align-items: center;
-      }
-
       .hero-copy {
         position: relative;
         padding-top: 0.7rem;
+        max-width: min(760px, 100%);
       }
 
       .hero-copy::before {
@@ -621,7 +615,7 @@
 
       .hero p {
         color: var(--muted);
-        max-width: 62ch;
+        max-width: 68ch;
         margin: 1rem 0 1.5rem;
         font-size: 1.07rem;
       }
@@ -663,6 +657,16 @@
 
       .signal-title small {
         color: var(--brand-1);
+      }
+
+      .signal-section .section-head {
+        margin-bottom: 1rem;
+      }
+
+      .signal-card-large {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 1.3rem;
       }
 
       .stages {
@@ -1091,7 +1095,6 @@
           height: 190px;
           right: -60px;
         }
-        .hero-grid,
         .split {
           grid-template-columns: 1fr;
         }
@@ -1135,6 +1138,9 @@
         .brand-wave-divider {
           height: clamp(98px, 12vh, 136px);
           margin-top: 0.6rem;
+        }
+        .signal-card-large {
+          padding: 1.05rem;
         }
         body {
           /* Reserve space so fixed CTA never covers content */
@@ -1318,77 +1324,61 @@
         <div class="brand-dots-motif brand-dots-motif-right"></div>
       </div>
       <section class="hero container" id="top">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow">Behavioral AI Growth Systems</span>
-            <h1 class="hero-tagline">
-              <span class="tagline-static">From potential...</span>
-              <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stop-color="#79C5C7" />
-                    <stop offset="0.25" stop-color="#2EA6D4" />
-                    <stop offset="0.55" stop-color="#00A79D" />
-                    <stop offset="0.78" stop-color="#FF8B66" />
-                    <stop offset="0.92" stop-color="#D93AA4" />
-                    <stop offset="1" stop-color="#1B75BB" />
-                  </linearGradient>
-                  <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
-                    <stop offset="0" stop-color="#FFFFFF" />
-                    <stop offset="0.38" stop-color="#FF8B66" />
-                    <stop offset="0.72" stop-color="#D93AA4" />
-                    <stop offset="1" stop-color="#1B75BB" />
-                  </radialGradient>
-                </defs>
-                <line class="hero-tagline-ap-guide" x1="2" y1="24" x2="218" y2="24" />
-                <line class="hero-tagline-ap-guide" x1="2" y1="9" x2="218" y2="9" />
-                <path
-                  class="hero-tagline-ap-glow"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+        <div class="hero-copy">
+          <span class="eyebrow">Behavioral AI Growth Systems</span>
+          <h1 class="hero-tagline">
+            <span class="tagline-static">From potential...</span>
+            <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#79C5C7" />
+                  <stop offset="0.25" stop-color="#2EA6D4" />
+                  <stop offset="0.55" stop-color="#00A79D" />
+                  <stop offset="0.78" stop-color="#FF8B66" />
+                  <stop offset="0.92" stop-color="#D93AA4" />
+                  <stop offset="1" stop-color="#1B75BB" />
+                </linearGradient>
+                <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
+                  <stop offset="0" stop-color="#FFFFFF" />
+                  <stop offset="0.38" stop-color="#FF8B66" />
+                  <stop offset="0.72" stop-color="#D93AA4" />
+                  <stop offset="1" stop-color="#1B75BB" />
+                </radialGradient>
+              </defs>
+              <line class="hero-tagline-ap-guide" x1="2" y1="24" x2="218" y2="24" />
+              <line class="hero-tagline-ap-guide" x1="2" y1="9" x2="218" y2="9" />
+              <path
+                class="hero-tagline-ap-glow"
+                d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+              />
+              <path
+                class="hero-tagline-ap-track"
+                d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+              />
+              <circle class="hero-tagline-ap-dot" r="3.2">
+                <animateMotion
+                  dur="2.65s"
+                  repeatCount="indefinite"
+                  path="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
                 />
-                <path
-                  class="hero-tagline-ap-track"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-                />
-                <circle class="hero-tagline-ap-dot" r="3.2">
-                  <animateMotion
-                    dur="2.65s"
-                    repeatCount="indefinite"
-                    path="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-                  />
-                </circle>
-              </svg>
-              <span class="tagline-animated">to action.</span>
-            </h1>
-            <p>
-              ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
-              operations through human-centered AI. We do not just deliver leads. We build the full system that turns
-              intent into revenue.
-            </p>
-            <div class="cta-group">
-              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Schedule Free AI Audit & Strategy Session</a>
-              <a class="btn btn-secondary" href="#engine">See the Behavioral Engine™</a>
-            </div>
-            <p class="micro-proof">
-              Built for service businesses who need <span>faster speed-to-lead</span>, <span>smarter follow-up</span>,
-              and <span>full-funnel conversion</span>.
-            </p>
-            <p class="micro-proof">Serving <span>Westchester County</span>, <span>NYC</span>, and <span>nationwide</span>.</p>
+              </circle>
+            </svg>
+            <span class="tagline-animated">to action.</span>
+          </h1>
+          <p>
+            ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
+            operations through human-centered AI. We do not just deliver leads. We build the full system that turns
+            intent into revenue.
+          </p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Schedule Free AI Audit & Strategy Session</a>
+            <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine™</a>
           </div>
-          <aside class="signal-card" aria-label="Six stages of the Behavioral Engine™">
-            <div class="signal-title">
-              <h2>The Six Stages of the Behavioral Engine™</h2>
-              <small>Always-on signal flow</small>
-            </div>
-            <ol class="stages">
-              <li><span class="dot">1</span> <span>Attract qualified attention across search, social, and AI.</span></li>
-              <li><span class="dot">2</span> <span>Capture intent through conversational touchpoints.</span></li>
-              <li><span class="dot">3</span> <span>Convert with instant response and frictionless booking.</span></li>
-              <li><span class="dot">4</span> <span>Nurture undecided leads with personalized sequences.</span></li>
-              <li><span class="dot">5</span> <span>Delight customers, boost retention, and increase LTV.</span></li>
-              <li><span class="dot">6</span> <span>Activate referrals, reviews, and reactivation loops.</span></li>
-            </ol>
-          </aside>
+          <p class="micro-proof">
+            Built for service businesses who need <span>faster speed-to-lead</span>, <span>smarter follow-up</span>,
+            and <span>full-funnel conversion</span>.
+          </p>
+          <p class="micro-proof">Serving <span>Westchester County</span>, <span>NYC</span>, and <span>nationwide</span>.</p>
         </div>
       </section>
 
@@ -1422,6 +1412,28 @@
               <span class="pill">Behavior-first design</span>
               <span class="pill">Human-centered AI</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section signal-section" id="engine-stages">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Behavioral Engine Core</span>
+              <h2>The Six Stages of the Behavioral Engine™</h2>
+            </div>
+            <p>Always-on signal flow from first attention to loyal advocacy.</p>
+          </div>
+          <div class="signal-card signal-card-large" aria-label="Six stages of the Behavioral Engine™">
+            <ol class="stages">
+              <li><span class="dot">1</span> <span>Attract qualified attention across search, social, and AI.</span></li>
+              <li><span class="dot">2</span> <span>Capture intent through conversational touchpoints.</span></li>
+              <li><span class="dot">3</span> <span>Convert with instant response and frictionless booking.</span></li>
+              <li><span class="dot">4</span> <span>Nurture undecided leads with personalized sequences.</span></li>
+              <li><span class="dot">5</span> <span>Delight customers, boost retention, and increase LTV.</span></li>
+              <li><span class="dot">6</span> <span>Activate referrals, reviews, and reactivation loops.</span></li>
+            </ol>
           </div>
         </div>
       </section>
