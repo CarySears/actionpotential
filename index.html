@@ -455,6 +455,45 @@
         max-width: 18ch;
       }
 
+      .hero-tagline .tagline-static {
+        color: #ffffff;
+      }
+
+      .footer-tagline {
+        display: inline-block;
+      }
+
+      .tagline-animated {
+        display: inline-block;
+        color: #2ea6d4;
+        background: linear-gradient(92deg, #79c5c7 0%, #2ea6d4 35%, #00a79d 62%, #1b75bb 100%);
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: tagline-gradient 8.5s ease-in-out infinite, tagline-glow 4.2s ease-in-out infinite;
+      }
+
+      @keyframes tagline-gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes tagline-glow {
+        0%,
+        100% {
+          text-shadow: 0 0 0 rgba(46, 166, 212, 0);
+        }
+        50% {
+          text-shadow: 0 0 14px rgba(46, 166, 212, 0.34);
+        }
+      }
+
       .hero p {
         color: var(--muted);
         max-width: 62ch;
@@ -873,6 +912,10 @@
         html {
           scroll-behavior: auto;
         }
+        .tagline-animated {
+          animation: none;
+          background-position: 0% 50%;
+        }
         .btn,
         .neural-line,
         body,
@@ -1132,7 +1175,10 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <span class="eyebrow">Behavioral AI Growth Systems</span>
-            <h1>From potential... to action.</h1>
+            <h1 class="hero-tagline">
+              <span class="tagline-static">From potential...</span>
+              <span class="tagline-animated">to action.</span>
+            </h1>
             <p>
               ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
               operations through human-centered AI. We do not just deliver leads. We build the full system that turns
@@ -1562,7 +1608,10 @@
         <div>
           <strong>ActionPotential.AI</strong> · Behavioral AI Marketing & Automation
           <br />
-          <span>From potential... to action.</span>
+          <span class="footer-tagline">
+            <span class="tagline-static">From potential...</span>
+            <span class="tagline-animated">to action.</span>
+          </span>
         </div>
         <div class="footer-links">
           <a href="/services/">Services</a>
