@@ -43,8 +43,8 @@
         --brand-3: #00a79d;
         --brand-4: #1b75bb;
         --ink: #231f20;
-        --accent-coral: #ff8b66;
-        --accent-magenta: #d93aa4;
+        --accent-coral: #00a79d;
+        --accent-magenta: #1b75bb;
         --bg: #05070c;
         --bg-soft: #0d1322;
         --surface: #121b2f;
@@ -92,8 +92,8 @@
         inset: 0;
         pointer-events: none;
         z-index: -1;
-        background: radial-gradient(circle at 70% 20%, rgba(217, 58, 164, 0.1), transparent 26%),
-          radial-gradient(circle at 18% 72%, rgba(255, 139, 102, 0.11), transparent 28%);
+        background: radial-gradient(circle at 70% 20%, rgba(46, 166, 212, 0.1), transparent 26%),
+          radial-gradient(circle at 18% 72%, rgba(0, 167, 157, 0.11), transparent 28%);
         transition: opacity 0.9s ease;
       }
 
@@ -152,7 +152,7 @@
       }
 
       .wave-layer-c {
-        fill: var(--accent-magenta);
+        fill: var(--brand-3);
         opacity: 0.56;
       }
 
@@ -169,8 +169,8 @@
         clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
         background: linear-gradient(
           130deg,
-          rgba(255, 139, 102, 0.82),
-          rgba(217, 58, 164, 0.78),
+          rgba(121, 197, 199, 0.74),
+          rgba(46, 166, 212, 0.72),
           rgba(27, 117, 187, 0.72)
         );
         transform: translate3d(calc((1 - var(--fold-fade, 0)) * 18vw), calc((1 - var(--fold-fade, 0)) * 6vh), 0)
@@ -232,7 +232,7 @@
       }
 
       .neural-line.is-active {
-        stroke: rgba(255, 139, 102, 0.65);
+        stroke: rgba(0, 167, 157, 0.7);
       }
 
       .neural-node {
@@ -240,7 +240,7 @@
       }
 
       .neural-node.is-hot {
-        fill: rgba(255, 139, 102, 0.95);
+        fill: rgba(0, 167, 157, 0.95);
       }
 
       a {
@@ -342,7 +342,7 @@
       }
 
       .btn-primary {
-        background: linear-gradient(125deg, var(--brand-2), var(--brand-4) 55%, var(--accent-magenta));
+        background: linear-gradient(125deg, var(--brand-2), var(--brand-4) 55%, var(--brand-3));
         color: #fff;
         box-shadow: 0 10px 25px rgba(27, 117, 187, 0.35);
       }
@@ -403,7 +403,7 @@
         content: "";
         width: 26px;
         height: 2px;
-        background: linear-gradient(90deg, var(--accent-coral), var(--brand-1));
+        background: linear-gradient(90deg, var(--brand-3), var(--brand-1));
       }
 
       .hero .eyebrow {
@@ -581,7 +581,7 @@
       }
 
       .problem li::marker {
-        color: var(--accent-coral);
+        color: var(--brand-3);
       }
 
       .split {
