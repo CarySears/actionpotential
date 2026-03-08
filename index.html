@@ -111,6 +111,39 @@
         opacity: 0.82;
       }
 
+      /* Keep visual effects at the sides, preserve a calmer center text lane */
+      body::before,
+      body::after,
+      .neural-overlay,
+      .brand-motifs {
+        -webkit-mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 12%,
+          rgba(0, 0, 0, 0.45) 16%,
+          rgba(0, 0, 0, 0) 22%,
+          rgba(0, 0, 0, 0) 78%,
+          rgba(0, 0, 0, 0.45) 84%,
+          rgba(0, 0, 0, 1) 90%,
+          rgba(0, 0, 0, 1) 100%
+        );
+        mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 12%,
+          rgba(0, 0, 0, 0.45) 16%,
+          rgba(0, 0, 0, 0) 22%,
+          rgba(0, 0, 0, 0) 78%,
+          rgba(0, 0, 0, 0.45) 84%,
+          rgba(0, 0, 0, 1) 90%,
+          rgba(0, 0, 0, 1) 100%
+        );
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+      }
+
       .neural-line {
         stroke: rgba(121, 197, 199, 0.35);
         stroke-width: 1.6;
@@ -1408,6 +1441,33 @@
       }
 
       @media (max-width: 720px) {
+        body::before,
+        body::after,
+        .neural-overlay,
+        .brand-motifs {
+          -webkit-mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 8%,
+            rgba(0, 0, 0, 0.35) 12%,
+            rgba(0, 0, 0, 0) 18%,
+            rgba(0, 0, 0, 0) 82%,
+            rgba(0, 0, 0, 0.35) 88%,
+            rgba(0, 0, 0, 1) 92%,
+            rgba(0, 0, 0, 1) 100%
+          );
+          mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 8%,
+            rgba(0, 0, 0, 0.35) 12%,
+            rgba(0, 0, 0, 0) 18%,
+            rgba(0, 0, 0, 0) 82%,
+            rgba(0, 0, 0, 0.35) 88%,
+            rgba(0, 0, 0, 1) 92%,
+            rgba(0, 0, 0, 1) 100%
+          );
+        }
         .hero-tagline {
           gap: 0.26em;
           font-size: clamp(1.38rem, 7.2vw, 2.04rem);
