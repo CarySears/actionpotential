@@ -81,10 +81,10 @@
         content: "";
         position: fixed;
         inset: 0;
-        background-image: linear-gradient(var(--line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--line) 1px, transparent 1px);
-        background-size: 52px 52px;
-        opacity: 0.26;
+        background: radial-gradient(circle at 4% 12%, rgba(121, 197, 199, 0.28), transparent 28%),
+          radial-gradient(circle at 95% 8%, rgba(46, 166, 212, 0.3), transparent 30%),
+          radial-gradient(circle at 8% 86%, rgba(0, 167, 157, 0.18), transparent 28%);
+        opacity: 0.56;
         pointer-events: none;
         z-index: -2;
         transition: opacity 0.9s ease;
@@ -145,15 +145,15 @@
       }
 
       .neural-line {
-        stroke: rgba(121, 197, 199, 0.52);
-        stroke-width: 1.6;
+        stroke: rgba(121, 197, 199, 0.58);
+        stroke-width: 1.85;
         stroke-linecap: round;
-        stroke-dasharray: 6 8;
+        stroke-dasharray: 8 7;
         transition: stroke 0.22s ease, opacity 0.22s ease;
       }
 
       .neural-line.is-active {
-        stroke: rgba(255, 139, 102, 0.86);
+        stroke: rgba(255, 139, 102, 0.94);
       }
 
       .neural-node {
@@ -427,9 +427,29 @@
         opacity: 0.66;
       }
 
+      .brand-geo-motif-top-right {
+        right: -11vw;
+        top: -10vh;
+        width: min(34vw, 410px);
+        height: min(34vh, 290px);
+        clip-path: polygon(22% 0%, 100% 0%, 100% 100%, 0% 80%);
+        background: linear-gradient(138deg, rgba(46, 166, 212, 0.7), rgba(27, 117, 187, 0.74) 52%, rgba(217, 58, 164, 0.62));
+        opacity: 0.66;
+      }
+
+      .brand-geo-motif-top-left {
+        left: -12vw;
+        top: -8vh;
+        width: min(32vw, 390px);
+        height: min(30vh, 250px);
+        clip-path: polygon(0 32%, 72% 0, 100% 100%, 0 100%);
+        background: linear-gradient(140deg, rgba(255, 139, 102, 0.64), rgba(217, 58, 164, 0.62) 50%, rgba(27, 117, 187, 0.56));
+        opacity: 0.58;
+      }
+
       .brand-geo-motif-mid-right {
         right: -8vw;
-        top: 18%;
+        top: 12%;
         width: min(26vw, 300px);
         height: min(30vh, 240px);
         clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
@@ -439,7 +459,7 @@
 
       .brand-geo-motif-mid-left {
         left: -9vw;
-        top: 46%;
+        top: 34%;
         width: min(22vw, 260px);
         height: min(24vh, 200px);
         clip-path: polygon(0 36%, 78% 0, 100% 100%, 0 100%);
@@ -450,7 +470,7 @@
       .brand-dots-motif {
         position: absolute;
         left: 2%;
-        top: 18%;
+        top: 9%;
         width: 280px;
         height: 280px;
         opacity: 0.32;
@@ -461,11 +481,21 @@
       .brand-dots-motif-right {
         left: auto;
         right: -70px;
-        top: 62%;
+        top: 48%;
         width: 250px;
         height: 250px;
         opacity: 0.28;
         background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.9) 1.6px, transparent 2.2px);
+      }
+
+      .brand-dots-motif-top-right {
+        left: auto;
+        right: -56px;
+        top: 4%;
+        width: 220px;
+        height: 220px;
+        opacity: 0.3;
+        background-image: radial-gradient(circle at center, rgba(217, 58, 164, 0.86) 1.5px, transparent 2.2px);
       }
 
       .brand-wave-divider {
@@ -1364,6 +1394,10 @@
           width: 210px;
           height: 210px;
         }
+        .brand-geo-motif-top-right,
+        .brand-geo-motif-top-left {
+          opacity: 0.42;
+        }
         .brand-geo-motif-mid-right,
         .brand-geo-motif-mid-left {
           opacity: 0.3;
@@ -1443,6 +1477,11 @@
           opacity: 0.34;
         }
         .brand-dots-motif {
+          display: none;
+        }
+        .brand-geo-motif-top-right,
+        .brand-geo-motif-top-left,
+        .brand-dots-motif-top-right {
           display: none;
         }
         .brand-geo-motif-mid-right,
@@ -1639,11 +1678,14 @@
 
     <main id="main" class="with-brand-motifs">
       <div class="brand-motifs" aria-hidden="true">
+        <div class="brand-geo-motif brand-geo-motif-top-right"></div>
+        <div class="brand-geo-motif brand-geo-motif-top-left"></div>
         <div class="brand-geo-motif brand-geo-motif-right"></div>
         <div class="brand-geo-motif brand-geo-motif-left"></div>
         <div class="brand-geo-motif brand-geo-motif-mid-right"></div>
         <div class="brand-geo-motif brand-geo-motif-mid-left"></div>
         <div class="brand-dots-motif"></div>
+        <div class="brand-dots-motif brand-dots-motif-top-right"></div>
         <div class="brand-dots-motif brand-dots-motif-right"></div>
       </div>
       <section class="hero container" id="top">
@@ -2265,43 +2307,39 @@
 
         const maxScroll = () => Math.max(document.body.scrollHeight - window.innerHeight, 1);
 
-        const update = () => {
+        const update = (now = performance.now()) => {
           const progress = Math.min(Math.max(window.scrollY / maxScroll(), 0), 1);
-          const pulse = Math.sin(progress * Math.PI * 16);
-          const dash = 38 - progress * 34;
-          overlay.style.transform = "translate3d(0," + (progress * 38).toFixed(2) + "px,0)";
+          const time = now * 0.001;
+          const pulse = Math.sin(progress * Math.PI * 22 + time * 2.2);
+          const sweep = (time * 42) % 120;
+          const dash = 48 - progress * 38;
+          overlay.style.transform = "translate3d(0," + (progress * 42 + Math.sin(time * 1.35) * 4).toFixed(2) + "px,0)";
 
           for (let i = 0; i < lineEls.length; i += 1) {
             const line = lineEls[i];
             const threshold = i / lineEls.length;
-            const active = progress + 0.12 > threshold && progress - 0.1 < threshold;
-            line.setAttribute("stroke-dashoffset", String(dash + i * 0.7 + pulse * 3));
+            const active = Math.abs(progress - threshold) < 0.16 || Math.sin(time * 2.5 + i * 0.23) > 0.93;
+            line.setAttribute("stroke-dashoffset", String(dash + i * 0.95 + pulse * 6 + sweep));
             line.classList.toggle("is-active", active);
-            line.style.opacity = active ? "0.9" : "0.48";
+            line.style.opacity = active ? "0.96" : "0.42";
           }
 
           for (let i = 0; i < nodeEls.length; i += 1) {
             const node = nodeEls[i];
-            const active = Math.abs(progress - i / nodeEls.length) < 0.09;
+            const active = Math.abs(progress - i / nodeEls.length) < 0.13 || Math.sin(time * 2.8 + i * 0.48) > 0.95;
             node.classList.toggle("is-hot", active);
-            node.setAttribute("r", active ? "4.2" : "3.2");
-            node.style.opacity = active ? "0.98" : "0.65";
+            node.setAttribute("r", active ? "4.8" : "3.1");
+            node.style.opacity = active ? "1" : "0.68";
           }
         };
 
-        let ticking = false;
-        const onScroll = () => {
-          if (ticking) return;
-          ticking = true;
-          window.requestAnimationFrame(() => {
-            update();
-            ticking = false;
-          });
+        const tick = () => {
+          update(performance.now());
+          window.requestAnimationFrame(tick);
         };
 
-        update();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
+        tick();
+        window.addEventListener("resize", () => update(performance.now()));
       })();
     </script>
     <script>

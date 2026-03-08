@@ -38,10 +38,102 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(circle at 4% 10%, rgba(121, 197, 199, 0.28), transparent 27%),
+    radial-gradient(circle at 96% 12%, rgba(46, 166, 212, 0.28), transparent 29%),
+    radial-gradient(circle at 8% 84%, rgba(0, 167, 157, 0.16), transparent 26%);
+  opacity: 0.72;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   z-index: -1;
-  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 54px 54px;
-  opacity: 0.15;
+  background:
+    linear-gradient(138deg, rgba(255, 139, 102, 0.24), rgba(217, 58, 164, 0.24) 52%, rgba(27, 117, 187, 0.22))
+      -15vw -10vh / min(34vw, 360px) min(34vh, 270px) no-repeat,
+    linear-gradient(140deg, rgba(46, 166, 212, 0.26), rgba(27, 117, 187, 0.24) 56%, rgba(217, 58, 164, 0.16))
+      112% 8% / min(30vw, 320px) min(28vh, 220px) no-repeat,
+    linear-gradient(136deg, rgba(46, 166, 212, 0.2), rgba(121, 197, 199, 0.2))
+      -12vw 54% / min(26vw, 260px) min(24vh, 190px) no-repeat,
+    radial-gradient(circle at 6% 20%, rgba(121, 197, 199, 0.82) 1.4px, transparent 2.2px)
+      left -70px top 7% / 14px 14px repeat,
+    radial-gradient(circle at 95% 38%, rgba(46, 166, 212, 0.86) 1.4px, transparent 2.2px)
+      right -54px top 34% / 14px 14px repeat;
+  opacity: 0.48;
+  animation: sideDrift 16s ease-in-out infinite alternate;
+}
+
+body::before,
+body::after,
+.subpage-neural-overlay {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 13%,
+    rgba(0, 0, 0, 0.42) 17%,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 0, 0, 0) 76%,
+    rgba(0, 0, 0, 0.42) 83%,
+    rgba(0, 0, 0, 1) 89%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 13%,
+    rgba(0, 0, 0, 0.42) 17%,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 0, 0, 0) 76%,
+    rgba(0, 0, 0, 0.42) 83%,
+    rgba(0, 0, 0, 1) 89%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.subpage-neural-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.sub-neural-line {
+  stroke: rgba(121, 197, 199, 0.56);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-dasharray: 8 7;
+  transition: stroke 0.2s ease, opacity 0.2s ease;
+}
+
+.sub-neural-line.is-active {
+  stroke: rgba(255, 139, 102, 0.92);
+}
+
+.sub-neural-node {
+  fill: rgba(121, 197, 199, 0.92);
+}
+
+.sub-neural-node.is-hot {
+  fill: rgba(217, 58, 164, 0.94);
+}
+
+@keyframes sideDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 22px, 0);
+  }
 }
 
 a {
@@ -448,6 +540,17 @@ p {
   flex-wrap: wrap;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
+
+  .sub-neural-line,
+  .subpage-neural-overlay {
+    transition: none;
+  }
+}
+
 @media (max-width: 1040px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -459,6 +562,41 @@ p {
 }
 
 @media (max-width: 760px) {
+  body::before,
+  body::after,
+  .subpage-neural-overlay {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 9%,
+      rgba(0, 0, 0, 0.32) 13%,
+      rgba(0, 0, 0, 0) 18%,
+      rgba(0, 0, 0, 0) 82%,
+      rgba(0, 0, 0, 0.32) 87%,
+      rgba(0, 0, 0, 1) 91%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 9%,
+      rgba(0, 0, 0, 0.32) 13%,
+      rgba(0, 0, 0, 0) 18%,
+      rgba(0, 0, 0, 0) 82%,
+      rgba(0, 0, 0, 0.32) 87%,
+      rgba(0, 0, 0, 1) 91%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+
+  body::after {
+    opacity: 0.34;
+  }
+
+  .subpage-neural-overlay {
+    opacity: 0.58;
+  }
+
   .split {
     grid-template-columns: 1fr;
   }
@@ -475,6 +613,14 @@ p {
 }
 
 @media (max-width: 680px) {
+  body::after {
+    background:
+      linear-gradient(138deg, rgba(255, 139, 102, 0.2), rgba(217, 58, 164, 0.2) 52%, rgba(27, 117, 187, 0.18))
+        -18vw -8vh / min(36vw, 260px) min(28vh, 190px) no-repeat,
+      linear-gradient(140deg, rgba(46, 166, 212, 0.2), rgba(27, 117, 187, 0.2) 56%, rgba(217, 58, 164, 0.14))
+        114% 12% / min(30vw, 220px) min(24vh, 170px) no-repeat;
+  }
+
   .grid,
   .kpi-row {
     grid-template-columns: 1fr;
