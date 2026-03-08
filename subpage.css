@@ -276,6 +276,7 @@ h3 {
   color: #3a5f81;
   font-size: 0.83rem;
   font-weight: 600;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -292,7 +293,17 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.34rem;
+  color: #3a5f81;
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.2;
   white-space: nowrap;
+}
+
+.nav-item > a:hover,
+.nav-item.open > a,
+.nav-item:focus-within > a {
+  color: #173f66;
 }
 
 .nav-item > a::after {

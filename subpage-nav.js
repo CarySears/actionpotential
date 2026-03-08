@@ -69,6 +69,11 @@
       openItem(item);
     });
 
+    item.addEventListener("mouseleave", () => {
+      if (isTouchLike()) return;
+      closeItem(item);
+    });
+
     menu.addEventListener("click", (event) => event.stopPropagation());
     menu.addEventListener("pointerdown", (event) => event.stopPropagation());
 
