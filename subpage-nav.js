@@ -168,3 +168,25 @@
   tick();
   window.addEventListener("resize", () => update(performance.now()));
 })();
+
+(() => {
+  if (document.querySelector(".brand-wave-divider, .global-brand-wave-divider")) return;
+  const footer = document.querySelector("footer.footer, footer");
+  if (!footer || !footer.parentNode) return;
+
+  const wave = document.createElement("div");
+  wave.className = "global-brand-wave-divider brand-wave-divider-base";
+  wave.setAttribute("aria-hidden", "true");
+  wave.innerHTML = `
+    <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
+      <path class="brand-wave-teal" d="M0,316 C178,266 312,364 508,344 C704,324 848,248 1044,274 C1218,296 1332,388 1440,366 L1440,520 L0,520 Z"></path>
+      <path class="brand-wave-coral" d="M0,344 C164,300 306,380 500,360 C696,338 836,266 1024,288 C1208,312 1324,402 1440,384 L1440,520 L0,520 Z"></path>
+      <path class="brand-wave-cyan" d="M0,372 C182,330 314,402 516,380 C710,358 844,292 1034,314 C1218,338 1332,420 1440,404 L1440,520 L0,520 Z"></path>
+      <path class="brand-wave-magenta" d="M0,362 C176,320 312,396 512,372 C704,350 840,286 1030,304 C1214,326 1330,408 1440,392 L1440,520 L0,520 Z"></path>
+      <path class="brand-wave-deep" d="M0,350 C172,308 304,386 500,364 C690,344 828,282 1018,298 C1208,316 1328,396 1440,378 L1440,520 L0,520 Z"></path>
+      <path class="brand-wave-blue" d="M0,390 C186,350 320,418 528,394 C718,372 848,312 1036,330 C1218,350 1334,426 1440,412 L1440,520 L0,520 Z"></path>
+    </svg>
+  `;
+
+  footer.parentNode.insertBefore(wave, footer);
+})();

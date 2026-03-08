@@ -127,6 +127,62 @@ body::after,
   fill: rgba(217, 58, 164, 0.94);
 }
 
+.global-brand-wave-divider {
+  position: relative;
+  height: clamp(118px, 15vh, 182px);
+  margin: 1.1rem 0 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-top: 1px solid rgba(121, 197, 199, 0.22);
+  border-bottom: 1px solid rgba(46, 166, 212, 0.2);
+}
+
+.global-brand-wave-divider svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-wave-divider-base {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 12, 20, 0.97) 0%,
+    rgba(9, 15, 24, 0.95) 46%,
+    rgba(12, 20, 33, 0.94) 100%
+  );
+}
+
+.brand-wave-teal {
+  fill: #79c5c7;
+  opacity: 0.88;
+}
+
+.brand-wave-blue {
+  fill: #2ea6d4;
+  opacity: 0.84;
+}
+
+.brand-wave-magenta {
+  fill: #d93aa4;
+  opacity: 0.8;
+}
+
+.brand-wave-deep {
+  fill: #1b75bb;
+  opacity: 0.74;
+}
+
+.brand-wave-cyan {
+  fill: #00a79d;
+  opacity: 0.76;
+}
+
+.brand-wave-coral {
+  fill: #ff8b66;
+  opacity: 0.76;
+}
+
 @keyframes sideDrift {
   0% {
     transform: translate3d(0, 0, 0);
@@ -595,6 +651,11 @@ p {
 
   .subpage-neural-overlay {
     opacity: 0.58;
+  }
+
+  .global-brand-wave-divider {
+    height: clamp(96px, 12vh, 136px);
+    margin-top: 0.65rem;
   }
 
   .split {
