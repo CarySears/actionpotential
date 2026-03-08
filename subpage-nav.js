@@ -108,3 +108,68 @@
 
   footer.parentNode.insertBefore(wave, footer);
 })();
+
+(() => {
+  const footer = document.querySelector("footer.footer, footer");
+  if (!footer) return;
+  const wrap = footer.querySelector(".footer-wrap");
+  if (!wrap || wrap.querySelector(".footer-tagline")) return;
+
+  const existingFooterLinks = wrap.querySelector(".footer-links");
+  const existingEmail = wrap.querySelector("a[href^='mailto:']");
+  const footerLinks = existingFooterLinks ? existingFooterLinks.cloneNode(true) : document.createElement("div");
+  footerLinks.classList.add("footer-links");
+
+  if (!existingFooterLinks) {
+    const emailLink = document.createElement("a");
+    emailLink.href = existingEmail ? existingEmail.getAttribute("href") : "mailto:hello@actionpotential.ai";
+    emailLink.textContent = existingEmail ? existingEmail.textContent : "hello@actionpotential.ai";
+    footerLinks.appendChild(emailLink);
+  }
+
+  const footerBrand = document.createElement("div");
+  footerBrand.className = "footer-brand";
+  footerBrand.innerHTML = `
+    <span><strong>ActionPotential.AI</strong> · Behavioral AI Marketing & Automation</span>
+    <span class="footer-tagline">
+      <span class="tagline-static">From potential...</span>
+      <svg class="footer-tagline-apulse" viewBox="0 0 220 28" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="footerZGradientSubpage" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#79C5C7"></stop>
+            <stop offset="0.28" stop-color="#2EA6D4"></stop>
+            <stop offset="0.56" stop-color="#00A79D"></stop>
+            <stop offset="0.8" stop-color="#FF8B66"></stop>
+            <stop offset="1" stop-color="#D93AA4"></stop>
+          </linearGradient>
+          <radialGradient id="footerZDotGradientSubpage" cx="50%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#FFFFFF"></stop>
+            <stop offset="0.42" stop-color="#FF8B66"></stop>
+            <stop offset="0.75" stop-color="#D93AA4"></stop>
+            <stop offset="1" stop-color="#1B75BB"></stop>
+          </radialGradient>
+        </defs>
+        <path
+          class="footer-tagline-ap-glow"
+          d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+        ></path>
+        <path
+          class="footer-tagline-ap-track"
+          d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+        ></path>
+        <circle class="footer-tagline-ap-dot" r="2.8">
+          <animateMotion
+            dur="2.9s"
+            repeatCount="indefinite"
+            path="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+          ></animateMotion>
+        </circle>
+      </svg>
+      <span class="tagline-animated">to action.</span>
+    </span>
+  `;
+
+  wrap.innerHTML = "";
+  wrap.appendChild(footerBrand);
+  wrap.appendChild(footerLinks);
+})();
