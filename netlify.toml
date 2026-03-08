@@ -19,33 +19,34 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/"
+  for = "/index.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/:splat.html"
+  for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/:splat.css"
+  for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/:splat.js"
+  for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
 [[headers]]
-  for = "/:splat.svg"
+  for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=2592000, immutable"
 
 [[headers]]
-  for = "/:splat.png"
+  for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=2592000, immutable"
