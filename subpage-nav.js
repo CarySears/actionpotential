@@ -2,8 +2,6 @@
   const navItems = Array.from(document.querySelectorAll(".nav-item")).filter((item) => item.querySelector(".dropdown-menu"));
   if (!navItems.length) return;
 
-  const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
-
   const closeAll = () => {
     navItems.forEach((item) => item.classList.remove("open"));
   };
@@ -18,13 +16,25 @@
 
   navItems.forEach((item) => {
     const trigger = item.querySelector(":scope > a");
+    const menu = item.querySelector(":scope > .dropdown-menu");
     if (!trigger) return;
+
+    if (menu) {
+      menu.addEventListener(
+        "wheel",
+        (event) => {
+          event.stopPropagation();
+        },
+        { passive: true },
+      );
+    }
+
     trigger.addEventListener("click", (event) => {
-      if (!isTouchLike()) return;
+      const isOpen = item.classList.contains("open");
+      if (isOpen) return;
       event.preventDefault();
-      const willOpen = !item.classList.contains("open");
       closeAll();
-      if (willOpen) item.classList.add("open");
+      item.classList.add("open");
     });
   });
 })();

@@ -121,6 +121,26 @@ h3 {
   overflow: visible;
 }
 
+.nav-links > a[href*="/solutions"] {
+  order: 1;
+}
+
+.nav-links > .nav-item:first-of-type {
+  order: 2;
+}
+
+.nav-links > a[href*="/who-we-are"] {
+  order: 3;
+}
+
+.nav-links > a[href*="/results"] {
+  order: 4;
+}
+
+.nav-links > .nav-item:last-of-type {
+  order: 5;
+}
+
 .nav-links > a {
   color: #3a5f81;
   font-size: 0.83rem;
@@ -175,6 +195,7 @@ h3 {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .dropdown-menu a {

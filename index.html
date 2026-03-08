@@ -198,6 +198,26 @@
         align-items: center;
       }
 
+      .nav-links > a[href*="/solutions"] {
+        order: 1;
+      }
+
+      .nav-links > .nav-item:first-of-type {
+        order: 2;
+      }
+
+      .nav-links > a[href*="/who-we-are"] {
+        order: 3;
+      }
+
+      .nav-links > a[href*="/results"] {
+        order: 4;
+      }
+
+      .nav-links > .nav-item:last-of-type {
+        order: 5;
+      }
+
       .nav-links a {
         color: var(--muted);
         font-size: 0.95rem;
@@ -244,6 +264,9 @@
         pointer-events: none;
         transition: opacity 0.22s ease, transform 0.22s ease;
         z-index: 70;
+        max-height: min(70vh, 360px);
+        overflow-y: auto;
+        touch-action: pan-y;
       }
 
       .dropdown-menu a {
@@ -258,7 +281,8 @@
       }
 
       .nav-item:hover .dropdown-menu,
-      .nav-item:focus-within .dropdown-menu {
+      .nav-item:focus-within .dropdown-menu,
+      .nav-item.open .dropdown-menu {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
