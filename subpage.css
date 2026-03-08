@@ -83,7 +83,7 @@ a {
   justify-content: space-between;
   align-items: center;
   min-height: 74px;
-  gap: 0.8rem;
+  gap: 0.55rem;
 }
 
 .brand {
@@ -114,19 +114,18 @@ h3 {
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 0.72rem;
   align-items: center;
 }
 
-.nav-links > a,
-.nav-item > a {
+.nav-links > a {
   color: #3a5f81;
-  font-size: 0.93rem;
+  font-size: 0.83rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
-.nav-links > a:hover,
-.nav-item > a:hover {
+.nav-links > a:hover {
   color: #173f66;
 }
 
@@ -191,10 +190,11 @@ h3 {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.58rem;
-  margin-left: 0.95rem;
-  padding-left: 0.95rem;
+  gap: 0.5rem;
+  margin-left: 0.72rem;
+  padding-left: 0.72rem;
   border-left: 1px solid rgba(27, 117, 187, 0.22);
+  white-space: nowrap;
 }
 
 .btn {
