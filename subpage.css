@@ -52,6 +52,30 @@ body::after {
   pointer-events: none;
   z-index: -1;
   background:
+    linear-gradient(126deg, rgba(46, 166, 212, 0.24) 0 2px, transparent 2px 100%)
+      left -92px top 8% / 250px 210px no-repeat,
+    linear-gradient(62deg, rgba(27, 117, 187, 0.22) 0 2px, transparent 2px 100%)
+      left -74px top 17% / 220px 196px no-repeat,
+    linear-gradient(138deg, rgba(0, 167, 157, 0.2) 0 2px, transparent 2px 100%)
+      left -88px top 29% / 200px 180px no-repeat,
+    linear-gradient(62deg, rgba(46, 166, 212, 0.26) 0 2px, transparent 2px 100%)
+      right -88px top 12% / 250px 210px no-repeat,
+    linear-gradient(126deg, rgba(27, 117, 187, 0.22) 0 2px, transparent 2px 100%)
+      right -72px top 24% / 224px 190px no-repeat,
+    linear-gradient(46deg, rgba(217, 58, 164, 0.2) 0 2px, transparent 2px 100%)
+      right -94px top 38% / 210px 180px no-repeat,
+    radial-gradient(circle, rgba(121, 197, 199, 0.84) 0 2.8px, transparent 3px)
+      left 28px top 12% / 120px 120px no-repeat,
+    radial-gradient(circle, rgba(46, 166, 212, 0.84) 0 2.8px, transparent 3px)
+      left -18px top 22% / 120px 120px no-repeat,
+    radial-gradient(circle, rgba(0, 167, 157, 0.78) 0 2.8px, transparent 3px)
+      left 32px top 34% / 120px 120px no-repeat,
+    radial-gradient(circle, rgba(255, 139, 102, 0.78) 0 2.8px, transparent 3px)
+      right 20px top 15% / 120px 120px no-repeat,
+    radial-gradient(circle, rgba(217, 58, 164, 0.8) 0 2.8px, transparent 3px)
+      right -20px top 26% / 120px 120px no-repeat,
+    radial-gradient(circle, rgba(27, 117, 187, 0.78) 0 2.8px, transparent 3px)
+      right 18px top 40% / 120px 120px no-repeat,
     linear-gradient(138deg, rgba(255, 139, 102, 0.24), rgba(217, 58, 164, 0.24) 52%, rgba(27, 117, 187, 0.22))
       -15vw -10vh / min(34vw, 360px) min(34vh, 270px) no-repeat,
     linear-gradient(140deg, rgba(46, 166, 212, 0.26), rgba(27, 117, 187, 0.24) 56%, rgba(217, 58, 164, 0.16))
@@ -62,13 +86,11 @@ body::after {
       left -70px top 7% / 14px 14px repeat,
     radial-gradient(circle at 95% 38%, rgba(46, 166, 212, 0.86) 1.4px, transparent 2.2px)
       right -54px top 34% / 14px 14px repeat;
-  opacity: 0.48;
-  animation: sideDrift 16s ease-in-out infinite alternate;
+  opacity: 0.5;
 }
 
 body::before,
-body::after,
-.subpage-neural-overlay {
+body::after {
   -webkit-mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 1) 0%,
@@ -95,36 +117,6 @@ body::after,
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
-}
-
-.subpage-neural-overlay {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.9;
-}
-
-.sub-neural-line {
-  stroke: rgba(121, 197, 199, 0.56);
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-dasharray: 8 7;
-  transition: stroke 0.2s ease, opacity 0.2s ease;
-}
-
-.sub-neural-line.is-active {
-  stroke: rgba(255, 139, 102, 0.92);
-}
-
-.sub-neural-node {
-  fill: rgba(121, 197, 199, 0.92);
-}
-
-.sub-neural-node.is-hot {
-  fill: rgba(217, 58, 164, 0.94);
 }
 
 .global-brand-wave-divider {
@@ -181,15 +173,6 @@ body::after,
 .brand-wave-coral {
   fill: #ff8b66;
   opacity: 0.76;
-}
-
-@keyframes sideDrift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 22px, 0);
-  }
 }
 
 a {
@@ -596,17 +579,6 @@ p {
   flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body::after {
-    animation: none;
-  }
-
-  .sub-neural-line,
-  .subpage-neural-overlay {
-    transition: none;
-  }
-}
-
 @media (max-width: 1040px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -619,8 +591,7 @@ p {
 
 @media (max-width: 760px) {
   body::before,
-  body::after,
-  .subpage-neural-overlay {
+  body::after {
     -webkit-mask-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 1) 0%,
@@ -647,10 +618,6 @@ p {
 
   body::after {
     opacity: 0.34;
-  }
-
-  .subpage-neural-overlay {
-    opacity: 0.58;
   }
 
   .global-brand-wave-divider {
