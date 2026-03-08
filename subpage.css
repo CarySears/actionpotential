@@ -76,6 +76,7 @@ a {
   backdrop-filter: blur(14px);
   background: rgba(251, 254, 255, 0.9);
   border-bottom: 1px solid rgba(27, 117, 187, 0.2);
+  overflow: visible;
 }
 
 .nav {
@@ -84,6 +85,7 @@ a {
   align-items: center;
   min-height: 74px;
   gap: 0.55rem;
+  overflow: visible;
 }
 
 .brand {
@@ -116,6 +118,7 @@ h3 {
   display: flex;
   gap: 0.72rem;
   align-items: center;
+  overflow: visible;
 }
 
 .nav-links > a {
@@ -131,12 +134,14 @@ h3 {
 
 .nav-item {
   position: relative;
+  padding: 0.34rem 0;
 }
 
 .nav-item > a {
   display: inline-flex;
   align-items: center;
   gap: 0.34rem;
+  white-space: nowrap;
 }
 
 .nav-item > a::after {
@@ -151,7 +156,7 @@ h3 {
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% - 1px);
   left: 0;
   min-width: 218px;
   padding: 0.4rem;
@@ -166,6 +171,10 @@ h3 {
   pointer-events: none;
   transition: opacity 0.22s ease, transform 0.22s ease;
   z-index: 60;
+  max-height: min(70vh, 360px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .dropdown-menu a {
@@ -181,7 +190,8 @@ h3 {
 }
 
 .nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
+.nav-item:focus-within .dropdown-menu,
+.nav-item.open .dropdown-menu {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
