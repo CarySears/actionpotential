@@ -129,6 +129,20 @@ h3 {
   color: #173f66;
 }
 
+/* Defensive fallback: hide legacy extra top-nav links if stale HTML is served */
+.nav-links > a[href*="/who-we-empower/industries"],
+.nav-links > a[href*="/who-we-empower/locations"],
+.nav-links > a[href*="/resources/faq"],
+.nav-links > a[href*="/resources/blog"],
+.nav-links > a[href*="/resources/case-studies"] {
+  display: none !important;
+}
+
+/* Defensive fallback: never render old dropdown containers */
+.dropdown-menu {
+  display: none !important;
+}
+
 .nav-item {
   position: relative;
 }
