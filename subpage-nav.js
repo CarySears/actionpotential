@@ -23,10 +23,14 @@
 
   const navItems = Array.from(nav.querySelectorAll(".nav-item"));
   if (!navItems.length) return;
+  const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  const closeTimers = new WeakMap();
 
   const closeItem = (item) => {
     const menu = item.querySelector(":scope > .dropdown-menu");
     if (!menu) return;
+    const timer = closeTimers.get(item);
+    if (timer) window.clearTimeout(timer);
     item.classList.remove("open");
     menu.style.setProperty("display", "none", "important");
     menu.style.setProperty("pointer-events", "none", "important");
@@ -41,6 +45,20 @@
     menu.style.setProperty("pointer-events", "auto", "important");
     menu.style.setProperty("opacity", "1", "important");
     menu.style.setProperty("transform", "translateY(0)", "important");
+  };
+
+  const cancelClose = (item) => {
+    const timer = closeTimers.get(item);
+    if (timer) {
+      window.clearTimeout(timer);
+      closeTimers.delete(item);
+    }
+  };
+
+  const scheduleClose = (item, delay = 160) => {
+    cancelClose(item);
+    const timer = window.setTimeout(() => closeItem(item), delay);
+    closeTimers.set(item, timer);
   };
 
   const closeAll = () => {
@@ -62,10 +80,33 @@
     const menu = item.querySelector(":scope > .dropdown-menu");
     if (!trigger || !menu) return;
 
+    item.addEventListener("mouseenter", () => {
+      if (isTouchLike()) return;
+      cancelClose(item);
+      closeAll();
+      openItem(item);
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (isTouchLike()) return;
+      scheduleClose(item);
+    });
+
+    menu.addEventListener("mouseenter", () => {
+      if (isTouchLike()) return;
+      cancelClose(item);
+    });
+
+    menu.addEventListener("mouseleave", () => {
+      if (isTouchLike()) return;
+      scheduleClose(item);
+    });
+
     menu.addEventListener("click", (event) => event.stopPropagation());
     menu.addEventListener("pointerdown", (event) => event.stopPropagation());
 
     trigger.addEventListener("click", (event) => {
+      if (!isTouchLike()) return;
       event.preventDefault();
       const alreadyOpen = item.classList.contains("open");
       closeAll();
