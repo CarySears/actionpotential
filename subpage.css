@@ -746,6 +746,22 @@ p {
     align-items: flex-start;
   }
 
+  .hero {
+    padding: 3.2rem 0 1.8rem;
+  }
+
+  .section {
+    padding: 2.2rem 0 2.6rem;
+  }
+
+  .lede {
+    font-size: 0.98rem;
+  }
+
+  .card {
+    padding: 0.95rem;
+  }
+
   .split {
     grid-template-columns: 1fr;
   }
@@ -755,9 +771,28 @@ p {
   }
 
   .nav-actions {
+    gap: 0.38rem;
     margin-left: auto;
     padding-left: 0;
     border-left: 0;
+  }
+
+  .nav-actions .btn {
+    padding: 0.58rem 0.76rem;
+    font-size: 0.82rem;
+  }
+
+  .nav-actions .btn-login {
+    min-width: 40px;
+    padding-inline: 0.56rem;
+  }
+
+  .nav-actions .btn-login span {
+    display: none;
+  }
+
+  .nav {
+    min-height: 68px;
   }
 }
 
@@ -782,12 +817,17 @@ p {
   }
 
   .nav {
-    min-height: 68px;
+    min-height: 64px;
   }
 
   .nav-actions .btn {
-    padding: 0.64rem 0.8rem;
-    font-size: 0.88rem;
+    padding: 0.52rem 0.68rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions .btn-login {
+    min-width: 36px;
+    padding-inline: 0.46rem;
   }
 }
 
