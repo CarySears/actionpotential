@@ -897,6 +897,39 @@
         gap: 0.95rem;
       }
 
+      .engine-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.95rem;
+      }
+
+      .engine-card {
+        padding: 1.05rem 1.1rem;
+      }
+
+      .engine-card > p {
+        margin: 0.35rem 0 0.75rem;
+      }
+
+      .engine-group + .engine-group {
+        margin-top: 0.85rem;
+      }
+
+      .engine-group h4 {
+        margin: 0 0 0.35rem;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--brand-1);
+      }
+
+      .engine-group ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.3rem;
+      }
+
       .card {
         background: linear-gradient(170deg, rgba(18, 27, 47, 0.88), rgba(13, 20, 36, 0.88));
         border: 1px solid rgba(121, 197, 199, 0.17);
@@ -1416,6 +1449,9 @@
         .card-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        .engine-grid {
+          grid-template-columns: 1fr;
+        }
         .metric-row {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -1880,75 +1916,90 @@
           <div class="section-head">
             <div>
               <span class="eyebrow">What We Build</span>
-              <h2>Your business becomes an intelligent communication hub.</h2>
+              <h2>Get found. Get chosen. Grow without constant fire drills.</h2>
             </div>
             <p>
-              SEO + AEO + conversational AI + automation + paid media, orchestrated into one system that responds
-              instantly and improves continuously.
+              Most businesses do not have a talent problem. They have a systems problem. Demand is unpredictable,
+              follow-up is inconsistent, and opportunities slip away. We solve that with two connected engines: one
+              helps people find you, the other helps them choose you.
             </p>
           </div>
 
-          <div class="card-grid">
-            <article class="card">
-              <h3>Omnichannel Visibility</h3>
-              <ul>
-                <li>SEO for traditional search rankings</li>
-                <li>AEO for AI-generated answer visibility</li>
-                <li>AI-engine optimization for recommendation systems</li>
-                <li>Google Ads + Meta Ads for demand capture</li>
-              </ul>
+          <div class="engine-grid">
+            <article class="card engine-card">
+              <h3>1) Visibility Engine (Get Found)</h3>
+              <p>
+                Imagine a potential customer searching for your service. They see you on Google, on Maps, and in AI
+                recommendations. Even if they are not ready today, they keep seeing your name and come back when they
+                are ready to move.
+              </p>
+              <div class="engine-group">
+                <h4>Show up where decisions start</h4>
+                <ul>
+                  <li>SEO for high-intent Google search visibility</li>
+                  <li>AEO so your business appears in AI-generated answers and recommendations</li>
+                </ul>
+              </div>
+              <div class="engine-group">
+                <h4>Build trust before the first call</h4>
+                <ul>
+                  <li>Authority content that answers real buyer questions</li>
+                  <li>Internal linking and topic structure that strengthen credibility</li>
+                  <li>AI crawler optimization for major AI assistants</li>
+                  <li>Content formatted for AI citations and recommendations</li>
+                </ul>
+              </div>
+              <div class="engine-group">
+                <h4>Capture and create demand</h4>
+                <ul>
+                  <li>Google campaigns built for high-intent demand capture</li>
+                  <li>Meta campaigns for awareness, consideration, and retargeting</li>
+                  <li>Retargeting that brings back people who did not convert on the first visit</li>
+                </ul>
+              </div>
             </article>
 
-            <article class="card">
-              <h3>Conversational Marketing</h3>
-              <ul>
-                <li>Website chat in your brand voice</li>
-                <li>SMS, Messenger, Instagram DM, and WhatsApp automation</li>
-                <li>AI-assisted voice workflows and call handling</li>
-                <li>24/7 response layer for high-intent prospects</li>
-              </ul>
+            <article class="card engine-card">
+              <h3>2) Behavioral Engine (Get Chosen)</h3>
+              <p>
+                Most websites are digital brochures. We turn yours into a smart website that starts real conversations,
+                answers questions in text or voice, and guides people to the next best step.
+              </p>
+              <div class="engine-group">
+                <h4>AI with a psychology degree</h4>
+                <ul>
+                  <li>Behavioral Science plus Human-Centered AI in every flow</li>
+                  <li>Friendly website chat and voice in your brand voice</li>
+                  <li>Conversations that answer questions and guide next steps</li>
+                  <li>Fast responses for ready buyers and smooth nurture for people who need more time</li>
+                </ul>
+              </div>
+              <div class="engine-group">
+                <h4>Smart front desk and communication layer</h4>
+                <ul>
+                  <li>AI Phone Receptionist that answers calls, handles FAQs, and books appointments</li>
+                  <li>AI Web Chat that turns website visitors into qualified conversations</li>
+                  <li>AI Review Manager that drives reviews and strengthens trust</li>
+                </ul>
+              </div>
+              <div class="engine-group">
+                <h4>Follow-up and retention that actually happens</h4>
+                <ul>
+                  <li>Speed-to-lead response in minutes, not days</li>
+                  <li>Lead nurture sequences across text, email, and voice for not-yet-ready prospects</li>
+                  <li>Appointment automation with no-show reduction</li>
+                  <li>Review, reactivation, and retention workflows that protect revenue</li>
+                </ul>
+              </div>
             </article>
-
-            <article class="card">
-              <h3>AI Agent Suite</h3>
-              <ul>
-                <li>Specialized agents for repetitive growth tasks</li>
-                <li>Lead qualification, routing, and handoff workflows</li>
-                <li>Context-aware responses and ongoing learning loops</li>
-                <li>Operations support that scales with demand</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>Marketing Automation</h3>
-              <ul>
-                <li>Speed-to-lead optimization in minutes, not days</li>
-                <li>Lead nurture sequences across text, email, and voice</li>
-                <li>Appointment automation with no-show reduction</li>
-                <li>Reputation workflows for review generation</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>AI Visibility Services</h3>
-              <ul>
-                <li>LLM visibility monitoring across major AI assistants</li>
-                <li>Authority source mapping and strategic amplification</li>
-                <li>AI crawler optimization (GPTBot, ClaudeBot, others)</li>
-                <li>Answer-ready content formatting for AI citation</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>Demand Engine: SEO + Paid Media</h3>
-              <ul>
-                <li>SEO + AEO foundation: schema markup and technical architecture</li>
-                <li>Topical authority content clusters and internal linking</li>
-                <li>Google Business Profile and local search optimization</li>
-                <li>Paid media acceleration through high-intent Google and Meta campaigns</li>
-                <li>Retargeting programs that recover missed conversions</li>
-              </ul>
-            </article>
+          </div>
+          <div class="cta-panel">
+            <h3>The result: more consistency and more control</h3>
+            <p>
+              You stop wondering where the next customer will come from. You stop losing leads to slow response and
+              inconsistent follow-up. Your team spends less time chasing and more time serving. You get the space to
+              focus on strategy, leadership, and high-value work that actually grows the business.
+            </p>
           </div>
         </div>
       </section>
