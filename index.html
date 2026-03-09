@@ -1700,6 +1700,13 @@
         h2 {
           font-size: clamp(1.28rem, 6.2vw, 1.72rem);
         }
+        .brand strong {
+          font-size: 0.92rem;
+          max-width: 14ch;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
         .section {
           padding: 3rem 0;
         }
@@ -1737,10 +1744,20 @@
 
       @media (max-width: 420px) {
         .brand strong {
-          display: none;
+          display: block;
+          font-size: 0.86rem;
+          max-width: 11ch;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .logo-mark {
+          width: 40px;
+          height: 40px;
         }
         .nav {
           min-height: 68px;
+          gap: 0.42rem;
         }
         .nav-actions .btn {
           padding: 0.54rem 0.72rem;
@@ -2599,17 +2616,22 @@
         });
       })();
     </script>
-      <script
-      src="https://beta.leadconnectorhq.com/loader.js"
-      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="692e35e1885ff875a3542ddb"
-    ></script>
+    <script>
+      (function () {
+        if (window.matchMedia("(max-width: 720px)").matches) return;
 
-    <script
-      src="https://beta.leadconnectorhq.com/loader.js"
-      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="692e35dacf45958002fa546c"
-    ></script>
+        const loadWidget = (widgetId) => {
+          const script = document.createElement("script");
+          script.src = "https://beta.leadconnectorhq.com/loader.js";
+          script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
+          script.setAttribute("data-widget-id", widgetId);
+          document.body.appendChild(script);
+        };
+
+        loadWidget("692e35e1885ff875a3542ddb");
+        loadWidget("692e35dacf45958002fa546c");
+      })();
+    </script>
     <script src="/subpage-nav.js?v=20260308i"></script>
     <script>
       (function () {
