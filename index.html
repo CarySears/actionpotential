@@ -1486,6 +1486,13 @@
         body.menu-open-body {
           overflow: hidden;
         }
+        body.menu-open-body iframe[src*="leadconnectorhq.com"],
+        body.menu-open-body iframe[src*="leadconnector"],
+        body.menu-open-body [id*="chat-widget"],
+        body.menu-open-body [class*="chat-widget"] {
+          pointer-events: none !important;
+          opacity: 0 !important;
+        }
         body::before,
         body::after,
         .neural-overlay,
@@ -1631,13 +1638,16 @@
           top: calc(100% + 0.45rem);
           left: 0;
           right: 0;
-          z-index: 90;
+          z-index: 2147483646;
           padding: 0.8rem 0.85rem 0.9rem;
           border-radius: 12px;
           border: 1px solid rgba(121, 197, 199, 0.24);
           background: rgba(7, 11, 20, 0.98);
           box-shadow: 0 12px 26px rgba(2, 6, 16, 0.44);
           gap: 0.35rem;
+        }
+        .site-header.menu-open {
+          z-index: 2147483646;
         }
         .site-header.menu-open .nav-links > a,
         .site-header.menu-open .nav-item > a {
