@@ -79,6 +79,8 @@
 
     trigger.addEventListener("click", (event) => {
       if (!isTouchLike()) return;
+      const header = item.closest(".site-header");
+      if (header && header.classList.contains("menu-open")) return;
       event.preventDefault();
       const alreadyOpen = item.classList.contains("open");
       closeAll();

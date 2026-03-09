@@ -207,6 +207,7 @@
         align-items: center;
         gap: 1rem;
         min-height: 74px;
+        position: relative;
       }
 
       .brand {
@@ -333,6 +334,21 @@
         margin-left: 1rem;
         padding-left: 1rem;
         border-left: 1px solid rgba(121, 197, 199, 0.22);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        border: 1px solid rgba(121, 197, 199, 0.28);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
       }
 
       .btn {
@@ -1463,6 +1479,13 @@
       }
 
       @media (max-width: 720px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        body.menu-open-body {
+          overflow: hidden;
+        }
         body::before,
         body::after,
         .neural-overlay,
@@ -1493,6 +1516,10 @@
         .hero-tagline {
           gap: 0.26em;
           font-size: clamp(1.38rem, 7.2vw, 2.04rem);
+          white-space: normal;
+          flex-wrap: wrap;
+          justify-content: center;
+          row-gap: 0.12em;
         }
         .hero-tagline-apulse {
           width: clamp(62px, 14vw, 98px);
@@ -1520,6 +1547,12 @@
         .micro-proof {
           font-size: 0.9rem;
           line-height: 1.45;
+        }
+        .hero p,
+        .section-head p,
+        .card p,
+        .card li {
+          overflow-wrap: anywhere;
         }
         .footer-tagline-apulse {
           width: clamp(62px, 17vw, 96px);
@@ -1566,11 +1599,17 @@
         .nav-links {
           display: none;
         }
+        .mobile-menu-toggle {
+          display: inline-flex;
+          order: 3;
+          margin-left: auto;
+        }
         .nav-actions {
           gap: 0.42rem;
-          margin-left: auto;
+          margin-left: 0;
           padding-left: 0;
           border-left: 0;
+          order: 4;
         }
         .nav-actions .btn {
           padding: 0.58rem 0.78rem;
@@ -1585,6 +1624,62 @@
         }
         .nav-actions .btn-primary {
           display: none;
+        }
+        .site-header.menu-open .nav-links {
+          display: grid;
+          position: absolute;
+          top: calc(100% + 0.45rem);
+          left: 0;
+          right: 0;
+          z-index: 90;
+          padding: 0.8rem 0.85rem 0.9rem;
+          border-radius: 12px;
+          border: 1px solid rgba(121, 197, 199, 0.24);
+          background: rgba(7, 11, 20, 0.98);
+          box-shadow: 0 12px 26px rgba(2, 6, 16, 0.44);
+          gap: 0.35rem;
+        }
+        .site-header.menu-open .nav-links > a,
+        .site-header.menu-open .nav-item > a {
+          display: flex;
+          width: 100%;
+          padding: 0.56rem 0.62rem;
+          border-radius: 8px;
+          color: #d4e3fb;
+          font-size: 0.92rem;
+        }
+        .site-header.menu-open .nav-links > a:hover,
+        .site-header.menu-open .nav-item > a:hover {
+          background: rgba(121, 197, 199, 0.12);
+          color: #ffffff;
+        }
+        .site-header.menu-open .nav-item > a::after {
+          display: none;
+        }
+        .site-header.menu-open .nav-item .dropdown-menu {
+          position: static;
+          display: grid !important;
+          opacity: 1 !important;
+          transform: none !important;
+          pointer-events: auto !important;
+          min-width: 0;
+          margin: 0.08rem 0 0.25rem;
+          padding: 0.08rem 0 0.08rem 0.68rem;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: transparent;
+          max-height: none;
+          overflow: visible;
+          gap: 0.12rem;
+        }
+        .site-header.menu-open .nav-item .dropdown-menu a {
+          color: #b8c9e6;
+          font-size: 0.88rem;
+          padding: 0.44rem 0.58rem;
+        }
+        .site-header.menu-open .nav-item .dropdown-menu a:hover {
+          color: #ffffff;
         }
         .neural-overlay {
           opacity: 0.55;
@@ -1644,6 +1739,11 @@
         .nav-actions .btn-login {
           min-width: 38px;
           padding-inline: 0.5rem;
+        }
+        .mobile-menu-toggle {
+          min-width: 38px;
+          height: 38px;
+          font-size: 0.76rem;
         }
       }
     </style>
@@ -1748,7 +1848,10 @@
           />
           <strong>ActionPotential.AI</strong>
         </a>
-        <nav class="nav-links" aria-label="Primary navigation"><a href="/solutions/index.html">Solutions</a><div class="nav-item"><a href="/who-we-empower/index.html">Who We Empower</a><div class="dropdown-menu" role="menu" aria-label="Who We Empower"><a role="menuitem" href="/who-we-empower/industries/index.html">Industries</a><a role="menuitem" href="/who-we-empower/locations/index.html">Locations</a></div></div><a href="/results/index.html">Results</a><a href="/who-we-are/index.html">Who We Are</a><div class="nav-item"><a href="/resources/index.html">Resources</a><div class="dropdown-menu" role="menu" aria-label="Resources"><a role="menuitem" href="/resources/faq/index.html">FAQs</a><a role="menuitem" href="/resources/blog/index.html">Blog</a><a role="menuitem" href="/resources/case-studies/index.html">Case Studies</a></div></div></nav>
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-primary-nav" aria-label="Open menu">
+          Menu
+        </button>
+        <nav class="nav-links" id="mobile-primary-nav" aria-label="Primary navigation"><a href="/solutions/index.html">Solutions</a><div class="nav-item"><a href="/who-we-empower/index.html">Who We Empower</a><div class="dropdown-menu" role="menu" aria-label="Who We Empower"><a role="menuitem" href="/who-we-empower/industries/index.html">Industries</a><a role="menuitem" href="/who-we-empower/locations/index.html">Locations</a></div></div><a href="/results/index.html">Results</a><a href="/who-we-are/index.html">Who We Are</a><div class="nav-item"><a href="/resources/index.html">Resources</a><div class="dropdown-menu" role="menu" aria-label="Resources"><a role="menuitem" href="/resources/faq/index.html">FAQs</a><a role="menuitem" href="/resources/blog/index.html">Blog</a><a role="menuitem" href="/resources/case-studies/index.html">Case Studies</a></div></div></nav>
         <div class="nav-actions">
           <a class="btn btn-login" href="https://app.actionpotential.ai">
             <svg class="profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -2497,6 +2600,66 @@
       data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
       data-widget-id="692e35dacf45958002fa546c"
     ></script>
-    <script src="/subpage-nav.js?v=20260308h"></script>
+    <script src="/subpage-nav.js?v=20260308i"></script>
+    <script>
+      (function () {
+        const header = document.querySelector(".site-header");
+        const toggle = document.querySelector(".mobile-menu-toggle");
+        const nav = document.querySelector(".nav-links[aria-label='Primary navigation']");
+        if (!header || !toggle || !nav) return;
+
+        const mobileMq = window.matchMedia("(max-width: 720px)");
+
+        const closeMenu = () => {
+          header.classList.remove("menu-open");
+          document.body.classList.remove("menu-open-body");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open menu");
+        };
+
+        const openMenu = () => {
+          header.classList.add("menu-open");
+          document.body.classList.add("menu-open-body");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", "Close menu");
+        };
+
+        toggle.addEventListener("click", (event) => {
+          if (!mobileMq.matches) return;
+          event.preventDefault();
+          if (header.classList.contains("menu-open")) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!mobileMq.matches || !header.classList.contains("menu-open")) return;
+          if (header.contains(event.target)) return;
+          closeMenu();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+
+        nav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (mobileMq.matches) closeMenu();
+          });
+        });
+
+        const onViewportChange = (event) => {
+          if (!event.matches) closeMenu();
+        };
+
+        if (mobileMq.addEventListener) {
+          mobileMq.addEventListener("change", onViewportChange);
+        } else if (mobileMq.addListener) {
+          mobileMq.addListener(onViewportChange);
+        }
+      })();
+    </script>
 </body>
 </html>
