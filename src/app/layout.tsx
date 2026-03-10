@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
@@ -193,6 +194,14 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
+      <Script
+        id="sa-dynamic-optimization"
+        data-uuid="d8e45ecc-75ef-46f0-ba55-991a28bf2b5e"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `var script = document.createElement("script");script.setAttribute("nowprocket","");script.setAttribute("nitro-exclude","");script.src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";script.dataset.uuid="d8e45ecc-75ef-46f0-ba55-991a28bf2b5e";script.id="sa-dynamic-optimization-loader";document.head.appendChild(script);`,
+        }}
+      />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
