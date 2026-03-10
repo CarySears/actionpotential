@@ -79,7 +79,7 @@
         color: var(--text);
         background: radial-gradient(circle at 85% 10%, rgba(46, 166, 212, 0.12), transparent 35%),
           radial-gradient(circle at 15% 25%, rgba(0, 167, 157, 0.1), transparent 35%), var(--bg);
-        line-height: 1.55;
+        line-height: 1.6;
       }
 
       body::before {
@@ -797,9 +797,10 @@
 
       .hero p {
         color: var(--muted);
-        max-width: 68ch;
+        max-width: 62ch;
         margin: 1rem auto 1.5rem;
-        font-size: 1.07rem;
+        font-size: 1.04rem;
+        line-height: 1.64;
         text-align: center;
         text-shadow: var(--text-halo-soft);
       }
@@ -839,7 +840,7 @@
       .quick-value-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.9rem;
+        gap: 1rem;
       }
 
       .quick-value-card h3 {
@@ -849,8 +850,8 @@
 
       .quick-value-card p {
         color: #d6e3f8;
-        font-size: 0.9rem;
-        line-height: 1.45;
+        font-size: 0.92rem;
+        line-height: 1.52;
       }
 
       .signal-card {
@@ -917,7 +918,7 @@
       }
 
       .section {
-        padding: 4rem 0;
+        padding: clamp(2.9rem, 6vw, 4.1rem) 0;
       }
 
       .section-head {
@@ -925,12 +926,14 @@
         justify-content: space-between;
         align-items: flex-start;
         gap: var(--space-md);
-        margin-bottom: var(--space-lg);
+        margin-bottom: 1.25rem;
       }
 
       .section-head p {
         margin: 0;
-        max-width: 62ch;
+        max-width: 56ch;
+        font-size: 1rem;
+        line-height: 1.58;
         color: var(--muted);
         text-shadow: var(--text-halo-soft);
       }
@@ -953,6 +956,7 @@
 
       .engine-card > p {
         margin: var(--space-xs) 0 var(--space-sm);
+        line-height: 1.56;
       }
 
       .engine-group + .engine-group {
@@ -971,7 +975,7 @@
         margin: 0;
         padding-left: 1.1rem;
         display: grid;
-        gap: var(--space-2xs);
+        gap: 0.32rem;
       }
 
       .card {
@@ -983,7 +987,7 @@
 
       .card h3 {
         font-size: 1.01rem;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.5rem;
       }
 
       .card p,
@@ -991,6 +995,7 @@
         color: #d1dbed;
         margin: 0;
         font-size: 0.94rem;
+        line-height: 1.58;
         text-shadow: var(--text-halo-soft);
       }
 
@@ -1058,7 +1063,7 @@
 
       .metric {
         border-radius: 14px;
-        padding: 0.85rem;
+        padding: 0.95rem;
         border: 1px solid rgba(121, 197, 199, 0.18);
         background: rgba(255, 255, 255, 0.02);
       }
@@ -1083,7 +1088,7 @@
         background: linear-gradient(175deg, rgba(18, 27, 47, 0.95), rgba(10, 16, 30, 0.95));
         border: 1px solid rgba(121, 197, 199, 0.22);
         border-radius: var(--radius);
-        padding: 1rem;
+        padding: 1.05rem;
         position: relative;
       }
 
@@ -1564,6 +1569,7 @@
         .hero p {
           font-size: 1rem;
           margin: 0.9rem auto 1.2rem;
+          line-height: 1.58;
         }
         .hero-value-support {
           margin-bottom: 1rem;
@@ -1730,12 +1736,13 @@
           text-overflow: ellipsis;
         }
         .section {
-          padding: 3rem 0;
+          padding: 2.45rem 0;
         }
         .section-head {
           gap: var(--space-sm);
           flex-direction: column;
           align-items: flex-start;
+          margin-bottom: 1rem;
         }
         .card-grid {
           grid-template-columns: 1fr;
