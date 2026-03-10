@@ -860,6 +860,27 @@
         margin-bottom: 0.38rem;
       }
 
+      .quick-value-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quick-value-card::before {
+        content: "";
+        position: absolute;
+        left: 0.95rem;
+        right: 0.95rem;
+        top: 0.78rem;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(92deg, var(--brand-1), var(--brand-2) 55%, var(--accent-magenta));
+        opacity: 0.78;
+      }
+
+      .quick-value-card h3 {
+        margin-top: 0.35rem;
+      }
+
       .quick-value-card p {
         color: #d6e3f8;
         font-size: 0.92rem;
@@ -931,6 +952,29 @@
 
       .section {
         padding: clamp(2.9rem, 6vw, 4.1rem) 0;
+        position: relative;
+      }
+
+      .section > .container {
+        position: relative;
+        border-radius: calc(var(--radius) + 8px);
+        padding: clamp(1rem, 1.8vw, 1.35rem);
+      }
+
+      .section > .container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid rgba(121, 197, 199, 0.14);
+        background: linear-gradient(165deg, rgba(9, 14, 24, 0.54), rgba(9, 14, 24, 0.2) 62%, rgba(9, 14, 24, 0.08));
+        box-shadow: 0 22px 38px rgba(3, 8, 18, 0.22);
+        pointer-events: none;
+      }
+
+      .section > .container > * {
+        position: relative;
+        z-index: 1;
       }
 
       .section-head {
@@ -990,11 +1034,30 @@
         gap: 0.32rem;
       }
 
+      .engine-retention {
+        margin-top: var(--space-md);
+      }
+
+      .engine-retention ul {
+        margin: 0.55rem 0 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.34rem;
+      }
+
       .card {
         background: linear-gradient(170deg, rgba(18, 27, 47, 0.88), rgba(13, 20, 36, 0.88));
         border: 1px solid rgba(121, 197, 199, 0.17);
         border-radius: var(--radius);
         padding: 1.1rem;
+        box-shadow: 0 14px 30px rgba(4, 10, 24, 0.24);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(121, 197, 199, 0.32);
+        box-shadow: 0 18px 34px rgba(4, 10, 24, 0.3);
       }
 
       .card h3 {
@@ -1087,6 +1150,84 @@
         font-size: 1rem;
       }
 
+      .metric span {
+        color: #ceddef;
+        font-size: 0.9rem;
+      }
+
+      .kpi-row {
+        display: grid;
+        gap: 0.85rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .kpi {
+        border-radius: 14px;
+        border: 1px solid rgba(121, 197, 199, 0.22);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.9rem;
+      }
+
+      .kpi strong {
+        display: block;
+        font-size: 1rem;
+        color: var(--brand-1);
+      }
+
+      .kpi span {
+        color: #ceddef;
+        font-size: 0.9rem;
+      }
+
+      .result-snapshot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-md);
+        margin-top: 1rem;
+      }
+
+      .result-snapshot {
+        border-radius: var(--radius);
+        padding: 1rem;
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        background: linear-gradient(170deg, rgba(17, 25, 45, 0.94), rgba(11, 17, 31, 0.94));
+        box-shadow: 0 12px 26px rgba(4, 10, 24, 0.26);
+      }
+
+      .result-snapshot small {
+        display: inline-block;
+        margin-bottom: 0.38rem;
+        color: var(--brand-1);
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-weight: 700;
+        font-size: 0.73rem;
+      }
+
+      .result-snapshot h3 {
+        font-size: 0.98rem;
+        margin-bottom: 0.42rem;
+      }
+
+      .result-snapshot ul {
+        margin: 0;
+        padding-left: 1rem;
+        display: grid;
+        gap: 0.32rem;
+      }
+
+      .result-snapshot li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #d4e1f7;
+      }
+
+      .proof-note {
+        margin-top: 0.8rem;
+        font-size: 0.89rem;
+        color: #b9cbe8;
+      }
+
       .timeline {
         counter-reset: phase;
         list-style: none;
@@ -1174,6 +1315,45 @@
       .cta-panel p {
         margin: 0.65rem 0 1.05rem;
         color: #d7e2f7;
+      }
+
+      .fit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-md);
+        margin: 0.2rem 0 1rem;
+      }
+
+      .fit-card {
+        border-radius: 14px;
+        border: 1px solid rgba(121, 197, 199, 0.22);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.92rem;
+      }
+
+      .fit-card h3 {
+        margin-bottom: 0.48rem;
+        font-size: 0.95rem;
+      }
+
+      .fit-card ul {
+        margin: 0;
+        padding-left: 1rem;
+        display: grid;
+        gap: 0.3rem;
+      }
+
+      .fit-card li {
+        color: #d6e2f8;
+        font-size: 0.9rem;
+      }
+
+      .fit-good h3 {
+        color: #86dbe0;
+      }
+
+      .fit-caution h3 {
+        color: #ffb89f;
       }
 
       .pill-row {
@@ -1402,6 +1582,35 @@
         box-shadow: 0 12px 24px rgba(17, 44, 78, 0.1);
       }
 
+      body.after-fold-light .section > .container::before {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(236, 245, 255, 0.66));
+        border-color: rgba(27, 117, 187, 0.18);
+        box-shadow: 0 16px 30px rgba(17, 44, 78, 0.09);
+      }
+
+      body.after-fold-light .result-snapshot,
+      body.after-fold-light .fit-card,
+      body.after-fold-light .kpi {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.95));
+        border-color: rgba(27, 117, 187, 0.24);
+        box-shadow: 0 10px 20px rgba(17, 44, 78, 0.1);
+      }
+
+      body.after-fold-light .result-snapshot li,
+      body.after-fold-light .fit-card li,
+      body.after-fold-light .proof-note,
+      body.after-fold-light .kpi span {
+        color: #385b80;
+      }
+
+      body.after-fold-light .fit-good h3 {
+        color: #17628f;
+      }
+
+      body.after-fold-light .fit-caution h3 {
+        color: #a95538;
+      }
+
       body.after-fold-light .btn-secondary {
         border-color: rgba(27, 117, 187, 0.32);
         color: #1d4169;
@@ -1517,6 +1726,15 @@
         .engine-grid {
           grid-template-columns: 1fr;
         }
+        .result-snapshot-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .fit-grid {
+          grid-template-columns: 1fr;
+        }
+        .kpi-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .metric-row {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -1578,6 +1796,9 @@
         }
         .hero {
           padding: 3.7rem 0 2.4rem;
+        }
+        .section > .container {
+          padding: 0.9rem;
         }
         .hero p {
           font-size: 1rem;
@@ -1764,6 +1985,10 @@
         .quick-value-grid {
           grid-template-columns: 1fr;
         }
+        .result-snapshot-grid,
+        .kpi-row {
+          grid-template-columns: 1fr;
+        }
         .founder {
           grid-template-columns: 1fr;
         }
@@ -1946,10 +2171,9 @@
         <div class="hero-copy">
           <div class="hero-focus">
             <span class="eyebrow">Behavioral Science + Human-Centered AI</span>
-            <h1 class="hero-headline">Get found, get chosen, and grow with one integrated system.</h1>
+            <h1 class="hero-headline">Turn search and ad traffic into more booked customers.</h1>
             <p>
-              We help service businesses turn SEO, AEO, and paid media into qualified demand — then
-              convert that demand with psychology-informed, human-centered automation.
+              We combine SEO, AEO, paid media, and behavioral psychology to turn attention into qualified conversations and booked appointments.
             </p>
             <p class="hero-value-support">
               Visibility Engine drives discoverability. Behavioral Engine drives speed-to-lead,
@@ -2099,7 +2323,7 @@
           <div class="section-head">
             <div>
               <span class="eyebrow">What We Execute</span>
-              <h2>Two engines. One accountable growth partner.</h2>
+              <h2>Three growth layers. One accountable partner.</h2>
             </div>
             <p>
               We are not a “leads only” vendor. We own visibility, conversion mechanics, and performance optimization across your full funnel.
@@ -2146,6 +2370,15 @@
               </div>
             </article>
           </div>
+          <article class="card engine-retention">
+            <h3>Retention Loop (Keep + Grow)</h3>
+            <p>Make delivered value measurable, repeatable, and referable.</p>
+            <ul>
+              <li>Lifecycle follow-up after service delivery to increase repeat business</li>
+              <li>Review generation and referral prompts tied to milestone moments</li>
+              <li>Reactivation campaigns for dormant contacts and past customers</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -2198,6 +2431,38 @@
             <article class="kpi"><strong>Better conversion</strong><span>More qualified conversations turn into bookings</span></article>
             <article class="kpi"><strong>Stronger retention</strong><span>Lifecycle systems improve long-term value</span></article>
           </div>
+          <div class="result-snapshot-grid" aria-label="Engagement snapshot format">
+            <article class="result-snapshot">
+              <small>Snapshot format</small>
+              <h3>Visibility + Speed-to-lead</h3>
+              <ul>
+                <li><strong>Context:</strong> Demand exists, but inquiries cool before response.</li>
+                <li><strong>Intervention:</strong> Faster routing, immediate replies, and guided next steps.</li>
+                <li><strong>Measured movement:</strong> More qualified conversations become booked calls.</li>
+              </ul>
+            </article>
+            <article class="result-snapshot">
+              <small>Snapshot format</small>
+              <h3>Conversion Path Clarity</h3>
+              <ul>
+                <li><strong>Context:</strong> Traffic is healthy, but conversion confidence is low.</li>
+                <li><strong>Intervention:</strong> Behavioral messaging, trust sequencing, and tighter CTA flow.</li>
+                <li><strong>Measured movement:</strong> Higher booking consistency from existing traffic.</li>
+              </ul>
+            </article>
+            <article class="result-snapshot">
+              <small>Snapshot format</small>
+              <h3>Retention + Reactivation</h3>
+              <ul>
+                <li><strong>Context:</strong> Repeat revenue and referrals are underleveraged.</li>
+                <li><strong>Intervention:</strong> Lifecycle follow-up, review loops, and reactivation campaigns.</li>
+                <li><strong>Measured movement:</strong> More repeat jobs, stronger reviews, and warmer referrals.</li>
+              </ul>
+            </article>
+          </div>
+          <p class="proof-note">
+            Full case studies are being published. Until then, this is the same context → intervention → measured movement format we use in every client review.
+          </p>
           <div class="card-grid" style="margin-top: 1rem;">
             <article class="card video-card">
               <h3>Mauro</h3>
@@ -2328,6 +2593,24 @@
               <article class="card quick-value-card">
                 <h3>Human-centered AI</h3>
                 <p>Automation increases speed and consistency while preserving your brand voice.</p>
+              </article>
+            </div>
+            <div class="fit-grid" aria-label="Fit check">
+              <article class="fit-card fit-good">
+                <h3>Great fit if you want:</h3>
+                <ul>
+                  <li>One partner accountable for visibility + conversion + retention</li>
+                  <li>Faster speed-to-lead and tighter follow-up across channels</li>
+                  <li>Behavior-based messaging that helps prospects choose confidently</li>
+                </ul>
+              </article>
+              <article class="fit-card fit-caution">
+                <h3>Not ideal if you want:</h3>
+                <ul>
+                  <li>A hands-off vendor with no collaboration from your team</li>
+                  <li>Vanity metrics over booked revenue and retention outcomes</li>
+                  <li>“Set it and forget it” automation without human oversight</li>
+                </ul>
               </article>
             </div>
             <div class="cta-group">
