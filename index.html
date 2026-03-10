@@ -345,9 +345,11 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 0.78rem 1.08rem;
+        min-height: 46px;
+        padding: 0.76rem 1.08rem;
         border-radius: 12px;
         font-weight: 700;
+        line-height: 1.2;
         border: 1px solid transparent;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
@@ -602,6 +604,7 @@
 
       .hero-focus .cta-group {
         justify-content: center;
+        margin-top: 0.35rem;
       }
 
       .eyebrow {
@@ -817,7 +820,12 @@
       .cta-group {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.8rem;
+        gap: 0.72rem;
+        align-items: stretch;
+      }
+
+      .cta-group .btn {
+        min-height: 48px;
       }
 
       .micro-proof {
@@ -835,6 +843,10 @@
 
       .micro-proof span {
         color: var(--brand-1);
+      }
+
+      .cta-panel .cta-group {
+        margin-top: 1rem;
       }
 
       .quick-value-grid {
@@ -1168,7 +1180,8 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.48rem;
-        margin-top: var(--space-md);
+        align-items: center;
+        margin-top: 0.92rem;
       }
 
       .pill {
@@ -1577,10 +1590,11 @@
         .cta-group {
           width: 100%;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.72rem;
         }
         .cta-group .btn {
           width: 100%;
+          min-height: 50px;
         }
         .micro-proof {
           font-size: 0.9rem;
@@ -1770,7 +1784,8 @@
           backdrop-filter: blur(10px);
         }
         .mobile-sticky .btn {
-          min-height: 48px;
+          min-height: 50px;
+          font-size: 0.96rem;
         }
       }
 
