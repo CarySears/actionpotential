@@ -117,7 +117,7 @@ export default function ThemeWaveTransition({ transition }: ThemeWaveTransitionP
               exit={{ y: 306 }}
               transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.06 }}
             >
-              <path d={BOTTOM_WAVE} fill="#E9628E" opacity="0.84" />
+              <path d={BOTTOM_WAVE} fill="#D93AA4" opacity="0.84" />
             </motion.g>
           </svg>
 

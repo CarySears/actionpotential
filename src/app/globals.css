@@ -6,9 +6,9 @@
   --teal-green: #00A79D;
   --blue-deep: #1B75BB;
   --near-black: #231F20;
-  --magenta-wave: #E9628E;
-  --violet-wave: #7954AA;
-  --orange-wave: #F3A14B;
+  --magenta-wave: #D93AA4;
+  --violet-wave: #1B75BB;
+  --orange-wave: #FF8B66;
   --gradient-start: #79C5C7;
   --gradient-mid: #2EA6D4;
   --gradient-end: #1B75BB;
@@ -261,7 +261,7 @@ html[data-theme="dark"] .theme-label-light {
   width: min(42vw, 520px);
   height: min(44vh, 420px);
   clip-path: polygon(0 34%, 74% 0, 100% 100%, 0 100%);
-  background: linear-gradient(135deg, #46afd8, #2f8ec7);
+  background: linear-gradient(135deg, #2EA6D4, #1B75BB);
   opacity: 0.28;
 }
 
