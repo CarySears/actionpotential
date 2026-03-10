@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Brain, Zap, Heart } from "lucide-react";
+import { GraduationCap, Brain, Zap, Users, Building2 } from "lucide-react";
 
 const credentials = [
-  { icon: GraduationCap, label: "M.S. Experimental Psychology", color: "#79C5C7" },
+  { icon: GraduationCap, label: "M.A. Experimental Psychology", color: "#79C5C7" },
   { icon: GraduationCap, label: "M.S. User Experience Design", color: "#2EA6D4" },
-  { icon: Brain, label: "Neuropsychological Testing — Cleveland Clinic", color: "#00A79D" },
-  { icon: Zap, label: "Growth Experience — Noom", color: "#1B75BB" },
-  { icon: Heart, label: "Digital Health Leadership", color: "#79C5C7" },
+  { icon: Brain, label: "Clinical neuropsychological testing and biofeedback research — Cleveland Clinic", color: "#00A79D" },
+  { icon: Users, label: "Senior manager at Noom — led 10+ managers and 100+ individual contributors", color: "#1B75BB" },
+  { icon: Building2, label: "Founding team member — Neura Health (virtual neurology clinic)", color: "#79C5C7" },
 ];
 
 const intersections = [
@@ -74,23 +74,16 @@ export default function Founder() {
 
             <div className="space-y-4 text-[#e8f4f8]/82 leading-relaxed">
               <p>
-                Cary is a user experience designer and applied behavioral scientist with a rare
-                combination of clinical depth and growth expertise.
+                Cary is a UX strategist, applied behavioral scientist, and marketer with dual
+                master&apos;s degrees in Experimental Psychology and User Experience Design.
               </p>
               <p>
-                He founded ActionPotential.AI to bring together the disciplines he spent his career
-                mastering:{" "}
-                <span className="text-[#79C5C7]">how people think and make decisions</span>,{" "}
-                <span className="text-[#2EA6D4]">how systems can be designed to guide them</span>,
-                and{" "}
-                <span className="text-[#00A79D]">
-                  how technology can scale those systems without losing the human touch
-                </span>
-                .
+                His passion is combining high-tech with high-touch to drive exceptional outcomes
+                for businesses and customers.
               </p>
               <p className="text-[#e8f4f8]/80 font-medium">
-                His passion is building systems where high-tech and high-touch{" "}
-                <em>reinforce</em> each other — not compete.
+                He founded ActionPotential.AI to blend behavioral science, UX strategy, and
+                practical growth execution into one operating model.
               </p>
             </div>
 

@@ -1,6 +1,7 @@
 (() => {
   const nav = document.querySelector(".nav-links[aria-label='Primary navigation']");
   if (!nav) return;
+  if (nav.id === "mobile-primary-nav") return;
 
   // Rebuild nav deterministically so stale HTML variants do not break interaction.
   nav.innerHTML =

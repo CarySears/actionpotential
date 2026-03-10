@@ -99,7 +99,7 @@ const structuredData = {
         name: "Cary Sears",
         jobTitle: "Founder & CEO",
         description:
-          "User experience designer and applied behavioral scientist with master's degrees in Experimental Psychology and User Experience Design.",
+          "UX strategist, applied behavioral scientist, and marketer with dual master's degrees in Experimental Psychology and User Experience Design.",
       },
       sameAs: [],
       serviceType: [
