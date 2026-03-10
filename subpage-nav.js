@@ -9,31 +9,31 @@
     "<div class='nav-item'>" +
     "<a href='/services/index.html'>Services</a>" +
     "<div class='dropdown-menu' role='menu' aria-label='Services'>" +
+    "<a role='menuitem' href='/services/index.html'>All Services</a>" +
     "<a role='menuitem' href='/services/visibility-engine.html'>Visibility Engine</a>" +
     "<a role='menuitem' href='/services/behavioral-engine.html'>Behavioral Engine</a>" +
     "<a role='menuitem' href='/services/smart-websites.html'>Smart Websites</a>" +
     "<a role='menuitem' href='/services/ai-search.html'>SEO + AI Search</a>" +
-    "<a role='menuitem' href='/services/paid-media.html'>Paid Media</a>" +
-    "<a role='menuitem' href='/services/retargeting.html'>Retargeting</a>" +
-    "<a role='menuitem' href='/services/social-optimization.html'>Social Optimization</a>" +
+    "<a role='menuitem' href='/services/paid-media.html'>Paid Media + Retargeting</a>" +
     "</div></div>" +
     "<div class='nav-item'>" +
-    "<a href='/platform/ai-operations-suite.html'>AI Operations Suite</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='AI Operations Suite'>" +
+    "<a href='/platform/index.html'>Platform</a>" +
+    "<div class='dropdown-menu' role='menu' aria-label='Platform'>" +
     "<a role='menuitem' href='/platform/ai-operations-suite.html'>Platform Overview</a>" +
     "<a role='menuitem' href='/platform/crm.html'>CRM</a>" +
     "</div></div>" +
     "<div class='nav-item'>" +
-    "<a href='/who-we-empower/index.html'>Who We Empower</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='Who We Empower'>" +
+    "<a href='/who-we-empower/index.html'>Who We Serve</a>" +
+    "<div class='dropdown-menu' role='menu' aria-label='Who We Serve'>" +
     "<a role='menuitem' href='/who-we-empower/industries/index.html'>Industries</a>" +
     "<a role='menuitem' href='/who-we-empower/locations/index.html'>Locations</a>" +
     "</div></div>" +
     "<a href='/results/index.html'>Results</a>" +
-    "<a href='/who-we-are/index.html'>Who We Are</a>" +
     "<div class='nav-item'>" +
-    "<a href='/resources/index.html'>Resources</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='Resources'>" +
+    "<a href='/who-we-are/index.html'>Company</a>" +
+    "<div class='dropdown-menu' role='menu' aria-label='Company'>" +
+    "<a role='menuitem' href='/who-we-are/index.html'>Who We Are</a>" +
+    "<a role='menuitem' href='/resources/index.html'>Resources</a>" +
     "<a role='menuitem' href='/resources/faq/index.html'>FAQs</a>" +
     "<a role='menuitem' href='/resources/blog/index.html'>Blog</a>" +
     "<a role='menuitem' href='/resources/case-studies/index.html'>Case Studies</a>" +
@@ -44,22 +44,11 @@
   const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
   const closeItem = (item) => {
-    const menu = item.querySelector(":scope > .dropdown-menu");
-    if (!menu) return;
     item.classList.remove("open");
-    menu.style.setProperty("display", "none", "important");
-    menu.style.setProperty("pointer-events", "none", "important");
-    menu.style.setProperty("opacity", "0", "important");
   };
 
   const openItem = (item) => {
-    const menu = item.querySelector(":scope > .dropdown-menu");
-    if (!menu) return;
     item.classList.add("open");
-    menu.style.setProperty("display", "grid", "important");
-    menu.style.setProperty("pointer-events", "auto", "important");
-    menu.style.setProperty("opacity", "1", "important");
-    menu.style.setProperty("transform", "translateY(0)", "important");
   };
 
   const closeAll = () => {
@@ -87,13 +76,15 @@
       openItem(item);
     });
 
-    item.addEventListener("mouseleave", () => {
-      if (isTouchLike()) return;
-      closeItem(item);
-    });
-
     menu.addEventListener("click", (event) => event.stopPropagation());
     menu.addEventListener("pointerdown", (event) => event.stopPropagation());
+    menu.addEventListener(
+      "wheel",
+      (event) => {
+        event.stopPropagation();
+      },
+      { passive: true },
+    );
 
     trigger.addEventListener("click", (event) => {
       if (!isTouchLike()) return;
