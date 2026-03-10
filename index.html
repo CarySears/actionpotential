@@ -51,8 +51,8 @@
         --surface-2: #16233d;
         --text: #ecf2ff;
         --muted: #b8c5de;
-        --text-halo-strong: 0 1px 0 rgba(4, 8, 15, 0.72), 0 0 20px rgba(4, 8, 15, 0.72);
-        --text-halo-soft: 0 1px 0 rgba(4, 8, 15, 0.56), 0 0 14px rgba(4, 8, 15, 0.58);
+        --text-halo-strong: 0 1px 0 rgba(4, 8, 15, 0.58), 0 0 12px rgba(4, 8, 15, 0.46);
+        --text-halo-soft: 0 1px 0 rgba(4, 8, 15, 0.42), 0 0 8px rgba(4, 8, 15, 0.34);
         --text-halo-light-strong: 0 1px 0 rgba(255, 255, 255, 0.92), 0 0 16px rgba(255, 255, 255, 0.82);
         --text-halo-light-soft: 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.74);
         --line: rgba(121, 197, 199, 0.3);
@@ -89,7 +89,7 @@
         background: radial-gradient(circle at 4% 12%, rgba(121, 197, 199, 0.28), transparent 28%),
           radial-gradient(circle at 95% 8%, rgba(46, 166, 212, 0.3), transparent 30%),
           radial-gradient(circle at 8% 86%, rgba(0, 167, 157, 0.18), transparent 28%);
-        opacity: 0.56;
+        opacity: 0.38;
         pointer-events: none;
         z-index: -2;
         transition: opacity 0.9s ease;
@@ -113,7 +113,7 @@
         height: 100%;
         pointer-events: none;
         z-index: -1;
-        opacity: 0.95;
+        opacity: 0.48;
       }
 
       /* Keep visual effects at the sides, preserve a calmer center text lane */
@@ -435,7 +435,7 @@
         height: min(64vh, 620px);
         clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 88%);
         background: linear-gradient(132deg, rgba(255, 139, 102, 0.8) 0%, rgba(217, 58, 164, 0.82) 52%, rgba(27, 117, 187, 0.82) 100%);
-        opacity: 0.74;
+        opacity: 0.5;
       }
 
       .brand-geo-motif-left {
@@ -445,7 +445,7 @@
         height: min(42vh, 420px);
         clip-path: polygon(0 34%, 76% 0, 100% 100%, 0 100%);
         background: linear-gradient(135deg, rgba(46, 166, 212, 0.78), rgba(121, 197, 199, 0.82));
-        opacity: 0.66;
+        opacity: 0.42;
       }
 
       .brand-geo-motif-top-right {
@@ -455,7 +455,7 @@
         height: min(34vh, 290px);
         clip-path: polygon(22% 0%, 100% 0%, 100% 100%, 0% 80%);
         background: linear-gradient(138deg, rgba(46, 166, 212, 0.7), rgba(27, 117, 187, 0.74) 52%, rgba(217, 58, 164, 0.62));
-        opacity: 0.66;
+        opacity: 0.46;
       }
 
       .brand-geo-motif-top-left {
@@ -465,7 +465,7 @@
         height: min(30vh, 250px);
         clip-path: polygon(0 32%, 72% 0, 100% 100%, 0 100%);
         background: linear-gradient(140deg, rgba(255, 139, 102, 0.64), rgba(217, 58, 164, 0.62) 50%, rgba(27, 117, 187, 0.56));
-        opacity: 0.58;
+        opacity: 0.4;
       }
 
       .brand-geo-motif-mid-right {
@@ -475,7 +475,7 @@
         height: min(30vh, 240px);
         clip-path: polygon(16% 0%, 100% 0%, 100% 100%, 0% 84%);
         background: linear-gradient(132deg, rgba(46, 166, 212, 0.34) 0%, rgba(27, 117, 187, 0.32) 100%);
-        opacity: 0.6;
+        opacity: 0.34;
       }
 
       .brand-geo-motif-mid-left {
@@ -485,7 +485,7 @@
         height: min(24vh, 200px);
         clip-path: polygon(0 36%, 78% 0, 100% 100%, 0 100%);
         background: linear-gradient(135deg, rgba(255, 139, 102, 0.28), rgba(217, 58, 164, 0.26));
-        opacity: 0.56;
+        opacity: 0.3;
       }
 
       .brand-dots-motif {
@@ -494,7 +494,7 @@
         top: 9%;
         width: 280px;
         height: 280px;
-        opacity: 0.32;
+        opacity: 0.18;
         background-image: radial-gradient(circle at center, rgba(121, 197, 199, 0.9) 1.6px, transparent 2.2px);
         background-size: 14px 14px;
       }
@@ -505,7 +505,7 @@
         top: 48%;
         width: 250px;
         height: 250px;
-        opacity: 0.28;
+        opacity: 0.15;
         background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.9) 1.6px, transparent 2.2px);
       }
 
@@ -515,7 +515,7 @@
         top: 4%;
         width: 220px;
         height: 220px;
-        opacity: 0.3;
+        opacity: 0.16;
         background-image: radial-gradient(circle at center, rgba(217, 58, 164, 0.86) 1.5px, transparent 2.2px);
       }
 
@@ -1946,19 +1946,21 @@
               <span class="tagline-animated">to action.</span>
             </h1>
             <p>
-              You went into business to be a master of your craft, not to master marketing. Some days you worry about
-              getting more business, and other days you worry about serving and keeping the business you already have.
-              Your business has endless potential, but the constant grind of mundane tasks and putting out fires keeps
-              your head down and your growth capped.
+              Most agencies stop at lead volume. We build and run the full conversion system: faster response, smarter
+              follow-up, and a clearer path from interest to booked customer.
             </p>
             <p class="hero-value-support">
-              ActionPotential.AI helps growth-minded businesses acquire more customers, convert more leads, and scale
-              operations through human-centered AI. We do not just deliver leads. We build the full system that turns
-              intent into revenue.
+              If your team is tired of lead leaks, inconsistent follow-up, and revenue volatility, we help you install
+              an always-on growth engine that creates more predictable outcomes.
             </p>
             <div class="cta-group">
-              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Schedule Free AI Audit & Strategy Session</a>
+              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book Free AI Audit</a>
               <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine™</a>
+            </div>
+            <div class="pill-row" style="justify-content: center; margin-top: 0.9rem;">
+              <span class="pill">No long-term contracts</span>
+              <a class="pill" href="/results/index.html" style="text-decoration:none;">Watch client results</a>
+              <a class="pill" href="/resources/faq/index.html" style="text-decoration:none;">Read FAQs</a>
             </div>
           </div>
           <p class="micro-proof">
@@ -2384,14 +2386,14 @@
         <div class="container">
           <div class="cta-panel">
             <span class="eyebrow">Ready to Build Your Growth Engine?</span>
-            <h2>Schedule your free AI Audit & Marketing Strategy Session.</h2>
+            <h2>Book your free AI Audit.</h2>
             <p>
               We will identify your highest-leverage growth bottlenecks, map a practical system architecture, and
               prioritize the actions most likely to increase lead flow and conversion in the next 90 days.
             </p>
             <div class="cta-group">
               <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm"
-                >Claim My Free Audit</a
+                >Book Free AI Audit</a
               >
               <a class="btn btn-secondary" href="/solutions/index.html">Explore Solutions</a>
             </div>
@@ -2480,6 +2482,10 @@
           <a href="/solutions/index.html">Solutions</a>
           <span>·</span>
           <a href="/who-we-empower/locations/index.html">Locations</a>
+          <span>·</span>
+          <a href="/privacy/">Privacy</a>
+          <span>·</span>
+          <a href="/terms/">Terms</a>
           <span>·</span>
           <a href="mailto:hello@actionpotential.ai">hello@actionpotential.ai</a>
         </div>

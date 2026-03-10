@@ -129,6 +129,19 @@
     footerLinks.appendChild(emailLink);
   }
 
+  const ensureFooterLink = (href, text) => {
+    if (footerLinks.querySelector(`a[href='${href}']`)) return;
+    if (footerLinks.childNodes.length) footerLinks.appendChild(document.createTextNode(" · "));
+    const link = document.createElement("a");
+    link.href = href;
+    link.textContent = text;
+    footerLinks.appendChild(link);
+  };
+
+  ensureFooterLink("/privacy/", "Privacy");
+  ensureFooterLink("/terms/", "Terms");
+  ensureFooterLink("mailto:hello@actionpotential.ai", "hello@actionpotential.ai");
+
   const footerBrand = document.createElement("div");
   footerBrand.className = "footer-brand";
   footerBrand.innerHTML = `
