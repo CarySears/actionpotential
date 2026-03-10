@@ -188,3 +188,16 @@
   wrap.appendChild(footerBrand);
   wrap.appendChild(footerLinks);
 })();
+
+(() => {
+  const bookingUrl = "https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm";
+  const links = document.querySelectorAll("a[href]");
+  links.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+    if (href === bookingUrl || href.startsWith(bookingUrl + "?")) {
+      link.textContent = "Book Free AI Audit";
+      link.setAttribute("aria-label", "Book Free AI Audit");
+    }
+  });
+})();

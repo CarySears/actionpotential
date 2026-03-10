@@ -47,7 +47,7 @@ body::before {
   background: radial-gradient(circle at 4% 10%, rgba(121, 197, 199, 0.28), transparent 27%),
     radial-gradient(circle at 96% 12%, rgba(46, 166, 212, 0.28), transparent 29%),
     radial-gradient(circle at 8% 84%, rgba(0, 167, 157, 0.16), transparent 26%);
-  opacity: 0.72;
+  opacity: 0.5;
 }
 
 body::after {
@@ -91,7 +91,7 @@ body::after {
       left -70px top 7% / 14px 14px repeat,
     radial-gradient(circle at 95% 38%, rgba(46, 166, 212, 0.86) 1.4px, transparent 2.2px)
       right -54px top 34% / 14px 14px repeat;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 body::before,
@@ -455,7 +455,7 @@ h3 {
 }
 
 p {
-  color: var(--muted);
+  color: #3d6186;
 }
 
 .lede {
@@ -492,7 +492,7 @@ p {
 
 .card p,
 .card li {
-  color: #3f6287;
+  color: #2f547a;
   margin: 0;
   font-size: 0.95rem;
 }
@@ -516,7 +516,7 @@ p {
 }
 
 .video-card p {
-  color: #4a6f93;
+  color: #365b80;
 }
 
 .list-links {
