@@ -63,6 +63,11 @@
         --space-sm: 0.75rem;
         --space-md: 1rem;
         --space-lg: 1.5rem;
+        --fs-body: 1rem;
+        --fs-lead: clamp(1.02rem, 1.1vw, 1.14rem);
+        --fs-h1: clamp(2.08rem, 4.8vw, 3.75rem);
+        --fs-h2: clamp(1.48rem, 3.05vw, 2.28rem);
+        --fs-h3: clamp(1.03rem, 1.45vw, 1.16rem);
       }
 
       * {
@@ -77,6 +82,7 @@
         margin: 0;
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         color: var(--text);
+        font-size: var(--fs-body);
         background: radial-gradient(circle at 85% 10%, rgba(46, 166, 212, 0.12), transparent 35%),
           radial-gradient(circle at 15% 25%, rgba(0, 167, 157, 0.1), transparent 35%), var(--bg);
         line-height: 1.6;
@@ -613,9 +619,9 @@
         align-items: center;
         color: var(--brand-1);
         font-weight: 700;
-        font-size: 0.8rem;
+        font-size: 0.79rem;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.125em;
       }
 
       .eyebrow::before {
@@ -623,6 +629,16 @@
         width: 26px;
         height: 2px;
         background: linear-gradient(90deg, var(--accent-coral), var(--brand-1));
+      }
+
+      .eyebrow::after {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 2px;
+        border: 1.4px solid currentColor;
+        transform: rotate(45deg);
+        opacity: 0.72;
       }
 
       .hero .eyebrow {
@@ -640,21 +656,30 @@
       h3 {
         font-family: "Space Grotesk", Inter, sans-serif;
         letter-spacing: -0.02em;
-        line-height: 1.18;
+        line-height: 1.16;
         margin: 0;
         text-shadow: var(--text-halo-strong);
       }
 
       h1 {
         margin-top: 0.9rem;
-        font-size: clamp(2rem, 4.6vw, 3.85rem);
+        font-size: var(--fs-h1);
         max-width: 18ch;
+      }
+
+      h2 {
+        font-size: var(--fs-h2);
+        letter-spacing: -0.022em;
+      }
+
+      h3 {
+        font-size: var(--fs-h3);
       }
 
       .hero-headline {
         margin-inline: auto;
         color: #ffffff;
-        font-size: clamp(2rem, 4.6vw, 3.45rem);
+        font-size: clamp(2.08rem, 4.65vw, 3.5rem);
         max-width: 20ch;
       }
 
@@ -800,10 +825,10 @@
 
       .hero p {
         color: var(--muted);
-        max-width: 62ch;
+        max-width: 64ch;
         margin: 1rem auto 1.5rem;
-        font-size: 1.04rem;
-        line-height: 1.64;
+        font-size: var(--fs-lead);
+        line-height: 1.66;
         text-align: center;
         text-shadow: var(--text-halo-soft);
       }
@@ -832,6 +857,7 @@
         margin-top: 1.15rem;
         color: #d6e2f8;
         font-size: 0.94rem;
+        line-height: 1.52;
         text-shadow: var(--text-halo-soft);
       }
 
@@ -842,6 +868,46 @@
       }
 
       .micro-proof span {
+        color: var(--brand-1);
+      }
+
+      .trust-strip {
+        margin: 1rem auto 0;
+        max-width: 980px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.62rem;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(121, 197, 199, 0.23);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.62rem 0.72rem;
+        color: #d8e5fa;
+        font-size: 0.84rem;
+        line-height: 1.35;
+      }
+
+      .trust-item strong {
+        display: block;
+        color: #f4f8ff;
+        font-size: 0.84rem;
+        letter-spacing: -0.01em;
+      }
+
+      .trust-item span {
+        color: #bdd0ea;
+        font-size: 0.78rem;
+      }
+
+      .trust-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
         color: var(--brand-1);
       }
 
@@ -858,6 +924,31 @@
       .quick-value-card h3 {
         font-size: 0.98rem;
         margin-bottom: 0.38rem;
+      }
+
+      .quick-value-card h3,
+      .engine-card h3,
+      .engine-retention h3,
+      .result-snapshot h3,
+      .fit-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.46rem;
+      }
+
+      .quick-value-card h3::before,
+      .engine-card h3::before,
+      .engine-retention h3::before,
+      .result-snapshot h3::before,
+      .fit-card h3::before {
+        content: "";
+        width: 0.52rem;
+        height: 0.52rem;
+        border-radius: 2px;
+        border: 1.4px solid var(--brand-1);
+        transform: rotate(45deg);
+        opacity: 0.8;
+        flex-shrink: 0;
       }
 
       .quick-value-card {
@@ -988,8 +1079,8 @@
       .section-head p {
         margin: 0;
         max-width: 56ch;
-        font-size: 1rem;
-        line-height: 1.58;
+        font-size: clamp(1rem, 1.02vw, 1.07rem);
+        line-height: 1.6;
         color: var(--muted);
         text-shadow: var(--text-halo-soft);
       }
@@ -1603,6 +1694,21 @@
         color: #385b80;
       }
 
+      body.after-fold-light .trust-item {
+        background: rgba(255, 255, 255, 0.92);
+        border-color: rgba(27, 117, 187, 0.26);
+        box-shadow: 0 8px 18px rgba(17, 44, 78, 0.08);
+        color: #2d5279;
+      }
+
+      body.after-fold-light .trust-item strong {
+        color: #163f66;
+      }
+
+      body.after-fold-light .trust-item span {
+        color: #44688d;
+      }
+
       body.after-fold-light .fit-good h3 {
         color: #17628f;
       }
@@ -1729,6 +1835,9 @@
         .result-snapshot-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        .trust-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .fit-grid {
           grid-template-columns: 1fr;
         }
@@ -1804,6 +1913,14 @@
           font-size: 1rem;
           margin: 0.9rem auto 1.2rem;
           line-height: 1.58;
+        }
+        .trust-strip {
+          grid-template-columns: 1fr;
+          margin-top: 0.85rem;
+          gap: 0.55rem;
+        }
+        .trust-item {
+          padding: 0.6rem 0.68rem;
         }
         .hero-value-support {
           margin-bottom: 1rem;
@@ -1988,6 +2105,9 @@
         .result-snapshot-grid,
         .kpi-row {
           grid-template-columns: 1fr;
+        }
+        .trust-item strong {
+          font-size: 0.82rem;
         }
         .founder {
           grid-template-columns: 1fr;
@@ -2226,6 +2346,35 @@
             and <span>higher close-rate consistency</span>.
           </p>
           <p class="micro-proof">Serving <span>Westchester County</span>, <span>NYC</span>, and <span>nationwide</span>.</p>
+          <div class="trust-strip" aria-label="Credibility highlights">
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 3 4 7v5c0 5.2 3.4 8.7 8 10 4.6-1.3 8-4.8 8-10V7l-8-4Z"></path>
+                <path d="m9.4 12 1.8 1.8 3.4-3.6"></path>
+              </svg>
+              <div><strong>Behavior-led strategy</strong><span>Psychology + UX foundations</span></div>
+            </div>
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M3 12h6l3-8 3 16 3-8h3"></path>
+              </svg>
+              <div><strong>Full-funnel execution</strong><span>SEO, AEO, paid, and conversion</span></div>
+            </div>
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="m9.5 12 1.8 1.8 3.8-4"></path>
+              </svg>
+              <div><strong>Human-centered AI</strong><span>Automation with brand-safe oversight</span></div>
+            </div>
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 6v6l4 2"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+              <div><strong>No long-term lock-in</strong><span>Earned through weekly progress</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
