@@ -58,7 +58,7 @@ export default function Problem() {
             Traffic doesn&apos;t grow your business.{" "}
             <span className="gradient-text">Systems do.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/55 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#e8f4f8]/78 max-w-2xl mx-auto leading-relaxed">
             Most companies invest in generating leads — then watch them go cold. The root cause is
             almost always the same.
           </p>
@@ -78,8 +78,8 @@ export default function Problem() {
                 <problem.icon className="w-5 h-5 text-red-400" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[#e8f4f8]/80 text-sm sm:text-base">{problem.text}</p>
-                <p className="text-xs text-[#79C5C7]/60 mt-1.5 font-mono">{problem.stat}</p>
+                <p className="text-[#e8f4f8]/90 text-sm sm:text-base">{problem.text}</p>
+                <p className="text-xs text-[#79C5C7]/78 mt-1.5 font-mono">{problem.stat}</p>
               </div>
               <div className="w-2 h-2 rounded-full bg-red-500/50 node-pulse flex-shrink-0 mt-2" />
             </motion.div>

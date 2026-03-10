@@ -37,7 +37,7 @@ export default function Process() {
             Results fast. Foundation{" "}
             <span className="gradient-text">built to last.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/55 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto">
             A structured two-phase process designed to produce results quickly — with a solid
             strategic foundation underneath.
           </p>
@@ -76,7 +76,7 @@ export default function Process() {
                   </span>
                   <div>
                     <div className="font-semibold text-white text-sm">{s.title}</div>
-                    <div className="text-xs text-[#e8f4f8]/45 mt-1">{s.desc}</div>
+                    <div className="text-xs text-[#e8f4f8]/72 mt-1">{s.desc}</div>
                   </div>
                 </motion.div>
               ))}
@@ -115,7 +115,7 @@ export default function Process() {
                   </span>
                   <div>
                     <div className="font-semibold text-white text-sm">{s.title}</div>
-                    <div className="text-xs text-[#e8f4f8]/45 mt-1">{s.desc}</div>
+                    <div className="text-xs text-[#e8f4f8]/72 mt-1">{s.desc}</div>
                   </div>
                 </motion.div>
               ))}
@@ -137,7 +137,7 @@ export default function Process() {
             <RefreshCw className="w-5 h-5 text-[#00A79D]" />
             <div className="text-left">
               <span className="text-sm font-semibold text-white">Then: continuous improvement.</span>
-              <span className="text-sm text-[#e8f4f8]/45">
+              <span className="text-sm text-[#e8f4f8]/72">
                 {" "}The longer the system runs, the smarter it gets.
               </span>
             </div>

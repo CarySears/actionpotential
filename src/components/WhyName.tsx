@@ -41,7 +41,7 @@ export default function WhyName() {
               <span className="gradient-text">neuroscience.</span>
             </h2>
 
-            <div className="space-y-5 text-[#e8f4f8]/65 leading-relaxed">
+            <div className="space-y-5 text-[#e8f4f8]/80 leading-relaxed">
               <p>
                 An <span className="text-[#79C5C7] font-medium">action potential</span> is the
                 electrical impulse that allows neurons to communicate — transmitting signals
@@ -84,7 +84,7 @@ export default function WhyName() {
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-8">
                   <Zap className="w-5 h-5 text-[#2EA6D4]" />
-                  <span className="text-sm font-semibold text-[#e8f4f8]/70 uppercase tracking-wider">
+                  <span className="text-sm font-semibold text-[#e8f4f8]/85 uppercase tracking-wider">
                     The Signal Chain
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function WhyName() {
                       className={`flex items-center gap-3 p-3 rounded-xl transition-all ${
                         step.active
                           ? "bg-[#2EA6D4]/10 border border-[#2EA6D4]/20"
-                          : "bg-[#e8f4f8]/3 border border-[#e8f4f8]/5"
+                          : "bg-[#e8f4f8]/4 border border-[#e8f4f8]/10"
                       }`}
                     >
                       <div
@@ -109,7 +109,7 @@ export default function WhyName() {
                       />
                       <span
                         className={`text-sm ${
-                          step.active ? "text-[#e8f4f8]/90 font-medium" : "text-[#e8f4f8]/40"
+                          step.active ? "text-[#e8f4f8]/95 font-medium" : "text-[#e8f4f8]/65"
                         }`}
                       >
                         {step.label}

@@ -32,11 +32,11 @@ export default function TrustBar() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.08 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f4f8]/3 border border-[#e8f4f8]/6"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f4f8]/4 border border-[#e8f4f8]/10"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#79C5C7] to-[#2EA6D4]" />
-                <span className="text-sm font-medium text-[#e8f4f8]/75">{item.label}</span>
-                <span className="text-xs text-[#e8f4f8]/30">— {item.sublabel}</span>
+                <span className="text-sm font-medium text-[#e8f4f8]/90">{item.label}</span>
+                <span className="text-xs text-[#e8f4f8]/62">— {item.sublabel}</span>
               </motion.div>
             ))}
           </div>

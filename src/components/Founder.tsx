@@ -72,7 +72,7 @@ export default function Founder() {
               <p className="text-[#79C5C7] font-medium">Founder & CEO</p>
             </div>
 
-            <div className="space-y-4 text-[#e8f4f8]/65 leading-relaxed">
+            <div className="space-y-4 text-[#e8f4f8]/82 leading-relaxed">
               <p>
                 Cary is a user experience designer and applied behavioral scientist with a rare
                 combination of clinical depth and growth expertise.
@@ -110,7 +110,7 @@ export default function Founder() {
                   >
                     <cred.icon className="w-3.5 h-3.5" style={{ color: cred.color }} />
                   </div>
-                  <span className="text-sm text-[#e8f4f8]/60">{cred.label}</span>
+                  <span className="text-sm text-[#e8f4f8]/80">{cred.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -212,7 +212,7 @@ export default function Founder() {
                         <span className="text-sm font-medium" style={{ color: colors[i] }}>
                           {item.label}
                         </span>
-                        <span className="text-sm text-[#e8f4f8]/45"> — {item.desc}</span>
+                        <span className="text-sm text-[#e8f4f8]/72"> — {item.desc}</span>
                       </div>
                     </div>
                   );
@@ -228,7 +228,7 @@ export default function Founder() {
               className="mt-6 p-6 rounded-2xl bg-[#2EA6D4]/5 border border-[#2EA6D4]/15 relative"
             >
               <div className="absolute top-4 left-4 text-4xl text-[#2EA6D4]/20 font-serif leading-none">&ldquo;</div>
-              <p className="text-[#e8f4f8]/75 italic text-sm leading-relaxed pt-4 pl-4">
+              <p className="text-[#e8f4f8]/88 italic text-sm leading-relaxed pt-4 pl-4">
                 My passion is building systems where high-tech and high-touch reinforce each other.
                 Technology should feel warm. Automation should feel human.
               </p>

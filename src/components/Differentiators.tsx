@@ -100,7 +100,7 @@ export default function Differentiators() {
                   <d.icon className="w-7 h-7" style={{ color: d.color }} />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{d.title}</h3>
-                <p className="text-[#e8f4f8]/55 leading-relaxed mb-3">{d.body}</p>
+                <p className="text-[#e8f4f8]/78 leading-relaxed mb-3">{d.body}</p>
                 <p className="font-semibold" style={{ color: d.color }}>
                   {d.highlight}
                 </p>
@@ -137,14 +137,14 @@ export default function Differentiators() {
               <>
                 <div
                   key={`other-${i}`}
-                  className="py-3 px-4 text-sm text-[#e8f4f8]/35 border-b border-[#e8f4f8]/5 flex items-center"
+                  className="py-3 px-4 text-sm text-[#e8f4f8]/62 border-b border-[#e8f4f8]/8 flex items-center"
                 >
                   <span className="mr-2 text-red-500/50">✗</span>
                   {item.other}
                 </div>
                 <div
                   key={`ap-${i}`}
-                  className="py-3 px-4 text-sm text-[#e8f4f8]/80 border-b border-[#e8f4f8]/5 flex items-center bg-[#2EA6D4]/3"
+                  className="py-3 px-4 text-sm text-[#e8f4f8]/90 border-b border-[#e8f4f8]/8 flex items-center bg-[#2EA6D4]/6"
                 >
                   <span className="mr-2 text-[#00A79D]">✓</span>
                   {item.ap}

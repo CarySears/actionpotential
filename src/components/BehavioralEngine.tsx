@@ -82,7 +82,7 @@ export default function BehavioralEngine() {
             Six stages. One continuous{" "}
             <span className="gradient-text">growth loop.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/55 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto">
             Every client receives a full-funnel Behavioral Engine — designed to move people from
             first impression to loyal advocate, automatically.
           </p>
@@ -119,7 +119,7 @@ export default function BehavioralEngine() {
                   </span>
                   <h3 className="text-lg font-bold text-white">{stage.title}</h3>
                 </div>
-                <p className="text-[#e8f4f8]/55 text-sm leading-relaxed">{stage.desc}</p>
+                <p className="text-[#e8f4f8]/78 text-sm leading-relaxed">{stage.desc}</p>
 
                 {/* Connection line (visual) */}
                 {i < stages.length - 1 && (
@@ -143,7 +143,7 @@ export default function BehavioralEngine() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Five Growth Drivers
             </h3>
-            <p className="text-[#e8f4f8]/50">Everything we build serves these five outcomes.</p>
+            <p className="text-[#e8f4f8]/72">Everything we build serves these five outcomes.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -159,7 +159,7 @@ export default function BehavioralEngine() {
                   {driver.icon}
                 </div>
                 <div className="text-sm font-semibold text-white mb-1">{driver.label}</div>
-                <div className="text-xs text-[#e8f4f8]/45">{driver.desc}</div>
+                <div className="text-xs text-[#e8f4f8]/70">{driver.desc}</div>
               </motion.div>
             ))}
           </div>

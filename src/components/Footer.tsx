@@ -18,8 +18,8 @@ const links = {
     { label: "About Cary", href: "#founder" },
   ],
   "Get Started": [
-    { label: "Free AI Audit", href: "#cta" },
-    { label: "Strategy Session", href: "#cta" },
+    { label: "Book Free AI Audit", href: "#cta" },
+    { label: "Watch Client Results", href: "/results/index.html" },
     { label: "Contact Us", href: "mailto:hello@actionpotential.ai" },
   ],
 };
@@ -48,14 +48,14 @@ export default function Footer() {
                 <span className="text-[#79C5C7]/60 text-sm">.AI</span>
               </div>
             </div>
-            <p className="text-sm text-[#e8f4f8]/40 leading-relaxed mb-5">
+            <p className="text-sm text-[#e8f4f8]/70 leading-relaxed mb-5">
               Behavioral AI marketing and automation agency. We sit at the intersection of AI,
               behavioral science, UX, and growth marketing.
             </p>
             <div className="flex flex-col gap-2">
               <a
                 href="mailto:hello@actionpotential.ai"
-                className="flex items-center gap-2 text-xs text-[#e8f4f8]/35 hover:text-[#79C5C7] transition-colors"
+                className="flex items-center gap-2 text-xs text-[#e8f4f8]/70 hover:text-[#79C5C7] transition-colors"
               >
                 <Mail className="w-3 h-3" />
                 hello@actionpotential.ai
@@ -66,7 +66,7 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(links).map(([category, items]) => (
             <div key={category}>
-              <h4 className="text-xs font-semibold text-[#e8f4f8]/40 uppercase tracking-widest mb-4">
+              <h4 className="text-xs font-semibold text-[#e8f4f8]/65 uppercase tracking-widest mb-4">
                 {category}
               </h4>
               <ul className="space-y-2.5">
@@ -74,7 +74,7 @@ export default function Footer() {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-sm text-[#e8f4f8]/50 hover:text-[#79C5C7] transition-colors"
+                      className="text-sm text-[#e8f4f8]/78 hover:text-[#79C5C7] transition-colors"
                     >
                       {item.label}
                     </a>
@@ -94,10 +94,10 @@ export default function Footer() {
             © {new Date().getFullYear()} ActionPotential.AI — All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-xs text-[#e8f4f8]/25 hover:text-[#79C5C7] transition-colors">
+            <a href="/privacy/" className="text-xs text-[#e8f4f8]/55 hover:text-[#79C5C7] transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-xs text-[#e8f4f8]/25 hover:text-[#79C5C7] transition-colors">
+            <a href="/terms/" className="text-xs text-[#e8f4f8]/55 hover:text-[#79C5C7] transition-colors">
               Terms of Service
             </a>
           </div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Zap, Calendar, ArrowRight, CheckCircle2, Brain } from "lucide-react";
+import { Zap, Calendar, ArrowRight, CheckCircle2, Brain, Mail } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 
 const auditIncludes = [
@@ -11,13 +11,14 @@ const auditIncludes = [
   "AI & automation opportunity assessment",
   "AEO & AI visibility analysis",
   "Custom Behavioral Engine blueprint",
-  "Priority roadmap with quick wins identified",
-  "No pitch. No pressure. Real strategic value.",
+  "Priority roadmap with your top quick wins",
+  "No pressure. Actionable recommendations either way.",
 ];
 
 export default function CTA() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const bookingUrl = "https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm";
 
   return (
     <section ref={ref} id="cta" className="relative py-24 sm:py-32 overflow-hidden">
@@ -57,14 +58,27 @@ export default function CTA() {
             <span className="shimmer">growth system?</span>
           </h2>
 
-          <p className="text-lg text-[#e8f4f8]/60 max-w-2xl mx-auto leading-relaxed">
-            Schedule your free AI Audit & Marketing Strategy Session. We&apos;ll analyze your
-            current marketing, identify your biggest opportunities, and show you exactly what a
-            Behavioral Engine would look like for your business.
+          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto leading-relaxed">
+            Book your free AI Audit today. We&apos;ll identify your biggest conversion bottlenecks,
+            show where revenue is leaking, and map the highest-impact fixes for the next 90 days.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a
+              href="/results/index.html"
+              className="rounded-full border border-[#79C5C7]/25 bg-[#79C5C7]/8 px-4 py-2 text-sm text-[#e8f4f8]/90 hover:bg-[#79C5C7]/14 transition-colors"
+            >
+              Watch client testimonial videos
+            </a>
+            <a
+              href="/resources/faq/index.html"
+              className="rounded-full border border-[#79C5C7]/22 bg-[#79C5C7]/6 px-4 py-2 text-sm text-[#e8f4f8]/88 hover:bg-[#79C5C7]/12 transition-colors"
+            >
+              Read FAQs before booking
+            </a>
+          </div>
         </motion.div>
 
-        {/* Two-column: what's included + form */}
+        {/* Two-column: what's included + real conversion actions */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* What's included */}
           <motion.div
@@ -93,86 +107,63 @@ export default function CTA() {
             </div>
 
             <div className="mt-6 pt-5 border-t border-[#79C5C7]/10">
-              <p className="text-xs text-[#e8f4f8]/35 italic">
-                Value: $500+ — yours free because we believe in earning trust before asking for it.
+              <p className="text-xs text-[#e8f4f8]/60 italic">
+                We earn trust first. If there&apos;s no fit, you still leave with a clearer growth
+                roadmap.
               </p>
             </div>
           </motion.div>
 
-          {/* Form / CTA */}
+          {/* Booking / CTA */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="glass-card p-7 border-gradient"
           >
-            <h3 className="font-bold text-white mb-2">Schedule Your Session</h3>
-            <p className="text-sm text-[#e8f4f8]/45 mb-6">
-              Takes 2 minutes. Results that last.
+            <h3 className="font-bold text-white mb-2">Book Your Free AI Audit</h3>
+            <p className="text-sm text-[#e8f4f8]/70 mb-6">
+              Pick a time directly on our calendar. Takes about 2 minutes.
             </p>
 
             <div className="space-y-4">
-              <div>
-                <label className="block text-xs text-[#e8f4f8]/50 mb-1.5 uppercase tracking-wider">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Jane Smith"
-                  className="w-full px-4 py-3 rounded-xl bg-[#e8f4f8]/5 border border-[#e8f4f8]/10 text-white placeholder-[#e8f4f8]/25 text-sm focus:outline-none focus:border-[#79C5C7]/40 focus:bg-[#79C5C7]/5 transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-xs text-[#e8f4f8]/50 mb-1.5 uppercase tracking-wider">
-                  Business Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="jane@yourbusiness.com"
-                  className="w-full px-4 py-3 rounded-xl bg-[#e8f4f8]/5 border border-[#e8f4f8]/10 text-white placeholder-[#e8f4f8]/25 text-sm focus:outline-none focus:border-[#79C5C7]/40 focus:bg-[#79C5C7]/5 transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-xs text-[#e8f4f8]/50 mb-1.5 uppercase tracking-wider">
-                  Business Type
-                </label>
-                <select
-                  className="w-full px-4 py-3 rounded-xl border border-[#e8f4f8]/10 text-[#e8f4f8]/70 text-sm focus:outline-none focus:border-[#79C5C7]/40 transition-all appearance-none"
-                  style={{ backgroundColor: "rgb(var(--color-bg-rgb) / 0.86)" }}
-                >
-                  <option value="">Select your industry...</option>
-                  <option>Healthcare & Wellness</option>
-                  <option>Coaching & Consulting</option>
-                  <option>Legal & Professional Services</option>
-                  <option>Real Estate</option>
-                  <option>Hospitality</option>
-                  <option>Home Services</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs text-[#e8f4f8]/50 mb-1.5 uppercase tracking-wider">
-                  Phone (Optional)
-                </label>
-                <input
-                  type="tel"
-                  placeholder="+1 (555) 000-0000"
-                  className="w-full px-4 py-3 rounded-xl bg-[#e8f4f8]/5 border border-[#e8f4f8]/10 text-white placeholder-[#e8f4f8]/25 text-sm focus:outline-none focus:border-[#79C5C7]/40 focus:bg-[#79C5C7]/5 transition-all"
-                />
+              <div className="rounded-xl border border-[#e8f4f8]/12 bg-[#e8f4f8]/5 p-4">
+                <p className="text-sm text-[#e8f4f8]/80 mb-3 font-semibold">What happens after you book:</p>
+                <ul className="space-y-2">
+                  {[
+                    "You select a time that works for your schedule",
+                    "We review your current funnel before the call",
+                    "You get a practical action plan, not a vague pitch",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-[#e8f4f8]/75">
+                      <CheckCircle2 className="w-4 h-4 text-[#00A79D] mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl font-bold text-white glow-button flex items-center justify-center gap-2 mt-2"
+              <motion.a
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                href={bookingUrl}
+                className="w-full py-4 rounded-xl font-bold text-white glow-button inline-flex items-center justify-center gap-2 mt-2"
               >
                 <Zap className="w-5 h-5" fill="white" />
-                Schedule My Free AI Audit
+                Book Free AI Audit
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </motion.a>
 
-              <p className="text-center text-xs text-[#e8f4f8]/25">
-                No spam. No pressure. Just genuine strategic value.
+              <a
+                href="mailto:hello@actionpotential.ai"
+                className="w-full py-3 rounded-xl border border-[#79C5C7]/25 text-[#e8f4f8]/90 hover:bg-[#79C5C7]/8 transition-colors inline-flex items-center justify-center gap-2"
+              >
+                <Mail className="w-4 h-4 text-[#79C5C7]" />
+                Prefer email? hello@actionpotential.ai
+              </a>
+
+              <p className="text-center text-xs text-[#e8f4f8]/60">
+                No long-term contracts. No pressure tactics. Clear next steps.
               </p>
             </div>
           </motion.div>

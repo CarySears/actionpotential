@@ -96,7 +96,9 @@ const services = [
 ];
 
 function ServiceCard({ service, index, isInView }: { service: typeof services[0]; index: number; isInView: boolean }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(index === 0);
+  const visibleItems = service.items.slice(0, 2);
+  const hiddenItems = service.items.slice(2);
 
   return (
     <motion.div
@@ -119,7 +121,14 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[0]
           <h3 className="text-lg font-bold text-white group-hover:text-[#79C5C7] transition-colors">
             {service.title}
           </h3>
-          <p className="text-sm text-[#e8f4f8]/50 mt-0.5">{service.tagline}</p>
+          <p className="text-sm text-[#e8f4f8]/75 mt-0.5">{service.tagline}</p>
+          <div className="mt-2 space-y-1">
+            {visibleItems.map((item) => (
+              <p key={item.name} className="text-xs text-[#e8f4f8]/70">
+                • {item.name}
+              </p>
+            ))}
+          </div>
         </div>
         <div className="flex-shrink-0 mt-1">
           {expanded ? (
@@ -142,7 +151,7 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[0]
             style={{ background: `linear-gradient(90deg, ${service.color}30, transparent)` }}
           />
           <div className="space-y-3">
-            {service.items.map((item, j) => (
+            {hiddenItems.map((item, j) => (
               <motion.div
                 key={j}
                 initial={{ opacity: 0, x: -10 }}

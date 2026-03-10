@@ -53,7 +53,7 @@ export default function WhoWeServe() {
             Built for businesses ready{" "}
             <span className="gradient-text">to grow.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/55 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto">
             We work with small and midsize service businesses, professional practices, and local
             businesses that are ready to grow — but don&apos;t have time to chase leads manually.
           </p>
@@ -85,7 +85,7 @@ export default function WhoWeServe() {
                   >
                     <industry.icon className="w-5 h-5" style={{ color: industry.color }} />
                   </div>
-                  <span className="text-sm font-medium text-[#e8f4f8]/80">{industry.label}</span>
+                  <span className="text-sm font-medium text-[#e8f4f8]/92">{industry.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -96,7 +96,7 @@ export default function WhoWeServe() {
               transition={{ delay: 0.8 }}
               className="mt-6 p-4 rounded-xl bg-[#79C5C7]/5 border border-[#79C5C7]/10"
             >
-              <p className="text-sm text-[#e8f4f8]/50">
+              <p className="text-sm text-[#e8f4f8]/75">
                 <span className="text-[#79C5C7]">Not in this list?</span> If you&apos;re a
                 service business with a sales process and a desire to grow, we should talk.
               </p>
@@ -120,7 +120,7 @@ export default function WhoWeServe() {
                   className="flex items-center gap-4 p-4 rounded-xl glass-card glass-card-hover"
                 >
                   <CheckCircle2 className="w-5 h-5 text-[#00A79D] flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-[#e8f4f8]/75">{outcome}</span>
+                  <span className="text-sm sm:text-base text-[#e8f4f8]/90">{outcome}</span>
                 </motion.div>
               ))}
             </div>
@@ -142,7 +142,7 @@ export default function WhoWeServe() {
                   "Are open to letting technology do the heavy lifting",
                   "Value substance over vanity metrics",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8f4f8]/60">
+                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8f4f8]/80">
                     <span className="text-[#79C5C7] mt-0.5">→</span>
                     {item}
                   </li>
