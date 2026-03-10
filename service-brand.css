@@ -183,8 +183,20 @@ p,
   background: linear-gradient(180deg, rgba(18, 27, 47, 0.94), rgba(12, 20, 36, 0.95));
 }
 
+.section.card {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 139, 102, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(18, 27, 47, 0.95), rgba(12, 20, 36, 0.96));
+}
+
 .card::before {
   background: linear-gradient(90deg, var(--accent-coral), var(--accent-magenta), var(--brand-4));
+}
+
+.btn-secondary {
+  border-color: rgba(121, 197, 199, 0.34);
+  color: #d7e8ff;
+  background: rgba(18, 27, 47, 0.78);
 }
 
 .list-links a {
@@ -217,5 +229,11 @@ p,
 
 .footer {
   border-top: 1px solid rgba(121, 197, 199, 0.2);
+  color: var(--muted);
+}
+
+.footer-brand strong,
+.tagline-static,
+.video-card p {
   color: var(--muted);
 }
