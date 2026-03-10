@@ -237,3 +237,32 @@ p,
 .video-card p {
   color: var(--muted);
 }
+
+/* Enforce dark brand presentation on subpages if stale light rules linger */
+.hero {
+  background: linear-gradient(180deg, rgba(18, 27, 47, 0.95), rgba(12, 20, 36, 0.95)) !important;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(18, 27, 47, 0.94), rgba(12, 20, 36, 0.95)) !important;
+}
+
+.section.card {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 139, 102, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(18, 27, 47, 0.95), rgba(12, 20, 36, 0.96)) !important;
+}
+
+.kpi {
+  background: rgba(18, 27, 47, 0.82) !important;
+}
+
+.card p,
+.card li,
+.section.card p,
+.section.card li,
+.list-links a,
+.footer,
+.footer * {
+  color: var(--muted) !important;
+}
