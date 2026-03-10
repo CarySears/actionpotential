@@ -23,8 +23,8 @@ const services = [
     color: "#79C5C7",
     items: [
       { name: "SEO", desc: "Traditional search engine optimization for long-term organic traffic" },
-      { name: "AEO — Ask Engine Optimization", desc: "Optimize content to appear in AI-generated answers from ChatGPT, Perplexity, and Gemini" },
-      { name: "AI-Engine Optimization", desc: "Ensure visibility inside AI recommendation systems" },
+      { name: "AI Search", desc: "Optimize content to appear in AI-generated answers from ChatGPT, Perplexity, and Gemini" },
+      { name: "AI Discoverability", desc: "Improve how often your brand appears in recommendation-style AI responses" },
       { name: "Google Ads", desc: "Capture high-intent search traffic ready to buy" },
       { name: "Meta Ads", desc: "Generate demand across Facebook, Instagram, and WhatsApp" },
     ],
@@ -70,7 +70,7 @@ const services = [
   },
   {
     icon: Radio,
-    title: "AI Visibility Services",
+    title: "AI Discoverability Services",
     tagline: "Be cited by AI, not just ranked by Google",
     color: "#79C5C7",
     items: [

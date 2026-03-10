@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     "marketing automation agency",
     "AI lead generation",
     "conversational marketing",
-    "AEO ask engine optimization",
-    "AI visibility optimization",
+    "AI Search optimization",
+    "AI discoverability optimization",
     "behavioral science marketing",
     "full-funnel marketing automation",
     "SMS marketing automation",
@@ -107,7 +107,8 @@ const structuredData = {
         "Lead Generation",
         "Conversational Marketing",
         "SEO",
-        "AEO - Ask Engine Optimization",
+        "AI Search",
+        "AI discoverability",
         "Google Ads",
         "Meta Ads",
         "Behavioral Engine Design",
@@ -135,10 +136,10 @@ const structuredData = {
         },
         {
           "@type": "Question",
-          name: "What is Ask Engine Optimization (AEO)?",
+          name: "What is AI Search?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "AEO (Ask Engine Optimization) is the practice of optimizing your content to appear in AI-generated answers from tools like ChatGPT, Perplexity, and Gemini. As more customers use AI assistants to research decisions, being visible in AI-generated responses is becoming essential for business growth.",
+            text: "AI Search is the practice of optimizing your content to appear in AI-generated answers from tools like ChatGPT, Perplexity, and Gemini. AI discoverability improves how often your brand appears in recommendation-style responses as buyers research decisions.",
           },
         },
         {

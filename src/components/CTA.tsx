@@ -9,7 +9,7 @@ import NeuralNetwork from "./NeuralNetwork";
 const auditIncludes = [
   "Review of your current marketing and lead flow",
   "AI & automation opportunity assessment",
-  "AEO & AI visibility analysis",
+  "AI Search analysis",
   "Custom Behavioral Engine blueprint",
   "Priority roadmap with your top quick wins",
   "No pressure. Actionable recommendations either way.",

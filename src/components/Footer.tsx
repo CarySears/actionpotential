@@ -8,7 +8,7 @@ const links = {
     { label: "Conversational Marketing", href: "#services" },
     { label: "AI Agent Suite", href: "#services" },
     { label: "Marketing Automation", href: "#services" },
-    { label: "AI Visibility Services", href: "#services" },
+    { label: "AI Discoverability Services", href: "#services" },
     { label: "SEO & Paid Media", href: "#services" },
   ],
   Company: [
