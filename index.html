@@ -518,12 +518,12 @@
 
       .brand-wave-divider {
         position: relative;
-        height: clamp(108px, 14vh, 168px);
+        height: clamp(118px, 15vh, 182px);
         margin: 0.95rem 0 0;
         overflow: hidden;
         pointer-events: none;
-        border-top: 1px solid rgba(35, 31, 32, 0.1);
-        border-bottom: 1px solid rgba(35, 31, 32, 0.08);
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+        border-bottom: 1px solid rgba(46, 166, 212, 0.2);
       }
 
       .brand-wave-divider svg {
@@ -534,37 +534,42 @@
       }
 
       .brand-wave-divider-base {
-        background: linear-gradient(180deg, rgba(243, 244, 246, 0.25), rgba(243, 244, 246, 0.92) 72%, rgba(243, 244, 246, 1) 100%);
+        background: linear-gradient(
+          to bottom,
+          rgba(8, 12, 20, 0.97) 0%,
+          rgba(9, 15, 24, 0.95) 46%,
+          rgba(12, 20, 33, 0.94) 100%
+        );
       }
 
       .brand-wave-teal {
         fill: #79C5C7;
-        opacity: 0.95;
+        opacity: 0.88;
       }
 
       .brand-wave-blue {
         fill: #2EA6D4;
-        opacity: 0.92;
+        opacity: 0.84;
       }
 
       .brand-wave-magenta {
         fill: #D93AA4;
-        opacity: 0.9;
+        opacity: 0.8;
       }
 
       .brand-wave-deep {
         fill: #1B75BB;
-        opacity: 0.88;
+        opacity: 0.74;
       }
 
       .brand-wave-cyan {
         fill: #00A79D;
-        opacity: 0.9;
+        opacity: 0.76;
       }
 
       .brand-wave-coral {
         fill: #FF8B66;
-        opacity: 0.9;
+        opacity: 0.76;
       }
 
       .hero-copy {
@@ -1609,78 +1614,20 @@
       }
 
       body.after-fold-light {
-        color: #231f20;
+        color: #132742;
       }
 
       body.after-fold-light::before {
-        opacity: 0.86;
-        background:
-          linear-gradient(138deg, rgba(242, 163, 67, 0.86), rgba(236, 63, 142, 0.84) 54%, rgba(96, 76, 160, 0.82))
-            right -220px top -130px / min(58vw, 760px) min(56vh, 480px) no-repeat,
-          radial-gradient(circle, rgba(46, 166, 212, 0.88) 0 18%, rgba(121, 197, 199, 0.85) 19%, transparent 20%)
-            left -200px bottom -180px / min(54vw, 700px) min(46vh, 360px) no-repeat;
+        opacity: 0.12;
       }
 
       body.after-fold-light::after {
-        opacity: 0.42;
-        background:
-          radial-gradient(circle, rgba(46, 166, 212, 0.34) 0 2px, transparent 2.8px)
-            left 44px top 104px / 16px 16px repeat,
-          radial-gradient(circle, rgba(217, 58, 164, 0.26) 0 1.7px, transparent 2.6px)
-            right 54px top 172px / 15px 15px repeat;
-      }
-
-      body.after-fold-light::before,
-      body.after-fold-light::after,
-      body.after-fold-light .brand-motifs {
-        -webkit-mask-image: none;
-        mask-image: none;
-      }
-
-      body.after-fold-light .brand-geo-motif-right {
-        right: -18vw;
-        bottom: -22vh;
-        width: min(58vw, 760px);
-        height: min(70vh, 620px);
-        clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 86%);
-        background: linear-gradient(138deg, rgba(242, 163, 67, 0.84), rgba(236, 63, 142, 0.84) 54%, rgba(96, 76, 160, 0.84));
-        opacity: 0.28;
-      }
-
-      body.after-fold-light .brand-geo-motif-left {
-        left: -20vw;
-        bottom: -32vh;
-        width: min(58vw, 720px);
-        height: min(54vh, 420px);
-        clip-path: ellipse(64% 54% at 56% 46%);
-        background: linear-gradient(132deg, rgba(121, 197, 199, 0.94), rgba(46, 166, 212, 0.9));
-        opacity: 0.26;
-      }
-
-      body.after-fold-light .brand-geo-motif-top-right,
-      body.after-fold-light .brand-geo-motif-top-left,
-      body.after-fold-light .brand-geo-motif-mid-right,
-      body.after-fold-light .brand-geo-motif-mid-left {
-        display: none;
-      }
-
-      body.after-fold-light .brand-dots-motif {
-        left: 2%;
-        top: 12%;
-        opacity: 0.22;
-        background-image: radial-gradient(circle at center, rgba(46, 166, 212, 0.72) 1.35px, transparent 2.2px);
-      }
-
-      body.after-fold-light .brand-dots-motif-right {
-        right: -36px;
-        top: 45%;
-        opacity: 0.18;
-        background-image: radial-gradient(circle at center, rgba(217, 58, 164, 0.62) 1.35px, transparent 2.2px);
+        opacity: 0.62;
       }
 
       body.after-fold-light .site-header {
-        background: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(35, 31, 32, 0.1);
+        background: rgba(246, 251, 255, 0.86);
+        border-bottom: 1px solid rgba(27, 117, 187, 0.24);
       }
 
       body.after-fold-light .logo-mark {
@@ -1689,55 +1636,44 @@
       }
 
       body.after-fold-light .brand strong {
-        color: #231f20;
+        color: #16385f;
       }
 
       body.after-fold-light .nav-links a {
-        color: #343338;
+        color: #365678;
       }
 
       body.after-fold-light .nav-links a:hover {
-        color: #111114;
+        color: #183f69;
       }
 
       body.after-fold-light .dropdown-menu {
-        border-color: rgba(35, 31, 32, 0.11);
-        background: rgba(254, 255, 255, 0.98);
-        box-shadow: 0 10px 24px rgba(24, 22, 26, 0.1);
+        border-color: rgba(27, 117, 187, 0.2);
+        background: rgba(252, 255, 255, 0.96);
+        box-shadow: 0 10px 24px rgba(16, 42, 74, 0.14);
       }
 
       body.after-fold-light .dropdown-menu a {
-        color: #303035;
+        color: #2d4f72;
       }
 
       body.after-fold-light .dropdown-menu a:hover {
-        background: rgba(46, 166, 212, 0.12);
-        color: #161619;
+        background: rgba(27, 117, 187, 0.12);
+        color: #14395e;
       }
 
       body.after-fold-light .nav-actions {
-        border-left-color: rgba(35, 31, 32, 0.14);
+        border-left-color: rgba(27, 117, 187, 0.25);
       }
 
       body.after-fold-light .btn-login {
-        border-color: rgba(35, 31, 32, 0.16);
-        color: #262329;
+        border-color: rgba(27, 117, 187, 0.34);
+        color: #214b73;
         background: rgba(255, 255, 255, 0.82);
       }
 
       body.after-fold-light .hero .eyebrow {
-        color: #303035;
-      }
-
-      body.after-fold-light .eyebrow::before {
-        width: 52px;
-        height: 8px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #f2a343 0%, #ec3f8e 58%, #604ca0 100%);
-      }
-
-      body.after-fold-light .eyebrow::after {
-        display: none;
+        color: #174f87;
       }
 
       body.after-fold-light .hero p,
@@ -1752,14 +1688,13 @@
       body.after-fold-light .audit-deliverables li,
       body.after-fold-light .cta-panel p,
       body.after-fold-light .footer {
-        color: #4a4850;
+        color: #2f4f72;
       }
 
       body.after-fold-light h1,
       body.after-fold-light h2,
       body.after-fold-light h3 {
-        text-shadow: none;
-        color: #231f20;
+        text-shadow: var(--text-halo-light-strong);
       }
 
       body.after-fold-light .hero p,
@@ -1774,7 +1709,7 @@
       body.after-fold-light .audit-deliverables li,
       body.after-fold-light .cta-panel p,
       body.after-fold-light .footer {
-        text-shadow: none;
+        text-shadow: var(--text-halo-light-soft);
       }
 
       body.after-fold-light .problem .container > div:first-child::before {
@@ -1792,29 +1727,29 @@
       body.after-fold-light .metric,
       body.after-fold-light details,
       body.after-fold-light .cta-panel {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 252, 0.96));
-        border-color: rgba(35, 31, 32, 0.1);
-        box-shadow: 0 10px 22px rgba(23, 20, 27, 0.08);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(241, 247, 255, 0.95));
+        border-color: rgba(27, 117, 187, 0.22);
+        box-shadow: 0 12px 24px rgba(17, 44, 78, 0.1);
       }
 
       body.after-fold-light .section > .container::before {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(247, 248, 250, 0.7));
-        border-color: rgba(35, 31, 32, 0.1);
-        box-shadow: 0 16px 30px rgba(23, 20, 27, 0.08);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(236, 245, 255, 0.66));
+        border-color: rgba(27, 117, 187, 0.18);
+        box-shadow: 0 16px 30px rgba(17, 44, 78, 0.09);
       }
 
       body.after-fold-light .result-snapshot,
       body.after-fold-light .fit-card,
       body.after-fold-light .kpi {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 252, 0.96));
-        border-color: rgba(35, 31, 32, 0.1);
-        box-shadow: 0 10px 20px rgba(23, 20, 27, 0.08);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.95));
+        border-color: rgba(27, 117, 187, 0.24);
+        box-shadow: 0 10px 20px rgba(17, 44, 78, 0.1);
       }
 
       body.after-fold-light .audit-deliverables {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 252, 0.96));
-        border-color: rgba(35, 31, 32, 0.1);
-        box-shadow: 0 10px 20px rgba(23, 20, 27, 0.07);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.95));
+        border-color: rgba(27, 117, 187, 0.24);
+        box-shadow: 0 10px 20px rgba(17, 44, 78, 0.08);
       }
 
       body.after-fold-light .result-snapshot li,
@@ -1822,51 +1757,51 @@
       body.after-fold-light .fit-card li,
       body.after-fold-light .proof-note,
       body.after-fold-light .kpi span {
-        color: #4a4850;
+        color: #385b80;
       }
 
       body.after-fold-light .trust-item {
         background: rgba(255, 255, 255, 0.92);
-        border-color: rgba(35, 31, 32, 0.1);
-        box-shadow: 0 8px 18px rgba(23, 20, 27, 0.07);
-        color: #3d3b41;
+        border-color: rgba(27, 117, 187, 0.26);
+        box-shadow: 0 8px 18px rgba(17, 44, 78, 0.08);
+        color: #2d5279;
       }
 
       body.after-fold-light .trust-item strong {
-        color: #231f20;
+        color: #163f66;
       }
 
       body.after-fold-light .trust-item span {
-        color: #5a575f;
+        color: #44688d;
       }
 
       body.after-fold-light .fit-good h3 {
-        color: #1b75bb;
+        color: #17628f;
       }
 
       body.after-fold-light .fit-caution h3 {
-        color: #d35c40;
+        color: #a95538;
       }
 
       body.after-fold-light .btn-secondary {
-        border-color: rgba(35, 31, 32, 0.14);
-        color: #2f2b30;
+        border-color: rgba(27, 117, 187, 0.32);
+        color: #1d4169;
         background: rgba(255, 255, 255, 0.7);
       }
 
       body.after-fold-light .pill {
-        border-color: rgba(35, 31, 32, 0.14);
-        background: rgba(46, 166, 212, 0.1);
-        color: #2f2c31;
+        border-color: rgba(27, 117, 187, 0.3);
+        background: rgba(27, 117, 187, 0.08);
+        color: #1f4973;
       }
 
       body.after-fold-light .name-signal-label {
-        color: #1b75bb;
+        color: #1f5e8f;
       }
 
       body.after-fold-light .problem h2,
       body.after-fold-light .problem .eyebrow {
-        color: #231f20;
+        color: #173d66;
       }
 
       body.after-fold-light .mobile-sticky {
@@ -2379,7 +2314,7 @@
       }
     </script>
   </head>
-  <body class="after-fold-light">
+  <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <div class="container nav">
