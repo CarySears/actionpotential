@@ -1,46 +1,273 @@
 (() => {
+  const STYLE_ID = "shared-nav-breadcrumb-styles";
+  if (!document.getElementById(STYLE_ID)) {
+    const style = document.createElement("style");
+    style.id = STYLE_ID;
+    style.textContent = `
+      .nav-links > a.is-current,
+      .nav-item > a.is-current,
+      .nav-item.is-current > a {
+        color: var(--brand-1, #79c5c7) !important;
+        text-decoration: underline;
+        text-decoration-color: rgba(121, 197, 199, 0.82);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.42em;
+      }
+      .breadcrumbs {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0.58rem auto 0;
+        color: var(--muted, #c7d5ec);
+      }
+      .breadcrumbs ol {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.14rem;
+        margin: 0;
+        padding: 0;
+      }
+      .breadcrumbs li {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.78rem;
+      }
+      .breadcrumbs li + li::before {
+        content: "›";
+        opacity: 0.58;
+        margin: 0 0.42rem;
+      }
+      .breadcrumbs a {
+        color: inherit;
+        opacity: 0.88;
+      }
+      .breadcrumbs a:hover {
+        opacity: 1;
+      }
+      .breadcrumbs .is-current {
+        color: var(--text, #ecf2ff);
+        font-weight: 600;
+        opacity: 1;
+      }
+      @media (max-width: 760px) {
+        .breadcrumbs {
+          margin-top: 0.45rem;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const nav = document.querySelector(".nav-links[aria-label='Primary navigation']");
   if (!nav) return;
-  if (nav.id === "mobile-primary-nav") return;
 
-  // Rebuild nav deterministically so stale HTML variants do not break interaction.
-  nav.innerHTML =
-    "<div class='nav-item'>" +
-    "<a href='/services/index.html'>Services</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='Services'>" +
-    "<a role='menuitem' href='/services/index.html'>All Services</a>" +
-    "<a role='menuitem' href='/services/visibility-engine.html'>Visibility Engine</a>" +
-    "<a role='menuitem' href='/services/behavioral-engine.html'>Behavioral Engine</a>" +
-    "<a role='menuitem' href='/services/smart-websites.html'>Smart Websites</a>" +
-    "<a role='menuitem' href='/services/ai-search.html'>SEO + AI Search</a>" +
-    "<a role='menuitem' href='/services/paid-media.html'>Paid Media + Retargeting</a>" +
-    "</div></div>" +
-    "<div class='nav-item'>" +
-    "<a href='/platform/ai-operations-suite.html'>AI Operations Suite</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='AI Operations Suite'>" +
-    "<a role='menuitem' href='/platform/ai-operations-suite.html'>Platform Overview</a>" +
-    "<a role='menuitem' href='/platform/crm.html'>CRM</a>" +
-    "</div></div>" +
-    "<div class='nav-item'>" +
-    "<a href='/who-we-empower/index.html'>Who We Serve</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='Who We Serve'>" +
-    "<a role='menuitem' href='/who-we-empower/industries/index.html'>Industries</a>" +
-    "<a role='menuitem' href='/who-we-empower/locations/index.html'>Locations</a>" +
-    "</div></div>" +
-    "<a href='/results/index.html'>Results</a>" +
-    "<div class='nav-item'>" +
-    "<a href='/who-we-are/index.html'>Company</a>" +
-    "<div class='dropdown-menu' role='menu' aria-label='Company'>" +
-    "<a role='menuitem' href='/who-we-are/index.html'>Who We Are</a>" +
-    "<a role='menuitem' href='/resources/index.html'>Resources</a>" +
-    "<a role='menuitem' href='/resources/faq/index.html'>FAQs</a>" +
-    "<a role='menuitem' href='/resources/blog/index.html'>Blog</a>" +
-    "<a role='menuitem' href='/resources/case-studies/index.html'>Case Studies</a>" +
-    "</div></div>";
+  const navModel = [
+    {
+      label: "Services",
+      href: "/services/index.html",
+      children: [
+        { label: "All Services", href: "/services/index.html" },
+        { label: "Visibility Engine", href: "/services/visibility-engine.html" },
+        { label: "Behavioral Engine", href: "/services/behavioral-engine.html" },
+        { label: "Smart Websites", href: "/services/smart-websites.html" },
+        { label: "SEO + AI Search", href: "/services/ai-search.html" },
+        { label: "Paid Media + Retargeting", href: "/services/paid-media.html" },
+      ],
+    },
+    {
+      label: "AI Operations Suite",
+      href: "/platform/ai-operations-suite.html",
+      children: [
+        { label: "Platform Overview", href: "/platform/ai-operations-suite.html" },
+        { label: "CRM", href: "/platform/crm.html" },
+      ],
+    },
+    {
+      label: "Who We Serve",
+      href: "/who-we-empower/index.html",
+      children: [
+        { label: "Industries", href: "/who-we-empower/industries/index.html" },
+        { label: "Locations", href: "/who-we-empower/locations/index.html" },
+      ],
+    },
+    { label: "Results", href: "/results/index.html" },
+    {
+      label: "Company",
+      href: "/who-we-are/index.html",
+      children: [
+        { label: "Who We Are", href: "/who-we-are/index.html" },
+        { label: "Resources", href: "/resources/index.html" },
+        { label: "FAQs", href: "/resources/faq/index.html" },
+        { label: "Blog", href: "/resources/blog/index.html" },
+        { label: "Case Studies", href: "/resources/case-studies/index.html" },
+      ],
+    },
+  ];
+
+  const renderItem = (item) => {
+    if (!item.children?.length) {
+      return `<a href="${item.href}">${item.label}</a>`;
+    }
+    const children = item.children
+      .map((child) => `<a role="menuitem" href="${child.href}">${child.label}</a>`)
+      .join("");
+    return (
+      `<div class="nav-item">` +
+      `<a href="${item.href}">${item.label}</a>` +
+      `<div class="dropdown-menu" role="menu" aria-label="${item.label}">${children}</div>` +
+      `</div>`
+    );
+  };
+
+  nav.innerHTML = navModel.map(renderItem).join("");
 
   const navItems = Array.from(nav.querySelectorAll(".nav-item"));
-  if (!navItems.length) return;
   const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+  const canonicalPath = (value) => {
+    let pathname = value;
+    try {
+      pathname = new URL(value, window.location.origin).pathname;
+    } catch {
+      pathname = value;
+    }
+    pathname = decodeURIComponent(pathname).replace(/\/{2,}/g, "/");
+    if (!pathname.startsWith("/")) pathname = `/${pathname}`;
+    if (pathname.length > 1 && pathname.endsWith("/")) pathname = pathname.slice(0, -1);
+    return pathname.toLowerCase();
+  };
+
+  const pathVariants = (value) => {
+    const base = canonicalPath(value);
+    const variants = new Set([base]);
+    if (base === "/") {
+      variants.add("/index.html");
+      return variants;
+    }
+    if (base.endsWith("/index.html")) {
+      const dir = base.slice(0, -"index.html".length - 1);
+      variants.add(dir || "/");
+      variants.add(`${dir}/`);
+    } else if (!/\.[a-z0-9]+$/i.test(base)) {
+      variants.add(`${base}.html`);
+      variants.add(`${base}/index.html`);
+      variants.add(`${base}/`);
+    }
+    if (base.endsWith(".html")) {
+      const noExt = base.slice(0, -".html".length);
+      variants.add(noExt);
+      variants.add(`${noExt}/`);
+    }
+    return variants;
+  };
+
+  const currentVariants = pathVariants(window.location.pathname);
+  const navLinks = Array.from(nav.querySelectorAll("a[href]"));
+  let activeLinks = navLinks.filter((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("http") || href.startsWith("mailto:")) return false;
+    const variants = pathVariants(href);
+    for (const variant of variants) {
+      if (currentVariants.has(variant)) return true;
+    }
+    return false;
+  });
+
+  if (!activeLinks.length) {
+    const path = canonicalPath(window.location.pathname);
+    const sectionMap = [
+      ["/services", "/services/index.html"],
+      ["/platform", "/platform/ai-operations-suite.html"],
+      ["/who-we-empower", "/who-we-empower/index.html"],
+      ["/results", "/results/index.html"],
+      ["/who-we-are", "/who-we-are/index.html"],
+      ["/resources", "/resources/index.html"],
+    ];
+    const match = sectionMap.find(([prefix]) => path.startsWith(prefix));
+    if (match) {
+      const top = nav.querySelector(`a[href="${match[1]}"]`);
+      if (top) activeLinks = [top];
+    }
+  }
+
+  activeLinks.forEach((link) => {
+    link.classList.add("is-current");
+    link.setAttribute("aria-current", "page");
+    const item = link.closest(".nav-item");
+    if (item) item.classList.add("is-current");
+  });
+
+  const breadcrumbId = "page-breadcrumbs";
+  const existingBreadcrumbs = document.getElementById(breadcrumbId);
+  if (existingBreadcrumbs) existingBreadcrumbs.remove();
+
+  const currentPath = canonicalPath(window.location.pathname);
+  if (!["/", "/index.html"].includes(currentPath)) {
+    const breadcrumbNodes = [{ label: "Home", href: "/" }];
+    const currentLink = activeLinks
+      .slice()
+      .sort((a, b) => canonicalPath(a.getAttribute("href") || "").length - canonicalPath(b.getAttribute("href") || "").length)
+      .pop();
+
+    if (currentLink) {
+      const parentItem = currentLink.closest(".nav-item");
+      const parentLink = parentItem ? parentItem.querySelector(":scope > a") : null;
+      if (parentLink && parentLink !== currentLink) {
+        breadcrumbNodes.push({
+          label: (parentLink.textContent || "").trim(),
+          href: parentLink.getAttribute("href") || null,
+        });
+      }
+      breadcrumbNodes.push({
+        label: (currentLink.textContent || "").trim(),
+        href: null,
+      });
+    } else {
+      const fallbackLabel = (document.title || "Current Page").split("|")[0].trim();
+      breadcrumbNodes.push({ label: fallbackLabel, href: null });
+    }
+
+    const deduped = breadcrumbNodes.filter(
+      (node, index, arr) =>
+        index === 0 ||
+        node.label.toLowerCase() !== arr[index - 1].label.toLowerCase() ||
+        node.href !== arr[index - 1].href,
+    );
+
+    if (deduped.length > 1) {
+      const breadcrumbs = document.createElement("nav");
+      breadcrumbs.className = "breadcrumbs";
+      breadcrumbs.id = breadcrumbId;
+      breadcrumbs.setAttribute("aria-label", "Breadcrumb");
+      const list = document.createElement("ol");
+
+      deduped.forEach((node, index) => {
+        const item = document.createElement("li");
+        const isCurrent = index === deduped.length - 1 || !node.href;
+        if (isCurrent) {
+          const span = document.createElement("span");
+          span.className = "is-current";
+          span.textContent = node.label;
+          item.appendChild(span);
+        } else {
+          const link = document.createElement("a");
+          link.href = node.href;
+          link.textContent = node.label;
+          item.appendChild(link);
+        }
+        list.appendChild(item);
+      });
+
+      breadcrumbs.appendChild(list);
+      const header = document.querySelector(".site-header");
+      const main = document.querySelector("main");
+      if (main && main.parentNode) {
+        main.parentNode.insertBefore(breadcrumbs, main);
+      } else if (header?.parentNode) {
+        header.parentNode.insertBefore(breadcrumbs, header.nextSibling);
+      }
+    }
+  }
 
   const closeItem = (item) => {
     item.classList.remove("open");
