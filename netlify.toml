@@ -49,6 +49,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/services/behavioral-ai-marketing"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/behavioral-ai-marketing.html"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
