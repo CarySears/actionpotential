@@ -13,6 +13,30 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/services/seo-aeo"
+  to = "/services/ai-search.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/seo-aeo.html"
+  to = "/services/ai-search.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ai-visibility"
+  to = "/services/ai-discoverability.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ai-visibility.html"
+  to = "/services/ai-discoverability.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
