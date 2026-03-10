@@ -37,6 +37,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/services/paid-media-management"
+  to = "/services/paid-media.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/paid-media-management.html"
+  to = "/services/paid-media.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

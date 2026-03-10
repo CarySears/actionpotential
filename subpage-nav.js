@@ -5,6 +5,13 @@
   // Rebuild nav deterministically so stale HTML variants do not break interaction.
   nav.innerHTML =
     "<a href='/solutions/index.html'>Solutions</a>" +
+    "<a href='/services/index.html'>Services</a>" +
+    "<div class='nav-item'>" +
+    "<a href='/platform/ai-operations-suite.html'>AI Operations Suite</a>" +
+    "<div class='dropdown-menu' role='menu' aria-label='AI Operations Suite'>" +
+    "<a role='menuitem' href='/platform/ai-operations-suite.html'>Platform Overview</a>" +
+    "<a role='menuitem' href='/platform/crm.html'>CRM</a>" +
+    "</div></div>" +
     "<div class='nav-item'>" +
     "<a href='/who-we-empower/index.html'>Who We Empower</a>" +
     "<div class='dropdown-menu' role='menu' aria-label='Who We Empower'>" +
