@@ -75,12 +75,12 @@ body::after {
 
 .global-brand-wave-divider {
   position: relative;
-  height: clamp(118px, 15vh, 182px);
+  height: clamp(108px, 14vh, 168px);
   margin: 1.1rem 0 0;
   overflow: hidden;
   pointer-events: none;
-  border-top: 1px solid rgba(121, 197, 199, 0.22);
-  border-bottom: 1px solid rgba(46, 166, 212, 0.2);
+  border-top: 1px solid rgba(35, 31, 32, 0.1);
+  border-bottom: 1px solid rgba(35, 31, 32, 0.08);
 }
 
 .global-brand-wave-divider svg {
@@ -91,42 +91,37 @@ body::after {
 }
 
 .brand-wave-divider-base {
-  background: linear-gradient(
-    to bottom,
-    rgba(8, 12, 20, 0.97) 0%,
-    rgba(9, 15, 24, 0.95) 46%,
-    rgba(12, 20, 33, 0.94) 100%
-  );
+  background: linear-gradient(180deg, rgba(243, 244, 246, 0.25), rgba(243, 244, 246, 0.92) 72%, rgba(243, 244, 246, 1) 100%);
 }
 
 .brand-wave-teal {
   fill: #79c5c7;
-  opacity: 0.88;
+  opacity: 0.95;
 }
 
 .brand-wave-blue {
   fill: #2ea6d4;
-  opacity: 0.84;
+  opacity: 0.92;
 }
 
 .brand-wave-magenta {
   fill: #d93aa4;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .brand-wave-deep {
   fill: #1b75bb;
-  opacity: 0.74;
+  opacity: 0.88;
 }
 
 .brand-wave-cyan {
   fill: #00a79d;
-  opacity: 0.76;
+  opacity: 0.9;
 }
 
 .brand-wave-coral {
   fill: #ff8b66;
-  opacity: 0.76;
+  opacity: 0.9;
 }
 
 a {
@@ -380,27 +375,28 @@ h3 {
 .hero::before {
   content: "";
   position: absolute;
-  right: -140px;
-  top: -118px;
-  width: min(44vw, 500px);
-  height: min(44vh, 340px);
-  border-radius: 18% 0 0 72%;
-  transform: rotate(-8deg);
-  background: linear-gradient(138deg, rgba(242, 163, 67, 0.86), rgba(236, 63, 142, 0.84) 54%, rgba(96, 76, 160, 0.82));
-  opacity: 0.26;
+  right: -190px;
+  top: -150px;
+  width: min(54vw, 660px);
+  height: min(52vh, 420px);
+  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 84%);
+  border-radius: 0;
+  transform: rotate(-2deg);
+  background: linear-gradient(138deg, rgba(242, 163, 67, 0.88), rgba(236, 63, 142, 0.86) 54%, rgba(96, 76, 160, 0.84));
+  opacity: 0.3;
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  left: -160px;
-  bottom: -146px;
-  width: min(46vw, 520px);
-  height: min(36vh, 270px);
-  border-radius: 20% 80% 0 0 / 34% 56% 0 0;
-  background: linear-gradient(130deg, rgba(121, 197, 199, 0.94), rgba(46, 166, 212, 0.86));
-  opacity: 0.24;
-  transform: rotate(-3deg);
+  left: -200px;
+  bottom: -220px;
+  width: min(56vw, 700px);
+  height: min(42vh, 320px);
+  border-radius: 52% 48% 0 0 / 56% 44% 0 0;
+  background: linear-gradient(132deg, rgba(121, 197, 199, 0.96), rgba(46, 166, 212, 0.9));
+  opacity: 0.28;
+  transform: rotate(-5deg);
 }
 
 .hero > * {
