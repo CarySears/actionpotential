@@ -27,13 +27,61 @@
 
 [[redirects]]
   from = "/services/ai-visibility"
-  to = "/services/ai-discoverability.html"
+  to = "/services/ai-search.html"
   status = 301
   force = true
 
 [[redirects]]
   from = "/services/ai-visibility.html"
-  to = "/services/ai-discoverability.html"
+  to = "/services/ai-search.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ai-discoverability"
+  to = "/services/ai-search.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ai-discoverability.html"
+  to = "/services/ai-search.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/behavioral-ai-marketing"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/behavioral-ai-marketing.html"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/conversational-marketing"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/conversational-marketing.html"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/marketing-automation"
+  to = "/services/behavioral-engine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/marketing-automation.html"
+  to = "/services/behavioral-engine.html"
   status = 301
   force = true
 
