@@ -1,10 +1,16 @@
 :root {
+  --brand-1: #79c5c7;
+  --brand-2: #2ea6d4;
+  --brand-3: #00a79d;
+  --brand-4: #1b75bb;
+  --accent-coral: #ff8b66;
+  --accent-magenta: #d93aa4;
   --bg: #05070c;
   --surface: #121b2f;
   --surface-2: #16233d;
   --text: #ecf2ff;
   --muted: #c7d5ec;
-  --line: rgba(121, 197, 199, 0.28);
+  --line: rgba(121, 197, 199, 0.3);
   --shadow: 0 20px 40px rgba(4, 10, 24, 0.45);
 }
 
@@ -81,6 +87,20 @@ body::after {
   border-bottom: 1px solid rgba(121, 197, 199, 0.15);
 }
 
+.global-brand-wave-divider {
+  border-top: 1px solid rgba(121, 197, 199, 0.2);
+  border-bottom: 1px solid rgba(121, 197, 199, 0.14);
+}
+
+.brand-wave-divider-base {
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 12, 0.2),
+    rgba(5, 7, 12, 0.86) 72%,
+    rgba(5, 7, 12, 1) 100%
+  );
+}
+
 .nav-links > a,
 .nav-item > a {
   color: var(--muted);
@@ -155,13 +175,21 @@ p,
   color: #d7e7ff;
 }
 
+.eyebrow::before {
+  background: linear-gradient(90deg, var(--accent-coral) 0%, var(--accent-magenta) 58%, var(--brand-4) 100%);
+}
+
 .card {
   background: linear-gradient(180deg, rgba(18, 27, 47, 0.94), rgba(12, 20, 36, 0.95));
 }
 
+.card::before {
+  background: linear-gradient(90deg, var(--accent-coral), var(--accent-magenta), var(--brand-4));
+}
+
 .list-links a {
   border-color: rgba(121, 197, 199, 0.34);
-  background: rgba(46, 166, 212, 0.13);
+  background: rgba(46, 166, 212, 0.14);
   color: #d7e8ff;
 }
 
