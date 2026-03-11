@@ -2257,6 +2257,41 @@
           font-size: 0.76rem;
         }
       }
+
+      @media (max-width: 390px) {
+        .brand strong {
+          font-size: 0.7rem;
+          max-width: 15ch;
+          line-height: 1.08;
+        }
+        .logo-mark {
+          width: 38px;
+          height: 38px;
+        }
+        .nav-actions .btn-login {
+          min-width: 34px;
+          padding-inline: 0.44rem;
+        }
+        .mobile-menu-toggle {
+          min-width: 34px;
+          height: 34px;
+          font-size: 0.68rem;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .container {
+          width: min(1140px, calc(100% - 0.75rem));
+        }
+        .nav {
+          gap: 0.32rem;
+          min-height: 64px;
+        }
+        .brand strong {
+          font-size: 0.66rem;
+          max-width: 14ch;
+        }
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -2990,7 +3025,7 @@
         loadWidget("692e35e1885ff875a3542ddb");
       })();
     </script>
-    <script src="/subpage-nav.js?v=20260310p"></script>
+    <script src="/subpage-nav.js?v=20260310q"></script>
     <script>
       (function () {
         const header = document.querySelector(".site-header");

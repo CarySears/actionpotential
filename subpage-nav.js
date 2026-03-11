@@ -17,6 +17,7 @@
         width: min(1120px, calc(100% - 2rem));
         margin: 0.58rem auto 0;
         color: var(--muted, #c7d5ec);
+        overflow-x: hidden;
       }
       .breadcrumbs ol {
         list-style: none;
@@ -31,6 +32,7 @@
         display: inline-flex;
         align-items: center;
         font-size: 0.78rem;
+        min-width: 0;
       }
       .breadcrumbs li + li::before {
         content: "›";
@@ -48,10 +50,20 @@
         color: var(--text, #ecf2ff);
         font-weight: 600;
         opacity: 1;
+        overflow-wrap: anywhere;
       }
       @media (max-width: 760px) {
         .breadcrumbs {
           margin-top: 0.45rem;
+          width: min(1120px, calc(100% - 1rem));
+        }
+        .breadcrumbs li {
+          font-size: 0.72rem;
+        }
+      }
+      @media (max-width: 390px) {
+        .breadcrumbs li {
+          font-size: 0.68rem;
         }
       }
     `;

@@ -1049,6 +1049,59 @@ p {
   }
 }
 
+@media (max-width: 390px) {
+  .brand {
+    max-width: calc(100% - 100px);
+  }
+
+  .brand strong {
+    font-size: 0.64rem;
+    max-width: 15ch;
+    line-height: 1.08;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-actions .btn-login {
+    min-width: 34px;
+    padding-inline: 0.42rem;
+  }
+
+  .mobile-menu-toggle {
+    min-width: 34px;
+    height: 34px;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: min(1120px, calc(100% - 0.75rem));
+  }
+
+  .nav {
+    min-height: 64px;
+    gap: 0.32rem;
+  }
+
+  .brand strong {
+    font-size: 0.6rem;
+    max-width: 14ch;
+  }
+
+  .hero {
+    padding: 0.88rem 0.7rem 0.84rem;
+  }
+
+  .list-links a {
+    min-height: 44px;
+    font-size: 0.86rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tagline-animated {
     animation: none;
