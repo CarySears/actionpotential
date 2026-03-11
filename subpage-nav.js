@@ -60,6 +60,8 @@
 
   const nav = document.querySelector(".nav-links[aria-label='Primary navigation']");
   if (!nav) return;
+  const header = nav.closest(".site-header");
+  const navBar = nav.closest(".nav");
 
   const navModel = [
     {
@@ -120,6 +122,60 @@
   };
 
   nav.innerHTML = navModel.map(renderItem).join("");
+
+  let mobileMenuToggle = navBar ? navBar.querySelector(".mobile-menu-toggle") : null;
+  if (!mobileMenuToggle && navBar && header) {
+    if (!nav.id) nav.id = "global-primary-nav";
+    mobileMenuToggle = document.createElement("button");
+    mobileMenuToggle.type = "button";
+    mobileMenuToggle.className = "mobile-menu-toggle";
+    mobileMenuToggle.setAttribute("aria-label", "Toggle navigation menu");
+    mobileMenuToggle.setAttribute("aria-controls", nav.id);
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    mobileMenuToggle.textContent = "Menu";
+    navBar.appendChild(mobileMenuToggle);
+  }
+
+  const syncMenuToggleState = () => {
+    if (!mobileMenuToggle || !header) return;
+    const isOpen = header.classList.contains("menu-open");
+    mobileMenuToggle.textContent = isOpen ? "Close" : "Menu";
+    mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  };
+
+  if (mobileMenuToggle && header) {
+    mobileMenuToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      header.classList.toggle("menu-open");
+      syncMenuToggleState();
+    });
+
+    nav.addEventListener("click", (event) => {
+      const targetLink = event.target.closest("a[href]");
+      if (!targetLink) return;
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        header.classList.remove("menu-open");
+        syncMenuToggleState();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) {
+        header.classList.remove("menu-open");
+        syncMenuToggleState();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 761px)").matches) {
+        header.classList.remove("menu-open");
+        syncMenuToggleState();
+      }
+    });
+
+    syncMenuToggleState();
+  }
 
   const navItems = Array.from(nav.querySelectorAll(".nav-item"));
   const isTouchLike = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
@@ -288,7 +344,13 @@
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeAll();
+    if (event.key === "Escape") {
+      closeAll();
+      if (header) {
+        header.classList.remove("menu-open");
+        syncMenuToggleState();
+      }
+    }
   });
 
   navItems.forEach((item) => {
@@ -314,8 +376,8 @@
 
     trigger.addEventListener("click", (event) => {
       if (!isTouchLike()) return;
-      const header = item.closest(".site-header");
-      if (header && header.classList.contains("menu-open")) return;
+      const itemHeader = item.closest(".site-header");
+      if (itemHeader && itemHeader.classList.contains("menu-open")) return;
       event.preventDefault();
       const alreadyOpen = item.classList.contains("open");
       closeAll();

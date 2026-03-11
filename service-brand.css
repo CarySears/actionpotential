@@ -132,6 +132,12 @@ body::after {
   border-left: 1px solid rgba(121, 197, 199, 0.2);
 }
 
+.mobile-menu-toggle {
+  border-color: rgba(121, 197, 199, 0.35);
+  background: rgba(18, 27, 47, 0.82);
+  color: #d7e8ff;
+}
+
 .btn-login {
   border-color: rgba(121, 197, 199, 0.35);
   color: #d7e8ff;
