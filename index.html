@@ -3020,9 +3020,14 @@
     </script>
     <script>
       (function () {
-        if (window.matchMedia("(max-width: 720px)").matches) return;
-
         const loadWidget = (widgetId) => {
+          if (
+            document.querySelector(
+              `script[src="https://beta.leadconnectorhq.com/loader.js"][data-widget-id="${widgetId}"]`,
+            )
+          ) {
+            return;
+          }
           const script = document.createElement("script");
           script.src = "https://beta.leadconnectorhq.com/loader.js";
           script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
