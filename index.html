@@ -1621,6 +1621,12 @@
         display: none;
       }
 
+      .mobile-sticky.chat-open-hide {
+        opacity: 0;
+        transform: translateY(16px);
+        pointer-events: none;
+      }
+
       .site-header,
       .card,
       .signal-card,
@@ -2218,6 +2224,7 @@
           border-radius: 14px;
           padding: 0.6rem;
           backdrop-filter: blur(10px);
+          transition: opacity 180ms ease, transform 180ms ease;
         }
         .mobile-sticky .btn {
           min-height: 48px;
@@ -3045,6 +3052,77 @@
         };
 
         loadWidget("692e35e1885ff875a3542ddb");
+      })();
+    </script>
+    <script>
+      (function () {
+        const sticky = document.querySelector(".mobile-sticky");
+        if (!sticky) return;
+
+        const mobileMq = window.matchMedia("(max-width: 720px)");
+
+        const isVisible = (node) => {
+          const styles = window.getComputedStyle(node);
+          return (
+            styles.display !== "none" &&
+            styles.visibility !== "hidden" &&
+            Number(styles.opacity || "1") > 0.01
+          );
+        };
+
+        const isWidgetExpanded = () => {
+          const vw = window.innerWidth;
+          const vh = window.innerHeight;
+          const candidates = document.querySelectorAll(
+            [
+              "iframe[src*='leadconnector']",
+              "iframe[src*='chat-widget']",
+              "[id*='chat-widget']",
+              "[class*='chat-widget']",
+              "[id*='leadconnector']",
+              "[class*='leadconnector']",
+            ].join(","),
+          );
+
+          for (const node of candidates) {
+            if (!(node instanceof Element)) continue;
+            if (!isVisible(node)) continue;
+            const rect = node.getBoundingClientRect();
+            if (rect.width < 120 || rect.height < 120) continue;
+            if (rect.right <= 0 || rect.bottom <= 0 || rect.left >= vw || rect.top >= vh) continue;
+            if (rect.width * rect.height > 20000) return true;
+          }
+
+          return false;
+        };
+
+        const updateSticky = () => {
+          if (!mobileMq.matches) {
+            sticky.classList.remove("chat-open-hide");
+            return;
+          }
+          sticky.classList.toggle("chat-open-hide", isWidgetExpanded());
+        };
+
+        let rafId = 0;
+        const scheduleUpdate = () => {
+          if (rafId) window.cancelAnimationFrame(rafId);
+          rafId = window.requestAnimationFrame(updateSticky);
+        };
+
+        const observer = new MutationObserver(scheduleUpdate);
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["style", "class", "aria-hidden"],
+        });
+
+        window.addEventListener("resize", scheduleUpdate, { passive: true });
+        window.addEventListener("orientationchange", scheduleUpdate, { passive: true });
+
+        updateSticky();
+        window.setInterval(updateSticky, 1200);
       })();
     </script>
     <script src="/subpage-nav.js?v=20260310q"></script>
