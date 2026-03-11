@@ -2073,7 +2073,7 @@
         }
         body {
           /* Reserve space so fixed CTA never covers content */
-          padding-bottom: calc(90px + env(safe-area-inset-bottom));
+          padding-bottom: calc(170px + env(safe-area-inset-bottom));
         }
         .nav-links {
           display: none;
@@ -2210,7 +2210,8 @@
           position: fixed;
           left: 0.85rem;
           right: 0.85rem;
-          bottom: calc(0.85rem + env(safe-area-inset-bottom));
+          /* Keep CTA above mobile chat launcher */
+          bottom: calc(4.9rem + env(safe-area-inset-bottom));
           z-index: 60;
           background: rgba(10, 17, 31, 0.96);
           border: 1px solid rgba(121, 197, 199, 0.25);
@@ -2261,6 +2262,9 @@
           height: 38px;
           font-size: 0.76rem;
         }
+        .mobile-sticky {
+          bottom: calc(4.6rem + env(safe-area-inset-bottom));
+        }
       }
 
       @media (max-width: 390px) {
@@ -2281,6 +2285,11 @@
           min-width: 34px;
           height: 34px;
           font-size: 0.68rem;
+        }
+        .mobile-sticky {
+          bottom: calc(4.4rem + env(safe-area-inset-bottom));
+          left: 0.7rem;
+          right: 0.7rem;
         }
       }
 
