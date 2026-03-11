@@ -2215,7 +2215,8 @@
           display: block;
           position: fixed;
           left: 0.85rem;
-          right: 0.85rem;
+          /* Reserve right-side launcher lane for chat widget */
+          right: 5.4rem;
           /* Keep CTA above mobile chat launcher */
           bottom: calc(4.9rem + env(safe-area-inset-bottom));
           z-index: 60;
@@ -2271,6 +2272,7 @@
         }
         .mobile-sticky {
           bottom: calc(4.6rem + env(safe-area-inset-bottom));
+          right: 4.9rem;
         }
       }
 
@@ -2296,7 +2298,7 @@
         .mobile-sticky {
           bottom: calc(4.4rem + env(safe-area-inset-bottom));
           left: 0.7rem;
-          right: 0.7rem;
+          right: 4.55rem;
         }
       }
 
