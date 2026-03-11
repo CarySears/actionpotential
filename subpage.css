@@ -755,6 +755,10 @@ p {
 }
 
 @media (max-width: 760px) {
+  .container {
+    width: min(1120px, calc(100% - 1rem));
+  }
+
   body::before,
   body::after {
     -webkit-mask-image: none;
@@ -776,23 +780,84 @@ p {
   }
 
   .hero {
-    padding: 3.2rem 0 1.8rem;
+    margin-top: 0.7rem;
+    padding: 1.15rem 0.9rem 1.1rem;
+    border-radius: 16px;
   }
 
   .section {
-    padding: 2.2rem 0 2.6rem;
+    padding: 1.55rem 0 1.85rem;
+  }
+
+  h1 {
+    font-size: clamp(1.48rem, 7.2vw, 2rem);
+    line-height: 1.22;
+    margin: 0.58rem 0 0.68rem;
+  }
+
+  h2 {
+    font-size: clamp(1.18rem, 5.6vw, 1.56rem);
+    line-height: 1.24;
+    margin: 0.25rem 0 0.66rem;
+  }
+
+  h3 {
+    font-size: 1.02rem;
+    line-height: 1.3;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .eyebrow::before {
+    width: 38px;
+    height: 6px;
   }
 
   .lede {
-    font-size: 0.98rem;
+    font-size: 0.94rem;
+    line-height: 1.56;
+    max-width: 60ch;
+  }
+
+  .grid {
+    gap: 0.72rem;
   }
 
   .card {
-    padding: 0.95rem;
+    padding: 0.86rem;
+  }
+
+  .card p,
+  .card li {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .card ul {
+    margin-top: 0.46rem;
+    gap: 0.32rem;
   }
 
   .split {
     grid-template-columns: 1fr;
+    gap: 0.72rem;
+  }
+
+  .pill-row {
+    gap: 0.4rem;
+    margin-top: 0.66rem;
+  }
+
+  .pill {
+    font-size: 0.78rem;
+    padding: 0.32rem 0.54rem;
+  }
+
+  .kpi-row {
+    gap: 0.66rem;
   }
 
   .nav-links {
@@ -819,7 +884,9 @@ p {
   }
 
   .list-links a {
-    min-height: 48px;
+    min-height: 46px;
+    padding: 0.64rem 0.74rem;
+    font-size: 0.9rem;
   }
 
   .nav-actions .btn-login {
@@ -837,7 +904,7 @@ p {
 
   .nav {
     min-height: 70px;
-    align-items: flex-start;
+    align-items: center;
     padding-block: 0.45rem;
   }
 
@@ -934,12 +1001,20 @@ p {
   .kpi-row {
     grid-template-columns: 1fr;
   }
+
+  .section.card {
+    padding: 0.9rem;
+  }
+
+  .footer {
+    padding: 1.05rem 0 1.35rem;
+  }
 }
 
 @media (max-width: 420px) {
   .brand strong {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     line-height: 1.12;
     max-width: 16ch;
     white-space: normal;
@@ -949,6 +1024,18 @@ p {
 
   .nav {
     min-height: 68px;
+  }
+
+  .hero {
+    padding: 0.96rem 0.78rem 0.92rem;
+  }
+
+  .section {
+    padding: 1.35rem 0 1.62rem;
+  }
+
+  .card {
+    padding: 0.78rem;
   }
 
   .nav-actions .btn {
