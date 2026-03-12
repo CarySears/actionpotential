@@ -400,151 +400,70 @@
 })();
 
 (() => {
-  const CHAT_STYLE_ID = "chat-brand-shell-styles";
+  const CHAT_STYLE_ID = "chat-brand-launcher-styles";
   if (!document.getElementById(CHAT_STYLE_ID)) {
     const style = document.createElement("style");
     style.id = CHAT_STYLE_ID;
     style.textContent = `
-      .chat-brand-shell {
-        position: fixed;
-        display: none;
-        pointer-events: none;
-        border-radius: 18px;
-        z-index: 2147483644;
-        background: linear-gradient(135deg, rgba(121, 197, 199, 0.34), rgba(46, 166, 212, 0.32), rgba(217, 58, 164, 0.32));
-        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.62), 0 12px 28px rgba(5, 12, 24, 0.52);
+      .chat-native-launcher-hidden {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
       }
-      .chat-brand-shell.fallback-shell {
-        opacity: 0.95;
-      }
-      .chat-brand-shell::before {
-        content: "";
-        position: absolute;
-        inset: -1px;
-        border-radius: inherit;
-        border: 1px solid rgba(255, 139, 102, 0.55);
-        opacity: 0.85;
-      }
-      .chat-brand-shell::after {
-        content: "";
-        position: absolute;
-        inset: 6px;
-        border-radius: 12px;
-        border: 1px solid rgba(121, 197, 199, 0.34);
-        opacity: 0.86;
-      }
-      .chat-brand-label {
+      .chat-brand-launcher {
         position: fixed;
         display: none;
         align-items: center;
         justify-content: center;
-        gap: 0.35rem;
-        min-height: 32px;
-        padding: 0.42rem 0.74rem;
-        border-radius: 999px;
-        border: 1px solid rgba(121, 197, 199, 0.52);
-        background: linear-gradient(130deg, rgba(10, 18, 32, 0.93), rgba(16, 30, 52, 0.92));
+        gap: 0.42rem;
+        min-height: 52px;
+        padding: 0.52rem 0.78rem;
+        border-radius: 14px;
+        border: 1px solid rgba(121, 197, 199, 0.5);
+        background: linear-gradient(130deg, rgba(10, 18, 32, 0.95), rgba(16, 30, 52, 0.94));
         color: #e8f2ff;
-        font-size: 0.76rem;
+        font-size: 0.78rem;
         font-weight: 700;
-        letter-spacing: 0.015em;
+        letter-spacing: 0.012em;
         z-index: 2147483645;
-        pointer-events: auto;
         cursor: pointer;
-        user-select: none;
-        box-shadow: 0 10px 22px rgba(5, 12, 24, 0.52);
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.36), 0 10px 24px rgba(5, 12, 24, 0.5);
       }
-      .chat-brand-label::before {
+      .chat-brand-launcher::before {
         content: "";
-        width: 7px;
-        height: 7px;
+        width: 8px;
+        height: 8px;
         border-radius: 999px;
         background: linear-gradient(135deg, #79c5c7, #2ea6d4, #d93aa4);
-        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.3), 0 0 8px rgba(46, 166, 212, 0.5);
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.35), 0 0 8px rgba(46, 166, 212, 0.5);
       }
-      .chat-launcher-branded {
-        border-radius: 16px !important;
-        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.3), 0 10px 22px rgba(4, 10, 22, 0.45) !important;
-      }
-      .chat-brand-dock {
-        position: fixed;
-        display: none;
-        align-items: center;
-        gap: 0.5rem;
-        min-height: 52px;
-        padding: 0.5rem 0.62rem 0.5rem 0.68rem;
-        border-radius: 14px;
-        border: 1px solid rgba(121, 197, 199, 0.45);
-        background: linear-gradient(135deg, rgba(10, 18, 32, 0.95), rgba(16, 30, 52, 0.94));
-        color: #eaf3ff;
-        z-index: 2147483643;
-        box-shadow: 0 10px 28px rgba(5, 12, 24, 0.5);
-        pointer-events: none;
-      }
-      .chat-brand-dock-text {
-        display: grid;
-        gap: 0.06rem;
-      }
-      .chat-brand-dock-text strong {
-        font-size: 0.78rem;
-        line-height: 1.1;
-      }
-      .chat-brand-dock-text span {
-        font-size: 0.66rem;
-        line-height: 1.1;
-        color: #bcd2ee;
-      }
-      .chat-brand-dock-open {
-        pointer-events: auto;
-        border: 1px solid rgba(121, 197, 199, 0.48);
-        background: linear-gradient(130deg, rgba(46, 166, 212, 0.26), rgba(217, 58, 164, 0.24));
-        color: #eaf3ff;
-        border-radius: 10px;
-        min-height: 34px;
-        padding: 0.36rem 0.54rem;
-        font-size: 0.66rem;
-        font-weight: 700;
-        line-height: 1;
-        cursor: pointer;
+      .chat-brand-launcher span {
+        white-space: nowrap;
       }
       @media (max-width: 760px) {
-        .chat-brand-label {
-          min-height: 30px;
-          padding: 0.38rem 0.66rem;
-          font-size: 0.72rem;
+        .chat-brand-launcher {
+          min-width: 46px;
+          min-height: 46px;
+          padding: 0;
+          border-radius: 14px;
         }
-        .chat-brand-dock {
-          display: none !important;
+        .chat-brand-launcher span {
+          display: none;
         }
       }
     `;
     document.head.appendChild(style);
   }
 
-  const shell = document.createElement("div");
-  shell.className = "chat-brand-shell";
-  shell.setAttribute("aria-hidden", "true");
-  document.body.appendChild(shell);
+  // Clean old experimental wrappers from previous iterations.
+  document.querySelectorAll(".chat-brand-shell, .chat-brand-label, .chat-brand-dock").forEach((node) => node.remove());
 
-  const label = document.createElement("button");
-  label.className = "chat-brand-label";
-  label.type = "button";
-  label.textContent = "AI Concierge";
-  label.setAttribute("aria-label", "Open chat");
-  document.body.appendChild(label);
-
-  const dock = document.createElement("div");
-  dock.className = "chat-brand-dock";
-  dock.innerHTML = `
-    <span class="chat-brand-dock-text">
-      <strong>AI Concierge</strong>
-      <span>Questions? Chat now.</span>
-    </span>
-    <button class="chat-brand-dock-open" type="button" aria-label="Open chat">Open</button>
-  `;
-  document.body.appendChild(dock);
-
-  let launcherEl = null;
+  const brandLauncher = document.createElement("button");
+  brandLauncher.className = "chat-brand-launcher";
+  brandLauncher.type = "button";
+  brandLauncher.setAttribute("aria-label", "Open AI Concierge chat");
+  brandLauncher.innerHTML = "<span>AI Concierge</span>";
+  document.body.appendChild(brandLauncher);
 
   const isVisible = (el) => {
     if (!(el instanceof Element)) return false;
@@ -553,19 +472,6 @@
     if (Number(styles.opacity || "1") <= 0.01) return false;
     const rect = el.getBoundingClientRect();
     return rect.width > 0 && rect.height > 0;
-  };
-
-  const isLauncherCandidate = (el) => {
-    if (!(el instanceof Element)) return false;
-    if (!isVisible(el)) return false;
-    const styles = window.getComputedStyle(el);
-    if (!["fixed", "sticky", "absolute"].includes(styles.position)) return false;
-    const rect = el.getBoundingClientRect();
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    if (rect.width < 32 || rect.width > 180 || rect.height < 32 || rect.height > 180) return false;
-    if (rect.left > vw - 140 && rect.top > vh - 180) return true;
-    return false;
   };
 
   const getCandidates = () =>
@@ -582,112 +488,85 @@
       ),
     );
 
-  const findLauncher = () => getCandidates().find((node) => isLauncherCandidate(node)) || null;
-
-  const safeInsetBottom = () => {
-    const value = window.getComputedStyle(document.documentElement).getPropertyValue("env(safe-area-inset-bottom)");
-    const parsed = Number.parseFloat(value);
-    return Number.isFinite(parsed) ? parsed : 0;
-  };
-
-  const showFallbackShell = () => {
+  const isSmallLauncher = (el) => {
+    if (!(el instanceof Element)) return false;
+    if (!isVisible(el)) return false;
+    const styles = window.getComputedStyle(el);
+    if (!["fixed", "absolute", "sticky"].includes(styles.position)) return false;
+    const rect = el.getBoundingClientRect();
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    const mobile = window.matchMedia("(max-width: 760px)").matches;
-    const size = mobile ? 56 : 60;
-    const right = mobile ? 12 : 16;
-    const bottom = (mobile ? 12 : 16) + safeInsetBottom();
-    const left = Math.max(8, vw - right - size);
-    const top = Math.max(8, vh - bottom - size);
-
-    shell.classList.add("fallback-shell");
-    shell.style.display = "block";
-    shell.style.left = `${Math.round(left - 6)}px`;
-    shell.style.top = `${Math.round(top - 6)}px`;
-    shell.style.width = `${Math.round(size + 12)}px`;
-    shell.style.height = `${Math.round(size + 12)}px`;
-
-    const rightInset = mobile ? 10 : 14;
-    const labelTop = Math.max(8, top - 36);
-    label.style.display = "inline-flex";
-    label.style.left = "auto";
-    label.style.right = `${Math.round(rightInset)}px`;
-    label.style.top = `${Math.round(labelTop)}px`;
-
-    dock.style.display = mobile ? "none" : "inline-flex";
-    dock.style.left = "auto";
-    dock.style.right = `${Math.round(rightInset + 74)}px`;
-    dock.style.top = `${Math.max(8, Math.round(labelTop - 14))}px`;
+    if (rect.width < 28 || rect.width > 120 || rect.height < 28 || rect.height > 120) return false;
+    return rect.left > vw - 180 && rect.top > vh - 220;
   };
 
-  const hideBrandElements = () => {
-    shell.style.display = "none";
-    label.style.display = "none";
-    dock.style.display = "none";
+  const isExpandedWidget = (el) => {
+    if (!(el instanceof Element)) return false;
+    if (!isVisible(el)) return false;
+    const rect = el.getBoundingClientRect();
+    const area = rect.width * rect.height;
+    if (area < 75000) return false;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    return rect.right > 40 && rect.bottom > 40 && rect.left < vw - 40 && rect.top < vh - 40;
   };
 
-  const updateBrandShell = () => {
-    const nextLauncher = findLauncher();
-    if (!nextLauncher) {
-      launcherEl = null;
-      showFallbackShell();
-      launcherEl = null;
+  const findNativeLauncher = () => {
+    const candidates = getCandidates().filter(isSmallLauncher);
+    if (!candidates.length) return null;
+    candidates.sort((a, b) => {
+      const ra = a.getBoundingClientRect();
+      const rb = b.getBoundingClientRect();
+      return ra.right + ra.bottom - (rb.right + rb.bottom);
+    });
+    return candidates[candidates.length - 1];
+  };
+
+  const isAnyWidgetExpanded = () => getCandidates().some(isExpandedWidget);
+
+  const clickNativeLauncher = () => {
+    const target = findNativeLauncher();
+    if (!target) return;
+    target.dispatchEvent(
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      }),
+    );
+  };
+
+  brandLauncher.addEventListener("click", clickNativeLauncher);
+
+  const updateBrandLauncher = () => {
+    const candidates = getCandidates();
+    candidates.forEach((node) => node.classList.remove("chat-native-launcher-hidden"));
+
+    if (isAnyWidgetExpanded()) {
+      brandLauncher.style.display = "none";
       return;
     }
 
-    launcherEl = nextLauncher;
-    launcherEl.classList.add("chat-launcher-branded");
-    shell.classList.remove("fallback-shell");
+    const nativeLauncher = findNativeLauncher();
+    if (!nativeLauncher) {
+      brandLauncher.style.display = "none";
+      return;
+    }
 
-    const rect = launcherEl.getBoundingClientRect();
-    const pad = 7;
-    shell.style.display = "block";
-    shell.style.left = `${Math.round(rect.left - pad)}px`;
-    shell.style.top = `${Math.round(rect.top - pad)}px`;
-    shell.style.width = `${Math.round(rect.width + pad * 2)}px`;
-    shell.style.height = `${Math.round(rect.height + pad * 2)}px`;
+    nativeLauncher.classList.add("chat-native-launcher-hidden");
+    const rect = nativeLauncher.getBoundingClientRect();
+    const right = Math.max(8, window.innerWidth - rect.right);
+    const bottom = Math.max(8, window.innerHeight - rect.bottom);
 
-    const mobile = window.matchMedia("(max-width: 760px)").matches;
-    const rightInset = mobile ? 10 : 14;
-    const labelTop = Math.max(8, rect.top - 36);
-    label.style.display = "inline-flex";
-    label.style.left = "auto";
-    label.style.right = `${Math.round(rightInset)}px`;
-    label.style.top = `${Math.round(labelTop)}px`;
-
-    dock.style.display = mobile ? "none" : "inline-flex";
-    const dockRight = Math.max(90, Math.round(window.innerWidth - rect.left + 12));
-    dock.style.left = "auto";
-    dock.style.right = `${dockRight}px`;
-    dock.style.top = `${Math.max(8, Math.round(rect.top - 4))}px`;
+    brandLauncher.style.display = "inline-flex";
+    brandLauncher.style.left = "auto";
+    brandLauncher.style.top = "auto";
+    brandLauncher.style.right = `${Math.round(right)}px`;
+    brandLauncher.style.bottom = `${Math.round(bottom)}px`;
   };
 
-  label.addEventListener("click", () => {
-    const target = launcherEl || findLauncher() || getCandidates().find((node) => isVisible(node));
-    if (!target) return;
-    target.dispatchEvent(
-      new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-        view: window,
-      }),
-    );
-  });
-
-  dock.addEventListener("click", () => {
-    const target = launcherEl || findLauncher() || getCandidates().find((node) => isVisible(node));
-    if (!target) return;
-    target.dispatchEvent(
-      new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-        view: window,
-      }),
-    );
-  });
-
   const observer = new MutationObserver(() => {
-    window.requestAnimationFrame(updateBrandShell);
+    window.requestAnimationFrame(updateBrandLauncher);
   });
   observer.observe(document.body, {
     childList: true,
@@ -696,11 +575,11 @@
     attributeFilter: ["style", "class", "aria-hidden"],
   });
 
-  window.addEventListener("resize", updateBrandShell, { passive: true });
-  window.addEventListener("orientationchange", updateBrandShell, { passive: true });
+  window.addEventListener("resize", updateBrandLauncher, { passive: true });
+  window.addEventListener("orientationchange", updateBrandLauncher, { passive: true });
 
-  updateBrandShell();
-  window.setInterval(updateBrandShell, 1200);
+  updateBrandLauncher();
+  window.setInterval(updateBrandLauncher, 1000);
 })();
 
 (() => {
