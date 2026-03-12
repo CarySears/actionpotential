@@ -552,11 +552,11 @@
     shell.style.width = `${Math.round(size + 12)}px`;
     shell.style.height = `${Math.round(size + 12)}px`;
 
-    const labelWidth = mobile ? 98 : 114;
-    const labelLeft = Math.max(8, Math.min(vw - labelWidth - 8, left + size - labelWidth));
-    const labelTop = Math.max(8, top - 34);
+    const rightInset = mobile ? 10 : 14;
+    const labelTop = Math.max(8, top - 36);
     label.style.display = "inline-flex";
-    label.style.left = `${Math.round(labelLeft)}px`;
+    label.style.left = "auto";
+    label.style.right = `${Math.round(rightInset)}px`;
     label.style.top = `${Math.round(labelTop)}px`;
   };
 
@@ -586,11 +586,12 @@
     shell.style.width = `${Math.round(rect.width + pad * 2)}px`;
     shell.style.height = `${Math.round(rect.height + pad * 2)}px`;
 
-    const labelWidth = 114;
-    const labelLeft = Math.max(8, Math.min(window.innerWidth - labelWidth - 8, rect.right - labelWidth));
+    const mobile = window.matchMedia("(max-width: 760px)").matches;
+    const rightInset = mobile ? 10 : 14;
     const labelTop = Math.max(8, rect.top - 36);
     label.style.display = "inline-flex";
-    label.style.left = `${Math.round(labelLeft)}px`;
+    label.style.left = "auto";
+    label.style.right = `${Math.round(rightInset)}px`;
     label.style.top = `${Math.round(labelTop)}px`;
   };
 
