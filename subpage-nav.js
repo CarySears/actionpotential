@@ -411,8 +411,8 @@
         pointer-events: none;
         border-radius: 18px;
         z-index: 2147483644;
-        background: linear-gradient(135deg, rgba(121, 197, 199, 0.2), rgba(46, 166, 212, 0.2), rgba(217, 58, 164, 0.2));
-        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.42), 0 10px 24px rgba(5, 12, 24, 0.45);
+        background: linear-gradient(135deg, rgba(121, 197, 199, 0.34), rgba(46, 166, 212, 0.32), rgba(217, 58, 164, 0.32));
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.62), 0 12px 28px rgba(5, 12, 24, 0.52);
       }
       .chat-brand-shell.fallback-shell {
         opacity: 0.95;
@@ -439,20 +439,20 @@
         align-items: center;
         justify-content: center;
         gap: 0.35rem;
-        min-height: 28px;
-        padding: 0.34rem 0.62rem;
+        min-height: 32px;
+        padding: 0.42rem 0.74rem;
         border-radius: 999px;
-        border: 1px solid rgba(121, 197, 199, 0.38);
-        background: rgba(10, 18, 32, 0.9);
-        color: #d9e9ff;
-        font-size: 0.72rem;
+        border: 1px solid rgba(121, 197, 199, 0.52);
+        background: linear-gradient(130deg, rgba(10, 18, 32, 0.93), rgba(16, 30, 52, 0.92));
+        color: #e8f2ff;
+        font-size: 0.76rem;
         font-weight: 700;
         letter-spacing: 0.015em;
         z-index: 2147483645;
         pointer-events: auto;
         cursor: pointer;
         user-select: none;
-        box-shadow: 0 8px 20px rgba(5, 12, 24, 0.45);
+        box-shadow: 0 10px 22px rgba(5, 12, 24, 0.52);
       }
       .chat-brand-label::before {
         content: "";
@@ -468,9 +468,9 @@
       }
       @media (max-width: 760px) {
         .chat-brand-label {
-          min-height: 26px;
-          padding: 0.3rem 0.56rem;
-          font-size: 0.68rem;
+          min-height: 30px;
+          padding: 0.38rem 0.66rem;
+          font-size: 0.72rem;
         }
       }
     `;
@@ -485,7 +485,7 @@
   const label = document.createElement("button");
   label.className = "chat-brand-label";
   label.type = "button";
-  label.textContent = "Chat with AI";
+  label.textContent = "AI Concierge";
   label.setAttribute("aria-label", "Open chat");
   document.body.appendChild(label);
 
@@ -569,11 +569,7 @@
     const nextLauncher = findLauncher();
     if (!nextLauncher) {
       launcherEl = null;
-      if (getCandidates().length) {
-        showFallbackShell();
-      } else {
-        hideBrandElements();
-      }
+      showFallbackShell();
       launcherEl = null;
       return;
     }
