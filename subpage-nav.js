@@ -400,6 +400,193 @@
 })();
 
 (() => {
+  const CHAT_STYLE_ID = "chat-brand-shell-styles";
+  if (!document.getElementById(CHAT_STYLE_ID)) {
+    const style = document.createElement("style");
+    style.id = CHAT_STYLE_ID;
+    style.textContent = `
+      .chat-brand-shell {
+        position: fixed;
+        display: none;
+        pointer-events: none;
+        border-radius: 18px;
+        z-index: 2147483644;
+        background: linear-gradient(135deg, rgba(121, 197, 199, 0.2), rgba(46, 166, 212, 0.2), rgba(217, 58, 164, 0.2));
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.42), 0 10px 24px rgba(5, 12, 24, 0.45);
+      }
+      .chat-brand-shell::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        border: 1px solid rgba(255, 139, 102, 0.55);
+        opacity: 0.85;
+      }
+      .chat-brand-shell::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: 12px;
+        border: 1px solid rgba(121, 197, 199, 0.34);
+        opacity: 0.86;
+      }
+      .chat-brand-label {
+        position: fixed;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        min-height: 28px;
+        padding: 0.34rem 0.62rem;
+        border-radius: 999px;
+        border: 1px solid rgba(121, 197, 199, 0.38);
+        background: rgba(10, 18, 32, 0.9);
+        color: #d9e9ff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.015em;
+        z-index: 2147483645;
+        pointer-events: auto;
+        cursor: pointer;
+        user-select: none;
+        box-shadow: 0 8px 20px rgba(5, 12, 24, 0.45);
+      }
+      .chat-brand-label::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #79c5c7, #2ea6d4, #d93aa4);
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.3), 0 0 8px rgba(46, 166, 212, 0.5);
+      }
+      .chat-launcher-branded {
+        border-radius: 16px !important;
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.3), 0 10px 22px rgba(4, 10, 22, 0.45) !important;
+      }
+      @media (max-width: 760px) {
+        .chat-brand-label {
+          min-height: 26px;
+          padding: 0.3rem 0.56rem;
+          font-size: 0.68rem;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  const shell = document.createElement("div");
+  shell.className = "chat-brand-shell";
+  shell.setAttribute("aria-hidden", "true");
+  document.body.appendChild(shell);
+
+  const label = document.createElement("button");
+  label.className = "chat-brand-label";
+  label.type = "button";
+  label.textContent = "Chat with AI";
+  label.setAttribute("aria-label", "Open chat");
+  document.body.appendChild(label);
+
+  let launcherEl = null;
+
+  const isVisible = (el) => {
+    if (!(el instanceof Element)) return false;
+    const styles = window.getComputedStyle(el);
+    if (styles.display === "none" || styles.visibility === "hidden") return false;
+    if (Number(styles.opacity || "1") <= 0.01) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  };
+
+  const isLauncherCandidate = (el) => {
+    if (!(el instanceof Element)) return false;
+    if (!isVisible(el)) return false;
+    const styles = window.getComputedStyle(el);
+    if (styles.position !== "fixed") return false;
+    const rect = el.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    if (rect.width < 36 || rect.width > 96 || rect.height < 36 || rect.height > 96) return false;
+    if (rect.left > vw - 140 && rect.top > vh - 180) return true;
+    return false;
+  };
+
+  const getCandidates = () =>
+    Array.from(
+      document.querySelectorAll(
+        [
+          "iframe[src*='leadconnector']",
+          "iframe[src*='chat-widget']",
+          "[id*='chat-widget']",
+          "[class*='chat-widget']",
+          "[id*='leadconnector']",
+          "[class*='leadconnector']",
+        ].join(","),
+      ),
+    );
+
+  const findLauncher = () => getCandidates().find((node) => isLauncherCandidate(node)) || null;
+
+  const hideBrandShell = () => {
+    shell.style.display = "none";
+    label.style.display = "none";
+  };
+
+  const updateBrandShell = () => {
+    const nextLauncher = findLauncher();
+    if (!nextLauncher) {
+      hideBrandShell();
+      launcherEl = null;
+      return;
+    }
+
+    launcherEl = nextLauncher;
+    launcherEl.classList.add("chat-launcher-branded");
+
+    const rect = launcherEl.getBoundingClientRect();
+    const pad = 7;
+    shell.style.display = "block";
+    shell.style.left = `${Math.round(rect.left - pad)}px`;
+    shell.style.top = `${Math.round(rect.top - pad)}px`;
+    shell.style.width = `${Math.round(rect.width + pad * 2)}px`;
+    shell.style.height = `${Math.round(rect.height + pad * 2)}px`;
+
+    const labelWidth = 114;
+    const labelLeft = Math.max(8, Math.min(window.innerWidth - labelWidth - 8, rect.right - labelWidth));
+    const labelTop = Math.max(8, rect.top - 36);
+    label.style.display = "inline-flex";
+    label.style.left = `${Math.round(labelLeft)}px`;
+    label.style.top = `${Math.round(labelTop)}px`;
+  };
+
+  label.addEventListener("click", () => {
+    if (!launcherEl) return;
+    launcherEl.dispatchEvent(
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      }),
+    );
+  });
+
+  const observer = new MutationObserver(() => {
+    window.requestAnimationFrame(updateBrandShell);
+  });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style", "class", "aria-hidden"],
+  });
+
+  window.addEventListener("resize", updateBrandShell, { passive: true });
+  window.addEventListener("orientationchange", updateBrandShell, { passive: true });
+
+  updateBrandShell();
+  window.setInterval(updateBrandShell, 1200);
+})();
+
+(() => {
   if (document.querySelector(".brand-wave-divider, .global-brand-wave-divider")) return;
   const footer = document.querySelector("footer.footer, footer");
   if (!footer || !footer.parentNode) return;
