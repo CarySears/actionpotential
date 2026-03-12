@@ -466,11 +466,55 @@
         border-radius: 16px !important;
         box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.3), 0 10px 22px rgba(4, 10, 22, 0.45) !important;
       }
+      .chat-brand-dock {
+        position: fixed;
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 52px;
+        padding: 0.5rem 0.62rem 0.5rem 0.68rem;
+        border-radius: 14px;
+        border: 1px solid rgba(121, 197, 199, 0.45);
+        background: linear-gradient(135deg, rgba(10, 18, 32, 0.95), rgba(16, 30, 52, 0.94));
+        color: #eaf3ff;
+        z-index: 2147483643;
+        box-shadow: 0 10px 28px rgba(5, 12, 24, 0.5);
+        pointer-events: none;
+      }
+      .chat-brand-dock-text {
+        display: grid;
+        gap: 0.06rem;
+      }
+      .chat-brand-dock-text strong {
+        font-size: 0.78rem;
+        line-height: 1.1;
+      }
+      .chat-brand-dock-text span {
+        font-size: 0.66rem;
+        line-height: 1.1;
+        color: #bcd2ee;
+      }
+      .chat-brand-dock-open {
+        pointer-events: auto;
+        border: 1px solid rgba(121, 197, 199, 0.48);
+        background: linear-gradient(130deg, rgba(46, 166, 212, 0.26), rgba(217, 58, 164, 0.24));
+        color: #eaf3ff;
+        border-radius: 10px;
+        min-height: 34px;
+        padding: 0.36rem 0.54rem;
+        font-size: 0.66rem;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+      }
       @media (max-width: 760px) {
         .chat-brand-label {
           min-height: 30px;
           padding: 0.38rem 0.66rem;
           font-size: 0.72rem;
+        }
+        .chat-brand-dock {
+          display: none !important;
         }
       }
     `;
@@ -488,6 +532,17 @@
   label.textContent = "AI Concierge";
   label.setAttribute("aria-label", "Open chat");
   document.body.appendChild(label);
+
+  const dock = document.createElement("div");
+  dock.className = "chat-brand-dock";
+  dock.innerHTML = `
+    <span class="chat-brand-dock-text">
+      <strong>AI Concierge</strong>
+      <span>Questions? Chat now.</span>
+    </span>
+    <button class="chat-brand-dock-open" type="button" aria-label="Open chat">Open</button>
+  `;
+  document.body.appendChild(dock);
 
   let launcherEl = null;
 
@@ -558,11 +613,17 @@
     label.style.left = "auto";
     label.style.right = `${Math.round(rightInset)}px`;
     label.style.top = `${Math.round(labelTop)}px`;
+
+    dock.style.display = mobile ? "none" : "inline-flex";
+    dock.style.left = "auto";
+    dock.style.right = `${Math.round(rightInset + 74)}px`;
+    dock.style.top = `${Math.max(8, Math.round(labelTop - 14))}px`;
   };
 
   const hideBrandElements = () => {
     shell.style.display = "none";
     label.style.display = "none";
+    dock.style.display = "none";
   };
 
   const updateBrandShell = () => {
@@ -593,9 +654,27 @@
     label.style.left = "auto";
     label.style.right = `${Math.round(rightInset)}px`;
     label.style.top = `${Math.round(labelTop)}px`;
+
+    dock.style.display = mobile ? "none" : "inline-flex";
+    const dockRight = Math.max(90, Math.round(window.innerWidth - rect.left + 12));
+    dock.style.left = "auto";
+    dock.style.right = `${dockRight}px`;
+    dock.style.top = `${Math.max(8, Math.round(rect.top - 4))}px`;
   };
 
   label.addEventListener("click", () => {
+    const target = launcherEl || findLauncher() || getCandidates().find((node) => isVisible(node));
+    if (!target) return;
+    target.dispatchEvent(
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      }),
+    );
+  });
+
+  dock.addEventListener("click", () => {
     const target = launcherEl || findLauncher() || getCandidates().find((node) => isVisible(node));
     if (!target) return;
     target.dispatchEvent(
