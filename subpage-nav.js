@@ -496,8 +496,10 @@
     const rect = el.getBoundingClientRect();
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    if (rect.width < 28 || rect.width > 120 || rect.height < 28 || rect.height > 120) return false;
-    return rect.left > vw - 180 && rect.top > vh - 220;
+    if (rect.width < 24 || rect.width > 260 || rect.height < 24 || rect.height > 260) return false;
+    const area = rect.width * rect.height;
+    if (area > 42000) return false;
+    return rect.left > vw - 260 && rect.top > vh - 300;
   };
 
   const isExpandedWidget = (el) => {
@@ -511,21 +513,21 @@
     return rect.right > 40 && rect.bottom > 40 && rect.left < vw - 40 && rect.top < vh - 40;
   };
 
-  const findNativeLauncher = () => {
-    const candidates = getCandidates().filter(isSmallLauncher);
-    if (!candidates.length) return null;
-    candidates.sort((a, b) => {
+  const getNativeLaunchers = () => {
+    const launchers = getCandidates().filter(isSmallLauncher);
+    launchers.sort((a, b) => {
       const ra = a.getBoundingClientRect();
       const rb = b.getBoundingClientRect();
       return ra.right + ra.bottom - (rb.right + rb.bottom);
     });
-    return candidates[candidates.length - 1];
+    return launchers;
   };
 
   const isAnyWidgetExpanded = () => getCandidates().some(isExpandedWidget);
 
   const clickNativeLauncher = () => {
-    const target = findNativeLauncher();
+    const launchers = getNativeLaunchers();
+    const target = launchers[launchers.length - 1];
     if (!target) return;
     target.dispatchEvent(
       new MouseEvent("click", {
@@ -547,13 +549,15 @@
       return;
     }
 
-    const nativeLauncher = findNativeLauncher();
+    const nativeLaunchers = getNativeLaunchers();
+    const nativeLauncher = nativeLaunchers[nativeLaunchers.length - 1];
     if (!nativeLauncher) {
       brandLauncher.style.display = "none";
       return;
     }
 
-    nativeLauncher.classList.add("chat-native-launcher-hidden");
+    // Hide all native launcher-size controls in the same corner.
+    nativeLaunchers.forEach((node) => node.classList.add("chat-native-launcher-hidden"));
     const rect = nativeLauncher.getBoundingClientRect();
     const right = Math.max(8, window.innerWidth - rect.right);
     const bottom = Math.max(8, window.innerHeight - rect.bottom);
