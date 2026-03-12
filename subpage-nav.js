@@ -587,6 +587,268 @@
 })();
 
 (() => {
+  const CHAT_OVERRIDE_STYLE_ID = "chat-brand-launcher-styles-v2";
+  if (!document.getElementById(CHAT_OVERRIDE_STYLE_ID)) {
+    const style = document.createElement("style");
+    style.id = CHAT_OVERRIDE_STYLE_ID;
+    style.textContent = `
+      .chat-brand-launcher.chat-brand-launcher--v2 {
+        position: fixed;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.42rem;
+        min-height: 52px;
+        padding: 0.52rem 0.78rem;
+        border-radius: 14px;
+        border: 1px solid rgba(121, 197, 199, 0.5);
+        background: linear-gradient(130deg, rgba(10, 18, 32, 0.98), rgba(16, 30, 52, 0.97));
+        color: #e8f2ff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.012em;
+        z-index: 2147483647;
+        cursor: pointer;
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.36), 0 10px 24px rgba(5, 12, 24, 0.5);
+      }
+      .chat-brand-launcher.chat-brand-launcher--v2::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #79c5c7, #2ea6d4, #d93aa4);
+        box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.35), 0 0 8px rgba(46, 166, 212, 0.5);
+      }
+      .chat-brand-launcher.chat-brand-launcher--v2 span {
+        white-space: nowrap;
+      }
+      @media (max-width: 760px) {
+        .chat-brand-launcher.chat-brand-launcher--v2 {
+          min-width: 46px;
+          min-height: 46px;
+          padding: 0;
+          border-radius: 14px;
+        }
+        .chat-brand-launcher.chat-brand-launcher--v2 span {
+          display: none;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Replace any previous branded launcher attempts with one deterministic button.
+  document.querySelectorAll(".chat-brand-launcher").forEach((node) => node.remove());
+
+  const brandLauncher = document.createElement("button");
+  brandLauncher.className = "chat-brand-launcher chat-brand-launcher--v2";
+  brandLauncher.type = "button";
+  brandLauncher.setAttribute("aria-label", "Open AI Concierge chat");
+  brandLauncher.innerHTML = "<span>AI Concierge</span>";
+  document.body.appendChild(brandLauncher);
+
+  const hiddenNodes = new Map();
+
+  const isVisible = (el) => {
+    if (!(el instanceof Element)) return false;
+    const styles = window.getComputedStyle(el);
+    if (styles.display === "none" || styles.visibility === "hidden") return false;
+    if (Number(styles.opacity || "1") <= 0.01) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  };
+
+  const collectCandidates = () => {
+    const scoped = Array.from(
+      document.querySelectorAll(
+        [
+          "iframe",
+          "[id*='chat' i]",
+          "[class*='chat' i]",
+          "[id*='widget' i]",
+          "[class*='widget' i]",
+          "[id*='launcher' i]",
+          "[class*='launcher' i]",
+          "[id*='leadconnector' i]",
+          "[class*='leadconnector' i]",
+          "[aria-label*='chat' i]",
+          "[aria-label*='message' i]",
+          "button",
+          "[role='button']",
+        ].join(","),
+      ),
+    );
+
+    if (scoped.length < 5) {
+      document.querySelectorAll("body *").forEach((node) => {
+        if (!(node instanceof Element)) return;
+        const styles = window.getComputedStyle(node);
+        if (["fixed", "absolute", "sticky"].includes(styles.position)) scoped.push(node);
+      });
+    }
+
+    return Array.from(new Set(scoped));
+  };
+
+  const restoreNode = (node) => {
+    const prior = hiddenNodes.get(node);
+    if (!prior) return;
+    node.style.setProperty("opacity", prior.opacity, prior.opacityPriority);
+    node.style.setProperty("visibility", prior.visibility, prior.visibilityPriority);
+    node.style.setProperty("pointer-events", prior.pointerEvents, prior.pointerEventsPriority);
+    hiddenNodes.delete(node);
+  };
+
+  const restoreAllHidden = () => {
+    Array.from(hiddenNodes.keys()).forEach(restoreNode);
+  };
+
+  const hideNode = (node) => {
+    if (!(node instanceof HTMLElement)) return;
+    if (node === brandLauncher || brandLauncher.contains(node)) return;
+    if (hiddenNodes.has(node)) return;
+    hiddenNodes.set(node, {
+      opacity: node.style.getPropertyValue("opacity"),
+      opacityPriority: node.style.getPropertyPriority("opacity"),
+      visibility: node.style.getPropertyValue("visibility"),
+      visibilityPriority: node.style.getPropertyPriority("visibility"),
+      pointerEvents: node.style.getPropertyValue("pointer-events"),
+      pointerEventsPriority: node.style.getPropertyPriority("pointer-events"),
+    });
+    node.style.setProperty("opacity", "0", "important");
+    node.style.setProperty("visibility", "hidden", "important");
+    node.style.setProperty("pointer-events", "none", "important");
+  };
+
+  const isLauncherLike = (el) => {
+    if (!(el instanceof Element)) return false;
+    if (el === brandLauncher || brandLauncher.contains(el)) return false;
+    if (!isVisible(el)) return false;
+    const styles = window.getComputedStyle(el);
+    if (!["fixed", "absolute", "sticky"].includes(styles.position)) return false;
+    const rect = el.getBoundingClientRect();
+    if (rect.width < 22 || rect.width > 260 || rect.height < 22 || rect.height > 260) return false;
+    const area = rect.width * rect.height;
+    if (area < 460 || area > 46000) return false;
+    return rect.left > window.innerWidth - 320 && rect.top > window.innerHeight - 380;
+  };
+
+  const getNativeLaunchers = () => {
+    const launchers = collectCandidates().filter(isLauncherLike);
+    launchers.sort((a, b) => {
+      const ra = a.getBoundingClientRect();
+      const rb = b.getBoundingClientRect();
+      return ra.right + ra.bottom - (rb.right + rb.bottom);
+    });
+    return launchers;
+  };
+
+  const isExpandedWidget = (el) => {
+    if (!(el instanceof Element)) return false;
+    if (el === brandLauncher || brandLauncher.contains(el)) return false;
+    if (!isVisible(el)) return false;
+    const styles = window.getComputedStyle(el);
+    if (!["fixed", "absolute", "sticky"].includes(styles.position)) return false;
+    const rect = el.getBoundingClientRect();
+    const area = rect.width * rect.height;
+    if (area < 82000) return false;
+    return (
+      rect.right > window.innerWidth * 0.42 &&
+      rect.bottom > window.innerHeight * 0.42 &&
+      rect.width > 280 &&
+      rect.height > 260
+    );
+  };
+
+  const isAnyWidgetExpanded = () => collectCandidates().some(isExpandedWidget);
+
+  const dispatchClickBurst = (target) => {
+    if (!(target instanceof Element)) return;
+    [
+      new MouseEvent("mousedown", { bubbles: true, cancelable: true, view: window }),
+      new MouseEvent("mouseup", { bubbles: true, cancelable: true, view: window }),
+      new MouseEvent("click", { bubbles: true, cancelable: true, view: window }),
+    ].forEach((event) => {
+      try {
+        target.dispatchEvent(event);
+      } catch (error) {
+        // Ignore dispatch errors from protected third-party nodes.
+      }
+    });
+  };
+
+  const clickNativeLauncher = () => {
+    restoreAllHidden();
+    const nativeLaunchers = getNativeLaunchers();
+    const target = nativeLaunchers[nativeLaunchers.length - 1];
+    if (target) {
+      dispatchClickBurst(target);
+      window.setTimeout(updateBrandLauncher, 200);
+      return;
+    }
+
+    brandLauncher.style.setProperty("pointer-events", "none", "important");
+    const fallbackTarget =
+      document.elementFromPoint(window.innerWidth - 34, window.innerHeight - 34) ||
+      document.elementFromPoint(window.innerWidth - 70, window.innerHeight - 70);
+    brandLauncher.style.removeProperty("pointer-events");
+    if (fallbackTarget) dispatchClickBurst(fallbackTarget);
+    window.setTimeout(updateBrandLauncher, 200);
+  };
+
+  const isChatLikelyInstalled = () => {
+    if (window.LeadConnector || window.GHL || window.GHLWidget) return true;
+    return Boolean(
+      document.querySelector(
+        "script[src*='leadconnector'], script[src*='chat-widget'], script[src*='widget'], iframe[src*='leadconnector']",
+      ),
+    );
+  };
+
+  const updateBrandLauncher = () => {
+    const hasChat = isChatLikelyInstalled();
+    const launchers = getNativeLaunchers();
+    const expanded = isAnyWidgetExpanded();
+
+    restoreAllHidden();
+    if (!hasChat && !launchers.length) {
+      brandLauncher.style.display = "none";
+      return;
+    }
+    if (expanded) {
+      brandLauncher.style.display = "none";
+      return;
+    }
+
+    brandLauncher.style.display = "inline-flex";
+    brandLauncher.style.left = "auto";
+    brandLauncher.style.top = "auto";
+    brandLauncher.style.right = "12px";
+    brandLauncher.style.bottom = window.innerWidth <= 760 ? "82px" : "16px";
+
+    launchers.forEach(hideNode);
+  };
+
+  brandLauncher.addEventListener("click", clickNativeLauncher);
+
+  const observer = new MutationObserver(() => {
+    window.requestAnimationFrame(updateBrandLauncher);
+  });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style", "class", "aria-hidden"],
+  });
+
+  window.addEventListener("resize", updateBrandLauncher, { passive: true });
+  window.addEventListener("orientationchange", updateBrandLauncher, { passive: true });
+
+  updateBrandLauncher();
+  window.setInterval(updateBrandLauncher, 800);
+})();
+
+(() => {
   if (document.querySelector(".brand-wave-divider, .global-brand-wave-divider")) return;
   const footer = document.querySelector("footer.footer, footer");
   if (!footer || !footer.parentNode) return;
