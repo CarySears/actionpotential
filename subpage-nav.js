@@ -414,6 +414,9 @@
         background: linear-gradient(135deg, rgba(121, 197, 199, 0.2), rgba(46, 166, 212, 0.2), rgba(217, 58, 164, 0.2));
         box-shadow: 0 0 0 1px rgba(121, 197, 199, 0.42), 0 10px 24px rgba(5, 12, 24, 0.45);
       }
+      .chat-brand-shell.fallback-shell {
+        opacity: 0.95;
+      }
       .chat-brand-shell::before {
         content: "";
         position: absolute;
@@ -501,11 +504,11 @@
     if (!(el instanceof Element)) return false;
     if (!isVisible(el)) return false;
     const styles = window.getComputedStyle(el);
-    if (styles.position !== "fixed") return false;
+    if (!["fixed", "sticky", "absolute"].includes(styles.position)) return false;
     const rect = el.getBoundingClientRect();
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    if (rect.width < 36 || rect.width > 96 || rect.height < 36 || rect.height > 96) return false;
+    if (rect.width < 32 || rect.width > 180 || rect.height < 32 || rect.height > 180) return false;
     if (rect.left > vw - 140 && rect.top > vh - 180) return true;
     return false;
   };
@@ -526,7 +529,38 @@
 
   const findLauncher = () => getCandidates().find((node) => isLauncherCandidate(node)) || null;
 
-  const hideBrandShell = () => {
+  const safeInsetBottom = () => {
+    const value = window.getComputedStyle(document.documentElement).getPropertyValue("env(safe-area-inset-bottom)");
+    const parsed = Number.parseFloat(value);
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+
+  const showFallbackShell = () => {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const mobile = window.matchMedia("(max-width: 760px)").matches;
+    const size = mobile ? 56 : 60;
+    const right = mobile ? 12 : 16;
+    const bottom = (mobile ? 12 : 16) + safeInsetBottom();
+    const left = Math.max(8, vw - right - size);
+    const top = Math.max(8, vh - bottom - size);
+
+    shell.classList.add("fallback-shell");
+    shell.style.display = "block";
+    shell.style.left = `${Math.round(left - 6)}px`;
+    shell.style.top = `${Math.round(top - 6)}px`;
+    shell.style.width = `${Math.round(size + 12)}px`;
+    shell.style.height = `${Math.round(size + 12)}px`;
+
+    const labelWidth = mobile ? 98 : 114;
+    const labelLeft = Math.max(8, Math.min(vw - labelWidth - 8, left + size - labelWidth));
+    const labelTop = Math.max(8, top - 34);
+    label.style.display = "inline-flex";
+    label.style.left = `${Math.round(labelLeft)}px`;
+    label.style.top = `${Math.round(labelTop)}px`;
+  };
+
+  const hideBrandElements = () => {
     shell.style.display = "none";
     label.style.display = "none";
   };
@@ -534,13 +568,19 @@
   const updateBrandShell = () => {
     const nextLauncher = findLauncher();
     if (!nextLauncher) {
-      hideBrandShell();
+      launcherEl = null;
+      if (getCandidates().length) {
+        showFallbackShell();
+      } else {
+        hideBrandElements();
+      }
       launcherEl = null;
       return;
     }
 
     launcherEl = nextLauncher;
     launcherEl.classList.add("chat-launcher-branded");
+    shell.classList.remove("fallback-shell");
 
     const rect = launcherEl.getBoundingClientRect();
     const pad = 7;
@@ -559,8 +599,9 @@
   };
 
   label.addEventListener("click", () => {
-    if (!launcherEl) return;
-    launcherEl.dispatchEvent(
+    const target = launcherEl || findLauncher() || getCandidates().find((node) => isVisible(node));
+    if (!target) return;
+    target.dispatchEvent(
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
