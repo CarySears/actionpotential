@@ -85,7 +85,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://actionpotential.ai/#organization",
       name: "ActionPotential.AI",
       url: "https://actionpotential.ai",
@@ -94,25 +94,24 @@ const structuredData = {
         url: "https://actionpotential.ai/logo.png",
       },
       description:
-        "A behavioral AI marketing and automation agency helping businesses acquire more customers, convert more leads, and scale operations through human-centered artificial intelligence.",
+        "Behavioral AI marketing and automation agency helping service businesses turn qualified traffic into booked customers through human-centered AI, behavioral science, and full-funnel automation.",
+      slogan: "From potential... to action.",
       founder: {
         "@type": "Person",
         name: "Cary Sears",
         jobTitle: "Founder & CEO",
         description:
-          "UX strategist, applied behavioral scientist, and marketer with dual master's degrees in Experimental Psychology and User Experience Design.",
+          "Applied behavioral scientist and UX strategist with dual master's degrees in Experimental Psychology and User Experience Design.",
       },
-      sameAs: [],
-      serviceType: [
-        "AI Marketing Automation",
-        "Lead Generation",
-        "Conversational Marketing",
-        "SEO",
-        "AI Search",
-        "AI discoverability",
-        "Google Ads",
-        "Meta Ads",
-        "Behavioral Engine Design",
+      email: "hello@actionpotential.ai",
+      areaServed: ["Westchester County, NY", "New York City, NY", "United States"],
+      knowsAbout: [
+        "Behavioral AI marketing",
+        "AI marketing automation",
+        "Lead conversion optimization",
+        "Conversational marketing",
+        "AI Search optimization",
+        "Full-funnel growth systems",
       ],
     },
     {
@@ -125,8 +124,81 @@ const structuredData = {
       },
     },
     {
+      "@type": "WebPage",
+      "@id": "https://actionpotential.ai/#webpage",
+      url: "https://actionpotential.ai",
+      name: "ActionPotential.AI | Behavioral AI Marketing & Automation Agency",
+      description:
+        "ActionPotential.AI builds full-funnel behavioral AI growth systems for service businesses — combining SEO, AI Search, paid ads, conversational marketing, and automation into one coordinated system that turns more traffic into booked customers.",
+      isPartOf: {
+        "@id": "https://actionpotential.ai/#website",
+      },
+      about: {
+        "@id": "https://actionpotential.ai/#primary-solution",
+      },
+      mainEntity: {
+        "@id": "https://actionpotential.ai/#primary-solution",
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".hero-subheadline", "meta[name='description']"],
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: "https://actionpotential.ai/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": "https://actionpotential.ai/#primary-solution",
+      name: "Behavioral Engine — Full-Funnel AI Marketing & Automation System",
+      alternateName: "Behavioral Engine",
+      description:
+        "The Behavioral Engine is ActionPotential.AI's primary solution: a full-funnel AI marketing and automation system that combines a Visibility Engine (SEO, AI Search, Google Ads, Meta Ads) with a Behavioral Conversion Engine (conversational AI, speed-to-lead, behavioral nurture sequences, appointment automation) and an AI Operations Suite — turning search and ad traffic into consistently booked customers for service businesses.",
+      provider: {
+        "@id": "https://actionpotential.ai/#organization",
+      },
+      serviceType: [
+        "Behavioral AI marketing",
+        "Conversational marketing",
+        "Marketing automation",
+        "Lead generation",
+        "SEO and AI Search",
+        "Paid media management",
+        "AI discoverability optimization",
+        "Appointment automation",
+      ],
+      audience: {
+        "@type": "Audience",
+        audienceType:
+          "Small and midsize service businesses, professional practices, and local businesses",
+        geographicArea: "United States",
+      },
+      offers: {
+        "@type": "Offer",
+        name: "Free AI Audit",
+        description:
+          "A free AI audit assessing your current visibility, lead conversion funnel, speed-to-lead gaps, and automation opportunities.",
+        url: "https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      areaServed: ["Westchester County, NY", "New York City, NY", "United States"],
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://actionpotential.ai/#faq",
       mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is the primary solution ActionPotential.AI provides?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "ActionPotential.AI's primary solution is the Behavioral Engine — a full-funnel AI marketing and automation system combining a Visibility Engine (SEO, AI Search, paid ads) and a Behavioral Conversion Engine (conversational AI, speed-to-lead, nurture sequences, appointment automation) into one coordinated system that turns qualified traffic into booked customers for service businesses.",
+          },
+        },
         {
           "@type": "Question",
           name: "What is ActionPotential.AI?",

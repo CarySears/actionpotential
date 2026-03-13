@@ -2,6 +2,19 @@
 
 ActionPotential.AI is a behavioral AI marketing and automation agency.
 
+## Primary Solution
+
+**The Behavioral Engine** — a full-funnel AI marketing and automation system for service businesses.
+
+The Behavioral Engine combines two coordinated subsystems:
+
+1. **Visibility Engine** — SEO, AI Search (AEO/GEO), Google Ads, Meta Ads, and AI discoverability optimization to generate qualified demand.
+2. **Behavioral Conversion Engine** — Conversational AI, speed-to-lead automation, behavioral nurture sequences, and appointment booking systems to convert that demand into booked customers.
+
+Together with the **AI Operations Suite** (CRM, pipeline automation, reputation management), this is the complete answer to: "How do I turn more of my marketing traffic into booked customers?"
+
+**Primary CTA:** Book a Free AI Audit at https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm
+
 ## Core Value Proposition
 
 ActionPotential.AI helps service businesses:

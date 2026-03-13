@@ -12,7 +12,11 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[88vh] flex flex-col items-center justify-center overflow-hidden">
+    <section
+      className="relative min-h-[88vh] flex flex-col items-center justify-center overflow-hidden"
+      aria-labelledby="hero-heading"
+      aria-describedby="hero-subheadline"
+    >
       {/* Neural network background */}
       <div className="absolute inset-0 z-0 opacity-55">
         <NeuralNetwork />
@@ -43,6 +47,7 @@ export default function Hero() {
 
         {/* Headline */}
         <motion.h1
+          id="hero-heading"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -55,6 +60,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
+          id="hero-subheadline"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}

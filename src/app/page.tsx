@@ -15,7 +15,10 @@ import BrandGeometry from "@/components/BrandGeometry";
 
 export default function Home() {
   return (
-    <main className="relative isolate min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+    <main
+      className="relative isolate min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]"
+      aria-label="Behavioral AI marketing and automation solutions for service businesses"
+    >
       <BrandGeometry />
       <div className="relative z-10">
         <Navbar />
