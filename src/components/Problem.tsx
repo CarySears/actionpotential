@@ -38,7 +38,11 @@ export default function Problem() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={ref}
+      aria-label="The core problem: businesses generate leads but lack systems to convert them"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1B75BB]/5 rounded-full blur-3xl pointer-events-none" />
 

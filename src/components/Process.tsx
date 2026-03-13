@@ -22,7 +22,11 @@ export default function Process() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative py-24 sm:py-32">
+    <section
+      ref={ref}
+      aria-label="Two-phase process: strategy and foundation, then build and launch with continuous optimization"
+      className="relative py-24 sm:py-32"
+    >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

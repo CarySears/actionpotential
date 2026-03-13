@@ -181,7 +181,12 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} id="services" className="relative py-24 sm:py-32">
+    <section
+      ref={ref}
+      id="services"
+      aria-label="Full-spectrum services: visibility, conversational marketing, AI agents, automation, discoverability, SEO and paid media"
+      className="relative py-24 sm:py-32"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00A79D]/3 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

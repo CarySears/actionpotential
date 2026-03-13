@@ -63,7 +63,12 @@ export default function BehavioralEngine() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} id="how-it-works" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={ref}
+      id="how-it-works"
+      aria-label="How the Behavioral Engine works: six-stage growth loop from attract to amplify"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1B75BB]/3 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

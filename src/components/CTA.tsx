@@ -21,7 +21,12 @@ export default function CTA() {
   const bookingUrl = "https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm";
 
   return (
-    <section ref={ref} id="cta" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={ref}
+      id="cta"
+      aria-label="Book a free AI Audit: get a conversion review, automation assessment, and priority roadmap"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Neural network background */}
       <div className="absolute inset-0 opacity-30">
         <NeuralNetwork />

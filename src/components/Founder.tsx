@@ -25,7 +25,12 @@ export default function Founder() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} id="founder" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={ref}
+      id="founder"
+      aria-label="Founder: Cary Sears — UX strategist, behavioral scientist, and marketer with dual master's degrees"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2EA6D4]/3 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#2EA6D4]/5 rounded-full blur-3xl pointer-events-none" />
 

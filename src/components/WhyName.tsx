@@ -19,7 +19,11 @@ export default function WhyName() {
   ];
 
   return (
-    <section ref={ref} className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={ref}
+      aria-label="Why the name Action Potential: inspired by neuroscience, the signal that triggers behavior and decisions"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Decorative element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#00A79D]/3 to-transparent pointer-events-none" />
 

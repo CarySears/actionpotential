@@ -36,7 +36,12 @@ export default function WhoWeServe() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} id="who-we-serve" className="relative py-24 sm:py-32">
+    <section
+      ref={ref}
+      id="who-we-serve"
+      aria-label="Who we serve: healthcare, coaching, consulting, legal, real estate, hospitality, and home service businesses ready to grow"
+      className="relative py-24 sm:py-32"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#79C5C7]/3 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

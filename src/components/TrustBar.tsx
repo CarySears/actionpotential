@@ -18,7 +18,11 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="relative py-10 overflow-hidden">
+    <section
+      ref={ref}
+      aria-label="Trust signals: behavioral science, full-funnel ownership, AI-native, no long-term contracts, human-centered, results-driven"
+      className="relative py-10 overflow-hidden"
+    >
       <div className="section-divider mb-0" />
       <div
         className="py-6"

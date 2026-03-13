@@ -54,7 +54,12 @@ export default function Differentiators() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} id="why-us" className="relative py-24 sm:py-32">
+    <section
+      ref={ref}
+      id="why-us"
+      aria-label="What makes ActionPotential.AI different: human-centered AI, behavioral science, full-funnel ownership, no long-term contracts"
+      className="relative py-24 sm:py-32"
+    >
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#79C5C7]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[#1B75BB]/5 rounded-full blur-3xl pointer-events-none" />
 

@@ -12,7 +12,10 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[88vh] flex flex-col items-center justify-center overflow-hidden">
+    <section
+      aria-label="Turn more leads into booked customers — Behavioral AI marketing and automation"
+      className="relative min-h-[88vh] flex flex-col items-center justify-center overflow-hidden"
+    >
       {/* Neural network background */}
       <div className="absolute inset-0 z-0 opacity-55">
         <NeuralNetwork />
@@ -41,24 +44,26 @@ export default function Hero() {
           <span className="w-1.5 h-1.5 rounded-full bg-[#00A79D] node-pulse inline-block" />
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — primary solution statement */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.07]"
+          itemProp="slogan"
         >
           <span className="text-white">Turn more leads into</span>
           <br />
           <span className="gradient-text text-shadow-glow">booked customers.</span>
         </motion.h1>
 
-        {/* Subheadline */}
+        {/* Subheadline — solution detail */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-lg sm:text-xl text-[#e8f4f8]/82 max-w-3xl mx-auto mb-9 leading-relaxed"
+          itemProp="description"
         >
           Most agencies stop at lead volume. We build and run the full conversion system:
           faster response, smarter follow-up, and better close rates across your entire journey.

@@ -26,7 +26,10 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#79C5C7]/8 pt-16 pb-8">
+    <footer
+      aria-label="ActionPotential.AI site footer: services, company links, and contact"
+      className="relative border-t border-[#79C5C7]/8 pt-16 pb-8"
+    >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
