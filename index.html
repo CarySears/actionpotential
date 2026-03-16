@@ -420,6 +420,126 @@
         padding: 4.9rem 0 3.4rem;
       }
 
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 1rem;
+        align-items: stretch;
+      }
+
+      .hero-panel,
+      .hero-system {
+        min-height: 100%;
+      }
+
+      .hero-panel {
+        text-align: left;
+      }
+
+      .hero-panel .eyebrow {
+        margin-inline: 0;
+      }
+
+      .hero-panel h1 {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        max-width: 16ch;
+      }
+
+      .hero-panel p {
+        margin: 0.55rem 0 0;
+        max-width: 56ch;
+        text-align: left;
+      }
+
+      .hero-kicker {
+        color: #f2f8ff;
+        font-weight: 700;
+        margin-top: 0.2rem;
+      }
+
+      .hero-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero-chip {
+        border-radius: 999px;
+        border: 1px solid rgba(121, 197, 199, 0.25);
+        background: rgba(255, 255, 255, 0.04);
+        color: #dce9fb;
+        font-size: 0.76rem;
+        padding: 0.34rem 0.62rem;
+      }
+
+      .hero-system h3 {
+        font-size: 0.98rem;
+        margin-bottom: 0.65rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brand-1);
+      }
+
+      .hero-system .flow {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.42rem;
+      }
+
+      .hero-system .flow li {
+        border-radius: 10px;
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.55rem 0.68rem;
+        color: #d9e5f9;
+        font-size: 0.86rem;
+      }
+
+      .hero-system .flow li strong {
+        color: #f6fbff;
+      }
+
+      .hero-system .flow-arrow {
+        text-align: center;
+        color: rgba(121, 197, 199, 0.62);
+        font-size: 0.84rem;
+        line-height: 1;
+      }
+
+      .hero-system-stats {
+        margin-top: 0.8rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.42rem;
+      }
+
+      .hero-system-stat {
+        border-radius: 10px;
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.55rem;
+      }
+
+      .hero-system-stat strong {
+        display: block;
+        color: var(--brand-1);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .hero-system-stat span {
+        display: block;
+        margin-top: 0.2rem;
+        color: #c8d7ee;
+        font-size: 0.68rem;
+        line-height: 1.35;
+      }
+
       .with-brand-motifs {
         position: relative;
         overflow: clip;
@@ -1252,6 +1372,12 @@
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
         gap: 1.1rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+        }
       }
 
       .metric-row {
@@ -2440,95 +2566,85 @@
         <div class="brand-dots-motif brand-dots-motif-right"></div>
       </div>
       <section class="hero container" id="top">
-        <div class="hero-copy">
-          <div class="hero-focus">
-            <span class="eyebrow">Behavioral Science + Human-Centered AI</span>
-            <h1 class="hero-headline">Turn search and ad traffic into more booked customers.</h1>
-            <p class="hero-without-line">Without overwhelming your team or breaking operations.</p>
+        <div class="hero-layout">
+          <article class="card hero-panel">
+            <span class="eyebrow">Behavioral science + human-centered AI</span>
+            <h1>Turn intent into real conversations.</h1>
+            <p class="hero-kicker">Most businesses do not have a lead problem. They have a response problem.</p>
             <p>
-              Our Visibility Engine combines SEO, AI Search, and paid ads to generate qualified demand.
+              We install a Behavioral Engine that captures inquiries, responds fast, qualifies intelligently,
+              and routes cleanly to your team.
             </p>
-            <p class="hero-value-support">
-              Our Behavioral Engine, built on behavioral science + human-centered AI, converts that demand into booked appointments with faster response, consistent follow-up, and operationally sustainable workflows.
-            </p>
-            <p class="hero-suite-support">
-              Our AI Operations Suite brings the software + services layer that keeps response, booking, follow-up, and pipeline execution running as one coordinated system.
-            </p>
-            <div class="hero-brand-signature">
-              <span class="hero-tagline">
-                <span class="tagline-static">From potential...</span>
-                <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stop-color="#79C5C7" />
-                    <stop offset="0.25" stop-color="#2EA6D4" />
-                    <stop offset="0.55" stop-color="#00A79D" />
-                    <stop offset="0.78" stop-color="#FF8B66" />
-                    <stop offset="0.92" stop-color="#D93AA4" />
-                    <stop offset="1" stop-color="#1B75BB" />
-                  </linearGradient>
-                  <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
-                    <stop offset="0" stop-color="#FFFFFF" />
-                    <stop offset="0.38" stop-color="#FF8B66" />
-                    <stop offset="0.72" stop-color="#D93AA4" />
-                    <stop offset="1" stop-color="#1B75BB" />
-                  </radialGradient>
-                </defs>
-                <path
-                  class="hero-tagline-ap-glow"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-                />
-                <path
-                  class="hero-tagline-ap-track"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
-                />
-              </svg>
-              <span class="tagline-animated">to action.</span>
-              </span>
+            <div class="hero-chip-row" aria-label="Supported channels">
+              <span class="hero-chip">Calls</span>
+              <span class="hero-chip">Forms</span>
+              <span class="hero-chip">SMS</span>
+              <span class="hero-chip">DMs</span>
+              <span class="hero-chip">Chat</span>
             </div>
             <div class="cta-group">
               <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book Free AI Audit</a>
-              <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine™</a>
+              <a class="btn btn-secondary" href="#engine-stages">See the Behavioral Engine</a>
             </div>
-            <div class="pill-row" style="justify-content: center; margin-top: 0.9rem;">
-              <span class="pill">Focused 90-day kickoff</span>
-              <a class="pill" href="/results/index.html" style="text-decoration:none;">Watch client results</a>
-              <a class="pill" href="/resources/faq/index.html" style="text-decoration:none;">Read FAQs</a>
+          </article>
+
+          <aside class="card hero-system" aria-label="Behavioral Engine flow">
+            <h3>Behavioral Engine flow</h3>
+            <ol class="flow">
+              <li><strong>1.</strong> Inquiry arrives</li>
+              <li class="flow-arrow">↓</li>
+              <li><strong>2.</strong> Instant response</li>
+              <li class="flow-arrow">↓</li>
+              <li><strong>3.</strong> Smart qualification</li>
+              <li class="flow-arrow">↓</li>
+              <li><strong>4.</strong> Human handoff</li>
+              <li class="flow-arrow">↓</li>
+              <li><strong>5.</strong> Booked conversation</li>
+            </ol>
+            <div class="hero-system-stats">
+              <div class="hero-system-stat">
+                <strong>&lt;2 min</strong>
+                <span>Target response window</span>
+              </div>
+              <div class="hero-system-stat">
+                <strong>5+</strong>
+                <span>Structured follow-up touches</span>
+              </div>
+              <div class="hero-system-stat">
+                <strong>24/7</strong>
+                <span>Coverage across channels</span>
+              </div>
             </div>
+          </aside>
+        </div>
+
+        <div class="trust-strip" aria-label="Core differentiators">
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 3 4 7v5c0 5.2 3.4 8.7 8 10 4.6-1.3 8-4.8 8-10V7l-8-4Z"></path>
+              <path d="m9.4 12 1.8 1.8 3.4-3.6"></path>
+            </svg>
+            <div><strong>Behavioral science</strong><span>Decision psychology built in</span></div>
           </div>
-          <p class="micro-proof">
-            Built for service businesses who need <span>stronger visibility</span>, <span>faster speed-to-lead</span>,
-            and <span>higher close-rate consistency</span>.
-          </p>
-          <p class="micro-proof">Serving <span>Westchester County</span>, <span>NYC</span>, and <span>nationwide</span>.</p>
-          <div class="trust-strip" aria-label="Credibility highlights">
-            <div class="trust-item">
-              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M12 3 4 7v5c0 5.2 3.4 8.7 8 10 4.6-1.3 8-4.8 8-10V7l-8-4Z"></path>
-                <path d="m9.4 12 1.8 1.8 3.4-3.6"></path>
-              </svg>
-              <div><strong>Behavior-led strategy</strong><span>Psychology + UX foundations</span></div>
-            </div>
-            <div class="trust-item">
-              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M3 12h6l3-8 3 16 3-8h3"></path>
-              </svg>
-              <div><strong>Full-funnel execution</strong><span>SEO, paid ads, AI Search, and conversion</span></div>
-            </div>
-            <div class="trust-item">
-              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="m9.5 12 1.8 1.8 3.8-4"></path>
-              </svg>
-              <div><strong>Human-centered AI</strong><span>Automation with brand-safe oversight</span></div>
-            </div>
-            <div class="trust-item">
-              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M12 6v6l4 2"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-              </svg>
-              <div><strong>Structured engagement</strong><span>Starts with a focused 90-day implementation</span></div>
-            </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M3 12h6l3-8 3 16 3-8h3"></path>
+            </svg>
+            <div><strong>Interaction design + UX</strong><span>Low-friction conversion paths</span></div>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="m9.5 12 1.8 1.8 3.8-4"></path>
+            </svg>
+            <div><strong>Conversational marketing</strong><span>Lead handling across channels</span></div>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 6v6l4 2"></path>
+              <circle cx="12" cy="12" r="9"></circle>
+            </svg>
+            <div><strong>Human-centered AI</strong><span>Automation with human handoff</span></div>
           </div>
         </div>
       </section>
@@ -2538,24 +2654,24 @@
           <div class="section-head">
             <div>
               <span class="eyebrow">How It Works</span>
-              <h2>One connected system from visibility to booked revenue.</h2>
+              <h2>Fix conversion first. Then scale visibility.</h2>
             </div>
             <p>
-              Most agencies optimize channels in isolation. We connect acquisition, conversion, and retention so each stage strengthens the next.
+              We start with the Behavioral Engine to reduce missed opportunities, then add traffic channels once the response system is reliable.
             </p>
           </div>
           <div class="quick-value-grid">
             <article class="card quick-value-card">
-              <h3>1) Visibility Engine</h3>
-              <p>SEO, paid ads, and AI Search bring qualified buyers at decision moments.</p>
+              <h3>1) Behavioral Engine</h3>
+              <p>Capture, respond, qualify, and follow up across calls, forms, SMS, DMs, and chat.</p>
             </article>
             <article class="card quick-value-card">
-              <h3>2) Behavioral Engine</h3>
-              <p>Behavioral science + human-centered AI turn attention into trust, conversations, and booked appointments.</p>
+              <h3>2) Visibility Engine</h3>
+              <p>Layer in SEO, paid media, and AI search visibility after conversion infrastructure is in place.</p>
             </article>
             <article class="card quick-value-card">
               <h3>3) Retention Loop</h3>
-              <p>Automation and lifecycle design turn delivered value into repeat revenue, reviews, and referrals.</p>
+              <p>Keep follow-up and lifecycle nurture active so more customers return, review, and refer.</p>
             </article>
           </div>
         </div>
@@ -2565,15 +2681,15 @@
         <div class="container split">
           <div>
             <span class="eyebrow">Why Growth Stalls</span>
-            <h2>Your revenue leaks in predictable places.</h2>
+            <h2>Traffic is rarely the bottleneck. Response is.</h2>
             <p>
-              Most service businesses do not have a lead problem. They have a handoff problem between demand, response, and conversion.
+              Most service businesses already generate inquiries. Revenue leaks happen in the first few minutes after intent appears.
             </p>
             <ul>
               <li>Response is too slow when intent is highest.</li>
               <li>Follow-up is inconsistent across channels.</li>
-              <li>Messaging does not guide decisions with confidence.</li>
-              <li>Retention and referral systems are underbuilt.</li>
+              <li>High-intent leads wait too long for human handoff.</li>
+              <li>Ops and marketing tools are disconnected.</li>
             </ul>
           </div>
           <div class="card">
