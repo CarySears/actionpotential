@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "ensure:deps": "node scripts/ensure-deps.mjs",
+    "predev": "npm run ensure:deps",
+    "prebuild": "npm run ensure:deps",
+    "prelint": "npm run ensure:deps",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

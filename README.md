@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Dependency bootstrap
+
+This repository auto-installs dependencies from `package-lock.json` before `npm run dev`,
+`npm run lint`, and `npm run build` when `node_modules` is missing or stale. Manual `npm install`
+is not required for those commands.
+
 First, run the development server:
 
 ```bash
