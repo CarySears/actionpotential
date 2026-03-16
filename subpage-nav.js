@@ -82,15 +82,19 @@
       href: "/services/index.html",
       children: [
         { label: "All Services", href: "/services/index.html" },
-        { label: "Visibility Engine", href: "/services/visibility-engine.html" },
-        { label: "Behavioral Engine", href: "/services/behavioral-engine.html" },
+        { label: "Core Systems", href: "/services/index.html#core-systems" },
+        { label: "AI Agent Suite", href: "/services/behavioral-engine.html" },
+        { label: "AI Automation", href: "/services/marketing-automation.html" },
+        { label: "AI SEO (SEO, AEO, GEO)", href: "/services/ai-search.html" },
         { label: "Smart Websites", href: "/services/smart-websites.html" },
-        { label: "SEO + AI Search", href: "/services/ai-search.html" },
-        { label: "Paid Media + Retargeting", href: "/services/paid-media.html" },
+        { label: "Scale Systems", href: "/services/index.html#scale-systems" },
+        { label: "Paid Search (PPC)", href: "/services/paid-media.html" },
+        { label: "Meta Ads", href: "/services/paid-media.html#meta-ads" },
+        { label: "Retargeting", href: "/services/retargeting.html" },
       ],
     },
     {
-      label: "AI Operations Suite",
+      label: "AI Agent Platform",
       href: "/platform/ai-operations-suite.html",
       children: [
         { label: "Platform Overview", href: "/platform/ai-operations-suite.html" },
@@ -506,8 +510,8 @@
     const href = link.getAttribute("href");
     if (!href) return;
     if (href === bookingUrl || href.startsWith(bookingUrl + "?")) {
-      link.textContent = "Book Free AI Audit";
-      link.setAttribute("aria-label", "Book Free AI Audit");
+      link.textContent = "Book AI Systems Audit";
+      link.setAttribute("aria-label", "Book AI Systems Audit");
     }
   });
 })();
