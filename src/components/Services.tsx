@@ -99,7 +99,7 @@ export default function Services() {
             Same philosophy across both engines: simple interfaces, clear decision paths, and
             systems that feel human.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
