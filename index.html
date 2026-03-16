@@ -2509,6 +2509,7 @@
             </div>
             <div class="cta-group">
               <a class="btn btn-primary hero-book-btn" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book a Free AI Audit</a>
+              <button class="btn btn-secondary" type="button" id="voice-ai-demo-btn">Demo Voice AI</button>
             </div>
           </div>
         </div>
@@ -3030,8 +3031,41 @@
     <script
       src="https://beta.leadconnectorhq.com/loader.js"
       data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="692e35dacf45958002fa546c"
+      data-widget-id="692e35e1885ff875a3542ddb"
     ></script>
+    <script>
+      (function () {
+        const trigger = document.getElementById("voice-ai-demo-btn");
+        if (!trigger) return;
+
+        const clickVisibleLauncher = () => {
+          const launchers = document.querySelectorAll(
+            [
+              "button[aria-label*='chat' i]",
+              "button[aria-label*='message' i]",
+              "[class*='chat-widget'] button",
+              "[class*='leadconnector'] button",
+              "[id*='chat-widget'] button",
+            ].join(","),
+          );
+
+          for (const launcher of launchers) {
+            if (!(launcher instanceof HTMLElement)) continue;
+            const rect = launcher.getBoundingClientRect();
+            if (rect.width < 24 || rect.height < 24) continue;
+            if (rect.bottom <= 0 || rect.right <= 0) continue;
+            launcher.click();
+            return true;
+          }
+          return false;
+        };
+
+        trigger.addEventListener("click", () => {
+          if (clickVisibleLauncher()) return;
+          window.setTimeout(clickVisibleLauncher, 500);
+        });
+      })();
+    </script>
     <script>
       (function () {
         const sticky = document.querySelector(".mobile-sticky");
