@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Eye, MessageCircle, HeartHandshake, ShoppingCart, Star, Megaphone } from "lucide-react";
+import { Eye, MessageCircle, HeartHandshake, ShoppingCart, Star, Megaphone, ArrowRight } from "lucide-react";
 
 const stages = [
   {
@@ -64,102 +64,159 @@ export default function BehavioralEngine() {
 
   return (
     <section ref={ref} id="how-it-works" className="relative py-24 sm:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1B75BB]/3 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2EA6D4]/10 border border-[#2EA6D4]/20 text-[#2EA6D4] text-sm mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2EA6D4] node-pulse" />
-            The Behavioral Engine™
+          <div className="section-label mb-6 mx-auto w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--blue-bright)] animate-pulse" />
+            <span>The Behavioral Engine</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-text-strong)] mb-6">
             Six stages. One continuous{" "}
             <span className="gradient-text">growth loop.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-[var(--color-text)]/70 max-w-2xl mx-auto leading-relaxed">
             Every client receives a full-funnel Behavioral Engine — designed to move people from
             first impression to loyal advocate, automatically.
           </p>
         </motion.div>
 
-        {/* Stages grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
-          {stages.map((stage, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card glass-card-hover p-6 group relative overflow-hidden"
-            >
-              {/* Number watermark */}
-              <span
-                className="absolute -right-2 -top-4 text-7xl font-black opacity-[0.04] select-none"
-                style={{ color: stage.color }}
-              >
-                {stage.number}
-              </span>
+        {/* Flow diagram - connected stages */}
+        <div className="contained-card p-6 sm:p-10 mb-20 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#2EA6D4]/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
-              <div className="relative z-10">
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: stage.color + "18", border: `1px solid ${stage.color}30` }}
-                >
-                  <stage.icon className="w-6 h-6" style={{ color: stage.color }} />
-                </div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-xs font-mono" style={{ color: stage.color + "80" }}>
-                    {stage.number}
-                  </span>
-                  <h3 className="text-lg font-bold text-white">{stage.title}</h3>
-                </div>
-                <p className="text-[#e8f4f8]/78 text-sm leading-relaxed">{stage.desc}</p>
+          <div className="relative z-10">
+            {/* Desktop: horizontal flow */}
+            <div className="hidden lg:block">
+              <div className="grid grid-cols-6 gap-3">
+                {stages.map((stage, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="relative"
+                  >
+                    <div className="flex flex-col items-center text-center group">
+                      <div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all group-hover:scale-105"
+                        style={{
+                          background: `linear-gradient(135deg, ${stage.color}12, ${stage.color}06)`,
+                          border: `1px solid ${stage.color}25`,
+                        }}
+                      >
+                        <stage.icon className="w-6 h-6" style={{ color: stage.color }} />
+                      </div>
 
-                {/* Connection line (visual) */}
-                {i < stages.length - 1 && (
-                  <div
-                    className="absolute bottom-0 right-0 w-px h-6 opacity-20"
-                    style={{ background: `linear-gradient(to bottom, ${stage.color}, transparent)` }}
-                  />
-                )}
+                      <span className="text-[10px] font-mono text-[var(--color-text)]/25 mb-1">
+                        {stage.number}
+                      </span>
+                      <h3 className="text-sm font-semibold text-[var(--color-text-strong)] mb-1.5">
+                        {stage.title}
+                      </h3>
+                      <p className="text-xs text-[var(--color-text)]/55 leading-relaxed">
+                        {stage.desc}
+                      </p>
+                    </div>
+
+                    {i < stages.length - 1 && (
+                      <div className="absolute top-7 -right-2 z-20">
+                        <ArrowRight className="w-3.5 h-3.5 text-[var(--color-text)]/15" />
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
-          ))}
+
+              {/* Loop-back arrow */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: 0.8 }}
+                className="mt-6 flex items-center justify-center"
+              >
+                <div className="flex items-center gap-3 px-5 py-2.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
+                  <span className="text-xs text-[var(--color-text)]/40">Continuous loop</span>
+                  <svg width="32" height="12" viewBox="0 0 32 12" fill="none">
+                    <path
+                      d="M1 6C1 6 7 1 16 1C25 1 31 6 31 6C31 6 25 11 16 11C7 11 1 6 1 6Z"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-[var(--teal-light)]/30"
+                      strokeDasharray="3 3"
+                    />
+                  </svg>
+                  <span className="text-xs text-[var(--teal-light)]/60">Amplify → Attract</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Mobile: vertical flow */}
+            <div className="lg:hidden space-y-3">
+              {stages.map((stage, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-4 p-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-border-strong)] transition-all"
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${stage.color}12, ${stage.color}06)`,
+                      border: `1px solid ${stage.color}25`,
+                    }}
+                  >
+                    <stage.icon className="w-5 h-5" style={{ color: stage.color }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xs font-mono text-[var(--color-text)]/25">{stage.number}</span>
+                      <h3 className="text-sm font-semibold text-[var(--color-text-strong)]">{stage.title}</h3>
+                    </div>
+                    <p className="text-xs text-[var(--color-text)]/55 mt-1 leading-relaxed">{stage.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Five Growth Drivers */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div className="text-center mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-text-strong)] mb-3">
               Five Growth Drivers
             </h3>
-            <p className="text-[#e8f4f8]/72">Everything we build serves these five outcomes.</p>
+            <p className="text-[var(--color-text)]/50 text-sm">Everything we build serves these five outcomes.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {drivers.map((driver, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.7 + i * 0.08 }}
-                className="glass-card glass-card-hover p-5 text-center group"
+                transition={{ delay: 0.7 + i * 0.06 }}
+                className="contained-card p-5 text-center group hover:border-[var(--color-border-strong)] transition-all"
               >
-                <div className="text-3xl font-black gradient-text mb-3 group-hover:scale-110 transition-transform">
+                <div className="text-2xl font-bold gradient-text mb-2.5 group-hover:scale-105 transition-transform">
                   {driver.icon}
                 </div>
-                <div className="text-sm font-semibold text-white mb-1">{driver.label}</div>
-                <div className="text-xs text-[#e8f4f8]/70">{driver.desc}</div>
+                <div className="text-sm font-medium text-[var(--color-text-strong)] mb-1">{driver.label}</div>
+                <div className="text-xs text-[var(--color-text)]/45">{driver.desc}</div>
               </motion.div>
             ))}
           </div>

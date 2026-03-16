@@ -102,39 +102,47 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[0]
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card overflow-hidden"
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="contained-card overflow-hidden hover:border-[var(--color-border-strong)] transition-all"
     >
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full p-6 text-left flex items-start gap-4 group"
       >
         <div
-          className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-          style={{ backgroundColor: service.color + "15", border: `1px solid ${service.color}25` }}
+          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, ${service.color}10, ${service.color}05)`,
+            border: `1px solid ${service.color}20`,
+          }}
         >
-          <service.icon className="w-6 h-6" style={{ color: service.color }} />
+          <service.icon className="w-5 h-5" style={{ color: service.color }} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-bold text-white group-hover:text-[#79C5C7] transition-colors">
+          <h3 className="text-base font-semibold text-[var(--color-text-strong)] group-hover:text-[var(--teal-light)] transition-colors">
             {service.title}
           </h3>
-          <p className="text-sm text-[#e8f4f8]/75 mt-0.5">{service.tagline}</p>
-          <div className="mt-2 space-y-1">
+          <p className="text-sm text-[var(--color-text)]/50 mt-0.5">{service.tagline}</p>
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
             {visibleItems.map((item) => (
-              <p key={item.name} className="text-xs text-[#e8f4f8]/70">
-                • {item.name}
-              </p>
+              <span key={item.name} className="text-xs px-2 py-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)]/60">
+                {item.name}
+              </span>
             ))}
+            {hiddenItems.length > 0 && (
+              <span className="text-xs px-2 py-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)]/40">
+                +{hiddenItems.length} more
+              </span>
+            )}
           </div>
         </div>
         <div className="flex-shrink-0 mt-1">
           {expanded ? (
-            <ChevronUp className="w-5 h-5 text-[#79C5C7]" />
+            <ChevronUp className="w-4 h-4 text-[var(--teal-light)]/60" />
           ) : (
-            <ChevronDown className="w-5 h-5 text-[#e8f4f8]/40" />
+            <ChevronDown className="w-4 h-4 text-[var(--color-text)]/25" />
           )}
         </div>
       </button>
@@ -146,26 +154,23 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[0]
         className="overflow-hidden"
       >
         <div className="px-6 pb-6 pt-0">
-          <div
-            className="h-px mb-5"
-            style={{ background: `linear-gradient(90deg, ${service.color}30, transparent)` }}
-          />
+          <div className="h-px mb-5 bg-[var(--color-border)]" />
           <div className="space-y-3">
             {hiddenItems.map((item, j) => (
               <motion.div
                 key={j}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: j * 0.05 }}
+                transition={{ delay: j * 0.04 }}
                 className="flex items-start gap-3"
               >
                 <div
                   className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                  style={{ backgroundColor: service.color }}
+                  style={{ backgroundColor: service.color + "60" }}
                 />
                 <div>
-                  <span className="text-sm font-medium text-white">{item.name}</span>
-                  <span className="text-sm text-[#e8f4f8]/45"> — {item.desc}</span>
+                  <span className="text-sm font-medium text-[var(--color-text-strong)]">{item.name}</span>
+                  <span className="text-sm text-[var(--color-text)]/40"> — {item.desc}</span>
                 </div>
               </motion.div>
             ))}
@@ -182,30 +187,28 @@ export default function Services() {
 
   return (
     <section ref={ref} id="services" className="relative py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00A79D]/3 to-transparent pointer-events-none" />
-
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00A79D]/10 border border-[#00A79D]/20 text-[#00A79D] text-sm mb-6">
-            <Search className="w-4 h-4" />
-            Full-Spectrum Services
+          <div className="section-label mb-6 mx-auto w-fit">
+            <Search className="w-3.5 h-3.5 text-[var(--teal-green)]" />
+            <span>Full-Spectrum Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-text-strong)] mb-6">
             Everything you need.{" "}
             <span className="gradient-text">Nothing you don&apos;t.</span>
           </h2>
-          <p className="text-lg text-[#e8f4f8]/55 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-[var(--color-text)]/50 max-w-2xl mx-auto leading-relaxed">
             Six integrated service areas that work together as a unified system — not a
             collection of disconnected tactics.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} isInView={isInView} />
           ))}

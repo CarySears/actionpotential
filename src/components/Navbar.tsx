@@ -29,66 +29,61 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "backdrop-blur-xl border-b border-[var(--color-border)]" : "bg-transparent"
       }`}
       style={scrolled ? { backgroundColor: "var(--color-navbar)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+        <div className="flex items-center justify-between h-16 sm:h-18">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <div className="relative">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#79C5C7] to-[#1B75BB] flex items-center justify-center node-pulse">
-                <Zap className="w-4 h-4 text-white" fill="white" />
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[var(--teal-light)]/20 to-[var(--blue-deep)]/20 border border-[var(--teal-light)]/15 flex items-center justify-center">
+                <Zap className="w-3.5 h-3.5 text-[var(--teal-light)]" />
               </div>
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#79C5C7] to-[#1B75BB] opacity-20 blur-sm group-hover:opacity-40 transition-opacity" />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-sm sm:text-base tracking-tight gradient-text">
+              <span className="font-semibold text-sm tracking-tight text-[var(--color-text-strong)]">
                 ActionPotential
               </span>
-              <span className="text-[10px] sm:text-xs text-[#79C5C7]/60 tracking-widest -mt-0.5">
+              <span className="text-[10px] text-[var(--teal-light)]/40 tracking-widest -mt-0.5">
                 .AI
               </span>
             </div>
           </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm text-[#e8f4f8]/85 hover:text-[#79C5C7] transition-colors rounded-lg hover:bg-[#79C5C7]/5"
+                className="px-3.5 py-2 text-sm text-[var(--color-text)]/60 hover:text-[var(--color-text-strong)] transition-colors rounded-lg hover:bg-[var(--color-surface)]"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <button
               onClick={toggleTheme}
               aria-label="Toggle color theme"
               className="theme-toggle-btn hidden sm:inline-flex"
             >
-              <SunMedium className="theme-icon-light w-4 h-4" />
-              <Moon className="theme-icon-dark w-4 h-4" />
+              <SunMedium className="theme-icon-light w-3.5 h-3.5" />
+              <Moon className="theme-icon-dark w-3.5 h-3.5" />
             </button>
             <a
               href="#cta"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white glow-button"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium text-white glow-button"
             >
-              <Zap className="w-4 h-4" />
               Book Free AI Audit
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="md:hidden p-2 text-[#79C5C7] hover:bg-[#79C5C7]/10 rounded-lg transition-colors"
+              className="md:hidden p-2 text-[var(--color-text)]/60 hover:bg-[var(--color-surface)] rounded-lg transition-colors"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -96,7 +91,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -111,8 +105,8 @@ export default function Navbar() {
                 onClick={toggleTheme}
                 className="theme-toggle-btn mb-2 inline-flex w-full justify-center"
               >
-                <SunMedium className="theme-icon-light w-4 h-4" />
-                <Moon className="theme-icon-dark w-4 h-4" />
+                <SunMedium className="theme-icon-light w-3.5 h-3.5" />
+                <Moon className="theme-icon-dark w-3.5 h-3.5" />
                 <span className="theme-label-light">Dark mode</span>
                 <span className="theme-label-dark">Light mode</span>
               </button>
@@ -121,7 +115,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-[#e8f4f8]/80 hover:text-[#79C5C7] hover:bg-[#79C5C7]/5 rounded-lg transition-colors"
+                  className="px-4 py-3 text-[var(--color-text)]/60 hover:text-[var(--color-text-strong)] hover:bg-[var(--color-surface)] rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
@@ -129,7 +123,7 @@ export default function Navbar() {
               <a
                 href="#cta"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 px-5 py-3 rounded-full text-sm font-semibold text-white text-center glow-button"
+                className="mt-2 px-5 py-3 rounded-full text-sm font-medium text-white text-center glow-button"
               >
                 Book Free AI Audit
               </a>

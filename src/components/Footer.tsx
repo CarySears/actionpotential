@@ -26,47 +26,35 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#79C5C7]/8 pt-16 pb-8">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgb(var(--color-bg-rgb) / 0.55) 100%)",
-        }}
-      />
-
+    <footer className="relative border-t border-[var(--color-border)] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#79C5C7] to-[#1B75BB] flex items-center justify-center node-pulse">
-                <Zap className="w-4 h-4 text-white" fill="white" />
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[var(--teal-light)]/15 to-[var(--blue-deep)]/15 border border-[var(--teal-light)]/12 flex items-center justify-center">
+                <Zap className="w-3.5 h-3.5 text-[var(--teal-light)]" />
               </div>
               <div>
-                <span className="font-bold gradient-text text-sm">ActionPotential</span>
-                <span className="text-[#79C5C7]/60 text-sm">.AI</span>
+                <span className="font-semibold text-sm text-[var(--color-text-strong)]">ActionPotential</span>
+                <span className="text-[var(--teal-light)]/40 text-sm">.AI</span>
               </div>
             </div>
-            <p className="text-sm text-[#e8f4f8]/70 leading-relaxed mb-5">
+            <p className="text-sm text-[var(--color-text)]/40 leading-relaxed mb-5">
               Behavioral AI marketing and automation agency. We sit at the intersection of AI,
               behavioral science, UX, and growth marketing.
             </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="mailto:hello@actionpotential.ai"
-                className="flex items-center gap-2 text-xs text-[#e8f4f8]/70 hover:text-[#79C5C7] transition-colors"
-              >
-                <Mail className="w-3 h-3" />
-                hello@actionpotential.ai
-              </a>
-            </div>
+            <a
+              href="mailto:hello@actionpotential.ai"
+              className="flex items-center gap-2 text-xs text-[var(--color-text)]/40 hover:text-[var(--teal-light)]/60 transition-colors"
+            >
+              <Mail className="w-3 h-3" />
+              hello@actionpotential.ai
+            </a>
           </div>
 
-          {/* Links */}
           {Object.entries(links).map(([category, items]) => (
             <div key={category}>
-              <h4 className="text-xs font-semibold text-[#e8f4f8]/65 uppercase tracking-widest mb-4">
+              <h4 className="text-xs font-medium text-[var(--color-text)]/35 uppercase tracking-widest mb-4">
                 {category}
               </h4>
               <ul className="space-y-2.5">
@@ -74,7 +62,7 @@ export default function Footer() {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-sm text-[#e8f4f8]/78 hover:text-[#79C5C7] transition-colors"
+                      className="text-sm text-[var(--color-text)]/50 hover:text-[var(--color-text-strong)] transition-colors"
                     >
                       {item.label}
                     </a>
@@ -85,23 +73,21 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
         <div className="section-divider mb-8" />
 
-        {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#e8f4f8]/25">
-            © {new Date().getFullYear()} ActionPotential.AI — All rights reserved.
+          <p className="text-xs text-[var(--color-text)]/20">
+            &copy; {new Date().getFullYear()} ActionPotential.AI — All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="/privacy/" className="text-xs text-[#e8f4f8]/55 hover:text-[#79C5C7] transition-colors">
+            <a href="/privacy/" className="text-xs text-[var(--color-text)]/30 hover:text-[var(--color-text)]/60 transition-colors">
               Privacy Policy
             </a>
-            <a href="/terms/" className="text-xs text-[#e8f4f8]/55 hover:text-[#79C5C7] transition-colors">
+            <a href="/terms/" className="text-xs text-[var(--color-text)]/30 hover:text-[var(--color-text)]/60 transition-colors">
               Terms of Service
             </a>
           </div>
-          <p className="text-xs text-[#e8f4f8]/20 italic">From potential... to action.</p>
+          <p className="text-xs text-[var(--color-text)]/15 italic">From potential... to action.</p>
         </div>
       </div>
     </footer>

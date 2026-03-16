@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Zap, Calendar, ArrowRight, CheckCircle2, Brain, Mail } from "lucide-react";
-import NeuralNetwork from "./NeuralNetwork";
 
 const auditIncludes = [
   "Review of your current marketing and lead flow",
@@ -22,121 +21,111 @@ export default function CTA() {
 
   return (
     <section ref={ref} id="cta" className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Neural network background */}
-      <div className="absolute inset-0 opacity-30">
-        <NeuralNetwork />
-      </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(46,166,212,0.08)_0%,rgba(13,17,23,0.78)_70%)]" />
+      <div className="absolute inset-0 subtle-grid" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#2EA6D4]/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          {/* Pulsing icon */}
           <div className="flex justify-center mb-8">
-            <div className="relative">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#79C5C7] to-[#1B75BB] flex items-center justify-center node-pulse">
-                <Brain className="w-10 h-10 text-white" />
-              </div>
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[#79C5C7]/15 to-[#1B75BB]/15 blur-2xl" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--teal-light)]/15 to-[var(--blue-deep)]/15 border border-[var(--teal-light)]/15 flex items-center justify-center">
+              <Brain className="w-8 h-8 text-[var(--teal-light)]" />
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#79C5C7]/10 border border-[#79C5C7]/20 text-[#79C5C7] text-sm mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#79C5C7] node-pulse" />
-            Free — No Obligation
+          <div className="section-label mb-6 mx-auto w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--teal-light)] animate-pulse" />
+            <span>Free — No Obligation</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-text-strong)] mb-6 leading-tight">
             Ready to fire your
             <br />
-            <span className="shimmer">growth system?</span>
+            <span className="gradient-text">growth system?</span>
           </h2>
 
-          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[var(--color-text)]/55 max-w-2xl mx-auto leading-relaxed">
             Book your free AI Audit today. We&apos;ll identify your biggest conversion bottlenecks,
             show where revenue is leaking, and map the highest-impact fixes for the next 90 days.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
               href="/results/index.html"
-              className="rounded-full border border-[#79C5C7]/25 bg-[#79C5C7]/8 px-4 py-2 text-sm text-[#e8f4f8]/90 hover:bg-[#79C5C7]/14 transition-colors"
+              className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-text)]/65 hover:border-[var(--color-border-strong)] transition-all"
             >
               Watch client testimonial videos
             </a>
             <a
               href="/resources/faq/index.html"
-              className="rounded-full border border-[#79C5C7]/22 bg-[#79C5C7]/6 px-4 py-2 text-sm text-[#e8f4f8]/88 hover:bg-[#79C5C7]/12 transition-colors"
+              className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-text)]/65 hover:border-[var(--color-border-strong)] transition-all"
             >
               Read FAQs before booking
             </a>
           </div>
         </motion.div>
 
-        {/* Two-column: what's included + real conversion actions */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-5">
           {/* What's included */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-7"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="contained-card p-7"
           >
             <div className="flex items-center gap-2 mb-5">
-              <Calendar className="w-5 h-5 text-[#79C5C7]" />
-              <h3 className="font-bold text-white">Your Free AI Audit Includes:</h3>
+              <Calendar className="w-4 h-4 text-[var(--teal-light)]/70" />
+              <h3 className="font-semibold text-[var(--color-text-strong)] text-sm">Your Free AI Audit Includes:</h3>
             </div>
             <div className="space-y-3">
               {auditIncludes.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.07 }}
+                  transition={{ delay: 0.3 + i * 0.05 }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-[#00A79D] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-[#e8f4f8]/70">{item}</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--teal-green)]/50 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-[var(--color-text)]/50">{item}</span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-[#79C5C7]/10">
-              <p className="text-xs text-[#e8f4f8]/60 italic">
+            <div className="mt-6 pt-5 border-t border-[var(--color-border)]">
+              <p className="text-xs text-[var(--color-text)]/35 italic">
                 We earn trust first. If there&apos;s no fit, you still leave with a clearer growth
                 roadmap.
               </p>
             </div>
           </motion.div>
 
-          {/* Booking / CTA */}
+          {/* Booking */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card p-7 border-gradient"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="contained-card p-7 border-gradient"
           >
-            <h3 className="font-bold text-white mb-2">Book Your Free AI Audit</h3>
-            <p className="text-sm text-[#e8f4f8]/70 mb-6">
+            <h3 className="font-semibold text-[var(--color-text-strong)] text-sm mb-2">Book Your Free AI Audit</h3>
+            <p className="text-sm text-[var(--color-text)]/45 mb-6">
               Pick a time directly on our calendar. Takes about 2 minutes.
             </p>
 
             <div className="space-y-4">
-              <div className="rounded-xl border border-[#e8f4f8]/12 bg-[#e8f4f8]/5 p-4">
-                <p className="text-sm text-[#e8f4f8]/80 mb-3 font-semibold">What happens after you book:</p>
+              <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+                <p className="text-sm text-[var(--color-text)]/60 mb-3 font-medium">What happens after you book:</p>
                 <ul className="space-y-2">
                   {[
                     "You select a time that works for your schedule",
                     "We review your current funnel before the call",
                     "You get a practical action plan, not a vague pitch",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-[#e8f4f8]/75">
-                      <CheckCircle2 className="w-4 h-4 text-[#00A79D] mt-0.5 flex-shrink-0" />
+                    <li key={item} className="flex items-start gap-2 text-sm text-[var(--color-text)]/50">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[var(--teal-green)]/50 mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -147,38 +136,37 @@ export default function CTA() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 href={bookingUrl}
-                className="w-full py-4 rounded-xl font-bold text-white glow-button inline-flex items-center justify-center gap-2 mt-2"
+                className="w-full py-4 rounded-xl font-semibold text-white glow-button inline-flex items-center justify-center gap-2 mt-2"
               >
-                <Zap className="w-5 h-5" fill="white" />
+                <Zap className="w-4 h-4" fill="white" />
                 Book Free AI Audit
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
 
               <a
                 href="mailto:hello@actionpotential.ai"
-                className="w-full py-3 rounded-xl border border-[#79C5C7]/25 text-[#e8f4f8]/90 hover:bg-[#79C5C7]/8 transition-colors inline-flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text)]/60 hover:border-[var(--color-border-strong)] transition-all inline-flex items-center justify-center gap-2 text-sm"
               >
-                <Mail className="w-4 h-4 text-[#79C5C7]" />
+                <Mail className="w-3.5 h-3.5 text-[var(--teal-light)]/50" />
                 Prefer email? hello@actionpotential.ai
               </a>
 
-              <p className="text-center text-xs text-[#e8f4f8]/60">
+              <p className="text-center text-xs text-[var(--color-text)]/30">
                 No long-term contracts. No pressure tactics. Clear next steps.
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Tagline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
           className="text-center mt-16"
         >
-          <p className="text-2xl sm:text-3xl font-black text-white/20 tracking-tight">
+          <p className="text-xl sm:text-2xl font-bold text-[var(--color-text)]/10 tracking-tight">
             From potential...{" "}
-            <span className="gradient-text opacity-100">to action.</span>
+            <span className="gradient-text opacity-70">to action.</span>
           </p>
         </motion.div>
       </div>

@@ -18,25 +18,24 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="relative py-10 overflow-hidden">
-      <div className="section-divider mb-0" />
-      <div
-        className="py-6"
-        style={{ backgroundColor: "rgb(var(--color-bg-rgb) / 0.5)" }}
-      >
+    <section ref={ref} className="relative py-6">
+      <div className="section-divider" />
+      <div className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             {items.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.08 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f4f8]/4 border border-[#e8f4f8]/10"
+                transition={{ delay: i * 0.06 }}
+                className="flex items-center gap-3"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#79C5C7] to-[#2EA6D4]" />
-                <span className="text-sm font-medium text-[#e8f4f8]/90">{item.label}</span>
-                <span className="text-xs text-[#e8f4f8]/62">— {item.sublabel}</span>
+                <span className="w-1 h-1 rounded-full bg-[var(--teal-light)]/40" />
+                <span className="text-sm font-medium text-[var(--color-text)]/80">{item.label}</span>
+                <span className="text-xs text-[var(--color-text)]/35">
+                  {item.sublabel}
+                </span>
               </motion.div>
             ))}
           </div>
