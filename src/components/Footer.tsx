@@ -12,9 +12,8 @@ const links = {
     { label: "SEO & Paid Media", href: "#services" },
   ],
   Company: [
-    { label: "How It Works", href: "#how-it-works" },
+    { label: "How It Works", href: "#behavioral-engine" },
     { label: "Why Us", href: "#why-us" },
-    { label: "Who We Serve", href: "#who-we-serve" },
     { label: "About Cary", href: "#founder" },
   ],
   "Get Started": [
