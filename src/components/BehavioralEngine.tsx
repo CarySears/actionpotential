@@ -88,6 +88,68 @@ export default function BehavioralEngine() {
           </p>
         </motion.div>
 
+        {/* ── Visual stage pipeline ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="relative mb-16"
+        >
+          {/* Connecting track line */}
+          <div
+            className="absolute top-[18px] h-px pointer-events-none"
+            style={{
+              left: "calc(100% / 12)",
+              right: "calc(100% / 12)",
+              background:
+                "linear-gradient(90deg, rgba(121,197,199,0.1), rgba(46,166,212,0.28), rgba(27,117,187,0.28), rgba(46,166,212,0.28), rgba(121,197,199,0.1))",
+            }}
+          />
+
+          <div className="grid grid-cols-6 gap-1 sm:gap-2">
+            {stages.map((stage, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
+                className="flex flex-col items-center gap-2"
+              >
+                <div
+                  className="relative z-10 w-9 h-9 rounded-full flex items-center justify-center"
+                  style={{
+                    background: stage.color + "18",
+                    border: `1.5px solid ${stage.color}52`,
+                    boxShadow: `0 0 12px ${stage.color}18`,
+                  }}
+                >
+                  <stage.icon className="w-4 h-4" style={{ color: stage.color }} />
+                </div>
+                <span
+                  className="text-[9px] sm:text-[11px] font-semibold text-center leading-tight tracking-wide"
+                  style={{ color: stage.color + "cc" }}
+                >
+                  {stage.title}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Loop-back label */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.65 }}
+            className="flex items-center justify-center gap-1.5 mt-4"
+          >
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#79C5C7]/30" />
+            <span className="text-[10px] font-mono text-[#79C5C7]/50 tracking-widest uppercase">
+              continuous loop
+            </span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#79C5C7]/30" />
+          </motion.div>
+        </motion.div>
+
         {/* Stages grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
           {stages.map((stage, i) => (

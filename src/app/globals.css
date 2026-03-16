@@ -296,3 +296,52 @@ html[data-theme="light"] .brand-geometry-bottom-left {
 html[data-theme="light"] .brand-dot-cluster {
   opacity: 0.09;
 }
+
+/* Subtle dot-grid texture for section backgrounds */
+.section-dot-grid {
+  background-image: radial-gradient(circle, rgba(121, 197, 199, 0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Contained card — used by hero and feature panels */
+.contained-card {
+  border-radius: 24px;
+  border: 1px solid rgba(121, 197, 199, 0.12);
+  background: rgba(17, 26, 36, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html[data-theme="light"] .contained-card {
+  background: rgba(27, 49, 72, 0.55);
+  border-color: rgba(121, 197, 199, 0.2);
+}
+
+/* Gradient border line — horizontal rule */
+.gradient-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(121, 197, 199, 0.18) 20%,
+    rgba(46, 166, 212, 0.35) 50%,
+    rgba(121, 197, 199, 0.18) 80%,
+    transparent
+  );
+}
+
+/* Section label / overline pill */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(46, 166, 212, 0.08);
+  border: 1px solid rgba(46, 166, 212, 0.18);
+  color: var(--blue-bright);
+}
