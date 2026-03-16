@@ -510,8 +510,8 @@
     const href = link.getAttribute("href");
     if (!href) return;
     if (href === bookingUrl || href.startsWith(bookingUrl + "?")) {
-      link.textContent = "Book AI Systems Audit";
-      link.setAttribute("aria-label", "Book AI Systems Audit");
+      link.textContent = "Book a Free AI Audit";
+      link.setAttribute("aria-label", "Book a Free AI Audit");
     }
   });
 })();
