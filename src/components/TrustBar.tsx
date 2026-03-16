@@ -5,10 +5,12 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const items = [
-  { value: "Behavioral science", label: "Decision psychology built in" },
-  { value: "UX + interaction design", label: "Low-friction conversion paths" },
-  { value: "Conversational marketing", label: "Lead handling across channels" },
-  { value: "Human-centered AI", label: "Automation with human handoff" },
+  { label: "Behavioral Science", sublabel: "Not guesswork" },
+  { label: "Full-Funnel Ownership", sublabel: "Not just leads" },
+  { label: "AI-Native", sublabel: "Not AI-adjacent" },
+  { label: "No Long-Term Contracts", sublabel: "Not locked in" },
+  { label: "Human-Centered", sublabel: "Not robotic" },
+  { label: "Results-Driven", sublabel: "Not vanity metrics" },
 ];
 
 export default function TrustBar() {
@@ -16,25 +18,31 @@ export default function TrustBar() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="relative py-8 sm:py-10 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-divider mb-6" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {items.map((item, i) => (
-            <motion.div
-              key={item.value}
-              initial={{ opacity: 0, y: 12 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border border-[#79C5C7]/16 bg-[#e8f4f8]/[0.02] px-4 py-4"
-            >
-              <p className="text-sm font-semibold text-[#e8f4f8]/92">{item.value}</p>
-              <p className="text-xs text-[#e8f4f8]/64 mt-1">{item.label}</p>
-            </motion.div>
-          ))}
+    <section ref={ref} className="relative py-10 overflow-hidden">
+      <div className="section-divider mb-0" />
+      <div
+        className="py-6"
+        style={{ backgroundColor: "rgb(var(--color-bg-rgb) / 0.5)" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
+            {items.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f4f8]/4 border border-[#e8f4f8]/10"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#79C5C7] to-[#2EA6D4]" />
+                <span className="text-sm font-medium text-[#e8f4f8]/90">{item.label}</span>
+                <span className="text-xs text-[#e8f4f8]/62">— {item.sublabel}</span>
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <div className="section-divider mt-6" />
       </div>
+      <div className="section-divider" />
     </section>
   );
 }

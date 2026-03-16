@@ -7,9 +7,10 @@ import Link from "next/link";
 import { useTheme } from "./theme/ThemeProvider";
 
 const navLinks = [
-  { label: "System", href: "#behavioral-engine" },
-  { label: "Visibility", href: "#visibility-engine" },
-  { label: "Method", href: "#why-us" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Who We Serve", href: "#who-we-serve" },
   { label: "About", href: "#founder" },
 ];
 
@@ -36,6 +37,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#79C5C7] to-[#1B75BB] flex items-center justify-center node-pulse">
@@ -53,18 +55,20 @@ export default function Navbar() {
             </div>
           </Link>
 
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#e8f4f8]/85 hover:text-[#79C5C7] transition-colors rounded-lg hover:bg-[#79C5C7]/5"
+                className="px-4 py-2 text-sm text-[#e8f4f8]/85 hover:text-[#79C5C7] transition-colors rounded-lg hover:bg-[#79C5C7]/5"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
+          {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-3">
             <button
               onClick={toggleTheme}
@@ -79,7 +83,7 @@ export default function Navbar() {
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white glow-button"
             >
               <Zap className="w-4 h-4" />
-              Book Audit
+              Book Free AI Audit
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -92,6 +96,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -126,7 +131,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 px-5 py-3 rounded-full text-sm font-semibold text-white text-center glow-button"
               >
-                Book Audit
+                Book Free AI Audit
               </a>
             </div>
           </motion.div>
