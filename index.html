@@ -653,7 +653,8 @@
 
       .hero-focus .cta-group {
         justify-content: center;
-        margin-top: 0.35rem;
+        margin-top: clamp(0.75rem, 1.6vw, 1.05rem);
+        margin-bottom: clamp(0.9rem, 2vw, 1.35rem);
       }
 
       .eyebrow {
@@ -2069,6 +2070,8 @@
           width: 100%;
           justify-content: center;
           align-items: center;
+          margin-top: 0.72rem;
+          margin-bottom: 1rem;
         }
         .cta-group .btn {
           width: 100%;
