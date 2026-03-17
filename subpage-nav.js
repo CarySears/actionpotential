@@ -78,42 +78,46 @@
 
   const navModel = [
     {
-      label: "Services",
+      label: "Systems",
       href: "/services/index.html",
       children: [
         { label: "AI Agents", href: "/services/behavioral-engine.html" },
-        { label: "Intelligent websites", href: "/services/smart-websites.html" },
         { label: "AI Automation", href: "/services/marketing-automation.html" },
-        { label: "AI-SEO", href: "/services/ai-search.html" },
-        { label: "Paid Ads", href: "/services/paid-media.html" },
+        { label: "Intelligent Websites", href: "/services/smart-websites.html" },
+        { label: "AI CRM", href: "/platform/crm.html" },
       ],
     },
     {
-      label: "AI Agent Platform",
-      href: "/platform/ai-operations-suite.html",
+      label: "Services",
+      href: "/services/index.html",
       children: [
-        { label: "Platform Overview", href: "/platform/ai-operations-suite.html" },
-        { label: "CRM", href: "/platform/crm.html" },
+        { label: "AI Seo", href: "/services/ai-search.html" },
+        { label: "Paid ads", href: "/services/paid-media.html" },
       ],
     },
     {
-      label: "Who We Serve",
+      label: "Results",
+      href: "/results/index.html",
+      children: [
+        { label: "Reviews", href: "/results/index.html" },
+        { label: "Case Studies", href: "/resources/case-studies/index.html" },
+      ],
+    },
+    {
+      label: "Who we serve",
       href: "/who-we-empower/index.html",
       children: [
         { label: "Industries", href: "/who-we-empower/industries/index.html" },
         { label: "Locations", href: "/who-we-empower/locations/index.html" },
       ],
     },
-    { label: "Results", href: "/results/index.html" },
+    { label: "Company", href: "/who-we-are/index.html" },
     {
-      label: "Company",
-      href: "/who-we-are/index.html",
+      label: "Resources",
+      href: "/resources/index.html",
       children: [
-        { label: "Who We Are", href: "/who-we-are/index.html" },
-        { label: "Resources", href: "/resources/index.html" },
+        { label: "Blogs", href: "/resources/blog/index.html" },
         { label: "FAQs", href: "/resources/faq/index.html" },
-        { label: "Blog", href: "/resources/blog/index.html" },
-        { label: "Case Studies", href: "/resources/case-studies/index.html" },
       ],
     },
   ];
@@ -245,7 +249,7 @@
     const path = canonicalPath(window.location.pathname);
     const sectionMap = [
       ["/services", "/services/index.html"],
-      ["/platform", "/platform/ai-operations-suite.html"],
+      ["/platform", "/services/index.html"],
       ["/who-we-empower", "/who-we-empower/index.html"],
       ["/results", "/results/index.html"],
       ["/who-we-are", "/who-we-are/index.html"],
