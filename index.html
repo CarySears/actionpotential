@@ -875,9 +875,11 @@
       }
 
       .hero-without-line {
-        display: inline-block;
-        margin: 0.62rem 0 0.75rem;
+        display: block;
+        width: fit-content;
+        margin: 0.62rem auto 0.75rem;
         max-width: 44ch;
+        text-align: center;
         color: #f3f8ff;
         font-size: clamp(1rem, 1.2vw, 1.14rem);
         font-weight: 700;
@@ -887,6 +889,7 @@
 
       @media (min-width: 1025px) {
         .hero-without-line {
+          width: max-content;
           max-width: none;
           white-space: nowrap;
         }
