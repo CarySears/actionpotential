@@ -1253,6 +1253,45 @@
         color: #d7e2f7;
       }
 
+      .testimonial-carousel-controls {
+        display: none;
+      }
+
+      .testimonial-carousel-nav {
+        min-height: 38px;
+        padding: 0.45rem 0.68rem;
+        border-radius: 10px;
+        border: 1px solid rgba(121, 197, 199, 0.3);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        font-weight: 700;
+        font-size: 0.82rem;
+      }
+
+      .testimonial-carousel-nav:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .testimonial-carousel-dots {
+        display: inline-flex;
+        gap: 0.34rem;
+        align-items: center;
+      }
+
+      .testimonial-carousel-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 0;
+        background: rgba(121, 197, 199, 0.35);
+        padding: 0;
+      }
+
+      .testimonial-carousel-dot.is-active {
+        background: var(--brand-1);
+      }
+
       .problem ul {
         margin: 1rem 0 0;
         padding-left: 1.1rem;
@@ -2246,6 +2285,31 @@
         .card-grid {
           grid-template-columns: 1fr;
         }
+        #testimonials .testimonial-carousel {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 0.72rem;
+          overflow-x: auto;
+          padding: 0.02rem 0.08rem 0.22rem;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        #testimonials .testimonial-carousel::-webkit-scrollbar {
+          display: none;
+        }
+        #testimonials .testimonial-carousel > .video-card {
+          flex: 0 0 calc(100% - 0.16rem);
+          scroll-snap-align: start;
+        }
+        .testimonial-carousel-controls {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.56rem;
+          margin-top: 0.62rem;
+        }
         .quick-value-grid {
           grid-template-columns: 1fr;
         }
@@ -2568,7 +2632,7 @@
             </div>
             <p>Client feedback highlights faster response and stronger conversion consistency.</p>
           </div>
-          <div class="card-grid" style="margin-top: 1rem;">
+          <div class="card-grid testimonial-carousel" style="margin-top: 1rem;" id="testimonial-carousel-track">
             <article class="card video-card">
               <h3>Mauro Clerici</h3>
               <p>Founder Vesping Around</p>
@@ -2594,6 +2658,15 @@
                 Your browser does not support embedded videos.
               </video>
             </article>
+          </div>
+          <div class="testimonial-carousel-controls" aria-label="Testimonial carousel controls">
+            <button class="testimonial-carousel-nav" type="button" data-carousel-prev aria-label="Previous testimonial">Prev</button>
+            <div class="testimonial-carousel-dots" role="tablist" aria-label="Choose testimonial slide">
+              <button class="testimonial-carousel-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Go to testimonial 1" data-carousel-dot="0"></button>
+              <button class="testimonial-carousel-dot" type="button" role="tab" aria-selected="false" aria-label="Go to testimonial 2" data-carousel-dot="1"></button>
+              <button class="testimonial-carousel-dot" type="button" role="tab" aria-selected="false" aria-label="Go to testimonial 3" data-carousel-dot="2"></button>
+            </div>
+            <button class="testimonial-carousel-nav" type="button" data-carousel-next aria-label="Next testimonial">Next</button>
           </div>
           <div class="kpi-row">
             <article class="kpi"><strong>Faster response</strong><span>Less lead decay at the top of funnel</span></article>
@@ -3067,6 +3140,100 @@
           video.addEventListener("mouseenter", startPreview);
           video.addEventListener("mouseleave", stopPreview);
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        const section = document.getElementById("testimonials");
+        if (!section) return;
+        const track = section.querySelector("#testimonial-carousel-track");
+        const prev = section.querySelector("[data-carousel-prev]");
+        const next = section.querySelector("[data-carousel-next]");
+        const dots = Array.from(section.querySelectorAll("[data-carousel-dot]"));
+        if (!track || !prev || !next || !dots.length) return;
+
+        const mobileMq = window.matchMedia("(max-width: 720px)");
+        const slides = () => Array.from(track.querySelectorAll(".video-card"));
+
+        const currentIndex = () => {
+          const cards = slides();
+          if (!cards.length) return 0;
+          const trackLeft = track.getBoundingClientRect().left;
+          let bestIndex = 0;
+          let bestDistance = Number.POSITIVE_INFINITY;
+          cards.forEach((card, index) => {
+            const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              bestIndex = index;
+            }
+          });
+          return bestIndex;
+        };
+
+        const scrollToIndex = (index, smooth) => {
+          const cards = slides();
+          if (!cards.length) return;
+          const clamped = Math.max(0, Math.min(index, cards.length - 1));
+          const target = cards[clamped];
+          track.scrollTo({
+            left: target.offsetLeft - track.offsetLeft,
+            behavior: smooth ? "smooth" : "auto",
+          });
+        };
+
+        const updateUi = () => {
+          const cards = slides();
+          const index = currentIndex();
+          dots.forEach((dot, dotIndex) => {
+            const active = dotIndex === index;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-selected", active ? "true" : "false");
+            dot.tabIndex = active ? 0 : -1;
+          });
+          prev.disabled = !mobileMq.matches || index <= 0;
+          next.disabled = !mobileMq.matches || index >= cards.length - 1;
+        };
+
+        prev.addEventListener("click", () => {
+          scrollToIndex(currentIndex() - 1, true);
+        });
+
+        next.addEventListener("click", () => {
+          scrollToIndex(currentIndex() + 1, true);
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            scrollToIndex(index, true);
+          });
+        });
+
+        let scrollTimer = 0;
+        track.addEventListener(
+          "scroll",
+          () => {
+            window.clearTimeout(scrollTimer);
+            scrollTimer = window.setTimeout(updateUi, 80);
+          },
+          { passive: true },
+        );
+
+        const syncOnResize = () => {
+          if (!mobileMq.matches) {
+            track.scrollTo({ left: 0, behavior: "auto" });
+          }
+          updateUi();
+        };
+
+        if (mobileMq.addEventListener) {
+          mobileMq.addEventListener("change", syncOnResize);
+        } else if (mobileMq.addListener) {
+          mobileMq.addListener(syncOnResize);
+        }
+
+        window.addEventListener("resize", syncOnResize, { passive: true });
+        updateUi();
       })();
     </script>
     <script
