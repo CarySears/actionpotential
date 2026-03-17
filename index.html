@@ -1260,8 +1260,12 @@
         padding-left: 1.1rem;
         display: grid;
         gap: 0.5rem;
-        color: #dce5f7;
+        color: #d1dbed;
         text-shadow: var(--text-halo-soft);
+      }
+
+      .problem li {
+        color: inherit;
       }
 
       .problem .container > div:first-child {
@@ -1280,7 +1284,7 @@
       }
 
       .problem li::marker {
-        color: var(--accent-coral);
+        color: var(--brand-1);
       }
 
       .split {
@@ -1773,6 +1777,10 @@
           rgba(255, 255, 255, 0.52) 62%,
           rgba(255, 255, 255, 0)
         );
+      }
+
+      body.after-fold-light .problem li::marker {
+        color: #1b75bb;
       }
 
       body.after-fold-light .card,
