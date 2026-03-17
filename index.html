@@ -1258,7 +1258,7 @@
         padding-left: 1.1rem;
         display: grid;
         gap: 0.5rem;
-        color: #d1dbed;
+        color: var(--muted);
         text-shadow: var(--text-halo-soft);
       }
 
@@ -1282,7 +1282,7 @@
       }
 
       .problem li::marker {
-        color: var(--brand-1);
+        color: currentColor;
       }
 
       .split {
@@ -1779,10 +1779,6 @@
           rgba(255, 255, 255, 0.52) 62%,
           rgba(255, 255, 255, 0)
         );
-      }
-
-      body.after-fold-light .problem li::marker {
-        color: #1b75bb;
       }
 
       body.after-fold-light .card,
