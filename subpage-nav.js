@@ -31,24 +31,26 @@
         text-decoration: none;
       }
       .dropdown-menu a.dropdown-section-title--systems {
-        color: #2f6f87;
+        color: var(--brand-3, #00a79d);
         background: linear-gradient(90deg, rgba(121, 197, 199, 0.2), rgba(121, 197, 199, 0.06));
-        box-shadow: inset 2px 0 0 rgba(73, 168, 172, 0.62);
+        box-shadow: inset 2px 0 0 rgba(0, 167, 157, 0.62);
       }
       .dropdown-menu a.dropdown-section-title--services {
-        color: #6a5a92;
-        background: linear-gradient(90deg, rgba(161, 144, 220, 0.18), rgba(161, 144, 220, 0.05));
-        box-shadow: inset 2px 0 0 rgba(129, 108, 203, 0.58);
+        color: var(--brand-4, #1b75bb);
+        background: linear-gradient(90deg, rgba(46, 166, 212, 0.18), rgba(27, 117, 187, 0.05));
+        box-shadow: inset 2px 0 0 rgba(27, 117, 187, 0.58);
       }
       .dropdown-menu a.dropdown-section-title:hover {
         color: #323843;
         background: rgba(121, 197, 199, 0.08);
       }
       .dropdown-menu a.dropdown-section-title--systems:hover {
+        color: var(--brand-3, #00a79d);
         background: linear-gradient(90deg, rgba(121, 197, 199, 0.28), rgba(121, 197, 199, 0.1));
       }
       .dropdown-menu a.dropdown-section-title--services:hover {
-        background: linear-gradient(90deg, rgba(161, 144, 220, 0.26), rgba(161, 144, 220, 0.09));
+        color: var(--brand-4, #1b75bb);
+        background: linear-gradient(90deg, rgba(46, 166, 212, 0.26), rgba(27, 117, 187, 0.09));
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title {
         color: #91a8cf;
@@ -59,12 +61,12 @@
         padding: 0.48rem 0.58rem 0.16rem;
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title--systems {
-        color: #8dd8da;
-        background: rgba(84, 170, 173, 0.14);
+        color: var(--brand-1, #79c5c7);
+        background: rgba(121, 197, 199, 0.14);
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title--services {
-        color: #c5b6ff;
-        background: rgba(130, 114, 201, 0.14);
+        color: var(--brand-2, #2ea6d4);
+        background: rgba(46, 166, 212, 0.14);
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title:hover {
         color: #dce9ff;
