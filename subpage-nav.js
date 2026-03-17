@@ -25,6 +25,13 @@
         letter-spacing: 0.07em;
         text-transform: uppercase;
       }
+      a.dropdown-section-title {
+        text-decoration: none;
+      }
+      a.dropdown-section-title:hover {
+        color: #323843;
+        background: rgba(121, 197, 199, 0.08);
+      }
       .dropdown-section-divider {
         margin: 0.16rem 0.62rem 0.04rem;
         border-top: 1px solid rgba(35, 31, 32, 0.12);
@@ -98,13 +105,13 @@
       href: "/services/index.html",
       mega: true,
       children: [
-        { kind: "heading", label: "Systems" },
+        { kind: "heading", label: "Systems", href: "/services/systems.html" },
         { label: "AI Agents", href: "/services/behavioral-engine.html" },
         { label: "AI Automation", href: "/services/marketing-automation.html" },
         { label: "Intelligent Websites", href: "/services/smart-websites.html" },
         { label: "AI CRM", href: "/platform/crm.html" },
         { kind: "divider" },
-        { kind: "heading", label: "Services" },
+        { kind: "heading", label: "Services", href: "/services/services.html" },
         { label: "AI SEO", href: "/services/ai-search.html" },
         { label: "Paid Ads", href: "/services/paid-media.html" },
       ],
@@ -143,6 +150,9 @@
     const children = item.children
       .map((child) => {
         if (child.kind === "heading") {
+          if (child.href) {
+            return `<a role="menuitem" class="dropdown-section-title" href="${child.href}">${child.label}</a>`;
+          }
           return `<span class="dropdown-section-title">${child.label}</span>`;
         }
         if (child.kind === "divider") {
