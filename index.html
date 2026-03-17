@@ -874,11 +874,14 @@
         text-shadow: var(--text-halo-soft);
       }
 
-      .hero-without-line {
+      .hero .hero-without-line {
         display: block;
-        width: fit-content;
-        margin: 0.62rem auto 0.75rem;
-        max-width: 44ch;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: min(44ch, calc(100% - 1rem));
+        margin: 0.62rem 0 0.75rem;
         text-align: center;
         color: #f3f8ff;
         font-size: clamp(1rem, 1.2vw, 1.14rem);
@@ -888,7 +891,7 @@
       }
 
       @media (min-width: 1025px) {
-        .hero-without-line {
+        .hero .hero-without-line {
           width: max-content;
           max-width: none;
           white-space: nowrap;
