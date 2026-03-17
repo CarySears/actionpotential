@@ -2303,6 +2303,15 @@
           flex: 0 0 calc(100% - 0.16rem);
           scroll-snap-align: start;
         }
+        #testimonials .testimonial-carousel > .video-card:nth-child(1) {
+          order: 2;
+        }
+        #testimonials .testimonial-carousel > .video-card:nth-child(2) {
+          order: 1;
+        }
+        #testimonials .testimonial-carousel > .video-card:nth-child(3) {
+          order: 3;
+        }
         .testimonial-carousel-controls {
           display: flex;
           align-items: center;
@@ -3153,7 +3162,10 @@
         if (!track || !prev || !next || !dots.length) return;
 
         const mobileMq = window.matchMedia("(max-width: 720px)");
-        const slides = () => Array.from(track.querySelectorAll(".video-card"));
+        const slides = () =>
+          Array.from(track.querySelectorAll(".video-card")).sort(
+            (a, b) => a.offsetLeft - b.offsetLeft,
+          );
 
         const currentIndex = () => {
           const cards = slides();
