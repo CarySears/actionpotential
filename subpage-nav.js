@@ -13,6 +13,22 @@
         text-decoration-thickness: 2px;
         text-underline-offset: 0.42em;
       }
+      .dropdown-menu.is-mega {
+        min-width: 274px;
+      }
+      .dropdown-section-title {
+        display: block;
+        padding: 0.4rem 0.62rem 0.14rem;
+        color: #6f7681;
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .dropdown-section-divider {
+        margin: 0.16rem 0.62rem 0.04rem;
+        border-top: 1px solid rgba(35, 31, 32, 0.12);
+      }
       .breadcrumbs {
         width: min(1120px, calc(100% - 2rem));
         margin: 0.58rem auto 0;
@@ -78,21 +94,19 @@
 
   const navModel = [
     {
-      label: "Systems",
+      label: "Solutions",
       href: "/services/index.html",
+      mega: true,
       children: [
+        { kind: "heading", label: "Systems" },
         { label: "AI Agents", href: "/services/behavioral-engine.html" },
         { label: "AI Automation", href: "/services/marketing-automation.html" },
         { label: "Intelligent Websites", href: "/services/smart-websites.html" },
         { label: "AI CRM", href: "/platform/crm.html" },
-      ],
-    },
-    {
-      label: "Services",
-      href: "/services/index.html",
-      children: [
-        { label: "AI Seo", href: "/services/ai-search.html" },
-        { label: "Paid ads", href: "/services/paid-media.html" },
+        { kind: "divider" },
+        { kind: "heading", label: "Services" },
+        { label: "AI SEO", href: "/services/ai-search.html" },
+        { label: "Paid Ads", href: "/services/paid-media.html" },
       ],
     },
     {
@@ -127,12 +141,20 @@
       return `<a href="${item.href}">${item.label}</a>`;
     }
     const children = item.children
-      .map((child) => `<a role="menuitem" href="${child.href}">${child.label}</a>`)
+      .map((child) => {
+        if (child.kind === "heading") {
+          return `<span class="dropdown-section-title">${child.label}</span>`;
+        }
+        if (child.kind === "divider") {
+          return `<span class="dropdown-section-divider" aria-hidden="true"></span>`;
+        }
+        return `<a role="menuitem" href="${child.href}">${child.label}</a>`;
+      })
       .join("");
     return (
       `<div class="nav-item">` +
       `<a href="${item.href}">${item.label}</a>` +
-      `<div class="dropdown-menu" role="menu" aria-label="${item.label}">${children}</div>` +
+      `<div class="dropdown-menu${item.mega ? " is-mega" : ""}" role="menu" aria-label="${item.label}">${children}</div>` +
       `</div>`
     );
   };
