@@ -653,12 +653,23 @@
 
       .hero-focus .cta-group {
         justify-content: center;
-        margin-top: clamp(1.05rem, 2.1vw, 1.4rem);
-        margin-bottom: clamp(0.35rem, 0.65vw, 0.5rem);
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
-      .hero + .section {
-        padding-top: 1.75rem;
+      .hero-voice-slot {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: clamp(0.95rem, 1.8vw, 1.25rem);
+        margin-bottom: clamp(0.75rem, 1.4vw, 1rem);
+        padding: clamp(0.35rem, 0.75vw, 0.55rem) 0;
+        min-height: clamp(84px, 8.8vw, 112px);
+      }
+
+      .hero-voice-slot > * {
+        margin-inline: auto;
       }
 
       .eyebrow {
@@ -2074,8 +2085,12 @@
           width: 100%;
           justify-content: center;
           align-items: center;
-          margin-top: 0.94rem;
-          margin-bottom: 0.42rem;
+        }
+        .hero-voice-slot {
+          margin-top: 0.82rem;
+          margin-bottom: 0.74rem;
+          padding: 0.35rem 0;
+          min-height: 80px;
         }
         .cta-group .btn {
           width: 100%;
@@ -2247,9 +2262,6 @@
         .section {
           padding: 2.1rem 0;
         }
-        .hero + .section {
-          padding-top: 1.2rem;
-        }
         .section-head {
           gap: var(--space-sm);
           flex-direction: column;
@@ -2301,8 +2313,10 @@
         .section {
           padding: 1.85rem 0;
         }
-        .hero + .section {
-          padding-top: 1.02rem;
+        .hero-voice-slot {
+          margin-top: 0.74rem;
+          margin-bottom: 0.66rem;
+          min-height: 74px;
         }
         .nav-actions .btn {
           padding: 0.54rem 0.72rem;
@@ -2518,7 +2532,7 @@
               <span class="tagline-animated">to action.</span>
               </span>
             </div>
-            <div class="cta-group">
+            <div class="cta-group hero-voice-slot">
               <script
                 src="https://beta.leadconnectorhq.com/loader.js"
                 data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
