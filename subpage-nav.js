@@ -72,12 +72,14 @@
         padding: 0.48rem 0.58rem 0.16rem;
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title--systems {
-        color: var(--brand-1, #79c5c7);
-        background: rgba(121, 197, 199, 0.14);
+        color: var(--brand-2, #2ea6d4);
+        background: rgba(46, 166, 212, 0.14);
+        box-shadow: inset 2px 0 0 rgba(46, 166, 212, 0.6);
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title--services {
         color: var(--brand-2, #2ea6d4);
         background: rgba(46, 166, 212, 0.14);
+        box-shadow: inset 2px 0 0 rgba(46, 166, 212, 0.6);
       }
       .site-header.menu-open .nav-item .dropdown-menu a.dropdown-section-title:hover {
         color: #dce9ff;
