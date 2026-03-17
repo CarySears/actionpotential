@@ -756,15 +756,15 @@
       }
 
       .hero-tagline-apulse {
-        width: clamp(88px, 11vw, 148px);
-        height: clamp(22px, 2.9vw, 38px);
+        width: clamp(68px, 8.2vw, 108px);
+        height: clamp(18px, 2.2vw, 28px);
         overflow: visible;
-        margin-bottom: 0.1em;
+        margin-bottom: 0.04em;
       }
 
       .hero-tagline-ap-glow {
-        stroke: rgba(121, 197, 199, 0.42);
-        stroke-width: 6;
+        stroke: rgba(121, 197, 199, 0.4);
+        stroke-width: 5;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -772,18 +772,17 @@
 
       .hero-tagline-ap-track {
         stroke: url(#heroZGradient);
-        stroke-width: 2.2;
+        stroke-width: 2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
         stroke-dasharray: 6 5;
-        animation: hero-ap-track 2.9s ease-in-out infinite;
-        opacity: 0.68;
+        animation: footer-ap-track 2.9s ease-in-out infinite;
       }
 
       .hero-tagline-ap-dot {
         fill: url(#heroZDotGradient);
-        filter: drop-shadow(0 0 8px rgba(217, 58, 164, 0.45));
+        filter: drop-shadow(0 0 7px rgba(217, 58, 164, 0.42));
       }
 
       .footer-tagline {
@@ -862,21 +861,6 @@
         50% {
           stroke-dashoffset: -20;
           opacity: 0.92;
-        }
-      }
-
-      @keyframes hero-ap-track {
-        0% {
-          stroke-dashoffset: 0;
-          opacity: 0.52;
-        }
-        50% {
-          stroke-dashoffset: -13;
-          opacity: 0.76;
-        }
-        100% {
-          stroke-dashoffset: -22;
-          opacity: 0.52;
         }
       }
 
@@ -2493,31 +2477,37 @@
             <div class="hero-brand-signature">
               <span class="hero-tagline">
                 <span class="tagline-static">From potential...</span>
-                <svg class="hero-tagline-apulse" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
+                <svg class="hero-tagline-apulse" viewBox="0 0 220 28" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0" stop-color="#79C5C7" />
-                    <stop offset="0.25" stop-color="#2EA6D4" />
-                    <stop offset="0.55" stop-color="#00A79D" />
-                    <stop offset="0.78" stop-color="#FF8B66" />
-                    <stop offset="0.92" stop-color="#D93AA4" />
-                    <stop offset="1" stop-color="#1B75BB" />
+                    <stop offset="0.28" stop-color="#2EA6D4" />
+                    <stop offset="0.56" stop-color="#00A79D" />
+                    <stop offset="0.8" stop-color="#FF8B66" />
+                    <stop offset="1" stop-color="#D93AA4" />
                   </linearGradient>
                   <radialGradient id="heroZDotGradient" cx="50%" cy="50%" r="60%">
                     <stop offset="0" stop-color="#FFFFFF" />
-                    <stop offset="0.38" stop-color="#FF8B66" />
-                    <stop offset="0.72" stop-color="#D93AA4" />
+                    <stop offset="0.42" stop-color="#FF8B66" />
+                    <stop offset="0.75" stop-color="#D93AA4" />
                     <stop offset="1" stop-color="#1B75BB" />
                   </radialGradient>
                 </defs>
                 <path
                   class="hero-tagline-ap-glow"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+                  d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
                 />
                 <path
                   class="hero-tagline-ap-track"
-                  d="M2 24 H44 C55 24 60 16 68 5 C74 -1 80 -1 84 24 C88 38 98 39 108 24 H138 C148 24 154 33 164 34 C178 36 188 29 198 24 H218"
+                  d="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
                 />
+                <circle class="hero-tagline-ap-dot" r="2.8">
+                  <animateMotion
+                    dur="2.9s"
+                    repeatCount="indefinite"
+                    path="M2 18 H64 C76 18 82 10 90 5 C98 1 104 1 108 18 C112 29 122 30 132 18 H166 C176 18 184 22 194 21 H218"
+                  />
+                </circle>
               </svg>
               <span class="tagline-animated">to action.</span>
               </span>
