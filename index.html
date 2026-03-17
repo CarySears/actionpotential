@@ -1640,16 +1640,6 @@
         flex-wrap: wrap;
       }
 
-      .mobile-sticky {
-        display: none;
-      }
-
-      .mobile-sticky.chat-open-hide {
-        opacity: 0;
-        transform: translateY(16px);
-        pointer-events: none;
-      }
-
       .site-header,
       .card,
       .signal-card,
@@ -1856,11 +1846,6 @@
         color: #173d66;
       }
 
-      body.after-fold-light .mobile-sticky {
-        background: rgba(247, 251, 255, 0.97);
-        border-color: rgba(27, 117, 187, 0.25);
-      }
-
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
@@ -2022,7 +2007,10 @@
           margin-bottom: 0.08em;
         }
         .hero {
-          padding: 3.35rem 0 2.1rem;
+          padding: 3.1rem 0 1.8rem;
+        }
+        .hero-brand-signature {
+          margin-bottom: 0.72rem;
         }
         .section > .container {
           padding: 0.82rem;
@@ -2047,6 +2035,10 @@
           width: 100%;
           flex-direction: column;
           gap: 0.62rem;
+        }
+        .hero .cta-group {
+          width: auto;
+          align-items: flex-start;
         }
         .cta-group .btn {
           width: 100%;
@@ -2101,8 +2093,8 @@
           padding: 1.05rem;
         }
         body {
-          /* Reserve space so fixed CTA never covers content */
-          padding-bottom: calc(170px + env(safe-area-inset-bottom));
+          /* Keep content clear of the mobile chat launcher lane */
+          padding-bottom: calc(92px + env(safe-area-inset-bottom));
         }
         .nav-links {
           display: none;
@@ -2234,26 +2226,6 @@
         .avatar {
           margin-inline: auto;
         }
-        .mobile-sticky {
-          display: block;
-          position: fixed;
-          left: 0.85rem;
-          /* Reserve right-side launcher lane for chat widget */
-          right: 5.4rem;
-          /* Keep CTA above mobile chat launcher */
-          bottom: calc(4.9rem + env(safe-area-inset-bottom));
-          z-index: 60;
-          background: rgba(10, 17, 31, 0.96);
-          border: 1px solid rgba(121, 197, 199, 0.25);
-          border-radius: 14px;
-          padding: 0.6rem;
-          backdrop-filter: blur(10px);
-          transition: opacity 180ms ease, transform 180ms ease;
-        }
-        .mobile-sticky .btn {
-          min-height: 48px;
-          font-size: 0.92rem;
-        }
       }
 
       @media (max-width: 420px) {
@@ -2293,10 +2265,6 @@
           height: 38px;
           font-size: 0.76rem;
         }
-        .mobile-sticky {
-          bottom: calc(4.6rem + env(safe-area-inset-bottom));
-          right: 4.9rem;
-        }
       }
 
       @media (max-width: 390px) {
@@ -2317,11 +2285,6 @@
           min-width: 34px;
           height: 34px;
           font-size: 0.68rem;
-        }
-        .mobile-sticky {
-          bottom: calc(4.4rem + env(safe-area-inset-bottom));
-          left: 0.7rem;
-          right: 4.55rem;
         }
       }
 
@@ -3029,77 +2992,6 @@
       data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
       data-widget-id="692e35e1885ff875a3542ddb"
     ></script>
-    <script>
-      (function () {
-        const sticky = document.querySelector(".mobile-sticky");
-        if (!sticky) return;
-
-        const mobileMq = window.matchMedia("(max-width: 720px)");
-
-        const isVisible = (node) => {
-          const styles = window.getComputedStyle(node);
-          return (
-            styles.display !== "none" &&
-            styles.visibility !== "hidden" &&
-            Number(styles.opacity || "1") > 0.01
-          );
-        };
-
-        const isWidgetExpanded = () => {
-          const vw = window.innerWidth;
-          const vh = window.innerHeight;
-          const candidates = document.querySelectorAll(
-            [
-              "iframe[src*='leadconnector']",
-              "iframe[src*='chat-widget']",
-              "[id*='chat-widget']",
-              "[class*='chat-widget']",
-              "[id*='leadconnector']",
-              "[class*='leadconnector']",
-            ].join(","),
-          );
-
-          for (const node of candidates) {
-            if (!(node instanceof Element)) continue;
-            if (!isVisible(node)) continue;
-            const rect = node.getBoundingClientRect();
-            if (rect.width < 120 || rect.height < 120) continue;
-            if (rect.right <= 0 || rect.bottom <= 0 || rect.left >= vw || rect.top >= vh) continue;
-            if (rect.width * rect.height > 20000) return true;
-          }
-
-          return false;
-        };
-
-        const updateSticky = () => {
-          if (!mobileMq.matches) {
-            sticky.classList.remove("chat-open-hide");
-            return;
-          }
-          sticky.classList.toggle("chat-open-hide", isWidgetExpanded());
-        };
-
-        let rafId = 0;
-        const scheduleUpdate = () => {
-          if (rafId) window.cancelAnimationFrame(rafId);
-          rafId = window.requestAnimationFrame(updateSticky);
-        };
-
-        const observer = new MutationObserver(scheduleUpdate);
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["style", "class", "aria-hidden"],
-        });
-
-        window.addEventListener("resize", scheduleUpdate, { passive: true });
-        window.addEventListener("orientationchange", scheduleUpdate, { passive: true });
-
-        updateSticky();
-        window.setInterval(updateSticky, 1200);
-      })();
-    </script>
     <script src="/subpage-nav.js?v=20260310q"></script>
     <script>
       (function () {
