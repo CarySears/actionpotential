@@ -1121,11 +1121,10 @@
         width: 80px;
         height: 80px;
         border-radius: 999px;
-        display: grid;
-        place-items: center;
-        font-family: "Space Grotesk", Inter, sans-serif;
-        font-size: 2rem;
-        color: #dce8f9;
+        display: block;
+        object-fit: cover;
+        object-position: center 20%;
+        overflow: hidden;
         border: 1px solid rgba(121, 197, 199, 0.3);
         background: rgba(121, 197, 199, 0.08);
       }
@@ -2999,7 +2998,7 @@
         <div class="container">
           <span class="eyebrow">Who&apos;s Behind It</span>
           <article class="card behind-card">
-            <div class="behind-avatar" aria-hidden="true">CS</div>
+            <img class="behind-avatar" src="/CaryProfilePic.jpeg" alt="Cary Sears, Founder &amp; CEO" loading="lazy" decoding="async" />
             <div class="behind-copy">
               <h3>Cary Sears</h3>
               <p class="behind-role">Founder &amp; CEO</p>
