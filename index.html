@@ -1100,6 +1100,11 @@
         margin: 0 0 0.5rem;
       }
 
+      .proof-subhead {
+        margin: 0.42rem 0 0;
+        color: var(--muted);
+      }
+
       .behind-card {
         margin-top: 1rem;
         display: grid;
@@ -1451,11 +1456,11 @@
       }
 
       @media (min-width: 1025px) {
-        #testimonials .video-card h3 {
+        #proof .video-card h3 {
           min-height: 2.4em;
         }
 
-        #testimonials .video-card p {
+        #proof .video-card p {
           min-height: 3.16em;
         }
       }
@@ -2519,7 +2524,7 @@
         .card-grid {
           grid-template-columns: 1fr;
         }
-        #testimonials .testimonial-carousel {
+        #proof .testimonial-carousel {
           display: flex;
           flex-wrap: nowrap;
           gap: 0.72rem;
@@ -2530,20 +2535,20 @@
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
-        #testimonials .testimonial-carousel::-webkit-scrollbar {
+        #proof .testimonial-carousel::-webkit-scrollbar {
           display: none;
         }
-        #testimonials .testimonial-carousel > .video-card {
+        #proof .testimonial-carousel > .video-card {
           flex: 0 0 calc(100% - 0.16rem);
           scroll-snap-align: start;
         }
-        #testimonials .testimonial-carousel > .video-card:nth-child(1) {
+        #proof .testimonial-carousel > .video-card:nth-child(1) {
           order: 2;
         }
-        #testimonials .testimonial-carousel > .video-card:nth-child(2) {
+        #proof .testimonial-carousel > .video-card:nth-child(2) {
           order: 1;
         }
-        #testimonials .testimonial-carousel > .video-card:nth-child(3) {
+        #proof .testimonial-carousel > .video-card:nth-child(3) {
           order: 3;
         }
         .testimonial-carousel-controls {
@@ -2936,10 +2941,11 @@
         <div class="container">
           <span class="eyebrow">Proof</span>
           <h2>What clients see after we build.</h2>
+          <p class="proof-subhead">Customer Success Stories</p>
           <div class="card proof-band" aria-label="Outcome categories">
             <article class="proof-band-item">
               <h3>Faster</h3>
-              <p>Response time at the top of funnel, when intent is highest</p>
+              <p>Response time at the top of the funnel, when intent is highest</p>
             </article>
             <article class="proof-band-item">
               <h3>More</h3>
@@ -2949,6 +2955,42 @@
               <h3>Higher</h3>
               <p>Long-term client value through lifecycle and reactivation</p>
             </article>
+          </div>
+          <div class="card-grid testimonial-carousel" style="margin-top: 1rem;" id="testimonial-carousel-track">
+            <article class="card video-card">
+              <h3>Mauro Clerici, Founder</h3>
+              <p>Vesping Around</p>
+              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-mauro.jpg">
+                <source src="./Mauro%20Testimonial.MP4" type="video/mp4" />
+                Your browser does not support embedded videos.
+              </video>
+            </article>
+            <article class="card video-card">
+              <h3>Daniel G. Wong, M.D</h3>
+              <p>Child Psychiatrist</p>
+              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-dan.jpg">
+                <source src="./Dan-Testimonial.mp4" type="video/mp4" />
+                <source src="./Dan%20Testimonial%20.mov" type="video/quicktime" />
+                Your browser does not support embedded videos.
+              </video>
+            </article>
+            <article class="card video-card">
+              <h3>Jai McPheron</h3>
+              <p>Co-founder, Integrated Mindfulness Institute</p>
+              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-jai.jpg">
+                <source src="./jaiTest.mp4" type="video/mp4" />
+                Your browser does not support embedded videos.
+              </video>
+            </article>
+          </div>
+          <div class="testimonial-carousel-controls" aria-label="Testimonial carousel controls">
+            <button class="testimonial-carousel-nav" type="button" data-carousel-prev aria-label="Previous testimonial">Prev</button>
+            <div class="testimonial-carousel-dots" role="tablist" aria-label="Choose testimonial slide">
+              <button class="testimonial-carousel-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Go to testimonial 1" data-carousel-dot="0"></button>
+              <button class="testimonial-carousel-dot" type="button" role="tab" aria-selected="false" aria-label="Go to testimonial 2" data-carousel-dot="1"></button>
+              <button class="testimonial-carousel-dot" type="button" role="tab" aria-selected="false" aria-label="Go to testimonial 3" data-carousel-dot="2"></button>
+            </div>
+            <button class="testimonial-carousel-nav" type="button" data-carousel-next aria-label="Next testimonial">Next</button>
           </div>
         </div>
       </section>
@@ -3081,6 +3123,104 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const section = document.getElementById("proof");
+        if (!section) return;
+        const track = section.querySelector("#testimonial-carousel-track");
+        const prev = section.querySelector("[data-carousel-prev]");
+        const next = section.querySelector("[data-carousel-next]");
+        const dots = Array.from(section.querySelectorAll("[data-carousel-dot]"));
+        if (!track || !prev || !next || !dots.length) return;
+
+        const mobileMq = window.matchMedia("(max-width: 720px)");
+        const slides = () =>
+          Array.from(track.querySelectorAll(".video-card")).sort(
+            (a, b) => a.offsetLeft - b.offsetLeft,
+          );
+
+        const currentIndex = () => {
+          const cards = slides();
+          if (!cards.length) return 0;
+          const trackLeft = track.getBoundingClientRect().left;
+          let bestIndex = 0;
+          let bestDistance = Number.POSITIVE_INFINITY;
+          cards.forEach((card, index) => {
+            const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              bestIndex = index;
+            }
+          });
+          return bestIndex;
+        };
+
+        const scrollToIndex = (index, smooth) => {
+          const cards = slides();
+          if (!cards.length) return;
+          const clamped = Math.max(0, Math.min(index, cards.length - 1));
+          const target = cards[clamped];
+          track.scrollTo({
+            left: target.offsetLeft - track.offsetLeft,
+            behavior: smooth ? "smooth" : "auto",
+          });
+        };
+
+        const updateUi = () => {
+          const cards = slides();
+          const index = currentIndex();
+          dots.forEach((dot, dotIndex) => {
+            const active = dotIndex === index;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-selected", active ? "true" : "false");
+            dot.tabIndex = active ? 0 : -1;
+          });
+          prev.disabled = !mobileMq.matches || index <= 0;
+          next.disabled = !mobileMq.matches || index >= cards.length - 1;
+        };
+
+        prev.addEventListener("click", () => {
+          scrollToIndex(currentIndex() - 1, true);
+        });
+
+        next.addEventListener("click", () => {
+          scrollToIndex(currentIndex() + 1, true);
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            scrollToIndex(index, true);
+          });
+        });
+
+        let scrollTimer = 0;
+        track.addEventListener(
+          "scroll",
+          () => {
+            window.clearTimeout(scrollTimer);
+            scrollTimer = window.setTimeout(updateUi, 80);
+          },
+          { passive: true },
+        );
+
+        const syncOnResize = () => {
+          if (!mobileMq.matches) {
+            track.scrollTo({ left: 0, behavior: "auto" });
+          }
+          updateUi();
+        };
+
+        if (mobileMq.addEventListener) {
+          mobileMq.addEventListener("change", syncOnResize);
+        } else if (mobileMq.addListener) {
+          mobileMq.addListener(syncOnResize);
+        }
+
+        window.addEventListener("resize", syncOnResize, { passive: true });
+        updateUi();
+      })();
+    </script>
 
     <script
       src="https://beta.leadconnectorhq.com/loader.js"
