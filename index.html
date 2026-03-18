@@ -1105,6 +1105,12 @@
         color: var(--muted);
       }
 
+      #proof .testimonial-carousel {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-md);
+        margin-top: 1rem;
+      }
+
       .behind-card {
         margin-top: 1rem;
         display: grid;
@@ -2193,13 +2199,26 @@
         }
         .leak-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          margin-top: 1rem;
+        }
+        .leak-card {
+          padding: 1rem 0.9rem;
         }
         .proof-band {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .proof-band-item + .proof-band-item {
+          border-left: 1px solid rgba(121, 197, 199, 0.22);
+        }
+        .proof-band-item:nth-child(odd) {
           border-left: 0;
+        }
+        .proof-band-item:nth-child(n + 3) {
           border-top: 1px solid rgba(121, 197, 199, 0.22);
+        }
+        #proof .testimonial-carousel {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0.78rem;
         }
         .problem .container > div:first-child::before {
           inset: -0.4rem -0.45rem;
@@ -2497,6 +2516,18 @@
         .section {
           padding: 2.1rem 0;
         }
+        .section-head-stacked {
+          gap: 0.62rem;
+        }
+        .problem-title {
+          line-height: 1.2;
+        }
+        .problem-intro {
+          margin-top: 0.68rem;
+        }
+        .proof-subhead {
+          margin-top: 0.3rem;
+        }
         .leak-grid {
           grid-template-columns: 1fr;
         }
@@ -2504,12 +2535,22 @@
           border-left: 0;
           border-top: 1px solid rgba(121, 197, 199, 0.18);
         }
+        .proof-band {
+          grid-template-columns: 1fr;
+        }
+        .proof-band-item + .proof-band-item {
+          border-left: 0;
+          border-top: 1px solid rgba(121, 197, 199, 0.22);
+        }
         .behind-card {
           grid-template-columns: 1fr;
           gap: 0.75rem;
         }
         .behind-avatar {
           margin: 0 auto;
+        }
+        .audit-panel-centered {
+          padding: 1.2rem;
         }
         .audit-checklist {
           text-align: left;
@@ -2955,7 +2996,7 @@
               <p>Long-term client value through lifecycle and reactivation</p>
             </article>
           </div>
-          <div class="card-grid testimonial-carousel" style="margin-top: 1rem;" id="testimonial-carousel-track">
+          <div class="card-grid testimonial-carousel" id="testimonial-carousel-track">
             <article class="card video-card">
               <h3>Mauro Clerici, Founder</h3>
               <p>Vesping Around</p>
