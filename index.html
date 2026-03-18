@@ -986,6 +986,189 @@
         gap: 1rem;
       }
 
+      .section-head-stacked {
+        display: grid;
+        gap: 0.82rem;
+      }
+
+      .section-head-stacked p {
+        max-width: 62ch;
+      }
+
+      .problem-title {
+        margin: 0.28rem 0 0;
+      }
+
+      .problem-intro {
+        margin: 0.82rem 0 0;
+        color: var(--muted);
+      }
+
+      .leak-grid {
+        margin-top: 1.2rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border: 1px solid rgba(121, 197, 199, 0.18);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: linear-gradient(172deg, rgba(18, 27, 47, 0.9), rgba(11, 18, 34, 0.9));
+      }
+
+      .leak-card {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 1.15rem 1rem;
+      }
+
+      .leak-card::before {
+        content: none;
+      }
+
+      .leak-card + .leak-card {
+        border-left: 1px solid rgba(121, 197, 199, 0.18);
+      }
+
+      .leak-number {
+        display: block;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: clamp(1.7rem, 2.8vw, 2.25rem);
+        line-height: 1;
+        color: #b7c6de;
+        opacity: 0.9;
+        margin-bottom: 0.65rem;
+      }
+
+      .leak-card h3 {
+        margin-bottom: 0.42rem;
+      }
+
+      .engine-pill-core {
+        color: #cfe8ff;
+        background: rgba(46, 166, 212, 0.18);
+        border-color: rgba(46, 166, 212, 0.38);
+      }
+
+      .engine-pill-scale {
+        color: #dcf0d3;
+        background: rgba(133, 189, 98, 0.2);
+        border-color: rgba(133, 189, 98, 0.42);
+      }
+
+      .arrow-list {
+        list-style: none;
+        margin: 0.62rem 0 0;
+        padding: 0;
+      }
+
+      .arrow-list li {
+        position: relative;
+        padding: 0.52rem 0 0.52rem 1.2rem;
+        border-top: 1px solid rgba(121, 197, 199, 0.18);
+      }
+
+      .arrow-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        color: var(--brand-1);
+        font-weight: 700;
+      }
+
+      .proof-band {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .proof-band-item {
+        padding: 1.15rem 1rem;
+      }
+
+      .proof-band-item + .proof-band-item {
+        border-left: 1px solid rgba(121, 197, 199, 0.22);
+      }
+
+      .proof-band-item h3 {
+        font-size: clamp(1.52rem, 2.8vw, 2rem);
+        line-height: 1.1;
+        margin: 0 0 0.5rem;
+      }
+
+      .behind-card {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .behind-card::before {
+        content: none;
+      }
+
+      .behind-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 2rem;
+        color: #dce8f9;
+        border: 1px solid rgba(121, 197, 199, 0.3);
+        background: rgba(121, 197, 199, 0.08);
+      }
+
+      .behind-role {
+        margin-top: -0.15rem;
+        margin-bottom: 0.82rem;
+        color: #c5d4eb;
+        font-weight: 600;
+      }
+
+      .audit-panel-centered {
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+
+      .audit-panel-centered .cta-group {
+        justify-content: center;
+      }
+
+      .audit-checklist {
+        list-style: none;
+        margin: 0.9rem auto 0;
+        padding: 0;
+        display: grid;
+        gap: 0.52rem;
+        max-width: 680px;
+      }
+
+      .audit-checklist li {
+        position: relative;
+        padding-left: 1.3rem;
+      }
+
+      .audit-checklist li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--brand-1);
+        font-weight: 800;
+      }
+
+      .audit-footnote {
+        margin-top: 0.95rem;
+        color: #bccde7;
+        font-size: 0.9rem;
+      }
+
       .quick-value-card h3 {
         font-size: 0.98rem;
         margin-bottom: 0.38rem;
@@ -2004,6 +2187,16 @@
         .split {
           grid-template-columns: 1fr;
         }
+        .leak-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .proof-band {
+          grid-template-columns: 1fr;
+        }
+        .proof-band-item + .proof-band-item {
+          border-left: 0;
+          border-top: 1px solid rgba(121, 197, 199, 0.22);
+        }
         .problem .container > div:first-child::before {
           inset: -0.4rem -0.45rem;
         }
@@ -2299,6 +2492,23 @@
         }
         .section {
           padding: 2.1rem 0;
+        }
+        .leak-grid {
+          grid-template-columns: 1fr;
+        }
+        .leak-card + .leak-card {
+          border-left: 0;
+          border-top: 1px solid rgba(121, 197, 199, 0.18);
+        }
+        .behind-card {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+        .behind-avatar {
+          margin: 0 auto;
+        }
+        .audit-checklist {
+          text-align: left;
         }
         .section-head {
           gap: var(--space-sm);
@@ -2656,216 +2866,132 @@
         ></script>
       </section>
 
-      <section class="section" id="how-it-works">
+      <section class="section" id="problem">
         <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">How It Works</span>
-              <h2>Core System first. Scale System next.</h2>
-            </div>
-            <p>
-              We simplify implementation into two layers so teams can move fast, stay clear, and improve outcomes without operational overload.
-            </p>
-          </div>
-          <div class="quick-value-grid">
-            <article class="card quick-value-card">
-              <h3>1) Core System: Behavioral Engine</h3>
-              <p>Organize operations and capture lost revenue using AI agents and automation systems.</p>
+          <span class="eyebrow">The Problem</span>
+          <h2 class="problem-title">You don&apos;t have a lead problem.<br />You have a handoff problem.</h2>
+          <p class="problem-intro">Most service businesses are losing revenue in the same four places.<br />Here&apos;s where it&apos;s happening in yours.</p>
+          <div class="leak-grid" aria-label="Revenue leak points">
+            <article class="card leak-card">
+              <span class="leak-number">01</span>
+              <h3>Response is too slow</h3>
+              <p>Leads go cold in minutes. If you&apos;re not first, you&apos;re often invisible.</p>
             </article>
-            <article class="card quick-value-card">
-              <h3>2) Scale System: Visibility Engine</h3>
-              <p>Get found everywhere your potential clients are searching with AI SEO and paid ads.</p>
+            <article class="card leak-card">
+              <span class="leak-number">02</span>
+              <h3>Follow-up falls apart</h3>
+              <p>Inconsistent outreach across channels means warm leads quietly disappear.</p>
             </article>
-            <article class="card quick-value-card">
-              <h3>3) Better conversion from existing demand</h3>
-              <p>Already investing in SEO or ads? Perfect. Our systems are designed to help more of that demand convert.</p>
+            <article class="card leak-card">
+              <span class="leak-number">03</span>
+              <h3>Messaging doesn&apos;t convert</h3>
+              <p>Prospects have doubts your website and automation aren&apos;t resolving.</p>
+            </article>
+            <article class="card leak-card">
+              <span class="leak-number">04</span>
+              <h3>Retention is underbuilt</h3>
+              <p>Past clients who&apos;d happily return or refer aren&apos;t being nurtured.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section problem" id="problem">
-        <div class="container split">
-          <div>
-            <span class="eyebrow">Why Growth Stalls</span>
-            <h2>Your revenue leaks in predictable places.</h2>
-            <p>
-              Most service businesses do not have a lead problem. They have a handoff problem between demand, response, and conversion.
-            </p>
-            <ul>
-              <li>Response is too slow when intent is highest.</li>
-              <li>Follow-up is inconsistent across channels.</li>
-              <li>Messaging does not guide decisions with confidence.</li>
-              <li>Retention and referral systems are underbuilt.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Why "Action Potential"</h3>
-            <p>
-              In neuroscience, an action potential is the signal that triggers communication and behavior. We build that signal chain for your business so qualified demand consistently moves from potential to action.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Neuroscience-informed</span>
-              <span class="pill">Behavior-first design</span>
-              <span class="pill">Human-centered AI</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="services">
+      <section class="section" id="how-we-fix-it">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head section-head-stacked">
             <div>
-              <span class="eyebrow">What We Execute</span>
-              <h2>Core System and Scale System, designed to work together.</h2>
+              <span class="eyebrow">How We Fix It</span>
+              <h2>Two systems. One outcome:<br />more booked revenue.</h2>
             </div>
-            <p>
-              We simplify implementation so your team gets clear priorities, better handoffs, and measurable business impact.
-            </p>
+            <p>We build and operate both — so visibility and conversion work together instead of in silos.</p>
           </div>
           <div class="engine-grid">
-            <article class="card engine-card" id="core-systems">
-              <h3>Core System: Behavioral Engine</h3>
-              <p>Organize operations and capture lost revenue using AI agents and automation systems.</p>
-              <div class="engine-group">
-                <h4>AI Agent Suite</h4>
-                <ul>
-                  <li>Behavioral AI lead nurture and follow-up</li>
-                  <li>Speed-to-lead workflows and intelligent routing</li>
-                  <li>Conversation systems that support human handoff</li>
-                </ul>
-              </div>
-              <div class="engine-group">
-                <h4>AI Automation + Smart Websites</h4>
-                <ul>
-                  <li>Automation that reduces repetitive team load</li>
-                  <li>Smart websites, including upgrades to existing sites</li>
-                  <li>Clear handoff from automation to human conversation</li>
-                </ul>
-              </div>
+            <article class="card engine-card">
+              <span class="pill engine-pill-core">Core System</span>
+              <h3>Behavioral Engine</h3>
+              <p>Fixes how your business responds, follows up, and converts the demand you already have.</p>
+              <ul class="arrow-list">
+                <li>AI agents for speed-to-lead and routing</li>
+                <li>Behavioral follow-up sequences</li>
+                <li>Automation that hands off to humans at the right moment</li>
+                <li>Smart website upgrades</li>
+              </ul>
             </article>
-
-            <article class="card engine-card" id="scale-systems">
-              <h3>Scale System: Visibility Engine</h3>
-              <p>Get found everywhere your potential clients are searching with AI SEO and paid ads.</p>
-              <div class="engine-group">
-                <h4>AI SEO first</h4>
-                <ul>
-                  <li>AI SEO: SEO + AI Search (AEO + GEO)</li>
-                  <li>Answer-ready content and technical visibility foundations</li>
-                  <li>Search visibility designed for real buyer questions</li>
-                </ul>
-              </div>
-              <div class="engine-group">
-                <h4>Paid acquisition</h4>
-                <ul>
-                  <li>Paid Search (PPC)</li>
-                  <li>Meta Ads</li>
-                  <li>Retargeting campaigns</li>
-                </ul>
-              </div>
-              <div class="engine-group">
-                <h4>How this fits with your current marketing</h4>
-                <ul>
-                  <li>Works well if you already run SEO</li>
-                  <li>Works well if you already run ads</li>
-                  <li>Improves conversion from existing demand before adding spend</li>
-                </ul>
-              </div>
+            <article class="card engine-card">
+              <span class="pill engine-pill-scale">Scale System</span>
+              <h3>Visibility Engine</h3>
+              <p>Gets you found by high-intent buyers — in search, in AI answers, and in paid channels.</p>
+              <ul class="arrow-list">
+                <li>AI SEO + AEO for search and AI discovery</li>
+                <li>Paid Search and Meta Ads</li>
+                <li>Retargeting campaigns</li>
+                <li>Works alongside your existing marketing</li>
+              </ul>
             </article>
           </div>
-          <article class="card engine-retention">
-            <h3>Behavioral Engine and Visibility Engine</h3>
-            <p>Two coordinated systems, one clear outcome: more qualified conversations and more revenue consistency.</p>
-            <ul>
-              <li>Behavioral Engine turns interest into confident action</li>
-              <li>Visibility Engine increases high-intent discovery</li>
-              <li>Together they create a simple, scalable operating model</li>
-            </ul>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="container">
+          <span class="eyebrow">Proof</span>
+          <h2>What clients see after we build.</h2>
+          <div class="card proof-band" aria-label="Outcome categories">
+            <article class="proof-band-item">
+              <h3>Faster</h3>
+              <p>Response time at the top of funnel, when intent is highest</p>
+            </article>
+            <article class="proof-band-item">
+              <h3>More</h3>
+              <p>Qualified conversations converting into booked appointments</p>
+            </article>
+            <article class="proof-band-item">
+              <h3>Higher</h3>
+              <p>Long-term client value through lifecycle and reactivation</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="founder">
+        <div class="container">
+          <span class="eyebrow">Who&apos;s Behind It</span>
+          <article class="card behind-card">
+            <div class="behind-avatar" aria-hidden="true">CS</div>
+            <div class="behind-copy">
+              <h3>Cary Sears</h3>
+              <p class="behind-role">Founder &amp; CEO</p>
+              <p>
+                Cary spent his career studying why people make decisions — first in clinical neuropsychology at Cleveland Clinic, then building behavioral systems at scale at Noom and Neura Health. That research background is baked into every system we build: the messaging, the timing, the handoffs. It&apos;s not a differentiator we talk about. It&apos;s how we design.
+              </p>
+              <div class="pill-row">
+                <span class="pill">M.A. Experimental Psychology</span>
+                <span class="pill">M.S. UX Design</span>
+                <span class="pill">Cleveland Clinic</span>
+                <span class="pill">Noom</span>
+                <span class="pill">Neura Health</span>
+              </div>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="section signal-section" id="engine-stages">
+      <section class="section" id="audit">
         <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">How the System Flows</span>
-              <h2>The 6-step path from demand to revenue consistency.</h2>
-            </div>
-            <p>Built across one Core System and one Scale System with clear handoff points.</p>
-          </div>
-          <div class="signal-card signal-card-large" aria-label="Six-step growth flow">
-            <ol class="stages">
-              <li><span class="dot">1</span> <span>AI SEO improves discovery in search and AI answer channels.</span></li>
-              <li><span class="dot">2</span> <span>Paid Search (PPC), Meta Ads, and Retargeting scale visibility.</span></li>
-              <li><span class="dot">3</span> <span>Behavioral follow-up moves prospects toward a real conversation.</span></li>
-              <li><span class="dot">4</span> <span>Your team receives cleaner handoff at the right moment.</span></li>
-              <li><span class="dot">5</span> <span>AI Agents and Automation keep response quality high as demand grows.</span></li>
-              <li><span class="dot">6</span> <span>Continuous optimization improves conversion efficiency over time.</span></li>
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="approach">
-        <div class="container split">
-          <div>
-            <span class="eyebrow">Implementation Roadmap</span>
-            <h2>Launch fast. Improve weekly. Scale deliberately.</h2>
+          <div class="cta-panel audit-panel-centered">
+            <h2>Find your top revenue leaks.<br />Free. 45 minutes.</h2>
             <p>
-              We run in clear phases so priorities stay focused and decisions tie directly to revenue.
+              We audit your current funnel and deliver a prioritized 90-day action plan — no fluff, no pitch deck, no pressure.
             </p>
-            <div class="cta-panel">
-              <h3>What happens in your first 30 days</h3>
-              <p>
-                After your audit, we prioritize one demand win and one conversion win, then execute in weekly sprints.
-              </p>
-              <ul class="cta-checklist">
-                <li>Week 1: Diagnostic, baseline metrics, and priority map</li>
-                <li>Week 2-3: Launch the highest-leverage demand and conversion fixes</li>
-                <li>Week 4: Review outcomes and set sprint two</li>
-              </ul>
-              <h3>Book a Free AI Audit</h3>
-              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book a Free AI Audit</a>
+            <ul class="audit-checklist">
+              <li>Your top 3 conversion leaks and their likely revenue impact</li>
+              <li>A 90-day action plan across demand, response, and retention</li>
+              <li>Clear KPIs to track progress from week one</li>
+            </ul>
+            <div class="cta-group" style="justify-content: center; margin-top: 1rem;">
+              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book your free AI Audit</a>
             </div>
-          </div>
-          <ol class="timeline">
-            <li>
-              <h3>Phase 1: Diagnose + Prioritize</h3>
-              <p>Audit your current funnel, identify conversion leaks, and set the highest-leverage action plan.</p>
-            </li>
-            <li>
-              <h3>Phase 2: Build + Launch</h3>
-              <p>Deploy core visibility and conversion systems, tracking, automation, and channel execution.</p>
-            </li>
-            <li>
-              <h3>Phase 3: Optimize + Scale</h3>
-              <p>Continuously improve messaging, channel mix, and conversion performance using live data.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section" id="industries">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">Who We Serve</span>
-              <h2>Best fit: service businesses ready to scale with systems.</h2>
-            </div>
-            <p>
-              We work with operators who want stronger growth without adding operational chaos.
-            </p>
-          </div>
-          <div class="card-grid">
-            <article class="card"><h3>Healthcare &amp; Wellness</h3><p>Increase inquiries with trust-forward communication systems.</p></article>
-            <article class="card"><h3>Coaching &amp; Consulting</h3><p>Turn discovery interest into booked, qualified calls.</p></article>
-            <article class="card"><h3>Legal &amp; Professional Services</h3><p>Capture urgent intent and convert it consistently.</p></article>
-            <article class="card"><h3>Real Estate</h3><p>Respond instantly and nurture buyers/sellers at scale.</p></article>
-            <article class="card"><h3>Hospitality</h3><p>Increase direct bookings, retention, and review volume.</p></article>
-            <article class="card"><h3>Home Services</h3><p>Route local demand faster and reduce lead loss.</p></article>
+            <p class="audit-footnote">Action plan delivered within 48 hours. No-pressure follow-up.</p>
           </div>
         </div>
       </section>
@@ -2956,143 +3082,6 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (!canHover || prefersReducedMotion) return;
-
-        const videos = document.querySelectorAll("video[data-hover-preview='true']");
-        videos.forEach((video) => {
-          let previewing = false;
-
-          const startPreview = () => {
-            if (previewing) return;
-            previewing = true;
-            video.muted = true;
-            video.loop = true;
-            const playPromise = video.play();
-            if (playPromise) {
-              playPromise.catch(() => {
-                previewing = false;
-              });
-            }
-          };
-
-          const stopPreview = () => {
-            if (!previewing) return;
-            video.pause();
-            video.loop = false;
-            try {
-              video.currentTime = 0;
-            } catch (error) {
-              // Some browsers can block time resets while metadata is loading.
-            }
-            previewing = false;
-          };
-
-          video.addEventListener("mouseenter", startPreview);
-          video.addEventListener("mouseleave", stopPreview);
-        });
-      })();
-    </script>
-    <script>
-      (function () {
-        const section = document.getElementById("testimonials");
-        if (!section) return;
-        const track = section.querySelector("#testimonial-carousel-track");
-        const prev = section.querySelector("[data-carousel-prev]");
-        const next = section.querySelector("[data-carousel-next]");
-        const dots = Array.from(section.querySelectorAll("[data-carousel-dot]"));
-        if (!track || !prev || !next || !dots.length) return;
-
-        const mobileMq = window.matchMedia("(max-width: 720px)");
-        const slides = () =>
-          Array.from(track.querySelectorAll(".video-card")).sort(
-            (a, b) => a.offsetLeft - b.offsetLeft,
-          );
-
-        const currentIndex = () => {
-          const cards = slides();
-          if (!cards.length) return 0;
-          const trackLeft = track.getBoundingClientRect().left;
-          let bestIndex = 0;
-          let bestDistance = Number.POSITIVE_INFINITY;
-          cards.forEach((card, index) => {
-            const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
-            if (distance < bestDistance) {
-              bestDistance = distance;
-              bestIndex = index;
-            }
-          });
-          return bestIndex;
-        };
-
-        const scrollToIndex = (index, smooth) => {
-          const cards = slides();
-          if (!cards.length) return;
-          const clamped = Math.max(0, Math.min(index, cards.length - 1));
-          const target = cards[clamped];
-          track.scrollTo({
-            left: target.offsetLeft - track.offsetLeft,
-            behavior: smooth ? "smooth" : "auto",
-          });
-        };
-
-        const updateUi = () => {
-          const cards = slides();
-          const index = currentIndex();
-          dots.forEach((dot, dotIndex) => {
-            const active = dotIndex === index;
-            dot.classList.toggle("is-active", active);
-            dot.setAttribute("aria-selected", active ? "true" : "false");
-            dot.tabIndex = active ? 0 : -1;
-          });
-          prev.disabled = !mobileMq.matches || index <= 0;
-          next.disabled = !mobileMq.matches || index >= cards.length - 1;
-        };
-
-        prev.addEventListener("click", () => {
-          scrollToIndex(currentIndex() - 1, true);
-        });
-
-        next.addEventListener("click", () => {
-          scrollToIndex(currentIndex() + 1, true);
-        });
-
-        dots.forEach((dot, index) => {
-          dot.addEventListener("click", () => {
-            scrollToIndex(index, true);
-          });
-        });
-
-        let scrollTimer = 0;
-        track.addEventListener(
-          "scroll",
-          () => {
-            window.clearTimeout(scrollTimer);
-            scrollTimer = window.setTimeout(updateUi, 80);
-          },
-          { passive: true },
-        );
-
-        const syncOnResize = () => {
-          if (!mobileMq.matches) {
-            track.scrollTo({ left: 0, behavior: "auto" });
-          }
-          updateUi();
-        };
-
-        if (mobileMq.addEventListener) {
-          mobileMq.addEventListener("change", syncOnResize);
-        } else if (mobileMq.addListener) {
-          mobileMq.addListener(syncOnResize);
-        }
-
-        window.addEventListener("resize", syncOnResize, { passive: true });
-        updateUi();
-      })();
-    </script>
     <script
       src="https://beta.leadconnectorhq.com/loader.js"
       data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
