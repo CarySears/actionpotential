@@ -1410,32 +1410,35 @@
         margin-top: 1.2rem;
         padding: 2.35rem 1rem;
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.25rem;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        row-gap: 1.25rem;
       }
 
       .conversation-demo-icon {
-        width: 54px;
-        height: 54px;
+        width: 100%;
+        height: auto;
         margin: 0;
-        border-radius: 999px;
-        border: 1px solid rgba(121, 197, 199, 0.32);
-        background: rgba(255, 255, 255, 0.04);
-        display: grid;
-        place-items: center;
-        font-size: 1.35rem;
+        border-radius: 0;
+        border: 0;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .conversation-demo-icon .voice-demo-bridge {
+        width: 100%;
         padding: 0;
-        min-height: 0;
+        min-height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .conversation-demo-icon .voice-demo-bridge > * {
-        margin: 0;
+        margin: 0 auto !important;
       }
 
       .conversation-demo p {
@@ -1446,7 +1449,7 @@
       .conversation-demo-copy {
         margin-top: 0;
         margin-bottom: 0;
-        max-width: 46ch;
+        max-width: 50ch;
         text-align: center;
         line-height: 1.62;
       }
@@ -2762,7 +2765,10 @@
         .conversation-demo {
           margin-top: 1rem;
           padding: 2rem 0.95rem;
-          gap: 1rem;
+          row-gap: 1rem;
+        }
+        .conversation-demo-icon .voice-demo-bridge {
+          min-height: 104px;
         }
         .conversation-demo-copy {
           margin-top: 0;
