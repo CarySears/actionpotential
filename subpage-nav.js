@@ -604,3 +604,26 @@
     }
   });
 })();
+
+(() => {
+  const loaderSrc = "https://beta.leadconnectorhq.com/loader.js";
+  const resourcesUrl = "https://beta.leadconnectorhq.com/chat-widget/loader.js";
+  const widgetId = "69bc5f6be6fe2afd5518d009";
+
+  if (document.querySelector(`script[src="${loaderSrc}"][data-widget-id="${widgetId}"]`)) return;
+
+  document.querySelectorAll(`script[src="${loaderSrc}"]`).forEach((script) => {
+    script.remove();
+  });
+
+  // Clear any previously rendered widget frames before re-initializing.
+  document.querySelectorAll('iframe[src*="leadconnectorhq.com"]').forEach((frame) => {
+    frame.remove();
+  });
+
+  const script = document.createElement("script");
+  script.src = loaderSrc;
+  script.setAttribute("data-resources-url", resourcesUrl);
+  script.setAttribute("data-widget-id", widgetId);
+  document.body.appendChild(script);
+})();
