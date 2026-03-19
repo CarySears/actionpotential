@@ -1187,6 +1187,319 @@
         font-size: 0.9rem;
       }
 
+      .hero-headline em {
+        font-style: italic;
+        font-weight: 700;
+        color: #d7cfc0;
+      }
+
+      .hero-primary-actions {
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .hero-strap-support {
+        margin: 0.28rem 0 0;
+        font-size: clamp(1rem, 1.2vw, 1.14rem);
+        color: #f3f8ff;
+        font-weight: 700;
+        line-height: 1.45;
+        text-shadow: var(--text-halo-strong);
+      }
+
+      .hero .proof-band {
+        margin-top: 1.32rem;
+      }
+
+      .system-split {
+        align-items: start;
+      }
+
+      .system-split p {
+        margin: 0;
+      }
+
+      .system-note {
+        margin-top: 1rem;
+        border-left: 3px solid rgba(121, 197, 199, 0.5);
+        padding: 0.9rem 1rem;
+      }
+
+      .system-note::before {
+        content: none;
+      }
+
+      .engine-feature-list {
+        list-style: none;
+        margin: 0.64rem 0 0;
+        padding: 0;
+      }
+
+      .engine-feature-list li {
+        padding: 0.78rem 0;
+        border-top: 1px solid rgba(121, 197, 199, 0.18);
+        display: grid;
+        gap: 0.34rem;
+      }
+
+      .engine-feature-list h4 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.3;
+      }
+
+      .engine-feature-list h4 small {
+        margin-left: 0.35rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        color: #9db2ce;
+      }
+
+      .engine-feature-list p {
+        margin: 0;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .engine-feature-list p::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.52em;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 999px;
+      }
+
+      .engine-feature-list-core p::before {
+        background: #2d7dd7;
+      }
+
+      .engine-feature-list-scale p::before {
+        background: #4baa69;
+      }
+
+      .engine-callout {
+        margin: 0.8rem 0 0.7rem;
+        border-radius: 10px;
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.72rem 0.82rem;
+      }
+
+      .engine-callout em {
+        font-size: 0.9rem;
+      }
+
+      .bridge-shell {
+        margin-top: 1rem;
+      }
+
+      .bridge-layout {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .bridge-label {
+        display: inline-block;
+        margin-bottom: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.74rem;
+        color: #efaf77;
+        font-weight: 700;
+      }
+
+      .bridge-kpi-stack {
+        display: grid;
+        gap: 0.72rem;
+      }
+
+      .bridge-kpi {
+        min-height: 132px;
+      }
+
+      .bridge-kpi::before {
+        content: none;
+      }
+
+      .bridge-kpi h3 {
+        font-size: clamp(2rem, 3vw, 2.6rem);
+        margin-bottom: 0.36rem;
+      }
+
+      .reviews-asset-card {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .visibility-ladder {
+        border: 1px solid rgba(121, 197, 199, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .visibility-ladder-item {
+        padding: 0.62rem 0.76rem;
+        font-size: 0.95rem;
+        color: #deebfb;
+      }
+
+      .visibility-ladder-item + .visibility-ladder-item {
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+      }
+
+      .conversation-split {
+        align-items: start;
+      }
+
+      .conversation-note {
+        margin-top: 0.82rem;
+        color: #b7cae6;
+      }
+
+      .conversation-demo {
+        margin-top: 1rem;
+        padding: 2.2rem 1rem;
+        text-align: center;
+      }
+
+      .conversation-demo-icon {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(121, 197, 199, 0.32);
+        background: rgba(255, 255, 255, 0.04);
+        display: grid;
+        place-items: center;
+        font-size: 1.35rem;
+      }
+
+      .conversation-demo h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      .conversation-demo p {
+        max-width: 56ch;
+        margin: 0.45rem auto 0;
+      }
+
+      .conversation-embed-label {
+        margin-top: 0.82rem;
+        color: #b9c9e0;
+        font-style: italic;
+      }
+
+      .conversation-footnote {
+        margin: 0.8rem 0 0;
+        text-align: center;
+        font-size: 0.94rem;
+        color: #b8cae3;
+      }
+
+      .process-grid {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border: 1px solid rgba(121, 197, 199, 0.18);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .process-step {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 1.05rem;
+      }
+
+      .process-step::before {
+        content: none;
+      }
+
+      .process-step + .process-step {
+        border-left: 1px solid rgba(121, 197, 199, 0.18);
+      }
+
+      .process-label {
+        display: block;
+        margin-bottom: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        font-size: 0.74rem;
+        color: #a7bad8;
+        font-weight: 700;
+      }
+
+      .process-step h3 {
+        margin-bottom: 0.42rem;
+      }
+
+      .process-support {
+        margin-top: 0.95rem;
+      }
+
+      .process-support p + p {
+        margin-top: 0.95rem;
+      }
+
+      #proof .video-card.video-card-placeholder {
+        min-height: 460px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .video-placeholder-content {
+        display: grid;
+        gap: 0.28rem;
+      }
+
+      .video-placeholder-note {
+        margin-top: 0.72rem;
+        color: #b9cade !important;
+        font-style: italic;
+      }
+
+      .audit-panel-grid {
+        margin-top: 0.55rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        align-items: start;
+      }
+
+      .audit-side-label {
+        margin: 0 0 0.48rem;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        font-size: 0.74rem;
+        color: #95b5db;
+        font-weight: 700;
+      }
+
+      .audit-checklist-rows {
+        max-width: none;
+        margin: 0;
+        border-top: 1px solid rgba(121, 197, 199, 0.24);
+        gap: 0;
+      }
+
+      .audit-checklist-rows li {
+        margin: 0;
+        padding: 0.56rem 0 0.56rem 1.3rem;
+        border-bottom: 1px solid rgba(121, 197, 199, 0.2);
+      }
+
       .quick-value-card h3 {
         font-size: 0.98rem;
         margin-bottom: 0.38rem;
@@ -2245,6 +2558,24 @@
         .engine-grid {
           grid-template-columns: 1fr;
         }
+        .bridge-layout {
+          grid-template-columns: 1fr;
+        }
+        .reviews-asset-card {
+          grid-template-columns: 1fr;
+        }
+        .process-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .process-step:nth-child(odd) {
+          border-left: 0;
+        }
+        .process-step:nth-child(n + 3) {
+          border-top: 1px solid rgba(121, 197, 199, 0.18);
+        }
+        .audit-panel-grid {
+          grid-template-columns: 1fr;
+        }
         .result-snapshot-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -2555,6 +2886,13 @@
           border-left: 0;
           border-top: 1px solid rgba(121, 197, 199, 0.22);
         }
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+        .process-step + .process-step {
+          border-left: 0;
+          border-top: 1px solid rgba(121, 197, 199, 0.18);
+        }
         .behind-card {
           grid-template-columns: 1fr;
           gap: 0.75rem;
@@ -2563,6 +2901,9 @@
           margin: 0 auto;
         }
         .audit-panel-centered {
+          padding: 1.2rem;
+        }
+        .audit-panel-grid {
           padding: 1.2rem;
         }
         .audit-checklist {
@@ -2594,6 +2935,9 @@
         #proof .testimonial-carousel > .video-card {
           flex: 0 0 calc(100% - 0.16rem);
           scroll-snap-align: start;
+        }
+        #proof .video-card.video-card-placeholder {
+          min-height: 420px;
         }
         #proof .testimonial-carousel > .video-card:nth-child(1) {
           order: 2;
@@ -2868,15 +3212,11 @@
       <section class="hero container" id="top">
         <div class="hero-copy">
           <div class="hero-focus">
-            <div class="pill-row" style="justify-content: flex-start; margin-top: 0; margin-bottom: 0.55rem;">
-              <span class="pill">High tech + High touch</span>
-            </div>
-            <span class="eyebrow">Behavioral Science + Human-Centered AI</span>
-            <h1 class="hero-headline">Practical AI that understands people, not just prompts.</h1>
-            <p class="hero-without-line">We help service businesses compete in the AI Age through simple systems and services that drive real business impact.</p>
+            <span class="eyebrow">Behavioral AI Systems for Service Businesses</span>
+            <h1 class="hero-headline">Your business has more potential than it&apos;s <em>converting.</em></h1>
             <div class="hero-brand-signature">
               <span class="hero-tagline">
-                <span class="tagline-static">From potential...</span>
+                <span class="tagline-static">From potential —</span>
                 <svg class="hero-tagline-apulse" viewBox="0 0 220 28" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="heroZGradient" x1="0" y1="0" x2="1" y2="0">
@@ -2911,129 +3251,325 @@
               </svg>
               <span class="tagline-animated">to action.</span>
               </span>
+              <p class="hero-strap-support">For every lead, every time.</p>
+            </div>
+            <p>
+              Most service businesses lose revenue in the gap between interest and response. We close that gap — with
+              systems that capture, nurture, and convert demand without burning out your team.
+            </p>
+            <div class="cta-group hero-primary-actions">
+              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book a free AI Audit</a>
+              <a class="btn btn-secondary" href="#how-we-work">See how it works →</a>
+            </div>
+            <div class="card proof-band" aria-label="Outcome categories">
+              <article class="proof-band-item">
+                <h3>Faster</h3>
+                <p>Response time at the moment intent is highest — before leads go cold</p>
+              </article>
+              <article class="proof-band-item">
+                <h3>More</h3>
+                <p>Qualified conversations turning into booked appointments and clients</p>
+              </article>
+              <article class="proof-band-item">
+                <h3>Higher</h3>
+                <p>Long-term client value through reactivation, reviews, and referrals</p>
+              </article>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="voice-demo-bridge container" aria-label="Voice AI demo">
-        <script
-          src="https://beta.leadconnectorhq.com/loader.js"
-          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="692e35dacf45958002fa546c"
-        ></script>
       </section>
 
       <section class="section" id="problem">
         <div class="container">
           <span class="eyebrow">The Problem</span>
-          <h2 class="problem-title">You don&apos;t have a lead problem.<br />You have a handoff problem.</h2>
-          <p class="problem-intro">Most service businesses are losing revenue in the same four places.<br />Here&apos;s where it&apos;s happening in yours.</p>
+          <h2 class="problem-title">You don&apos;t have a lead problem.<br />You have a system problem.</h2>
+          <p class="problem-intro">Revenue leaks in the same four places for almost every service business.<br />Here&apos;s where it&apos;s happening in yours.</p>
           <div class="leak-grid" aria-label="Revenue leak points">
             <article class="card leak-card">
               <span class="leak-number">01</span>
               <h3>Response is too slow</h3>
-              <p>Leads go cold in minutes. If you&apos;re not first, you&apos;re often invisible.</p>
+              <p>Leads go cold in minutes. If you&apos;re not first to respond when intent is highest, you&apos;re often invisible — even if you&apos;re the best option.</p>
             </article>
             <article class="card leak-card">
               <span class="leak-number">02</span>
               <h3>Follow-up falls apart</h3>
-              <p>Inconsistent outreach across channels means warm leads quietly disappear.</p>
+              <p>Inconsistent outreach across channels means warm leads quietly disappear — without you ever knowing they were ready to buy.</p>
             </article>
             <article class="card leak-card">
               <span class="leak-number">03</span>
               <h3>Messaging doesn&apos;t convert</h3>
-              <p>Prospects have doubts your website and automation aren&apos;t resolving.</p>
+              <p>Prospects have real doubts and hesitations. If your website and follow-up aren&apos;t designed around how people actually decide, they move on.</p>
             </article>
             <article class="card leak-card">
               <span class="leak-number">04</span>
               <h3>Retention is underbuilt</h3>
-              <p>Past clients who&apos;d happily return or refer aren&apos;t being nurtured.</p>
+              <p>Past clients who&apos;d happily return, refer, or leave a review aren&apos;t being nurtured. That&apos;s compounding revenue loss hiding in plain sight.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="how-we-fix-it">
+      <section class="section" id="system">
         <div class="container">
-          <div class="section-head section-head-stacked">
+          <div class="split system-split">
             <div>
-              <span class="eyebrow">How We Fix It</span>
-              <h2>Two systems. One outcome:<br />more booked revenue.</h2>
+              <span class="eyebrow">The ActionPotential System</span>
+              <h2>One machine.<br />Two engines.<br />Built for where you are.</h2>
             </div>
-            <p>We build and operate both — so visibility and conversion work together instead of in silos.</p>
+            <div>
+              <p>
+                We don&apos;t sell you everything upfront. We diagnose where your business is and what it actually needs
+                — then build exactly that. Some clients start with Core. Some need both. A healthy, growing business runs
+                both engines together.
+              </p>
+              <article class="card system-note">
+                <p>
+                  Already running ads or SEO? Without a real follow-up system behind them, you&apos;re funding a leaky
+                  bucket. We fix the leak first — then help you scale with confidence.
+                </p>
+              </article>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="engines">
+        <div class="container">
           <div class="engine-grid">
             <article class="card engine-card">
               <span class="pill engine-pill-core">Core System</span>
               <h3>Behavioral Engine</h3>
-              <p>Fixes how your business responds, follows up, and converts the demand you already have.</p>
-              <ul class="arrow-list">
-                <li>AI agents for speed-to-lead and routing</li>
-                <li>Behavioral follow-up sequences</li>
-                <li>Automation that hands off to humans at the right moment</li>
-                <li>Smart website upgrades</li>
+              <p>
+                Fixes how your business responds, follows up, and converts the demand you already have — before spending
+                another dollar on visibility.
+              </p>
+              <ul class="engine-feature-list engine-feature-list-core">
+                <li>
+                  <h4>Voice AI Agent</h4>
+                  <p>Answers calls 24/7, books appointments, qualifies leads — human-sounding, never robotic. No missed calls, no lost voicemails.</p>
+                </li>
+                <li>
+                  <h4>Conversational AI</h4>
+                  <p>Handles texts, emails, website chat, and DMs like a trained team member. Responds instantly, qualifies leads, and books calls.</p>
+                </li>
+                <li>
+                  <h4>Behavioral follow-up sequences</h4>
+                  <p>Nurture sequences built on behavioral science — designed around how people actually make decisions, not just drip timing.</p>
+                </li>
+                <li>
+                  <h4>Intelligent websites</h4>
+                  <p>
+                    We turn your static brochure into a dynamic conversion machine. Visitors bounce because they can&apos;t find
+                    answers and won&apos;t fill out forms that disappear into a black hole. Our AI employees converse with visitors
+                    24/7/365 — answering questions, qualifying leads, and booking appointments. Trained in your business, brand,
+                    and tone of voice. Your website finally works as hard as you do.
+                  </p>
+                </li>
+                <li>
+                  <h4>Reviews AI <small>also feeds Visibility ↓</small></h4>
+                  <p>
+                    Works with your existing clients to build 5-star reputation, respond to feedback, and generate trust signals —
+                    which compound directly into Google rankings, AI engine recommendations, and conversion confidence for every
+                    new prospect.
+                  </p>
+                </li>
               </ul>
             </article>
             <article class="card engine-card">
               <span class="pill engine-pill-scale">Scale System</span>
               <h3>Visibility Engine</h3>
-              <p>Gets you found by high-intent buyers — in search, in AI answers, and in paid channels.</p>
-              <ul class="arrow-list">
-                <li>AI SEO + AEO for search and AI discovery</li>
-                <li>Paid Search and Meta Ads</li>
-                <li>Retargeting campaigns</li>
-                <li>Works alongside your existing marketing</li>
+              <p>
+                Gets you found by high-intent buyers — in search, AI answers, and paid channels. Most powerful once your Core
+                System is in place.
+              </p>
+              <p class="engine-callout">
+                <em>
+                  Reviews AI (Core) feeds this engine — more reviews means higher local rankings, stronger AI search presence,
+                  and more organic traffic before a single ad dollar is spent.
+                </em>
+              </p>
+              <ul class="engine-feature-list engine-feature-list-scale">
+                <li>
+                  <h4>AI SEO + AEO</h4>
+                  <p>Optimized for traditional search and AI answer engines — so you appear when ChatGPT, Perplexity, and Google AI recommend businesses like yours.</p>
+                </li>
+                <li>
+                  <h4>Paid Search + Meta Ads</h4>
+                  <p>Paid campaigns that feed into a system built to convert. Better ROI because the follow-up actually works this time.</p>
+                </li>
+                <li>
+                  <h4>Retargeting</h4>
+                  <p>Re-engage visitors who showed interest but didn&apos;t convert. Behavioral messaging brings them back at the right moment.</p>
+                </li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="proof">
+      <section class="section" id="bridge">
         <div class="container">
-          <span class="eyebrow">Proof</span>
-          <h2>What clients see after we build.</h2>
-          <p class="proof-subhead">Customer Success Stories</p>
-          <div class="card proof-band" aria-label="Outcome categories">
-            <article class="proof-band-item">
-              <h3>Faster</h3>
-              <p>Response time at the top of the funnel, when intent is highest</p>
+          <span class="eyebrow">The Bridge</span>
+          <article class="card bridge-shell">
+            <div class="bridge-layout">
+              <div>
+                <span class="bridge-label">Database Reactivation</span>
+                <h2>Your next client is already in your database.</h2>
+                <p>
+                  Before adding any new spend, we tap into the leads, past clients, and missed opportunities you already own —
+                  and bring them back through smart, automated outreach. Most businesses find their fastest revenue wins here,
+                  often before we&apos;ve touched their visibility at all.
+                </p>
+                <ul class="arrow-list">
+                  <li>Reignite cold leads without lifting a finger</li>
+                  <li>Book appointments from your existing list — fast</li>
+                  <li>Email, SMS, and voicemail sequences done for you</li>
+                  <li>Zero new ad spend — revenue from what you already have</li>
+                  <li>Proves the system before you invest in visibility</li>
+                </ul>
+              </div>
+              <div class="bridge-kpi-stack">
+                <article class="card bridge-kpi">
+                  <h3>Zero</h3>
+                  <p>New ad spend needed to reactivate leads already in your pipeline</p>
+                </article>
+                <article class="card bridge-kpi">
+                  <h3>Fast</h3>
+                  <p>Revenue wins in the first 30 days — before we scale anything else</p>
+                </article>
+                <article class="card bridge-kpi">
+                  <h3>Proven</h3>
+                  <p>System validated on your real audience before investing further</p>
+                </article>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="reviews-asset">
+        <div class="container">
+          <span class="eyebrow">Why Reviews Are a Visibility Asset</span>
+          <article class="card reviews-asset-card">
+            <div>
+              <h2>More 5-star reviews don&apos;t just build trust.<br />They make you easier to find.</h2>
+              <p>
+                Reviews AI automates your reputation management — but the impact goes far beyond what prospects think of you.
+                Google rewards review volume and recency with higher local rankings. AI engines like ChatGPT and Perplexity factor
+                review sentiment into business recommendations. A stronger review profile means more organic visibility, more traffic,
+                and more conversions — without a single dollar of additional ad spend.
+              </p>
+            </div>
+            <div class="visibility-ladder" aria-label="Review impact ladder">
+              <div class="visibility-ladder-item">☆ More 5-star reviews</div>
+              <div class="visibility-ladder-item">↑ Google local rankings</div>
+              <div class="visibility-ladder-item">↑ AI engine recommendations</div>
+              <div class="visibility-ladder-item">↑ Domain entity authority</div>
+              <div class="visibility-ladder-item">↑ Organic traffic</div>
+              <div class="visibility-ladder-item">↑ Trust + conversions</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="conversation-design">
+        <div class="container">
+          <div class="split conversation-split">
+            <div>
+              <span class="eyebrow">Behavioral AI + Conversational Design in Action</span>
+              <h2>From static brochure<br />to interactive conversion machine.</h2>
+            </div>
+            <div>
+              <p>
+                Most website visitors bounce because they can&apos;t immediately find answers — and they won&apos;t fill out
+                a form that might go into a black hole. What you&apos;re about to experience is the same conversational AI
+                we build for our clients. It listens, asks questions, and books real appointments. No forms. No friction.
+                No follow-up needed.
+              </p>
+              <p class="conversation-note"><em>This is what we build for your business — trained in your brand, tone of voice, and services. Running 24/7/365.</em></p>
+            </div>
+          </div>
+          <article class="card conversation-demo">
+            <div class="conversation-demo-icon" aria-hidden="true">AI</div>
+            <h3>Talk to our AI receptionist</h3>
+            <p>It&apos;ll ask about your business, answer your questions, and if it&apos;s a good fit — book a real call on our calendar.</p>
+            <p class="conversation-embed-label">[ Voice AI demo embed goes here ]</p>
+          </article>
+          <p class="conversation-footnote"><em>This is exactly what your clients and patients will experience on your website.</em></p>
+        </div>
+      </section>
+
+      <section class="section" id="how-we-work">
+        <div class="container">
+          <span class="eyebrow">How We Work</span>
+          <h2>We don&apos;t hand you software.<br />We run the system for you.</h2>
+          <p class="problem-intro">
+            You don&apos;t need to be technical. Our team handles everything — from day one setup through ongoing optimization.
+            The AI gets smarter over time because we stay in it with you.
+          </p>
+          <div class="process-grid" aria-label="How we work steps">
+            <article class="card process-step">
+              <span class="process-label">Step 01</span>
+              <h3>We build it</h3>
+              <p>Initial tech call and team training. AI agents configured, integrated, and launched within days — not months.</p>
             </article>
-            <article class="proof-band-item">
-              <h3>More</h3>
-              <p>Qualified conversations converting into booked appointments</p>
+            <article class="card process-step">
+              <span class="process-label">Step 02</span>
+              <h3>We train it</h3>
+              <p>Three dedicated AI training and optimization calls post-launch. Every interaction makes the system sharper.</p>
             </article>
-            <article class="proof-band-item">
-              <h3>Higher</h3>
-              <p>Long-term client value through lifecycle and reactivation</p>
+            <article class="card process-step">
+              <span class="process-label">Step 03</span>
+              <h3>It learns from you</h3>
+              <p>Reinforcement Learning from Human Feedback (RLHF) — your AI improves from your real-world input, not generic data.</p>
+            </article>
+            <article class="card process-step">
+              <span class="process-label">Ongoing</span>
+              <h3>We stay with you</h3>
+              <p>24/7 AI and human support. Proactive backend optimization. You never manage this alone.</p>
             </article>
           </div>
+          <article class="card process-support">
+            <p>
+              Most marketing agencies dump leads in your lap and expect you to figure out what to do with them. Most AI agencies hand
+              you a login and disappear. <strong>We put systems in place to help you capture, nurture, and convert demand — without
+              burning out your team.</strong> We stay in the system with you, training it, optimizing it, and improving it every week.
+              No technical knowledge required on your end. Ever.
+            </p>
+            <p>
+              We&apos;re not a marketing agency. We&apos;re not an AI vendor. We&apos;re behavioral AI architects — we build the system,
+              run it, and stay in it with you.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="container">
+          <span class="eyebrow">Real Results</span>
+          <h2>Hear it from the businesses<br />running the system.</h2>
+          <p class="proof-subhead">Client feedback highlights faster response, stronger conversion consistency, and revenue from leads they thought were gone.</p>
           <div class="card-grid testimonial-carousel" id="testimonial-carousel-track">
-            <article class="card video-card">
-              <h3>Mauro Clerici, Founder</h3>
-              <p>Vesping Around</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-mauro.jpg">
-                <source src="./Mauro%20Testimonial.MP4" type="video/mp4" />
-                Your browser does not support embedded videos.
-              </video>
+            <article class="card video-card video-card-placeholder">
+              <div class="video-placeholder-content">
+                <h3>Mauro Clerici</h3>
+                <p>Vesping Around</p>
+                <p class="video-placeholder-note">[ Video embed ]</p>
+              </div>
             </article>
-            <article class="card video-card">
-              <h3>Daniel G. Wong, M.D</h3>
-              <p>Child Psychiatrist</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-dan.jpg">
-                <source src="./Dan-Testimonial.mp4" type="video/mp4" />
-                <source src="./Dan%20Testimonial%20.mov" type="video/quicktime" />
-                Your browser does not support embedded videos.
-              </video>
+            <article class="card video-card video-card-placeholder">
+              <div class="video-placeholder-content">
+                <h3>Daniel G. Wong, M.D.</h3>
+                <p>Child Psychiatrist</p>
+                <p class="video-placeholder-note">[ Video embed ]</p>
+              </div>
             </article>
-            <article class="card video-card">
-              <h3>Jai McPheron</h3>
-              <p>Co-founder, Integrated Mindfulness Institute</p>
-              <video class="testimonial-video" controls preload="metadata" playsinline muted poster="./poster-jai.jpg">
-                <source src="./jaiTest.mp4" type="video/mp4" />
-                Your browser does not support embedded videos.
-              </video>
+            <article class="card video-card video-card-placeholder">
+              <div class="video-placeholder-content">
+                <h3>Jai McPheron</h3>
+                <p>Integrated Mindfulness Institute</p>
+                <p class="video-placeholder-note">[ Video embed ]</p>
+              </div>
             </article>
           </div>
           <div class="testimonial-carousel-controls" aria-label="Testimonial carousel controls">
@@ -3055,9 +3591,13 @@
             <img class="behind-avatar" src="/CaryProfilePic.jpeg" alt="Cary Sears, Founder &amp; CEO" loading="lazy" decoding="async" />
             <div class="behind-copy">
               <h3>Cary Sears</h3>
-              <p class="behind-role">Founder &amp; CEO</p>
+              <p class="behind-role">Founder &amp; CEO, ActionPotential.AI</p>
               <p>
-                Cary spent his career studying why people make decisions — first in clinical neuropsychology at Cleveland Clinic, then building behavioral systems at scale at Noom and Neura Health. That research background is baked into every system we build: the messaging, the timing, the handoffs. It&apos;s not a differentiator we talk about. It&apos;s how we design.
+                Cary spent his career studying why people make decisions — conducting clinical neuropsychological
+                research at Cleveland Clinic, then building behavioral systems at scale at Noom and Neura Health.
+                That background isn&apos;t a credential on a slide. It&apos;s the foundation of how every system we build is
+                designed: the messaging, the timing, the handoffs, the follow-up sequences. When we say behavioral AI,
+                we mean it.
               </p>
               <div class="pill-row">
                 <span class="pill">M.A. Experimental Psychology</span>
@@ -3073,20 +3613,28 @@
 
       <section class="section" id="audit">
         <div class="container">
-          <div class="cta-panel audit-panel-centered">
-            <h2>Find your top revenue leaks.<br />Free. 45 minutes.</h2>
-            <p>
-              We audit your current funnel and deliver a prioritized 90-day action plan — no fluff, no pitch deck, no pressure.
-            </p>
-            <ul class="audit-checklist">
-              <li>Your top 3 conversion leaks and their likely revenue impact</li>
-              <li>A 90-day action plan across demand, response, and retention</li>
-              <li>Clear KPIs to track progress from week one</li>
-            </ul>
-            <div class="cta-group" style="justify-content: center; margin-top: 1rem;">
-              <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book your free AI Audit</a>
+          <div class="cta-panel audit-panel-grid">
+            <div>
+              <h2>Find your revenue leaks.<br />Free. 45 minutes.</h2>
+              <p>
+                We audit your current funnel and deliver a prioritized 90-day action plan. No pitch deck. No pressure.
+                Just a clear picture of where you&apos;re losing revenue — and exactly what to do about it.
+              </p>
             </div>
-            <p class="audit-footnote">Action plan delivered within 48 hours. No-pressure follow-up.</p>
+            <div>
+              <p class="audit-side-label">What You Get</p>
+              <ul class="audit-checklist audit-checklist-rows">
+                <li>Your top 3 conversion leaks and their likely revenue impact</li>
+                <li>Database reactivation opportunity — revenue from what you already own</li>
+                <li>A prioritized 90-day action plan across demand, response, and retention</li>
+                <li>Clear KPIs to track from week one</li>
+                <li>Action plan delivered within 48 hours</li>
+              </ul>
+              <div class="cta-group" style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://link.actionpotential.ai/widget/booking/ksD7NPYqg5JoFugUIJnm">Book your free AI Audit</a>
+              </div>
+              <p class="audit-footnote">No-pressure follow-up. Built for service businesses ready to stop losing revenue they&apos;ve already earned.</p>
+            </div>
           </div>
         </div>
       </section>
