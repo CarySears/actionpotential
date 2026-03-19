@@ -1386,14 +1386,29 @@
         align-items: start;
       }
 
+      .conversation-split h2 {
+        margin-top: 0.52rem;
+        max-width: 24ch;
+      }
+
+      .conversation-lead {
+        margin: 0;
+        line-height: 1.66;
+      }
+
       .conversation-note {
-        margin-top: 0.82rem;
+        margin-top: 1.05rem;
+        color: #b7cae6;
+      }
+
+      .conversation-runtime {
+        margin-top: 0.7rem;
         color: #b7cae6;
       }
 
       .conversation-demo {
-        margin-top: 1rem;
-        padding: 2.2rem 1rem;
+        margin-top: 1.2rem;
+        padding: 2.35rem 1rem;
         text-align: center;
       }
 
@@ -1419,12 +1434,29 @@
       }
 
       .conversation-demo h3 {
-        margin-bottom: 0.5rem;
+        margin: 0.32rem 0 0.56rem;
       }
 
       .conversation-demo p {
         max-width: 56ch;
         margin: 0.45rem auto 0;
+      }
+
+      .conversation-demo-kicker {
+        margin: 0.18rem 0 0;
+        color: #9eb4d0;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.73rem;
+        font-weight: 700;
+      }
+
+      .conversation-demo-title {
+        font-size: clamp(1.2rem, 2vw, 1.45rem);
+      }
+
+      .conversation-demo-copy {
+        margin-top: 0.12rem;
       }
 
       .conversation-embed-label {
@@ -1434,10 +1466,12 @@
       }
 
       .conversation-footnote {
-        margin: 0.8rem 0 0;
+        margin: 1rem 0 0;
         text-align: center;
         font-size: 0.94rem;
         color: #b8cae3;
+        max-width: 78ch;
+        margin-inline: auto;
       }
 
       .process-grid {
@@ -2730,6 +2764,16 @@
           margin-top: 0.9rem;
           gap: 1.35rem;
         }
+        .conversation-split h2 {
+          max-width: none;
+        }
+        .conversation-demo {
+          margin-top: 1rem;
+          padding: 2rem 0.95rem;
+        }
+        .conversation-footnote {
+          margin-top: 0.9rem;
+        }
         .cta-group .btn {
           width: 100%;
           min-height: 50px;
@@ -3529,13 +3573,14 @@
               <h2>Your website: from static brochure to interactive customer conversation and conversion machine.</h2>
             </div>
             <div>
-              <p>
+              <p class="conversation-lead">
                 Most website visitors bounce because they can&apos;t immediately find answers — and they won&apos;t fill out
                 a form that might go into a black hole. What you&apos;re about to experience is the same conversational AI
                 we build for our clients. It listens, asks questions, and books real appointments. No forms. No friction.
                 No follow-up needed.
               </p>
-              <p class="conversation-note"><em>This is similar to what we will build for your business but trained in your brand, tone of voice, and services.<br /><br />Running 24/7/365.</em></p>
+              <p class="conversation-note"><em>This is similar to what we will build for your business but trained in your brand, tone of voice, and services.</em></p>
+              <p class="conversation-runtime"><em>Running 24/7/365.</em></p>
             </div>
           </div>
           <article class="card conversation-demo">
@@ -3548,7 +3593,9 @@
                 ></script>
               </div>
             </div>
-            <p>It&apos;ll ask about your business, answer your questions, and if it&apos;s a good fit — book a real call on our calendar.</p>
+            <p class="conversation-demo-kicker">Support agent</p>
+            <h3 class="conversation-demo-title">Demo Voice AI</h3>
+            <p class="conversation-demo-copy">It&apos;ll ask about your business, answer your questions, and if it&apos;s a good fit — book a real call on our calendar.</p>
           </article>
           <p class="conversation-footnote"><em>Imagine your prospective customers conversing with your website any day or time, having their questions answered, and even getting them booked on your calendar.</em></p>
         </div>
