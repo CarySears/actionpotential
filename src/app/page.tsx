@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
 import Problem from "@/components/Problem";
 import WhyName from "@/components/WhyName";
 import BehavioralEngine from "@/components/BehavioralEngine";
@@ -9,6 +8,7 @@ import Differentiators from "@/components/Differentiators";
 import Process from "@/components/Process";
 import WhoWeServe from "@/components/WhoWeServe";
 import Founder from "@/components/Founder";
+import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BrandGeometry from "@/components/BrandGeometry";
@@ -20,7 +20,6 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero />
-        <TrustBar />
         <Problem />
         <WhyName />
         <BehavioralEngine />
@@ -29,6 +28,7 @@ export default function Home() {
         <Process />
         <WhoWeServe />
         <Founder />
+        <Testimonials />
         <CTA />
         <Footer />
       </div>

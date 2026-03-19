@@ -1,13 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import NeuralNetwork from "./NeuralNetwork";
 
 const stats = [
-  { value: "24/7", label: "Intelligent response coverage" },
-  { value: "6", label: "Behavioral Engine growth stages" },
-  { value: "1", label: "Unified partner for full-funnel execution" },
+  {
+    value: "Faster",
+    label: "Response time at the moment intent is highest — before leads go cold",
+  },
+  {
+    value: "More",
+    label: "Qualified conversations turning into booked appointments and clients",
+  },
+  {
+    value: "Higher",
+    label: "Long-term client value through reactivation, reviews, and referrals",
+  },
 ];
 
 export default function Hero() {
@@ -34,11 +43,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-[#79C5C7]/20 text-sm text-[#79C5C7] mb-7"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-[#79C5C7]/20 text-sm text-[#79C5C7] mb-7 uppercase tracking-wider"
         >
-          <Sparkles className="w-4 h-4" />
-          <span>Behavioral AI Marketing &amp; Automation</span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#00A79D] node-pulse inline-block" />
+          <span>Behavioral AI Systems for Service Businesses</span>
         </motion.div>
 
         {/* Headline */}
@@ -48,44 +56,36 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.07]"
         >
-          <span className="text-white">Turn more leads into</span>
+          <span className="text-white">Your business has more</span>
           <br />
-          <span className="gradient-text text-shadow-glow">booked customers.</span>
+          <span className="text-white">potential than it&apos;s </span>
+          <span className="gradient-text text-shadow-glow italic">converting.</span>
         </motion.h1>
 
-        {/* Subheadline */}
+        {/* Blockquote subhead */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="border-l-4 border-[#79C5C7]/50 pl-4 text-left max-w-xl mx-auto mb-7"
+        >
+          <p className="text-lg text-[#e8f4f8]/90">
+            <span className="font-bold text-white">From potential — to action.</span>{" "}
+            For every lead, every time.
+          </p>
+        </motion.div>
+
+        {/* Body */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-lg sm:text-xl text-[#e8f4f8]/82 max-w-3xl mx-auto mb-9 leading-relaxed"
         >
-          Most agencies stop at lead volume. We build and run the full conversion system:
-          faster response, smarter follow-up, and better close rates across your entire journey.
+          Most service businesses lose revenue in the gap between interest and response. We close
+          that gap — with systems that capture, nurture, and convert demand without burning out your
+          team.
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-3 mb-10"
-        >
-          <a
-            href="/results/index.html"
-            className="inline-flex items-center gap-2 rounded-full border border-[#79C5C7]/22 bg-[#79C5C7]/8 px-4 py-2 text-sm text-[#e8f4f8]/90 hover:bg-[#79C5C7]/14 transition-colors"
-          >
-            <CheckCircle2 className="w-4 h-4 text-[#79C5C7]" />
-            Client testimonial videos
-          </a>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#79C5C7]/18 bg-[#79C5C7]/6 px-4 py-2 text-sm text-[#e8f4f8]/90">
-            <CheckCircle2 className="w-4 h-4 text-[#00A79D]" />
-            No long-term contracts
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#79C5C7]/18 bg-[#79C5C7]/6 px-4 py-2 text-sm text-[#e8f4f8]/90">
-            <CheckCircle2 className="w-4 h-4 text-[#2EA6D4]" />
-            Human-led, AI-enabled execution
-          </span>
-        </motion.div>
 
         {/* CTAs */}
         <motion.div
@@ -98,14 +98,14 @@ export default function Hero() {
             href="#cta"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white glow-button"
           >
-            Book Free AI Audit
+            Book a free AI Audit
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#how-it-works"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium text-[#79C5C7] border border-[#79C5C7]/25 hover:border-[#79C5C7]/50 hover:bg-[#79C5C7]/5 transition-all"
           >
-            See How It Works
+            See how it works →
           </a>
         </motion.div>
 
@@ -114,14 +114,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto"
+          className="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto"
         >
           {stats.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-2xl sm:text-3xl font-black gradient-text stat-number">
+            <div key={i} className="glass-card p-4 sm:p-5 text-center">
+              <div className="text-2xl sm:text-3xl font-black gradient-text stat-number mb-2">
                 {stat.value}
               </div>
-              <div className="text-xs text-[#e8f4f8]/70 mt-1 leading-tight">{stat.label}</div>
+              <div className="text-xs text-[#e8f4f8]/70 leading-tight">{stat.label}</div>
             </div>
           ))}
         </motion.div>
