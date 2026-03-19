@@ -1402,6 +1402,15 @@
         font-size: 1.35rem;
       }
 
+      .conversation-demo-icon .voice-demo-bridge {
+        padding: 0;
+        min-height: 0;
+      }
+
+      .conversation-demo-icon .voice-demo-bridge > * {
+        margin: 0;
+      }
+
       .conversation-demo h3 {
         margin-bottom: 0.5rem;
       }
@@ -3518,16 +3527,17 @@
             </div>
           </div>
           <article class="card conversation-demo">
-            <div class="conversation-demo-icon" aria-hidden="true">AI</div>
+            <div class="conversation-demo-icon" aria-label="Voice AI demo">
+              <div class="voice-demo-bridge" aria-label="Voice AI demo">
+                <script
+                  src="https://beta.leadconnectorhq.com/loader.js"
+                  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+                  data-widget-id="692e35dacf45958002fa546c"
+                ></script>
+              </div>
+            </div>
             <h3>Talk to our AI receptionist</h3>
             <p>It&apos;ll ask about your business, answer your questions, and if it&apos;s a good fit — book a real call on our calendar.</p>
-            <div class="voice-demo-bridge" aria-label="Voice AI demo">
-              <script
-                src="https://beta.leadconnectorhq.com/loader.js"
-                data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-                data-widget-id="692e35dacf45958002fa546c"
-              ></script>
-            </div>
           </article>
           <p class="conversation-footnote"><em>This is exactly what your clients and patients will experience on your website.</em></p>
         </div>
