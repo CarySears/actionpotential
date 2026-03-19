@@ -208,11 +208,6 @@ export default function RootLayout({
           }}
         />
         <script {...searchAtlasScriptAttributes} />
-        <script
-          src="https://beta.leadconnectorhq.com/loader.js"
-          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="69bc5f6be6fe2afd5518d009"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
