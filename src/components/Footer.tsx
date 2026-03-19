@@ -1,6 +1,7 @@
 "use client";
 
 import { Zap, Mail } from "lucide-react";
+import TaglineAnimation from "./TaglineAnimation";
 
 const links = {
   Services: [
@@ -101,7 +102,7 @@ export default function Footer() {
               Terms of Service
             </a>
           </div>
-          <p className="text-xs text-[#e8f4f8]/20 italic">From potential... to action.</p>
+          <TaglineAnimation idPrefix="footer" className="!text-xs !text-[#e8f4f8]/70" />
         </div>
       </div>
     </footer>

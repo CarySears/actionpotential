@@ -4,10 +4,11 @@ import TrustBar from "@/components/TrustBar";
 import Problem from "@/components/Problem";
 import WhyName from "@/components/WhyName";
 import BehavioralEngine from "@/components/BehavioralEngine";
-import Services from "@/components/Services";
-import Differentiators from "@/components/Differentiators";
+import DatabaseReactivation from "@/components/DatabaseReactivation";
+import ReviewsVisibility from "@/components/ReviewsVisibility";
+import VoiceAIDemo from "@/components/VoiceAIDemo";
 import Process from "@/components/Process";
-import WhoWeServe from "@/components/WhoWeServe";
+import RealResults from "@/components/RealResults";
 import Founder from "@/components/Founder";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -24,10 +25,11 @@ export default function Home() {
         <Problem />
         <WhyName />
         <BehavioralEngine />
-        <Services />
-        <Differentiators />
+        <DatabaseReactivation />
+        <ReviewsVisibility />
+        <VoiceAIDemo />
         <Process />
-        <WhoWeServe />
+        <RealResults />
         <Founder />
         <CTA />
         <Footer />

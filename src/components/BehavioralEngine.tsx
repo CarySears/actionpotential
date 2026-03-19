@@ -3,59 +3,53 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Eye, MessageCircle, HeartHandshake, ShoppingCart, Star, Megaphone } from "lucide-react";
+import { Circle } from "lucide-react";
 
-const stages = [
+const behavioralFeatures = [
   {
-    icon: Eye,
-    number: "01",
-    title: "Attract",
-    desc: "Get found by the right people across search, social, and AI platforms.",
-    color: "#79C5C7",
-  },
-  {
-    icon: MessageCircle,
-    number: "02",
-    title: "Engage",
-    desc: "Convert visitors into conversations — instantly, in their preferred channel.",
+    title: "Voice AI Agent",
+    desc: "Answers calls 24/7, books appointments, qualifies leads — human-sounding, never robotic. No missed calls, no lost voicemails.",
     color: "#2EA6D4",
   },
   {
-    icon: HeartHandshake,
-    number: "03",
-    title: "Nurture",
-    desc: "Build trust with intelligent follow-up sequences that feel human.",
-    color: "#00A79D",
-  },
-  {
-    icon: ShoppingCart,
-    number: "04",
-    title: "Convert",
-    desc: "Guide prospects to book, buy, or commit — with behavioral precision.",
-    color: "#1B75BB",
-  },
-  {
-    icon: Star,
-    number: "05",
-    title: "Retain",
-    desc: "Increase lifetime value through loyalty-building automated touchpoints.",
+    title: "Conversational AI",
+    desc: "Handles texts, emails, website chat, and DMs like a trained team member. Responds instantly, qualifies leads, and books calls.",
     color: "#2EA6D4",
   },
   {
-    icon: Megaphone,
-    number: "06",
-    title: "Amplify",
-    desc: "Turn happy customers into advocates who generate reviews and referrals.",
-    color: "#79C5C7",
+    title: "Behavioral follow-up sequences",
+    desc: "Nurture sequences built on behavioral science — designed around how people actually make decisions, not just drip timing.",
+    color: "#2EA6D4",
+  },
+  {
+    title: "Intelligent websites",
+    desc: "We turn your static brochure into a dynamic conversion machine. Visitors bounce because they can't find answers and won't fill out forms that disappear into a black hole. Our AI employees converse with visitors 24/7/365 — answering questions, qualifying leads, and booking appointments. Trained in your business, brand, and tone of voice. Your website finally works as hard as you do.",
+    color: "#2EA6D4",
+  },
+  {
+    title: "Reviews AI",
+    note: "also feeds Visibility ↓",
+    desc: "Works with your existing clients to build 5-star reputation, respond to feedback, and generate trust signals — which compound directly into Google rankings, AI engine recommendations, and conversion confidence for every new prospect.",
+    color: "#2EA6D4",
   },
 ];
 
-const drivers = [
-  { label: "Lead Generation", desc: "Attract more of the right traffic", icon: "↑" },
-  { label: "Lead Conversion", desc: "Turn visitors into booked appointments", icon: "→" },
-  { label: "Lifetime Value", desc: "Increase retention and repeat purchases", icon: "∞" },
-  { label: "Referrals & Reviews", desc: "Transform customers into advocates", icon: "★" },
-  { label: "Reactivation", desc: "Re-engage dormant leads and customers", icon: "↺" },
+const visibilityFeatures = [
+  {
+    title: "AI SEO + AEO",
+    desc: "Optimized for traditional search and AI answer engines — so you appear when ChatGPT, Perplexity, and Google AI recommend businesses like yours.",
+    color: "#00A79D",
+  },
+  {
+    title: "Paid Search + Meta Ads",
+    desc: "Paid campaigns that feed into a system built to convert. Better ROI because the follow-up actually works this time.",
+    color: "#00A79D",
+  },
+  {
+    title: "Retargeting",
+    desc: "Re-engage visitors who showed interest but didn't convert. Behavioral messaging brings them back at the right moment.",
+    color: "#00A79D",
+  },
 ];
 
 export default function BehavioralEngine() {
@@ -72,98 +66,99 @@ export default function BehavioralEngine() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2EA6D4]/10 border border-[#2EA6D4]/20 text-[#2EA6D4] text-sm mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2EA6D4] node-pulse" />
-            The Behavioral Engine™
+            The ActionPotential System
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
-            Six stages. One continuous{" "}
-            <span className="gradient-text">growth loop.</span>
+            Two engines. One outcome.
           </h2>
-          <p className="text-lg text-[#e8f4f8]/80 max-w-2xl mx-auto">
-            Every client receives a full-funnel Behavioral Engine — designed to move people from
-            first impression to loyal advocate, automatically.
-          </p>
         </motion.div>
 
-        {/* Stages grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
-          {stages.map((stage, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card glass-card-hover p-6 group relative overflow-hidden"
-            >
-              {/* Number watermark */}
-              <span
-                className="absolute -right-2 -top-4 text-7xl font-black opacity-[0.04] select-none"
-                style={{ color: stage.color }}
-              >
-                {stage.number}
-              </span>
-
-              <div className="relative z-10">
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: stage.color + "18", border: `1px solid ${stage.color}30` }}
-                >
-                  <stage.icon className="w-6 h-6" style={{ color: stage.color }} />
-                </div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-xs font-mono" style={{ color: stage.color + "80" }}>
-                    {stage.number}
-                  </span>
-                  <h3 className="text-lg font-bold text-white">{stage.title}</h3>
-                </div>
-                <p className="text-[#e8f4f8]/78 text-sm leading-relaxed">{stage.desc}</p>
-
-                {/* Connection line (visual) */}
-                {i < stages.length - 1 && (
-                  <div
-                    className="absolute bottom-0 right-0 w-px h-6 opacity-20"
-                    style={{ background: `linear-gradient(to bottom, ${stage.color}, transparent)` }}
+        {/* Two cards: Behavioral Engine + Visibility Engine */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Behavioral Engine */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="glass-card p-6 sm:p-8"
+          >
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#2EA6D4]/15 text-[#2EA6D4] mb-4">
+              Core System
+            </span>
+            <h3 className="text-2xl font-black text-white mb-3">Behavioral Engine</h3>
+            <p className="text-[#e8f4f8]/78 mb-6 leading-relaxed">
+              Fixes how your business responds, follows up, and converts the demand you already
+              have — before spending another dollar on visibility.
+            </p>
+            <div className="h-px bg-[#e8f4f8]/12 mb-6" />
+            <ul className="space-y-4">
+              {behavioralFeatures.map((item, i) => (
+                <li key={i} className="flex gap-3">
+                  <Circle
+                    className="w-2 h-2 flex-shrink-0 mt-2"
+                    style={{ color: item.color }}
+                    fill={item.color}
                   />
-                )}
-              </div>
-            </motion.div>
-          ))}
+                  <div>
+                    <span className="font-semibold text-white">
+                      {item.title}
+                      {item.note && (
+                        <span className="text-xs font-normal text-[#e8f4f8]/55 ml-1">
+                          {item.note}
+                        </span>
+                      )}
+                    </span>
+                    <p className="text-sm text-[#e8f4f8]/75 mt-0.5 leading-relaxed">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Visibility Engine */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="glass-card p-6 sm:p-8"
+          >
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#00A79D]/15 text-[#00A79D] mb-4">
+              Scale System
+            </span>
+            <h3 className="text-2xl font-black text-white mb-3">Visibility Engine</h3>
+            <p className="text-[#e8f4f8]/78 mb-4 leading-relaxed">
+              Gets you found by high-intent buyers — in search, AI answers, and paid channels.
+              Most powerful once your Core System is in place.
+            </p>
+            <div className="p-4 rounded-xl bg-[#e8f4f8]/5 border border-[#e8f4f8]/10 mb-6">
+              <p className="text-sm text-[#e8f4f8]/75 italic leading-relaxed">
+                Reviews AI (Core) feeds this engine — more reviews means higher local rankings,
+                stronger AI search presence, and more organic traffic before a single ad dollar is
+                spent.
+              </p>
+            </div>
+            <div className="h-px bg-[#e8f4f8]/12 mb-6" />
+            <ul className="space-y-4">
+              {visibilityFeatures.map((item, i) => (
+                <li key={i} className="flex gap-3">
+                  <Circle
+                    className="w-2 h-2 flex-shrink-0 mt-2"
+                    style={{ color: item.color }}
+                    fill={item.color}
+                  />
+                  <div>
+                    <span className="font-semibold text-white">{item.title}</span>
+                    <p className="text-sm text-[#e8f4f8]/75 mt-0.5 leading-relaxed">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
-
-        {/* Five Growth Drivers */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <div className="text-center mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-              Five Growth Drivers
-            </h3>
-            <p className="text-[#e8f4f8]/72">Everything we build serves these five outcomes.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {drivers.map((driver, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.7 + i * 0.08 }}
-                className="glass-card glass-card-hover p-5 text-center group"
-              >
-                <div className="text-3xl font-black gradient-text mb-3 group-hover:scale-110 transition-transform">
-                  {driver.icon}
-                </div>
-                <div className="text-sm font-semibold text-white mb-1">{driver.label}</div>
-                <div className="text-xs text-[#e8f4f8]/70">{driver.desc}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
