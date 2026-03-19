@@ -3972,27 +3972,45 @@
             word.classList.add("is-in-view");
           }, 120 + sequence * 280);
         };
+        const revealAllWords = () => {
+          proofWords.forEach(revealWord);
+        };
 
         if (!("IntersectionObserver" in window)) {
-          proofWords.forEach(revealWord);
+          revealAllWords();
           return;
         }
+
+        const targetsToWords = new Map();
+        proofWords.forEach((word) => {
+          const target = word.closest(".proof-band-item") || word;
+          const existing = targetsToWords.get(target);
+          if (existing) {
+            existing.push(word);
+          } else {
+            targetsToWords.set(target, [word]);
+          }
+        });
 
         const observer = new IntersectionObserver(
           (entries, activeObserver) => {
             entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              revealWord(entry.target);
+              if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+              const wordsForTarget = targetsToWords.get(entry.target) || [];
+              wordsForTarget.forEach(revealWord);
               activeObserver.unobserve(entry.target);
             });
           },
           {
-            threshold: 0.5,
-            rootMargin: "0px 0px -12% 0px",
+            threshold: 0.15,
+            rootMargin: "0px 0px -4% 0px",
           },
         );
 
-        proofWords.forEach((word) => observer.observe(word));
+        targetsToWords.forEach((_, target) => observer.observe(target));
+
+        // Fallback: never leave a word hidden if a viewport edge case misses the observer trigger.
+        window.setTimeout(revealAllWords, 2600);
       })();
     </script>
 
