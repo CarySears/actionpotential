@@ -1329,6 +1329,34 @@
         line-height: 1.7;
       }
 
+      .hero .hero-pain-list {
+        margin: 0 auto;
+        padding: 0;
+        max-width: 64ch;
+        list-style: none;
+        display: grid;
+        gap: 0.62rem;
+        text-align: left;
+      }
+
+      .hero .hero-pain-list li {
+        position: relative;
+        padding-left: 1rem;
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .hero .hero-pain-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.58em;
+        width: 0.38rem;
+        height: 0.38rem;
+        border-radius: 999px;
+        background: var(--brand-1);
+      }
+
       .system-split {
         display: flex;
         flex-direction: column;
@@ -3703,7 +3731,7 @@
                 Your work is excellent. Your system for capturing and converting the people who want to hire you probably
                 isn&apos;t.
               </p>
-              <ul>
+              <ul class="hero-pain-list">
                 <li>Leads are slipping through before you even know they existed</li>
                 <li>You feel too overwhelmed to take on more even though you want to grow</li>
                 <li>Revenue is hiding in clients you already have but aren&apos;t nurturing</li>
