@@ -3522,21 +3522,15 @@
 
       .ap-mobile-arrow-item {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
       }
 
       .ap-mobile-arrow-line {
         width: 0;
         height: 26px;
-        border-left: 1.5px dashed var(--brand-1);
+        border-left: 1.5px solid rgba(var(--brand-1-rgb), 0.9);
         position: relative;
-      }
-
-      .ap-mobile-arrow-line.side-link {
-        border-left-style: solid;
-        opacity: 0.82;
       }
 
       .ap-mobile-arrow-line::after {
@@ -3549,13 +3543,8 @@
         border-top: 5px solid var(--brand-1);
       }
 
-      .ap-mobile-arrow-line.side-link::after {
-        display: none;
-      }
-
       .ap-mobile-arrow-line.solid {
-        border-left-style: solid;
-        border-left-color: var(--brand-2);
+        border-left-color: rgba(var(--brand-2-rgb), 0.9);
       }
 
       .ap-mobile-arrow-line.solid::after {
@@ -3716,37 +3705,44 @@
           gap: 12px;
         }
         .ap-mobile-arrows {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 14px;
-          padding: 6px 2px 2px;
+          display: block;
+          position: relative;
+          height: 74px;
+          padding: 2px 0;
+          margin: 2px 0 0;
         }
         .ap-mobile-arrow-item.side {
-          flex-direction: row;
-          justify-content: flex-end;
-          align-items: center;
-          gap: 8px;
-          padding-right: 8px;
+          position: absolute;
+          left: 8px;
+          top: 0;
+          bottom: 0;
+          justify-content: flex-start;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
-          height: 22px;
-          transform: none;
+          height: 100%;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
-          text-align: right;
-          max-width: 168px;
+          text-align: left;
+          max-width: 148px;
           line-height: 1.2;
+          margin-left: 8px;
         }
         .ap-mobile-arrow-item.center {
-          align-items: center;
-          margin-top: 4px;
+          position: absolute;
+          right: 8px;
+          top: 0;
+          bottom: 0;
+          justify-content: flex-end;
+          flex-direction: row-reverse;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
-          height: 40px;
+          height: 100%;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
-          margin-top: 2px;
+          text-align: right;
+          max-width: 152px;
+          line-height: 1.2;
+          margin-right: 8px;
         }
         .ap-mid {
           display: none;
@@ -4077,12 +4073,12 @@
 
             <div class="ap-mobile-arrows">
               <div class="ap-mobile-arrow-item side">
-                <div class="ap-mobile-arrow-line side-link"></div>
+                <div class="ap-mobile-arrow-line"></div>
                 <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
               </div>
               <div class="ap-mobile-arrow-item center">
                 <div class="ap-mobile-arrow-line solid up"></div>
-                <span class="ap-mobile-arrow-label blue">Traffic feeds conversion</span>
+                <span class="ap-mobile-arrow-label blue">Traffic feed conversion</span>
               </div>
             </div>
 
@@ -4100,7 +4096,7 @@
                   <div class="ap-h-head-left"></div>
                   <div class="ap-h-line solid"></div>
                 </div>
-                <span class="ap-arrow-label blue">Traffic feeds conversion</span>
+                <span class="ap-arrow-label blue">Traffic feed conversion</span>
               </div>
             </div>
 
