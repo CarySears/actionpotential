@@ -3219,23 +3219,21 @@
         padding: 0;
       }
 
+      .ap-system-diagram {
+        margin-top: 1.4rem;
+      }
+
       .ap-wrap {
         max-width: 980px;
         margin: 0 auto;
       }
 
-      .ap-system-label {
-        font-size: 11px;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-        color: #2EA6D4;
-        margin-bottom: 16px;
-      }
-
       .ap-outer {
-        border: 1px dashed rgba(121, 197, 199, 0.55);
+        border: 1px solid rgba(121, 197, 199, 0.28);
         border-radius: 16px;
-        padding: 20px;
+        background: linear-gradient(168deg, rgba(14, 22, 38, 0.88), rgba(10, 16, 30, 0.82));
+        box-shadow: 0 20px 36px rgba(4, 10, 24, 0.28);
+        padding: 22px;
         display: flex;
         gap: 0;
         align-items: flex-start;
@@ -3243,19 +3241,19 @@
 
       .ap-engine {
         flex: 1;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 16px;
         min-width: 0;
       }
 
       .ap-engine.behavioral {
-        background: rgba(27, 117, 187, 0.07);
-        border: 1px solid #1B75BB;
+        background: linear-gradient(172deg, rgba(27, 117, 187, 0.22), rgba(11, 26, 48, 0.56));
+        border: 1px solid rgba(46, 166, 212, 0.4);
       }
 
       .ap-engine.visibility {
-        background: rgba(0, 167, 157, 0.07);
-        border: 1px solid #00A79D;
+        background: linear-gradient(172deg, rgba(0, 167, 157, 0.2), rgba(10, 28, 34, 0.56));
+        border: 1px solid rgba(121, 197, 199, 0.4);
       }
 
       .ap-badge {
@@ -3265,46 +3263,46 @@
         letter-spacing: 0.07em;
         text-transform: uppercase;
         border-radius: 20px;
-        padding: 3px 10px;
+        padding: 4px 10px;
         margin-bottom: 8px;
       }
 
       .behavioral .ap-badge {
-        background: rgba(27, 117, 187, 0.12);
-        color: #1B75BB;
-        border: 0.5px solid rgba(27, 117, 187, 0.3);
+        background: rgba(46, 166, 212, 0.16);
+        color: #b7e4ff;
+        border: 1px solid rgba(46, 166, 212, 0.34);
       }
 
       .visibility .ap-badge {
-        background: rgba(0, 167, 157, 0.12);
-        color: #00A79D;
-        border: 0.5px solid rgba(0, 167, 157, 0.3);
+        background: rgba(121, 197, 199, 0.16);
+        color: #ccfffb;
+        border: 1px solid rgba(121, 197, 199, 0.34);
       }
 
       .ap-engine-title {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
       }
 
       .behavioral .ap-engine-title {
-        color: #1B75BB;
+        color: #8fd4ff;
       }
       .visibility .ap-engine-title {
-        color: #00A79D;
+        color: #9cebe4;
       }
 
       .ap-engine-sub {
-        font-size: 11px;
-        margin-bottom: 12px;
+        font-size: 12px;
+        margin-bottom: 13px;
         line-height: 1.4;
       }
 
       .behavioral .ap-engine-sub {
-        color: rgba(27, 117, 187, 0.72);
+        color: #c4d8f3;
       }
       .visibility .ap-engine-sub {
-        color: rgba(0, 167, 157, 0.72);
+        color: #c2ddde;
       }
 
       /* Cluster divider */
@@ -3312,7 +3310,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        margin: 10px 0 8px;
+        margin: 11px 0 9px;
       }
 
       .ap-divider-line {
@@ -3321,10 +3319,10 @@
       }
 
       .visibility .ap-divider-line {
-        background: rgba(0, 167, 157, 0.2);
+        background: rgba(121, 197, 199, 0.3);
       }
       .behavioral .ap-divider-line {
-        background: rgba(27, 117, 187, 0.2);
+        background: rgba(46, 166, 212, 0.3);
       }
 
       .ap-divider-label {
@@ -3336,51 +3334,57 @@
       }
 
       .visibility .ap-divider-label {
-        color: rgba(0, 167, 157, 0.55);
+        color: rgba(157, 235, 228, 0.75);
       }
       .behavioral .ap-divider-label {
-        color: rgba(27, 117, 187, 0.55);
+        color: rgba(143, 212, 255, 0.75);
       }
 
       .ap-drawer {
-        border-radius: 6px;
-        margin-bottom: 6px;
+        border-radius: 8px;
+        margin-bottom: 8px;
         overflow: hidden;
       }
 
       .behavioral .ap-drawer {
-        background: rgba(27, 117, 187, 0.1);
-        border: 0.5px solid rgba(27, 117, 187, 0.32);
+        background: rgba(18, 45, 78, 0.62);
+        border: 1px solid rgba(46, 166, 212, 0.3);
       }
 
       .visibility .ap-drawer {
-        background: rgba(0, 167, 157, 0.1);
-        border: 0.5px solid rgba(0, 167, 157, 0.32);
+        background: rgba(14, 48, 46, 0.58);
+        border: 1px solid rgba(121, 197, 199, 0.3);
       }
 
       .ap-drawer-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 9px 12px;
+        padding: 10px 12px;
         cursor: pointer;
         user-select: none;
+        transition: background-color 0.18s ease;
       }
 
       .ap-drawer-header:hover {
-        opacity: 0.82;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .ap-drawer-header:focus-visible {
+        outline: 2px solid rgba(121, 197, 199, 0.5);
+        outline-offset: -2px;
       }
 
       .ap-drawer-title {
-        font-size: 13px;
-        font-weight: 500;
+        font-size: 13.5px;
+        font-weight: 600;
       }
 
       .behavioral .ap-drawer-title {
-        color: #1B75BB;
+        color: #cfe8ff;
       }
       .visibility .ap-drawer-title {
-        color: #00A79D;
+        color: #d2fcf8;
       }
 
       .ap-chevron {
@@ -3391,10 +3395,10 @@
       }
 
       .behavioral .ap-chevron {
-        color: #1B75BB;
+        color: #9edbff;
       }
       .visibility .ap-chevron {
-        color: #00A79D;
+        color: #a8f2ec;
       }
       .ap-chevron.open {
         transform: rotate(180deg);
@@ -3411,17 +3415,17 @@
       }
 
       .ap-drawer-body p {
-        font-size: 12px;
-        line-height: 1.65;
-        color: #555;
-        padding: 6px 12px 4px;
+        font-size: 13px;
+        line-height: 1.62;
+        color: #d5e1f4;
+        padding: 8px 12px 4px;
       }
 
       .ap-learn-more {
         display: inline-block;
-        font-size: 11px;
-        font-weight: 500;
-        padding: 4px 12px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 12px 11px;
         text-decoration: none;
         transition: opacity 0.15s;
       }
@@ -3430,10 +3434,10 @@
         opacity: 0.7;
       }
       .behavioral .ap-learn-more {
-        color: #1B75BB;
+        color: #9edbff;
       }
       .visibility .ap-learn-more {
-        color: #00A79D;
+        color: #a8f2ec;
       }
 
       .ap-mid {
@@ -3441,7 +3445,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
-        width: 92px;
+        width: 96px;
         flex-shrink: 0;
         padding-top: 46px;
       }
@@ -3458,7 +3462,8 @@
       }
 
       .ap-arrow-label {
-        font-size: 9.5px;
+        font-size: 10.5px;
+        font-weight: 600;
         text-align: center;
         line-height: 1.35;
       }
@@ -3467,7 +3472,7 @@
         color: #79C5C7;
       }
       .ap-arrow-label.blue {
-        color: #2EA6D4;
+        color: #8fd4ff;
       }
 
       .ap-h-arrow {
@@ -3479,11 +3484,11 @@
       .ap-h-line {
         flex: 1;
         height: 0;
-        border-top: 1.5px dashed #79C5C7;
+        border-top: 1.5px dashed rgba(121, 197, 199, 0.86);
       }
 
       .ap-h-line.solid {
-        border-top: 1.5px solid #2EA6D4;
+        border-top: 1.5px solid rgba(46, 166, 212, 0.9);
       }
 
       .ap-h-head-right {
@@ -3491,7 +3496,7 @@
         height: 0;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-left: 6px solid #79C5C7;
+        border-left: 6px solid rgba(121, 197, 199, 0.92);
       }
 
       .ap-h-head-left {
@@ -3499,7 +3504,7 @@
         height: 0;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-right: 6px solid #2EA6D4;
+        border-right: 6px solid rgba(46, 166, 212, 0.92);
       }
 
       .ap-flows {
@@ -3514,14 +3519,14 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        font-size: 11px;
-        color: #2EA6D4;
+        font-size: 12px;
+        color: #cfe1fb;
       }
 
       .ap-flow-arrow {
         width: 28px;
         height: 1px;
-        background: #2EA6D4;
+        background: rgba(46, 166, 212, 0.9);
         position: relative;
       }
 
@@ -3532,7 +3537,7 @@
         top: -3px;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-left: 5px solid #2EA6D4;
+        border-left: 5px solid rgba(46, 166, 212, 0.9);
       }
 
       .ap-flow-arrow.left::before {
@@ -3542,7 +3547,7 @@
         top: -3px;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-right: 5px solid #2EA6D4;
+        border-right: 5px solid rgba(46, 166, 212, 0.9);
       }
 
       .ap-booked {
@@ -3550,14 +3555,14 @@
         flex-direction: column;
         align-items: center;
         gap: 4px;
-        font-size: 11px;
-        color: #2EA6D4;
+        font-size: 12px;
+        color: #cfe1fb;
       }
 
       .ap-booked-line {
         width: 1px;
         height: 18px;
-        border-left: 1.5px solid #2EA6D4;
+        border-left: 1.5px solid rgba(46, 166, 212, 0.9);
         position: relative;
       }
 
@@ -3568,7 +3573,7 @@
         left: -4px;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 5px solid #2EA6D4;
+        border-top: 5px solid rgba(46, 166, 212, 0.9);
       }
 
       @media (max-width: 640px) {
@@ -3820,7 +3825,7 @@
         <div class="container">
           <div class="split system-split">
             <div>
-              <span class="eyebrow">The ActionPotential System</span>
+              <span class="eyebrow">The ActionPotential.AI Systems</span>
               <h2>One machine.<br />Two engines.<br />Built for where you are.</h2>
             </div>
             <div>
@@ -3839,9 +3844,7 @@
           </div>
           <div class="ap-system-diagram" id="engines">
             <div class="ap-wrap">
-              <p class="ap-system-label">The ActionPotential.AI System</p>
-
-          <div class="ap-outer">
+              <div class="ap-outer">
             <!-- BEHAVIORAL ENGINE -->
             <div class="ap-engine behavioral">
               <span class="ap-badge">Core System</span>
