@@ -1330,7 +1330,19 @@
       }
 
       .system-split {
-        align-items: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .system-split > * {
+        width: 100%;
+      }
+
+      .system-split .system-note {
+        margin-top: 0;
       }
 
       .system-split p {
@@ -3688,7 +3700,7 @@
             </div>
             <div class="hero-bottom-stack">
               <p class="hero-intro">
-                Most service businesses lose revenue in the gap between interest and response. We close that gap — with
+                Most service businesses lose revenue in the gap between interest and response. We close that gap, with
                 systems that capture, nurture, and convert demand without burning out your team.
               </p>
               <div class="cta-group hero-primary-actions">
@@ -3698,7 +3710,7 @@
               <div class="card proof-band" aria-label="Outcome categories">
                 <article class="proof-band-item">
                   <h3 class="proof-word proof-word-left" data-proof-word data-proof-sequence="0">Faster</h3>
-                  <p>Response time at the moment intent is highest — before leads go cold</p>
+                  <p>Response time at the moment intent is highest, before leads go cold</p>
                 </article>
                 <article class="proof-band-item">
                   <h3 class="proof-word proof-word-scale" data-proof-word data-proof-sequence="1">More</h3>
@@ -3723,12 +3735,12 @@
             <article class="card leak-card">
               <span class="leak-number">01</span>
               <h3>Response is too slow</h3>
-              <p>Leads go cold in minutes. If you&apos;re not first to respond when intent is highest, you&apos;re often invisible — even if you&apos;re the best option.</p>
+              <p>Leads go cold in minutes. If you&apos;re not first to respond when intent is highest, you&apos;re often invisible, even if you&apos;re the best option.</p>
             </article>
             <article class="card leak-card">
               <span class="leak-number">02</span>
               <h3>Follow-up falls apart</h3>
-              <p>Inconsistent outreach across channels means warm leads quietly disappear — without you ever knowing they were ready to buy.</p>
+              <p>Inconsistent outreach across channels means warm leads quietly disappear, without you ever knowing they were ready to buy.</p>
             </article>
             <article class="card leak-card">
               <span class="leak-number">03</span>
@@ -3746,31 +3758,27 @@
 
       <section class="section" id="system">
         <div class="container">
-          <div class="split system-split">
-            <div>
-              <span class="eyebrow">The ActionPotential.AI System</span>
-              <h2>One machine.<br />Two engines.<br />Built for where you are.</h2>
-            </div>
-            <div>
+          <div class="system-split">
+            <span class="eyebrow">The ActionPotential.AI System</span>
+            <h2>One machine.<br />Two engines.<br />Built for where you are.</h2>
+            <p>
+              We don&apos;t sell you everything upfront. We diagnose where your business is and what it actually needs,
+              then build exactly that. Some clients start with Core. Some need both. A healthy, growing business runs
+              both engines together.
+            </p>
+            <article class="card system-note">
               <p>
-                We don&apos;t sell you everything upfront. We diagnose where your business is and what it actually needs
-                — then build exactly that. Some clients start with Core. Some need both. A healthy, growing business runs
-                both engines together.
+                Already running ads or SEO? Without a real follow-up system behind them, you&apos;re funding a leaky
+                bucket. We fix the leak first, then help you scale with confidence.
               </p>
-              <article class="card system-note">
-                <p>
-                  Already running ads or SEO? Without a real follow-up system behind them, you&apos;re funding a leaky
-                  bucket. We fix the leak first — then help you scale with confidence.
-                </p>
-              </article>
-            </div>
+            </article>
           </div>
           <div class="ap-system-diagram" id="engines">
             <div class="ap-wrap">
               <div class="ap-outer">
             <!-- BEHAVIORAL ENGINE -->
             <div class="ap-engine behavioral">
-              <span class="ap-badge">Core Engine</span>
+              <span class="ap-badge">Core System</span>
               <div class="ap-engine-title">Behavioral Engine</div>
               <div class="ap-engine-sub">Convert demand into revenue</div>
 
@@ -3845,7 +3853,7 @@
 
             <!-- VISIBILITY ENGINE -->
             <div class="ap-engine visibility">
-              <span class="ap-badge">Scale Engine</span>
+              <span class="ap-badge">Scale System</span>
               <div class="ap-engine-title">Visibility Engine</div>
               <div class="ap-engine-sub">Get found everywhere your prospective customers are looking</div>
 
@@ -3962,14 +3970,14 @@
           <span class="eyebrow">How We Work</span>
           <h2>We don&apos;t hand you software.<br />We run the system for you.</h2>
           <p class="problem-intro">
-            You don&apos;t need to be technical. Our team handles everything — from day one setup through ongoing optimization.
+            You don&apos;t need to be technical. Our team handles everything, from day one setup through ongoing optimization.
             The AI gets smarter over time because we stay in it with you.
           </p>
           <div class="process-grid" aria-label="How we work steps">
             <article class="card process-step">
               <span class="process-label">Step 01</span>
               <h3>We build it</h3>
-              <p>Initial tech call and team training. AI agents configured, integrated, and launched within days — not months.</p>
+              <p>Initial tech call and team training. AI agents configured, integrated, and launched within days, not months.</p>
             </article>
             <article class="card process-step">
               <span class="process-label">Step 02</span>
@@ -3979,7 +3987,7 @@
             <article class="card process-step">
               <span class="process-label">Step 03</span>
               <h3>It learns from you</h3>
-              <p>Reinforcement Learning from Human Feedback (RLHF) — your AI improves from your real-world input, not generic data.</p>
+              <p>Reinforcement Learning from Human Feedback (RLHF), your AI improves from your real-world input, not generic data.</p>
             </article>
             <article class="card process-step">
               <span class="process-label">Ongoing</span>
@@ -3990,12 +3998,12 @@
           <article class="card process-support">
             <p>
               Most marketing agencies dump leads in your lap and expect you to figure out what to do with them. Most AI agencies hand
-              you a login and disappear. <strong>We put systems in place to help you capture, nurture, and convert demand — without
+              you a login and disappear. <strong>We put systems in place to help you capture, nurture, and convert demand, without
               burning out your team.</strong> We stay in the system with you, training it, optimizing it, and improving it every week.
               No technical knowledge required on your end. Ever.
             </p>
             <p>
-              We&apos;re not a marketing agency. We&apos;re not an AI vendor. We&apos;re behavioral AI architects — we build the system,
+              We&apos;re not a marketing agency. We&apos;re not an AI vendor. We&apos;re behavioral AI architects, we build the system,
               run it, and stay in it with you.
             </p>
           </article>
@@ -4055,7 +4063,7 @@
               <h3>Cary Sears</h3>
               <p class="behind-role">Founder &amp; CEO, ActionPotential.AI</p>
               <p>
-                Cary spent his career studying why people make decisions — conducting clinical neuropsychological
+                Cary spent his career studying why people make decisions, conducting clinical neuropsychological
                 research at Cleveland Clinic, then building behavioral systems at scale at Noom and Neura Health.
                 That background isn&apos;t a credential on a slide. It&apos;s the foundation of how every system we build is
                 designed: the messaging, the timing, the handoffs, the follow-up sequences. When we say behavioral AI,
@@ -4080,14 +4088,14 @@
               <h2>Find your revenue leaks.<br />Free. 45 minutes.</h2>
               <p>
                 We audit your current funnel and deliver a prioritized 90-day action plan. No pitch deck. No pressure.
-                Just a clear picture of where you&apos;re losing revenue — and exactly what to do about it.
+                Just a clear picture of where you&apos;re losing revenue, and exactly what to do about it.
               </p>
             </div>
             <div>
               <p class="audit-side-label">What You Get</p>
               <ul class="audit-checklist audit-checklist-rows">
                 <li>Your top 3 conversion leaks and their likely revenue impact</li>
-                <li>Database reactivation opportunity — revenue from what you already own</li>
+                <li>Database reactivation opportunity, revenue from what you already own</li>
                 <li>A prioritized 90-day action plan across demand, response, and retention</li>
                 <li>Clear KPIs to track from week one</li>
                 <li>Action plan delivered within 48 hours</li>
