@@ -3719,27 +3719,34 @@
           display: flex;
           flex-direction: column;
           align-items: stretch;
-          gap: 10px;
-          padding: 4px 2px;
+          gap: 14px;
+          padding: 6px 2px 2px;
         }
         .ap-mobile-arrow-item.side {
-          align-items: flex-end;
-          padding-right: 14px;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 8px;
+          padding-right: 8px;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
-          height: 34px;
-          transform: translateX(1px);
+          height: 22px;
+          transform: none;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
           text-align: right;
-          max-width: 170px;
+          max-width: 168px;
+          line-height: 1.2;
         }
         .ap-mobile-arrow-item.center {
           align-items: center;
-          margin-top: 2px;
+          margin-top: 4px;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
-          height: 34px;
+          height: 40px;
+        }
+        .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
+          margin-top: 2px;
         }
         .ap-mid {
           display: none;
