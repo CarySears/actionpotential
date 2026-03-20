@@ -3219,13 +3219,6 @@
         padding: 0;
       }
 
-      .ap-system-diagram {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: #fff;
-        color: #1a1a1a;
-        padding: 48px 24px;
-      }
-
       .ap-wrap {
         max-width: 980px;
         margin: 0 auto;
@@ -3847,9 +3840,11 @@
         </div>
       </section>
 
-      <div class="ap-system-diagram">
-        <div class="ap-wrap">
-          <p class="ap-system-label">The ActionPotential.AI System</p>
+      <section class="section" id="system-diagram">
+        <div class="container">
+          <div class="ap-system-diagram">
+            <div class="ap-wrap">
+              <p class="ap-system-label">The ActionPotential.AI System</p>
 
           <div class="ap-outer">
             <!-- BEHAVIORAL ENGINE -->
@@ -4043,47 +4038,49 @@
           </div>
           <!-- /.ap-outer -->
 
-          <div class="ap-flows">
-            <div class="ap-flow-item">
-              <div class="ap-flow-arrow right"></div>
-              Leads in
+              <div class="ap-flows">
+                <div class="ap-flow-item">
+                  <div class="ap-flow-arrow right"></div>
+                  Leads in
+                </div>
+                <div class="ap-booked">
+                  <div class="ap-booked-line"></div>
+                  Booked revenue
+                </div>
+                <div class="ap-flow-item">
+                  Traffic in
+                  <div class="ap-flow-arrow left"></div>
+                </div>
+              </div>
             </div>
-            <div class="ap-booked">
-              <div class="ap-booked-line"></div>
-              Booked revenue
-            </div>
-            <div class="ap-flow-item">
-              Traffic in
-              <div class="ap-flow-arrow left"></div>
-            </div>
+
+            <script>
+              function apToggle(drawer) {
+                const body = drawer.querySelector(".ap-drawer-body");
+                const chevron = drawer.querySelector(".ap-chevron");
+                const isOpen = body.classList.contains("open");
+                body.classList.toggle("open", !isOpen);
+                chevron.classList.toggle("open", !isOpen);
+                setTimeout(apAlignArrows, 300);
+              }
+
+              function apAlignArrows() {
+                const reviewsDrawer = document.getElementById("ap-reviews-drawer");
+                const midCol = document.getElementById("ap-mid-col");
+                const reviewsArrow = document.getElementById("ap-reviews-arrow");
+                if (!reviewsDrawer || !midCol || !reviewsArrow) return;
+                const rRect = reviewsDrawer.getBoundingClientRect();
+                const mRect = midCol.getBoundingClientRect();
+                const targetTop = rRect.top - mRect.top + rRect.height / 2 - 27;
+                reviewsArrow.style.marginTop = Math.max(0, targetTop) + "px";
+              }
+
+              window.addEventListener("load", apAlignArrows);
+              window.addEventListener("resize", apAlignArrows);
+            </script>
           </div>
         </div>
-
-        <script>
-          function apToggle(drawer) {
-            const body = drawer.querySelector(".ap-drawer-body");
-            const chevron = drawer.querySelector(".ap-chevron");
-            const isOpen = body.classList.contains("open");
-            body.classList.toggle("open", !isOpen);
-            chevron.classList.toggle("open", !isOpen);
-            setTimeout(apAlignArrows, 300);
-          }
-
-          function apAlignArrows() {
-            const reviewsDrawer = document.getElementById("ap-reviews-drawer");
-            const midCol = document.getElementById("ap-mid-col");
-            const reviewsArrow = document.getElementById("ap-reviews-arrow");
-            if (!reviewsDrawer || !midCol || !reviewsArrow) return;
-            const rRect = reviewsDrawer.getBoundingClientRect();
-            const mRect = midCol.getBoundingClientRect();
-            const targetTop = rRect.top - mRect.top + rRect.height / 2 - 27;
-            reviewsArrow.style.marginTop = Math.max(0, targetTop) + "px";
-          }
-
-          window.addEventListener("load", apAlignArrows);
-          window.addEventListener("resize", apAlignArrows);
-        </script>
-      </div>
+      </section>
 
       <section class="section" id="engines">
         <div class="container">
