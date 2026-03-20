@@ -43,6 +43,10 @@
         --brand-2: #2ea6d4;
         --brand-3: #00a79d;
         --brand-4: #1b75bb;
+        --brand-1-rgb: 121, 197, 199;
+        --brand-2-rgb: 46, 166, 212;
+        --brand-3-rgb: 0, 167, 157;
+        --brand-4-rgb: 27, 117, 187;
         --ink: #231f20;
         --accent-coral: #ff8b66;
         --accent-magenta: #d93aa4;
@@ -3229,9 +3233,9 @@
       }
 
       .ap-outer {
-        border: 1px solid rgba(121, 197, 199, 0.28);
+        border: 1px solid rgba(var(--brand-1-rgb), 0.28);
         border-radius: 16px;
-        background: linear-gradient(168deg, rgba(14, 22, 38, 0.88), rgba(10, 16, 30, 0.82));
+        background: linear-gradient(168deg, rgba(18, 27, 47, 0.88), rgba(13, 19, 34, 0.84));
         box-shadow: 0 20px 36px rgba(4, 10, 24, 0.28);
         padding: 22px;
         display: flex;
@@ -3247,13 +3251,13 @@
       }
 
       .ap-engine.behavioral {
-        background: linear-gradient(172deg, rgba(27, 117, 187, 0.22), rgba(11, 26, 48, 0.56));
-        border: 1px solid rgba(46, 166, 212, 0.4);
+        background: linear-gradient(172deg, rgba(var(--brand-4-rgb), 0.24), rgba(var(--brand-2-rgb), 0.14));
+        border: 1px solid rgba(var(--brand-2-rgb), 0.42);
       }
 
       .ap-engine.visibility {
-        background: linear-gradient(172deg, rgba(0, 167, 157, 0.2), rgba(10, 28, 34, 0.56));
-        border: 1px solid rgba(121, 197, 199, 0.4);
+        background: linear-gradient(172deg, rgba(var(--brand-3-rgb), 0.22), rgba(var(--brand-1-rgb), 0.14));
+        border: 1px solid rgba(var(--brand-1-rgb), 0.42);
       }
 
       .ap-badge {
@@ -3268,15 +3272,15 @@
       }
 
       .behavioral .ap-badge {
-        background: rgba(46, 166, 212, 0.16);
-        color: #b7e4ff;
-        border: 1px solid rgba(46, 166, 212, 0.34);
+        background: rgba(var(--brand-2-rgb), 0.16);
+        color: var(--text);
+        border: 1px solid rgba(var(--brand-2-rgb), 0.34);
       }
 
       .visibility .ap-badge {
-        background: rgba(121, 197, 199, 0.16);
-        color: #ccfffb;
-        border: 1px solid rgba(121, 197, 199, 0.34);
+        background: rgba(var(--brand-1-rgb), 0.16);
+        color: var(--text);
+        border: 1px solid rgba(var(--brand-1-rgb), 0.34);
       }
 
       .ap-engine-title {
@@ -3286,10 +3290,10 @@
       }
 
       .behavioral .ap-engine-title {
-        color: #8fd4ff;
+        color: var(--brand-2);
       }
       .visibility .ap-engine-title {
-        color: #9cebe4;
+        color: var(--brand-1);
       }
 
       .ap-engine-sub {
@@ -3299,10 +3303,10 @@
       }
 
       .behavioral .ap-engine-sub {
-        color: #c4d8f3;
+        color: var(--muted);
       }
       .visibility .ap-engine-sub {
-        color: #c2ddde;
+        color: var(--muted);
       }
 
       /* Cluster divider */
@@ -3319,10 +3323,10 @@
       }
 
       .visibility .ap-divider-line {
-        background: rgba(121, 197, 199, 0.3);
+        background: rgba(var(--brand-1-rgb), 0.32);
       }
       .behavioral .ap-divider-line {
-        background: rgba(46, 166, 212, 0.3);
+        background: rgba(var(--brand-2-rgb), 0.32);
       }
 
       .ap-divider-label {
@@ -3334,10 +3338,10 @@
       }
 
       .visibility .ap-divider-label {
-        color: rgba(157, 235, 228, 0.75);
+        color: rgba(var(--brand-1-rgb), 0.86);
       }
       .behavioral .ap-divider-label {
-        color: rgba(143, 212, 255, 0.75);
+        color: rgba(var(--brand-2-rgb), 0.86);
       }
 
       .ap-drawer {
@@ -3347,13 +3351,13 @@
       }
 
       .behavioral .ap-drawer {
-        background: rgba(18, 45, 78, 0.62);
-        border: 1px solid rgba(46, 166, 212, 0.3);
+        background: rgba(var(--brand-4-rgb), 0.2);
+        border: 1px solid rgba(var(--brand-2-rgb), 0.3);
       }
 
       .visibility .ap-drawer {
-        background: rgba(14, 48, 46, 0.58);
-        border: 1px solid rgba(121, 197, 199, 0.3);
+        background: rgba(var(--brand-3-rgb), 0.19);
+        border: 1px solid rgba(var(--brand-1-rgb), 0.3);
       }
 
       .ap-drawer-header {
@@ -3371,7 +3375,7 @@
       }
 
       .ap-drawer-header:focus-visible {
-        outline: 2px solid rgba(121, 197, 199, 0.5);
+        outline: 2px solid rgba(var(--brand-1-rgb), 0.5);
         outline-offset: -2px;
       }
 
@@ -3381,10 +3385,10 @@
       }
 
       .behavioral .ap-drawer-title {
-        color: #cfe8ff;
+        color: var(--text);
       }
       .visibility .ap-drawer-title {
-        color: #d2fcf8;
+        color: var(--text);
       }
 
       .ap-chevron {
@@ -3395,10 +3399,10 @@
       }
 
       .behavioral .ap-chevron {
-        color: #9edbff;
+        color: var(--brand-2);
       }
       .visibility .ap-chevron {
-        color: #a8f2ec;
+        color: var(--brand-1);
       }
       .ap-chevron.open {
         transform: rotate(180deg);
@@ -3417,7 +3421,7 @@
       .ap-drawer-body p {
         font-size: 13px;
         line-height: 1.62;
-        color: #d5e1f4;
+        color: var(--muted);
         padding: 8px 12px 4px;
       }
 
@@ -3434,10 +3438,10 @@
         opacity: 0.7;
       }
       .behavioral .ap-learn-more {
-        color: #9edbff;
+        color: var(--brand-2);
       }
       .visibility .ap-learn-more {
-        color: #a8f2ec;
+        color: var(--brand-1);
       }
 
       .ap-mid {
@@ -3469,10 +3473,10 @@
       }
 
       .ap-arrow-label.teal {
-        color: #79C5C7;
+        color: var(--brand-1);
       }
       .ap-arrow-label.blue {
-        color: #8fd4ff;
+        color: var(--brand-2);
       }
 
       .ap-h-arrow {
@@ -3484,11 +3488,11 @@
       .ap-h-line {
         flex: 1;
         height: 0;
-        border-top: 1.5px dashed rgba(121, 197, 199, 0.86);
+        border-top: 1.5px dashed rgba(var(--brand-1-rgb), 0.9);
       }
 
       .ap-h-line.solid {
-        border-top: 1.5px solid rgba(46, 166, 212, 0.9);
+        border-top: 1.5px solid rgba(var(--brand-2-rgb), 0.9);
       }
 
       .ap-h-head-right {
@@ -3496,7 +3500,7 @@
         height: 0;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-left: 6px solid rgba(121, 197, 199, 0.92);
+        border-left: 6px solid rgba(var(--brand-1-rgb), 0.92);
       }
 
       .ap-h-head-left {
@@ -3504,7 +3508,7 @@
         height: 0;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-right: 6px solid rgba(46, 166, 212, 0.92);
+        border-right: 6px solid rgba(var(--brand-2-rgb), 0.92);
       }
 
       .ap-flows {
@@ -3520,13 +3524,13 @@
         align-items: center;
         gap: 6px;
         font-size: 12px;
-        color: #cfe1fb;
+        color: var(--muted);
       }
 
       .ap-flow-arrow {
         width: 28px;
         height: 1px;
-        background: rgba(46, 166, 212, 0.9);
+        background: rgba(var(--brand-2-rgb), 0.9);
         position: relative;
       }
 
@@ -3537,7 +3541,7 @@
         top: -3px;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-left: 5px solid rgba(46, 166, 212, 0.9);
+        border-left: 5px solid rgba(var(--brand-2-rgb), 0.9);
       }
 
       .ap-flow-arrow.left::before {
@@ -3547,7 +3551,7 @@
         top: -3px;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
-        border-right: 5px solid rgba(46, 166, 212, 0.9);
+        border-right: 5px solid rgba(var(--brand-2-rgb), 0.9);
       }
 
       .ap-booked {
@@ -3556,13 +3560,13 @@
         align-items: center;
         gap: 4px;
         font-size: 12px;
-        color: #cfe1fb;
+        color: var(--muted);
       }
 
       .ap-booked-line {
         width: 1px;
         height: 18px;
-        border-left: 1.5px solid rgba(46, 166, 212, 0.9);
+        border-left: 1.5px solid rgba(var(--brand-2-rgb), 0.9);
         position: relative;
       }
 
@@ -3573,7 +3577,7 @@
         left: -4px;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 5px solid rgba(46, 166, 212, 0.9);
+        border-top: 5px solid rgba(var(--brand-2-rgb), 0.9);
       }
 
       @media (max-width: 640px) {
