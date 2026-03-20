@@ -3300,12 +3300,14 @@
         box-shadow: 0 20px 36px rgba(4, 10, 24, 0.28);
         padding: 22px;
         display: flex;
-        gap: 0;
-        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
       }
 
       .ap-engine {
-        flex: 1;
+        flex: none;
+        width: 100%;
         border-radius: 12px;
         padding: 16px;
         min-width: 0;
@@ -3505,262 +3507,16 @@
         color: var(--brand-1);
       }
 
-      .ap-mid {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-        width: 96px;
-        flex-shrink: 0;
-        padding-top: 46px;
-      }
-
-      .ap-mobile-arrows {
-        display: none;
-        padding: 12px 0;
-      }
-
-      .ap-mobile-arrow-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .ap-mobile-arrow-line {
-        width: 0;
-        height: 26px;
-        border-left: 1.5px solid rgba(var(--brand-1-rgb), 0.9);
-        position: relative;
-      }
-
-      .ap-mobile-arrow-line::after {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        left: -4px;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 5px solid var(--brand-1);
-      }
-
-      .ap-mobile-arrow-line.solid {
-        border-left-color: rgba(var(--brand-2-rgb), 0.9);
-      }
-
-      .ap-mobile-arrow-line.solid::after {
-        border-top-color: var(--brand-2);
-      }
-
-      .ap-mobile-arrow-line.up::after {
-        top: -1px;
-        bottom: auto;
-        border-top: 0;
-        border-bottom: 5px solid var(--brand-2);
-      }
-
-      .ap-mobile-arrow-label {
-        font-size: 10.5px;
-        font-weight: 600;
-        text-align: center;
-        line-height: 1.35;
-      }
-
-      .ap-mobile-arrow-label.teal {
-        color: var(--brand-1);
-      }
-
-      .ap-mobile-arrow-label.blue {
-        color: var(--brand-2);
-      }
-
-      .ap-arrow-slot {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .ap-arrow-slot.traffic {
-        margin-top: 16px;
-      }
-
-      .ap-arrow-label {
-        font-size: 10.5px;
-        font-weight: 600;
-        text-align: center;
-        line-height: 1.35;
-      }
-
-      .ap-arrow-label.teal {
-        color: var(--brand-1);
-      }
-      .ap-arrow-label.blue {
-        color: var(--brand-2);
-      }
-
-      .ap-h-arrow {
-        display: flex;
-        align-items: center;
+      .ap-bridge {
         width: 100%;
-      }
-
-      .ap-h-line {
-        flex: 1;
-        height: 0;
-        border-top: 1.5px dashed rgba(var(--brand-1-rgb), 0.9);
-      }
-
-      .ap-h-line.solid {
-        border-top: 1.5px solid rgba(var(--brand-2-rgb), 0.9);
-      }
-
-      .ap-h-head-right {
-        width: 0;
-        height: 0;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-left: 6px solid rgba(var(--brand-1-rgb), 0.92);
-      }
-
-      .ap-h-head-left {
-        width: 0;
-        height: 0;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-right: 6px solid rgba(var(--brand-2-rgb), 0.92);
-      }
-
-      .ap-flows {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 14px;
-        padding: 0 4px;
-      }
-
-      .ap-flow-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
+        font-size: 15px;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
+        padding: 16px 24px;
+        border-top: 1px solid rgba(121, 197, 199, 0.2);
+        border-bottom: 1px solid rgba(121, 197, 199, 0.2);
         color: var(--muted);
-      }
-
-      .ap-flow-arrow {
-        width: 28px;
-        height: 1px;
-        background: rgba(var(--brand-2-rgb), 0.9);
-        position: relative;
-      }
-
-      .ap-flow-arrow.right::after {
-        content: "";
-        position: absolute;
-        right: -1px;
-        top: -3px;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-left: 5px solid rgba(var(--brand-2-rgb), 0.9);
-      }
-
-      .ap-flow-arrow.left::before {
-        content: "";
-        position: absolute;
-        left: -1px;
-        top: -3px;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-right: 5px solid rgba(var(--brand-2-rgb), 0.9);
-      }
-
-      .ap-booked {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .ap-booked-line {
-        width: 1px;
-        height: 18px;
-        border-left: 1.5px solid rgba(var(--brand-2-rgb), 0.9);
-        position: relative;
-      }
-
-      .ap-booked-line::after {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        left: -4px;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 5px solid rgba(var(--brand-2-rgb), 0.9);
-      }
-
-      @media (max-width: 720px) {
-        .ap-outer {
-          flex-direction: column;
-          gap: 12px;
-        }
-        .ap-mobile-arrows {
-          display: block;
-          position: relative;
-          height: 74px;
-          padding: 2px 0;
-          margin: 2px 0 0;
-        }
-        .ap-mobile-arrow-item.side {
-          position: absolute;
-          left: 8px;
-          top: 0;
-          bottom: 0;
-          width: 0;
-          justify-content: flex-start;
-        }
-        .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-        }
-        .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
-          position: absolute;
-          left: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-          text-align: left;
-          width: 136px;
-          line-height: 1.2;
-        }
-        .ap-mobile-arrow-item.center {
-          position: absolute;
-          right: 8px;
-          top: 0;
-          bottom: 0;
-          width: 0;
-          align-items: center;
-          justify-content: flex-end;
-        }
-        .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
-          position: absolute;
-          right: 0;
-          top: 0;
-          height: 100%;
-        }
-        .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
-          position: absolute;
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-          text-align: right;
-          width: 148px;
-          line-height: 1.2;
-        }
-        .ap-mid {
-          display: none;
-        }
       }
     </style>
     <script type="application/ld+json">
@@ -4085,34 +3841,7 @@
               </div>
             </div>
 
-            <div class="ap-mobile-arrows">
-              <div class="ap-mobile-arrow-item side">
-                <div class="ap-mobile-arrow-line"></div>
-                <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
-              </div>
-              <div class="ap-mobile-arrow-item center">
-                <div class="ap-mobile-arrow-line solid up"></div>
-                <span class="ap-mobile-arrow-label blue">Traffic feed conversion</span>
-              </div>
-            </div>
-
-            <!-- MIDDLE ARROWS -->
-            <div class="ap-mid" id="ap-mid-col">
-              <div class="ap-arrow-slot" id="ap-reviews-arrow">
-                <span class="ap-arrow-label teal">Reviews feed visibility</span>
-                <div class="ap-h-arrow">
-                  <div class="ap-h-line"></div>
-                  <div class="ap-h-head-right"></div>
-                </div>
-              </div>
-              <div class="ap-arrow-slot traffic">
-                <div class="ap-h-arrow">
-                  <div class="ap-h-head-left"></div>
-                  <div class="ap-h-line solid"></div>
-                </div>
-                <span class="ap-arrow-label blue">Traffic feed conversion</span>
-              </div>
-            </div>
+            <div class="ap-bridge">Once your system is built to convert, we scale what's working.</div>
 
             <!-- VISIBILITY ENGINE -->
             <div class="ap-engine visibility">
@@ -4213,21 +3942,6 @@
             </div>
           </div>
           <!-- /.ap-outer -->
-
-              <div class="ap-flows">
-                <div class="ap-flow-item">
-                  <div class="ap-flow-arrow right"></div>
-                  Leads in
-                </div>
-                <div class="ap-booked">
-                  <div class="ap-booked-line"></div>
-                  Booked revenue
-                </div>
-                <div class="ap-flow-item">
-                  Traffic in
-                  <div class="ap-flow-arrow left"></div>
-                </div>
-              </div>
             </div>
 
             <script>
@@ -4237,22 +3951,7 @@
                 const isOpen = body.classList.contains("open");
                 body.classList.toggle("open", !isOpen);
                 chevron.classList.toggle("open", !isOpen);
-                setTimeout(apAlignArrows, 300);
               }
-
-              function apAlignArrows() {
-                const reviewsDrawer = document.getElementById("ap-reviews-drawer");
-                const midCol = document.getElementById("ap-mid-col");
-                const reviewsArrow = document.getElementById("ap-reviews-arrow");
-                if (!reviewsDrawer || !midCol || !reviewsArrow) return;
-                const rRect = reviewsDrawer.getBoundingClientRect();
-                const mRect = midCol.getBoundingClientRect();
-                const targetTop = rRect.top - mRect.top + rRect.height / 2 - 27;
-                reviewsArrow.style.marginTop = Math.max(0, targetTop) + "px";
-              }
-
-              window.addEventListener("load", apAlignArrows);
-              window.addEventListener("resize", apAlignArrows);
             </script>
           </div>
         </div>
