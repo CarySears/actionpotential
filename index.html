@@ -3209,6 +3209,324 @@
           max-width: 14ch;
         }
       }
+
+    /* ── Interactive Diagram Section ───────────────────────────────── */
+    .ap-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .ap-system-label {
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #2EA6D4;
+      margin-bottom: 16px;
+    }
+
+    .ap-outer {
+      border: 1px dashed rgba(121, 197, 199, 0.55);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    .ap-engine {
+      flex: 1;
+      border-radius: 10px;
+      padding: 16px;
+      min-width: 0;
+    }
+
+    .ap-engine.behavioral {
+      background: rgba(27, 117, 187, 0.07);
+      border: 1px solid #1B75BB;
+    }
+
+    .ap-engine.visibility {
+      background: rgba(0, 167, 157, 0.07);
+      border: 1px solid #00A79D;
+    }
+
+    .ap-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+
+    .behavioral .ap-badge {
+      background: rgba(27, 117, 187, 0.12);
+      color: #1B75BB;
+      border: 0.5px solid rgba(27, 117, 187, 0.3);
+    }
+
+    .visibility .ap-badge {
+      background: rgba(0, 167, 157, 0.12);
+      color: #00A79D;
+      border: 0.5px solid rgba(0, 167, 157, 0.3);
+    }
+
+    .ap-engine-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .behavioral .ap-engine-title { color: #1B75BB; }
+    .visibility .ap-engine-title { color: #00A79D; }
+
+    .ap-engine-sub {
+      font-size: 11px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .behavioral .ap-engine-sub { color: rgba(27, 117, 187, 0.72); }
+    .visibility .ap-engine-sub { color: rgba(0, 167, 157, 0.72); }
+
+    .ap-divider {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0 8px;
+    }
+
+    .ap-divider-line {
+      flex: 1;
+      height: 1px;
+    }
+
+    .visibility .ap-divider-line { background: rgba(0, 167, 157, 0.2); }
+    .behavioral .ap-divider-line { background: rgba(27, 117, 187, 0.2); }
+
+    .ap-divider-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .visibility .ap-divider-label { color: rgba(0, 167, 157, 0.55); }
+    .behavioral .ap-divider-label { color: rgba(27, 117, 187, 0.55); }
+
+    .ap-drawer {
+      border-radius: 6px;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .behavioral .ap-drawer {
+      background: rgba(27, 117, 187, 0.1);
+      border: 0.5px solid rgba(27, 117, 187, 0.32);
+    }
+
+    .visibility .ap-drawer {
+      background: rgba(0, 167, 157, 0.1);
+      border: 0.5px solid rgba(0, 167, 157, 0.32);
+    }
+
+    .ap-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ap-drawer-header:hover { opacity: 0.82; }
+
+    .ap-drawer-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .behavioral .ap-drawer-title { color: #1B75BB; }
+    .visibility .ap-drawer-title { color: #00A79D; }
+
+    .ap-chevron {
+      font-size: 9px;
+      flex-shrink: 0;
+      margin-left: 8px;
+      transition: transform 0.22s ease;
+    }
+
+    .behavioral .ap-chevron { color: #1B75BB; }
+    .visibility .ap-chevron { color: #00A79D; }
+    .ap-chevron.open { transform: rotate(180deg); }
+
+    .ap-drawer-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease;
+    }
+
+    .ap-drawer-body.open { max-height: 300px; }
+
+    .ap-drawer-body p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: #555;
+      padding: 6px 12px 4px;
+    }
+
+    .ap-learn-more {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px 10px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .ap-learn-more:hover { opacity: 0.7; }
+    .behavioral .ap-learn-more { color: #1B75BB; }
+    .visibility .ap-learn-more { color: #00A79D; }
+
+    .ap-mid {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      width: 92px;
+      flex-shrink: 0;
+      padding-top: 46px;
+    }
+
+    .ap-arrow-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ap-arrow-slot.traffic { margin-top: 16px; }
+
+    .ap-arrow-label {
+      font-size: 9.5px;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .ap-arrow-label.teal { color: #79C5C7; }
+    .ap-arrow-label.blue { color: #2EA6D4; }
+
+    .ap-h-arrow {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .ap-h-line {
+      flex: 1;
+      height: 0;
+      border-top: 1.5px dashed #79C5C7;
+    }
+
+    .ap-h-line.solid { border-top: 1.5px solid #2EA6D4; }
+
+    .ap-h-head-right {
+      width: 0; height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 6px solid #79C5C7;
+    }
+
+    .ap-h-head-left {
+      width: 0; height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-right: 6px solid #2EA6D4;
+    }
+
+    .ap-flows {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      padding: 0 4px;
+    }
+
+    .ap-flow-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #2EA6D4;
+    }
+
+    .ap-flow-arrow {
+      width: 28px;
+      height: 1px;
+      background: #2EA6D4;
+      position: relative;
+    }
+
+    .ap-flow-arrow.right::after {
+      content: '';
+      position: absolute;
+      right: -1px; top: -3px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 5px solid #2EA6D4;
+    }
+
+    .ap-flow-arrow.left::before {
+      content: '';
+      position: absolute;
+      left: -1px; top: -3px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-right: 5px solid #2EA6D4;
+    }
+
+    .ap-booked {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #2EA6D4;
+    }
+
+    .ap-booked-line {
+      width: 1px;
+      height: 18px;
+      border-left: 1.5px solid #2EA6D4;
+      position: relative;
+    }
+
+    .ap-booked-line::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: -4px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid #2EA6D4;
+    }
+
+    @media (max-width: 640px) {
+      .ap-outer { flex-direction: column; gap: 12px; }
+      .ap-mid {
+        flex-direction: row;
+        width: 100%;
+        padding-top: 0;
+        justify-content: center;
+        gap: 24px;
+      }
+      .ap-arrow-slot.traffic { margin-top: 0; }
+      .ap-h-arrow { width: 72px; }
+    }
+    /* ── End Interactive Diagram Section ──────────────────────────── */
+
     </style>
     <script type="application/ld+json">
       {
@@ -3456,6 +3774,224 @@
               </article>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="ap-diagram">
+        <div class="ap-wrap">
+
+          <p class="ap-system-label">The ActionPotential.AI System</p>
+
+          <div class="ap-outer">
+
+            <!-- BEHAVIORAL ENGINE -->
+            <div class="ap-engine behavioral">
+              <span class="ap-badge">Core System</span>
+              <div class="ap-engine-title">Behavioral Engine</div>
+              <div class="ap-engine-sub">Convert demand into revenue</div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Voice AI agent</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Answers every call 24/7, books appointments, qualifies leads, and handles common questions in a natural, human-sounding conversation. No missed calls, no lost voicemails, no after-hours gaps.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Voice AI agent →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Conversational AI</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Handles texts, website chat, Facebook Messenger, and Instagram DMs like a trained team member. Responds instantly at any hour on every channel, qualifies leads, and books appointments without your team lifting a finger.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Conversational AI →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Intelligent website</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Turns your static brochure into a live conversational conversion tool. Visitors can talk with your website, get their questions answered, get qualified, and get booked 24/7, trained on your brand, tone, and services.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/smart-websites">Learn more about Intelligent websites →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer" id="ap-reviews-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Reviews AI</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Automates asking for reviews so you can build a steady stream of 5-star reviews, responds to feedback automatically, and generates the trust signals that convert new prospects and feed your visibility.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Reviews AI →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Behavioral AI follow-up</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Nurture sequences built on how people actually make decisions, not just drip timing. The right message, the right channel, at the right moment in the buying journey.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/marketing-automation">Learn more about Behavioral AI follow-up →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Database reactivation</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Your fastest revenue win. Automated outreach to cold leads, past clients, and missed opportunities already in your pipeline, reactivating them before you spend a dollar on new traffic.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Database reactivation →</a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- MIDDLE ARROWS -->
+            <div class="ap-mid" id="ap-mid-col">
+              <div class="ap-arrow-slot" id="ap-reviews-arrow">
+                <span class="ap-arrow-label teal">Reviews feed visibility</span>
+                <div class="ap-h-arrow">
+                  <div class="ap-h-line"></div>
+                  <div class="ap-h-head-right"></div>
+                </div>
+              </div>
+              <div class="ap-arrow-slot traffic">
+                <div class="ap-h-arrow">
+                  <div class="ap-h-head-left"></div>
+                  <div class="ap-h-line solid"></div>
+                </div>
+                <span class="ap-arrow-label blue">Traffic feeds conversion</span>
+              </div>
+            </div>
+
+            <!-- VISIBILITY ENGINE -->
+            <div class="ap-engine visibility">
+              <span class="ap-badge">Scale System</span>
+              <div class="ap-engine-title">Visibility Engine</div>
+              <div class="ap-engine-sub">Get found everywhere your prospective customers are looking</div>
+
+              <!-- Organic cluster -->
+              <div class="ap-divider">
+                <div class="ap-divider-line"></div>
+                <span class="ap-divider-label">Organic visibility</span>
+                <div class="ap-divider-line"></div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">SEO + AI search</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Optimized to appear in traditional search, AI Overviews, and in large language models like ChatGPT, Perplexity, and other AI answer tools, so high-intent buyers find you wherever they&apos;re searching.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/ai-search">Learn more about SEO + AI search →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">AI-optimized social profiles</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Your social profiles are a visibility asset. We update every relevant platform with content structured for AI visibility, ensuring your brand shows up consistently and authoritatively wherever AI search engines and traditional search are looking for signals about your business.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/ai-search">Learn more about AI-optimized social profiles →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">AI-authority social posting</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Staying visible takes consistency. We create two high-quality posts per week for each platform, written in your brand voice and structured to build AI authority, the kind of engagement that signals credibility to both your audience and the engines recommending businesses like yours.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/ai-search">Learn more about AI-authority social posting →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Social media automation</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Turn engagement into pipeline automatically. When someone comments on your posts, an AI-powered DM triggers instantly, qualifying the lead, answering questions, and booking appointments without you lifting a finger.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Social media automation →</a>
+                </div>
+              </div>
+
+              <!-- Paid cluster -->
+              <div class="ap-divider">
+                <div class="ap-divider-line"></div>
+                <span class="ap-divider-label">Paid channels</span>
+                <div class="ap-divider-line"></div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Google ads</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Paid search campaigns that put you in front of high-intent buyers at the exact moment they&apos;re looking for what you offer. Every click feeds into a system built to capture, nurture, and convert.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/paid-media">Learn more about Google ads →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Meta ads</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Facebook and Instagram campaigns that build awareness and generate demand before your ideal clients even start searching. Better ROI because the follow-up works this time.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/paid-media">Learn more about Meta ads →</a>
+                </div>
+              </div>
+
+              <div class="ap-drawer">
+                <div class="ap-drawer-header" onclick="apToggle(this.parentElement)">
+                  <span class="ap-drawer-title">Retargeting</span>
+                  <span class="ap-chevron">▼</span>
+                </div>
+                <div class="ap-drawer-body">
+                  <p>Re-engages visitors who showed interest but didn&apos;t convert. Behavioral messaging brings them back at exactly the right moment, turning warm maybes into booked appointments.</p>
+                  <a class="ap-learn-more" href="https://actionpotential.ai/services/paid-media">Learn more about Retargeting →</a>
+                </div>
+              </div>
+
+            </div>
+
+          </div><!-- /.ap-outer -->
+
+          <div class="ap-flows">
+            <div class="ap-flow-item">
+              <div class="ap-flow-arrow right"></div>
+              Leads in
+            </div>
+            <div class="ap-booked">
+              <div class="ap-booked-line"></div>
+              Booked revenue
+            </div>
+            <div class="ap-flow-item">
+              Traffic in
+              <div class="ap-flow-arrow left"></div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -4079,6 +4615,30 @@
           mobileMq.addListener(onViewportChange);
         }
       })();
+    </script>
+    <script>
+      function apToggle(drawer) {
+        const body = drawer.querySelector('.ap-drawer-body');
+        const chevron = drawer.querySelector('.ap-chevron');
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        chevron.classList.toggle('open', !isOpen);
+        setTimeout(apAlignArrows, 300);
+      }
+
+      function apAlignArrows() {
+        const reviewsDrawer = document.getElementById('ap-reviews-drawer');
+        const midCol = document.getElementById('ap-mid-col');
+        const reviewsArrow = document.getElementById('ap-reviews-arrow');
+        if (!reviewsDrawer || !midCol || !reviewsArrow) return;
+        const rRect = reviewsDrawer.getBoundingClientRect();
+        const mRect = midCol.getBoundingClientRect();
+        const targetTop = rRect.top - mRect.top + (rRect.height / 2) - 27;
+        reviewsArrow.style.marginTop = Math.max(0, targetTop) + 'px';
+      }
+
+      window.addEventListener('load', apAlignArrows);
+      window.addEventListener('resize', apAlignArrows);
     </script>
 </body>
 </html>
