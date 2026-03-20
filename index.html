@@ -3705,47 +3705,47 @@
           gap: 12px;
         }
         .ap-mobile-arrows {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          align-items: stretch;
-          min-height: 82px;
-          padding: 2px 2px 0;
-          margin: 2px 0;
-        }
-        .ap-mobile-arrow-item {
+          display: block;
           position: relative;
-          align-items: stretch;
+          height: 74px;
+          padding: 2px 0;
+          margin: 2px 0 0;
         }
         .ap-mobile-arrow-item.side {
+          position: absolute;
+          left: 8px;
+          top: 0;
+          bottom: 0;
           justify-content: flex-start;
-          padding-left: 8px;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
           height: 100%;
         }
         .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
-          position: absolute;
-          left: 20px;
-          top: 7px;
           text-align: left;
-          max-width: 136px;
+          max-width: 148px;
           line-height: 1.2;
+          margin-left: 8px;
         }
         .ap-mobile-arrow-item.center {
+          position: absolute;
+          right: 8px;
+          top: 0;
+          bottom: 0;
           align-items: center;
           justify-content: flex-end;
-          padding-right: 8px;
+          flex-direction: row;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
           height: 100%;
+          order: 2;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
-          position: absolute;
-          right: 20px;
-          bottom: 7px;
+          order: 1;
           text-align: right;
-          max-width: 148px;
+          max-width: 152px;
           line-height: 1.2;
+          margin-right: 8px;
         }
         .ap-mid {
           display: none;
