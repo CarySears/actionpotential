@@ -12,6 +12,12 @@
   --muted: #c7d5ec;
   --line: rgba(121, 197, 199, 0.3);
   --shadow: 0 20px 40px rgba(4, 10, 24, 0.45);
+
+  --tone-d8e8ff: #d8e8ff;
+  --tone-f2f8ff: #f2f8ff;
+  --tone-d7e8ff: #d7e8ff;
+  --tone-d7e7ff: #d7e7ff;
+  --tone-9dd7ff: #9dd7ff;
 }
 
 body {
@@ -120,12 +126,12 @@ body::after {
 }
 
 .dropdown-menu a {
-  color: #d8e8ff;
+  color: var(--tone-d8e8ff);
 }
 
 .dropdown-menu a:hover {
   background: rgba(121, 197, 199, 0.14);
-  color: #f2f8ff;
+  color: var(--tone-f2f8ff);
 }
 
 .nav-actions {
@@ -135,12 +141,12 @@ body::after {
 .mobile-menu-toggle {
   border-color: rgba(121, 197, 199, 0.35);
   background: rgba(18, 27, 47, 0.82);
-  color: #d7e8ff;
+  color: var(--tone-d7e8ff);
 }
 
 .btn-login {
   border-color: rgba(121, 197, 199, 0.35);
-  color: #d7e8ff;
+  color: var(--tone-d7e8ff);
   background: rgba(18, 27, 47, 0.72);
 }
 
@@ -178,7 +184,7 @@ p,
 }
 
 .eyebrow {
-  color: #d7e7ff;
+  color: var(--tone-d7e7ff);
 }
 
 .eyebrow::before {
@@ -201,14 +207,14 @@ p,
 
 .btn-secondary {
   border-color: rgba(121, 197, 199, 0.34);
-  color: #d7e8ff;
+  color: var(--tone-d7e8ff);
   background: rgba(18, 27, 47, 0.78);
 }
 
 .list-links a {
   border-color: rgba(121, 197, 199, 0.34);
   background: rgba(46, 166, 212, 0.14);
-  color: #d7e8ff;
+  color: var(--tone-d7e8ff);
 }
 
 .list-links a:hover {
@@ -216,13 +222,13 @@ p,
 }
 
 .list-links a::after {
-  color: #9dd7ff;
+  color: var(--tone-9dd7ff);
 }
 
 .pill {
   border-color: rgba(121, 197, 199, 0.34);
   background: rgba(46, 166, 212, 0.15);
-  color: #d7e8ff;
+  color: var(--tone-d7e8ff);
 }
 
 .kpi {
@@ -230,7 +236,7 @@ p,
 }
 
 .kpi strong {
-  color: #f2f8ff;
+  color: var(--tone-f2f8ff);
 }
 
 .footer {
