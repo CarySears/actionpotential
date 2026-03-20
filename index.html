@@ -3707,49 +3707,45 @@
         .ap-mobile-arrows {
           display: block;
           position: relative;
-          height: 84px;
-          padding: 0;
+          height: 74px;
+          padding: 2px 0;
           margin: 2px 0 0;
         }
-        .ap-mobile-arrow-item.left-rail {
+        .ap-mobile-arrow-item.side {
           position: absolute;
           left: 8px;
           top: 0;
           bottom: 0;
-          width: 0;
-          display: block;
+          justify-content: flex-start;
         }
-        .ap-mobile-arrow-item.left-rail .ap-mobile-arrow-line {
+        .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
           height: 100%;
         }
-        .ap-mobile-arrow-item.left-rail .ap-mobile-arrow-label {
-          position: absolute;
-          left: 10px;
-          top: 50%;
-          transform: translateY(-50%);
+        .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
           text-align: left;
-          width: 136px;
+          max-width: 148px;
           line-height: 1.2;
+          margin-left: 8px;
         }
-        .ap-mobile-arrow-item.right-rail {
+        .ap-mobile-arrow-item.center {
           position: absolute;
           right: 8px;
           top: 0;
           bottom: 0;
-          width: 0;
-          display: block;
+          align-items: center;
+          justify-content: flex-end;
+          flex-direction: row;
         }
-        .ap-mobile-arrow-item.right-rail .ap-mobile-arrow-line {
+        .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
           height: 100%;
+          order: 2;
         }
-        .ap-mobile-arrow-item.right-rail .ap-mobile-arrow-label {
-          position: absolute;
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
+        .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
+          order: 1;
           text-align: right;
-          width: 148px;
+          max-width: 152px;
           line-height: 1.2;
+          margin-right: 8px;
         }
         .ap-mid {
           display: none;
@@ -4079,11 +4075,11 @@
             </div>
 
             <div class="ap-mobile-arrows">
-              <div class="ap-mobile-arrow-item left-rail">
+              <div class="ap-mobile-arrow-item side">
                 <div class="ap-mobile-arrow-line"></div>
                 <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
               </div>
-              <div class="ap-mobile-arrow-item right-rail">
+              <div class="ap-mobile-arrow-item center">
                 <div class="ap-mobile-arrow-line solid up"></div>
                 <span class="ap-mobile-arrow-label blue">Traffic feed conversion</span>
               </div>
