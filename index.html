@@ -3515,6 +3515,59 @@
         padding-top: 46px;
       }
 
+      .ap-mobile-arrows {
+        display: none;
+        padding: 12px 0;
+      }
+
+      .ap-mobile-arrow-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .ap-mobile-arrow-line {
+        width: 0;
+        height: 26px;
+        border-left: 1.5px dashed var(--brand-1);
+        position: relative;
+      }
+
+      .ap-mobile-arrow-line::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: -4px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 5px solid var(--brand-1);
+      }
+
+      .ap-mobile-arrow-line.solid {
+        border-left-style: solid;
+        border-left-color: var(--brand-2);
+      }
+
+      .ap-mobile-arrow-line.solid::after {
+        border-top-color: var(--brand-2);
+      }
+
+      .ap-mobile-arrow-label {
+        font-size: 10.5px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.35;
+      }
+
+      .ap-mobile-arrow-label.teal {
+        color: var(--brand-1);
+      }
+
+      .ap-mobile-arrow-label.blue {
+        color: var(--brand-2);
+      }
+
       .ap-arrow-slot {
         display: flex;
         flex-direction: column;
@@ -3646,18 +3699,14 @@
           flex-direction: column;
           gap: 12px;
         }
+        .ap-mobile-arrows {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+        }
         .ap-mid {
-          flex-direction: row;
-          width: 100%;
-          padding-top: 0;
-          justify-content: center;
-          gap: 24px;
-        }
-        .ap-arrow-slot.traffic {
-          margin-top: 0;
-        }
-        .ap-h-arrow {
-          width: 72px;
+          display: none;
         }
       }
     </style>
@@ -3980,6 +4029,17 @@
                   <p>Your fastest revenue win. Automated outreach to cold leads, past clients, and missed opportunities already in your pipeline, reactivating them before you spend a dollar on new traffic.</p>
                   <a class="ap-learn-more" href="https://actionpotential.ai/services/behavioral-engine">Learn more about Database reactivation →</a>
                 </div>
+              </div>
+            </div>
+
+            <div class="ap-mobile-arrows">
+              <div class="ap-mobile-arrow-item">
+                <div class="ap-mobile-arrow-line"></div>
+                <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
+              </div>
+              <div class="ap-mobile-arrow-item">
+                <div class="ap-mobile-arrow-line solid"></div>
+                <span class="ap-mobile-arrow-label blue">Traffic feeds conversion</span>
               </div>
             </div>
 
