@@ -3534,6 +3534,11 @@
         position: relative;
       }
 
+      .ap-mobile-arrow-line.side-link {
+        border-left-style: solid;
+        opacity: 0.82;
+      }
+
       .ap-mobile-arrow-line::after {
         content: "";
         position: absolute;
@@ -3542,6 +3547,10 @@
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
         border-top: 5px solid var(--brand-1);
+      }
+
+      .ap-mobile-arrow-line.side-link::after {
+        display: none;
       }
 
       .ap-mobile-arrow-line.solid {
@@ -3727,6 +3736,7 @@
         }
         .ap-mobile-arrow-item.center {
           align-items: center;
+          margin-top: 2px;
         }
         .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
           height: 34px;
@@ -4060,7 +4070,7 @@
 
             <div class="ap-mobile-arrows">
               <div class="ap-mobile-arrow-item side">
-                <div class="ap-mobile-arrow-line"></div>
+                <div class="ap-mobile-arrow-line side-link"></div>
                 <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
               </div>
               <div class="ap-mobile-arrow-item center">
