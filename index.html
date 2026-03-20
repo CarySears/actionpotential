@@ -3711,17 +3711,18 @@
           padding: 0;
           margin: 2px 0 0;
         }
-        .ap-mobile-arrow-item.side {
+        .ap-mobile-arrow-item.left-rail {
           position: absolute;
           left: 8px;
           top: 0;
           bottom: 0;
           width: 0;
+          display: block;
         }
-        .ap-mobile-arrow-item.side .ap-mobile-arrow-line {
+        .ap-mobile-arrow-item.left-rail .ap-mobile-arrow-line {
           height: 100%;
         }
-        .ap-mobile-arrow-item.side .ap-mobile-arrow-label {
+        .ap-mobile-arrow-item.left-rail .ap-mobile-arrow-label {
           position: absolute;
           left: 10px;
           top: 50%;
@@ -3730,17 +3731,18 @@
           width: 136px;
           line-height: 1.2;
         }
-        .ap-mobile-arrow-item.center {
+        .ap-mobile-arrow-item.right-rail {
           position: absolute;
           right: 8px;
           top: 0;
           bottom: 0;
           width: 0;
+          display: block;
         }
-        .ap-mobile-arrow-item.center .ap-mobile-arrow-line {
+        .ap-mobile-arrow-item.right-rail .ap-mobile-arrow-line {
           height: 100%;
         }
-        .ap-mobile-arrow-item.center .ap-mobile-arrow-label {
+        .ap-mobile-arrow-item.right-rail .ap-mobile-arrow-label {
           position: absolute;
           right: 10px;
           top: 50%;
@@ -4077,11 +4079,11 @@
             </div>
 
             <div class="ap-mobile-arrows">
-              <div class="ap-mobile-arrow-item side">
+              <div class="ap-mobile-arrow-item left-rail">
                 <div class="ap-mobile-arrow-line"></div>
                 <span class="ap-mobile-arrow-label teal">Reviews feed visibility</span>
               </div>
-              <div class="ap-mobile-arrow-item center">
+              <div class="ap-mobile-arrow-item right-rail">
                 <div class="ap-mobile-arrow-line solid up"></div>
                 <span class="ap-mobile-arrow-label blue">Traffic feed conversion</span>
               </div>
