@@ -1357,6 +1357,45 @@
         background: var(--brand-1);
       }
 
+      .logo-bar-section {
+        padding: 48px 0;
+        background: transparent;
+      }
+
+      .logo-bar-label {
+        margin: 0 0 32px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .logo-bar-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        align-items: center;
+        justify-items: center;
+        column-gap: 24px;
+        row-gap: 24px;
+      }
+
+      .logo-bar-grid img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 160px;
+        max-height: 48px;
+        object-fit: contain;
+        opacity: 0.65;
+      }
+
+      @media (max-width: 720px) {
+        .logo-bar-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
       .system-split {
         display: flex;
         flex-direction: column;
@@ -3756,6 +3795,20 @@
                 </article>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logo-bar-section" aria-label="Proud to work with">
+        <div class="container">
+          <p class="logo-bar-label">Proud to work with</p>
+          <div class="logo-bar-grid">
+            <img src="https://assets.cdn.filesafe.space/HGE21CBaknlKH4BuYcpz/media/67be1336d5a8ef69217c582c.png" alt="Client logo 1" loading="lazy" decoding="async" />
+            <img src="https://assets.cdn.filesafe.space/yT9s1YYRfLRKiqk1qx0k/media/688cbc10ff308922877b8889.jpeg" alt="Client logo 2" loading="lazy" decoding="async" />
+            <img src="https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/686d302b000e73d33de10725.png" alt="Client logo 3" loading="lazy" decoding="async" />
+            <img src="https://drive.google.com/uc?export=view&amp;id=1v5k1NWAFBGbxbF3C4UoMB3NzD4ttQdoR" alt="Client logo 4" loading="lazy" decoding="async" />
+            <img src="https://storage.googleapis.com/funnel-ai-production/chat/rTpFKggDR07ycsBlZtVQ/HC-Logo-Transparent-background.png" alt="Client logo 5" loading="lazy" decoding="async" />
+            <img src="./daniel-wong-wordmark-navy%20%281%29.svg" alt="Daniel Wong wordmark" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
