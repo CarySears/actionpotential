@@ -50,16 +50,16 @@
         --ink: #231f20;
         --accent-coral: #ff8b66;
         --accent-magenta: #d93aa4;
-        --bg: #ffffff;
-        --bg-soft: #f8f7f4;
-        --surface: #ffffff;
-        --surface-2: #f8f7f4;
-        --text: #0f1923;
-        --muted: #666666;
-        --text-halo-strong: none;
-        --text-halo-soft: none;
-        --text-halo-light-strong: none;
-        --text-halo-light-soft: none;
+        --bg: #05070c;
+        --bg-soft: #0d1322;
+        --surface: #121b2f;
+        --surface-2: #16233d;
+        --text: #ecf2ff;
+        --muted: #d2def2;
+        --text-halo-strong: 0 1px 0 rgba(4, 8, 15, 0.58), 0 0 12px rgba(4, 8, 15, 0.46);
+        --text-halo-soft: 0 1px 0 rgba(4, 8, 15, 0.42), 0 0 8px rgba(4, 8, 15, 0.34);
+        --text-halo-light-strong: 0 1px 0 rgba(255, 255, 255, 0.92), 0 0 16px rgba(255, 255, 255, 0.82);
+        --text-halo-light-soft: 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.74);
         --line: rgba(121, 197, 199, 0.3);
         --radius: 18px;
         --shadow: 0 20px 40px rgba(4, 10, 24, 0.45);
@@ -3558,148 +3558,6 @@
         border-bottom: 1px solid rgba(121, 197, 199, 0.2);
         color: var(--muted);
       }
-
-      /* Global light-direction overrides */
-      body,
-      body.after-fold-light {
-        background: #ffffff;
-        color: #444444;
-      }
-
-      body::before,
-      body::after,
-      body.after-fold-light::before,
-      body.after-fold-light::after {
-        opacity: 0;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      .eyebrow {
-        color: #0f1923;
-      }
-
-      p,
-      li {
-        color: #444444;
-      }
-
-      .problem-intro,
-      .micro-proof,
-      .hero-intro,
-      .proof-subhead,
-      .audit-footnote,
-      .footer,
-      .ap-engine-sub,
-      .ap-bridge,
-      .ap-drawer-body p {
-        color: #666666;
-      }
-
-      .site-header,
-      body.after-fold-light .site-header {
-        background: #ffffff;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      }
-
-      .nav-links a,
-      .nav-item > a,
-      body.after-fold-light .nav-links a,
-      body.after-fold-light .nav-item > a {
-        color: #555555;
-      }
-
-      .nav-links a:hover,
-      .nav-item > a:hover,
-      body.after-fold-light .nav-links a:hover,
-      body.after-fold-light .nav-item > a:hover {
-        color: #1b75bb;
-      }
-
-      .dropdown-menu,
-      body.after-fold-light .dropdown-menu,
-      .site-header.menu-open .nav-item .dropdown-menu {
-        background: #ffffff;
-        border-color: rgba(0, 0, 0, 0.1);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      }
-
-      .dropdown-menu a,
-      body.after-fold-light .dropdown-menu a,
-      .site-header.menu-open .nav-item .dropdown-menu a {
-        color: #555555;
-      }
-
-      .site-header.menu-open .nav-links {
-        background: #ffffff;
-        border-color: rgba(0, 0, 0, 0.08);
-      }
-
-      .site-header.menu-open .nav-links > a,
-      .site-header.menu-open .nav-item > a {
-        color: #555555;
-      }
-
-      .nav-actions {
-        border-left: 1px solid rgba(0, 0, 0, 0.08);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #2ea6d4, #1b75bb);
-        color: #ffffff;
-        border: none;
-        border-radius: 8px;
-        box-shadow: none;
-      }
-
-      .btn-secondary,
-      body.after-fold-light .btn-secondary {
-        background: transparent;
-        color: #1b75bb;
-        border: none;
-        text-decoration: underline;
-      }
-
-      .section {
-        background: #ffffff;
-      }
-
-      .section:nth-of-type(even) {
-        background: #f8f7f4;
-      }
-
-      .section > .container::before,
-      body.after-fold-light .section > .container::before {
-        background: transparent;
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        box-shadow: none;
-      }
-
-      .card,
-      .signal-card,
-      .timeline li,
-      .metric,
-      details,
-      .cta-panel,
-      .leak-grid,
-      .ap-outer,
-      .ap-engine.behavioral,
-      .ap-engine.visibility,
-      .behavioral .ap-drawer,
-      .visibility .ap-drawer {
-        background: #ffffff;
-        border-color: rgba(0, 0, 0, 0.08);
-        box-shadow: none;
-      }
-
-      .hero-gradient-bar {
-        height: 3px;
-        background: linear-gradient(90deg, #f97316, #ec4899, #a855f7, #2ea6d4, #00a79d);
-      }
     </style>
     <script type="application/ld+json">
       {
@@ -3901,8 +3759,6 @@
           </div>
         </div>
       </section>
-
-      <div class="hero-gradient-bar" aria-hidden="true"></div>
 
       <section class="section" id="problem">
         <div class="container">
